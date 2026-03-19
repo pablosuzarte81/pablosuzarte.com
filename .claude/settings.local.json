@@ -16,7 +16,33 @@
       "Bash(node -e \"require\\(''sharp''\\)\")",
       "Bash(node:*)",
       "Bash(git add:*)",
-      "Bash(git commit:*)"
+      "Bash(git commit:*)",
+      "Bash(git rm:*)",
+      "Bash(gh repo:*)",
+      "WebFetch(domain:mariaelenareiki.com)",
+      "WebFetch(domain:www.awwwards.com)",
+      "WebFetch(domain:www.bestfolios.com)",
+      "WebFetch(domain:mattanderson.design)",
+      "WebFetch(domain:www.anniepanpan.com)",
+      "WebFetch(domain:vanschneider.com)",
+      "WebFetch(domain:www.joshuawootonn.com)",
+      "Bash(mkdir -p /home/pablosu/projects/pablosuzarte.com/.claude/commands)",
+      "Bash(cp /home/pablosu/projects/pablosuzarte.com/.claude/skills/portfolio/SKILL.md /home/pablosu/projects/pablosuzarte.com/.claude/commands/portfolio.md)",
+      "Bash(rm -rf /home/pablosu/projects/pablosuzarte.com/.claude/skills)",
+      "Skill(update-config)"
+    ]
+  },
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo '{\"systemMessage\": \"MEMORY REMINDER: Before ending, save any new decisions, positioning, or context from this conversation to memory files at ~/.claude/projects/-home-pablosu-projects-pablosuzarte-com/memory/\"}'",
+            "statusMessage": "Checking memory reminder..."
+          }
+        ]
+      }
     ]
   }
 }
