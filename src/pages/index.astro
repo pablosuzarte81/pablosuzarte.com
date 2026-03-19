@@ -1,0 +1,924 @@
+---
+import Layout from '../layouts/Layout.astro'
+
+const experience = [
+  {
+    company: 'IKEA',
+    role: 'Senior Product UX Designer',
+    period: 'May 2022 — Present',
+    location: 'Malmö, Sweden',
+    highlights: [
+      'Journey Orchestrator across global digital product teams — creating alignment structures that move teams from insights to prioritised action.',
+      'Translate journey research into self-service opportunities that reduce unnecessary contact demand and improve resolution quality.',
+      'Led cross-functional collaboration across product, business, data and support through workshops and co-creation sessions.',
+      'Built coaching and insight system (Insikt) empowering co-workers with meaningful data for development conversations.',
+      'Mentor in GIX Mentor Program 2023 — guided design students from research to validated prototypes in real product teams.',
+    ],
+  },
+  {
+    company: 'Prisjakt',
+    role: 'Lead B2B Designer → Senior UX Designer',
+    period: 'Apr 2019 — May 2022',
+    location: 'Malmö, Sweden',
+    highlights: [
+      'Lead B2B Designer across Business Center, Prisjakt Insights, Partners Portal and Design System.',
+      'Led B2B UX research and marketing team design collaboration.',
+      'Senior Designer for B2C categories, web team and 2020 platform redesign.',
+    ],
+  },
+  {
+    company: 'Hero Gaming',
+    role: 'Senior UX Designer → UX Designer',
+    period: 'Oct 2016 — Feb 2019',
+    location: 'Malmö, Sweden',
+    highlights: [
+      'Designed end-to-end experiences for gaming platforms across desktop and mobile.',
+      'Led UX for new feature development and platform concepts.',
+    ],
+  },
+  {
+    company: 'Mobenga',
+    role: 'Interaction / UX Designer',
+    period: 'Mar 2013 — Sep 2016',
+    location: 'Malmö, Sweden',
+    highlights: [
+      'Worked across six enterprise projects including Ladbrokes, William Hill, PaddyPower and Gala Coral.',
+      'Delivered user journeys, wireframes, prototypes and usability testing across desktop, tablet and mobile.',
+      'Represented Mobenga at the ICE Gaming convention in London with 50+ presentations.',
+    ],
+  },
+  {
+    company: 'pablosuzartemedia',
+    role: 'Freelance UX & Service Designer',
+    period: 'Jan 2016 — May 2022',
+    location: 'Malmö, Sweden',
+    highlights: [
+      '6+ years of freelance service and product design alongside full-time roles.',
+      'Clients across healthcare (Finn Medicinen), telecoms (Stenson Consulting) and digital products.',
+    ],
+  },
+]
+
+const skills = [
+  'Journey Orchestration',
+  'User Research',
+  'Service Design',
+  'Design Thinking',
+  'Journey Mapping',
+  'Workshop Facilitation',
+  'Cross-functional Leadership',
+  'Product Design',
+  'Stakeholder Management',
+  'Figma',
+  'Prototyping',
+  'Usability Testing',
+  'Silo Connector',
+  'Self-service Strategy',
+  'Insight Systems',
+  'Agile / Scrum',
+]
+---
+
+<Layout>
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo">PS</a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero" class="hero">
+    <div class="hero-bg"></div>
+    <div class="container hero-content">
+      <div class="hero-left">
+        <p class="hero-greeting">Hi, I'm</p>
+        <h1 class="hero-name">Pablo Suzarte</h1>
+        <h2 class="hero-title">Senior Product UX Designer</h2>
+        <p class="hero-tagline">
+          15+ years turning complex, cross-organisational challenges<br />
+          into clear, human-centered experiences.
+        </p>
+        <div class="hero-ctas">
+          <a href="#experience" class="btn-primary">View Experience</a>
+          <a
+            href="https://www.linkedin.com/in/pablosuzarte/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-secondary"
+          >
+            LinkedIn ↗
+          </a>
+        </div>
+        <div class="hero-meta">
+          <span>📍 Greater Malmö, Sweden</span>
+          <span>·</span>
+          <span>Currently @ IKEA Global</span>
+        </div>
+      </div>
+      <div class="hero-right">
+        <div class="hero-photo-wrap">
+          <img src="/pablo_profile_photo.png" alt="Pablo Suzarte" class="hero-photo" loading="eager" />
+        </div>
+      </div>
+    </div>
+    <div class="scroll-hint">
+      <span>scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="section">
+    <div class="container section-grid">
+      <div class="section-label">
+        <span class="label-num">01</span>
+        <h2 class="section-title">About</h2>
+        <div class="accent-line"></div>
+      </div>
+      <div class="section-body">
+        <p>
+          I'm a Senior Product UX Designer and Journey Orchestrator at IKEA, focused on improving
+          co-worker experiences within customer support. I translate journey research into actionable
+          product and self-service opportunities that reduce unnecessary contact demand and improve
+          resolution quality.
+        </p>
+        <p>
+          I lead cross-team collaboration across product, business, data and support — designing
+          workshops and alignment structures that move teams from insights to prioritised action. My
+          work spans research, journey mapping, orchestration and product design, always grounded in
+          real co-worker and customer needs.
+        </p>
+        <p>
+          I thrive on turning complex, cross-organisational challenges into clear focus areas, shared
+          direction and measurable outcomes that support both users and the business.
+        </p>
+        <div class="about-badges">
+          <div class="badge">
+            <span class="badge-num">15+</span>
+            <span class="badge-label">Years in UX</span>
+          </div>
+          <div class="badge">
+            <span class="badge-num">6</span>
+            <span class="badge-label">Recommendations</span>
+          </div>
+          <div class="badge">
+            <span class="badge-num">500+</span>
+            <span class="badge-label">Connections</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience" class="section section-alt">
+    <div class="container">
+      <div class="section-label centered">
+        <span class="label-num">02</span>
+        <h2 class="section-title">Experience</h2>
+        <div class="accent-line"></div>
+      </div>
+      <div class="timeline">
+        {
+          experience.map((job, i) => (
+            <div class="timeline-item">
+              <div class="timeline-marker">
+                <div class="timeline-dot" />
+                {i < experience.length - 1 && <div class="timeline-line" />}
+              </div>
+              <div class="timeline-card">
+                <div class="timeline-header">
+                  <div>
+                    <h3 class="job-company">{job.company}</h3>
+                    <p class="job-role">{job.role}</p>
+                  </div>
+                  <div class="job-meta">
+                    <span class="job-period">{job.period}</span>
+                    <span class="job-location">{job.location}</span>
+                  </div>
+                </div>
+                <ul class="job-highlights">
+                  {job.highlights.map((h) => (
+                    <li>{h}</li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" class="section">
+    <div class="container section-grid">
+      <div class="section-label">
+        <span class="label-num">03</span>
+        <h2 class="section-title">Skills</h2>
+        <div class="accent-line"></div>
+      </div>
+      <div class="section-body">
+        <div class="skills-grid">
+          {skills.map((skill) => <span class="skill-pill">{skill}</span>)}
+        </div>
+        <div class="edu-certs">
+          <div class="edu-block">
+            <h3>Education</h3>
+            <div class="edu-item">
+              <p class="edu-school">Malmö University</p>
+              <p class="edu-degree">Bachelor's degree, Interaction Design</p>
+              <p class="edu-year">2011 – 2014</p>
+            </div>
+          </div>
+          <div class="edu-block">
+            <h3>Certifications</h3>
+            <div class="edu-item">
+              <p class="edu-school">Situational Leadership II</p>
+              <p class="edu-degree">IKEA · Issued Feb 2026</p>
+            </div>
+            <div class="edu-item">
+              <p class="edu-school">SCRUM</p>
+              <p class="edu-degree">Certified</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section contact-section">
+    <div class="container contact-inner">
+      <span class="label-num">04</span>
+      <h2 class="contact-heading">Let's connect</h2>
+      <p class="contact-sub">
+        Open to conversations about UX leadership, journey orchestration, and experience strategy.
+      </p>
+      <a
+        href="https://www.linkedin.com/in/pablosuzarte/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn-primary btn-large"
+      >
+        Connect on LinkedIn ↗
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer-inner">
+      <span>© 2026 Pablo Suzarte</span>
+      <span>Built with Astro & Tailwind</span>
+    </div>
+  </footer>
+</Layout>
+
+<style>
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background: rgba(8, 8, 15, 0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-logo {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--accent);
+    text-decoration: none;
+    letter-spacing: 0.05em;
+  }
+
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+  }
+
+  .nav-links a {
+    color: var(--muted-light);
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover {
+    color: var(--accent);
+  }
+
+  /* ── LAYOUT ── */
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .section {
+    padding: 7rem 0;
+  }
+
+  .section-alt {
+    background: var(--surface);
+  }
+
+  .section-grid {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  /* ── SECTION LABELS ── */
+  .section-label {
+    position: sticky;
+    top: 100px;
+  }
+
+  .section-label.centered {
+    position: static;
+    margin-bottom: 3.5rem;
+  }
+
+  .label-num {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--accent);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+
+  .section-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 1rem;
+  }
+
+  .accent-line {
+    width: 32px;
+    height: 2px;
+    background: var(--accent);
+    border-radius: 1px;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(100, 255, 218, 0.04) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 40% at 80% 80%, rgba(100, 200, 255, 0.03) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .hero-content {
+    padding-top: 64px;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4rem;
+  }
+
+  .hero-left {
+    flex: 1;
+  }
+
+  .hero-right {
+    flex-shrink: 0;
+    animation: fadeIn 0.8s 0.5s ease both;
+  }
+
+  .hero-photo-wrap {
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    filter: drop-shadow(0 0 40px var(--accent-glow));
+  }
+
+  .hero-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .hero-greeting {
+    font-size: 1rem;
+    color: var(--accent);
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.75rem;
+    animation: fadeUp 0.6s ease both;
+  }
+
+  .hero-name {
+    font-size: clamp(3rem, 7vw, 5.5rem);
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    background: linear-gradient(135deg, #e2e8f0 30%, #94a3b8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 0.75rem;
+    animation: fadeUp 0.6s 0.1s ease both;
+  }
+
+  .hero-title {
+    font-size: clamp(1.2rem, 2.5vw, 1.75rem);
+    font-weight: 400;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+    animation: fadeUp 0.6s 0.2s ease both;
+  }
+
+  .hero-tagline {
+    font-size: 1.05rem;
+    color: var(--muted-light);
+    max-width: 520px;
+    line-height: 1.7;
+    margin-bottom: 2.5rem;
+    animation: fadeUp 0.6s 0.3s ease both;
+  }
+
+  .hero-ctas {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+    animation: fadeUp 0.6s 0.4s ease both;
+  }
+
+  .hero-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--muted);
+    font-size: 0.875rem;
+    animation: fadeUp 0.6s 0.5s ease both;
+  }
+
+  .scroll-hint {
+    position: absolute;
+    bottom: 2.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--muted);
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    animation: fadeIn 1s 1s ease both;
+  }
+
+  .scroll-line {
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, var(--muted), transparent);
+    animation: scrollPulse 2s 1.5s ease-in-out infinite;
+  }
+
+  /* ── BUTTONS ── */
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.75rem 1.75rem;
+    background: var(--accent);
+    color: var(--bg);
+    font-weight: 600;
+    font-size: 0.9rem;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: all 0.2s;
+    letter-spacing: 0.01em;
+  }
+
+  .btn-primary:hover {
+    background: #8fffea;
+    transform: translateY(-1px);
+    box-shadow: 0 8px 24px var(--accent-glow);
+  }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.75rem 1.75rem;
+    border: 1px solid var(--border);
+    color: var(--muted-light);
+    font-weight: 500;
+    font-size: 0.9rem;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    transform: translateY(-1px);
+  }
+
+  .btn-large {
+    padding: 1rem 2.5rem;
+    font-size: 1rem;
+  }
+
+  /* ── ABOUT ── */
+  .section-body {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .section-body p {
+    color: var(--muted-light);
+    font-size: 1rem;
+  }
+
+  .about-badges {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .badge {
+    display: flex;
+    flex-direction: column;
+    padding: 1.25rem 1.5rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    min-width: 100px;
+  }
+
+  .badge-num {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 0.25rem;
+  }
+
+  .badge-label {
+    font-size: 0.75rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  /* ── TIMELINE ── */
+  .timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .timeline-item {
+    display: grid;
+    grid-template-columns: 32px 1fr;
+    gap: 1.5rem;
+    padding-bottom: 3rem;
+  }
+
+  .timeline-item:last-child {
+    padding-bottom: 0;
+  }
+
+  .timeline-marker {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 0.35rem;
+  }
+
+  .timeline-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex-shrink: 0;
+    box-shadow: 0 0 0 3px var(--accent-dim);
+  }
+
+  .timeline-line {
+    width: 1px;
+    flex: 1;
+    background: var(--border);
+    margin-top: 0.5rem;
+  }
+
+  .timeline-card {
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.5rem;
+    transition: border-color 0.2s;
+  }
+
+  .timeline-card:hover {
+    border-color: var(--accent-glow);
+  }
+
+  .timeline-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .job-company {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 0.2rem;
+  }
+
+  .job-role {
+    font-size: 0.875rem;
+    color: var(--accent);
+    font-weight: 500;
+  }
+
+  .job-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.2rem;
+  }
+
+  .job-period {
+    font-size: 0.8rem;
+    color: var(--muted-light);
+    white-space: nowrap;
+  }
+
+  .job-location {
+    font-size: 0.75rem;
+    color: var(--muted);
+  }
+
+  .job-highlights {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .job-highlights li {
+    font-size: 0.875rem;
+    color: var(--muted-light);
+    padding-left: 1rem;
+    position: relative;
+  }
+
+  .job-highlights li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-size: 0.7rem;
+    top: 0.15em;
+  }
+
+  /* ── SKILLS ── */
+  .skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-bottom: 3rem;
+  }
+
+  .skill-pill {
+    padding: 0.4rem 1rem;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    font-size: 0.8rem;
+    color: var(--muted-light);
+    background: var(--surface);
+    transition: all 0.2s;
+    cursor: default;
+  }
+
+  .skill-pill:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: var(--accent-dim);
+  }
+
+  /* ── EDUCATION ── */
+  .edu-certs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .edu-block h3 {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 1rem;
+  }
+
+  .edu-item {
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .edu-item:last-child {
+    border-bottom: none;
+  }
+
+  .edu-school {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text);
+  }
+
+  .edu-degree {
+    font-size: 0.8rem;
+    color: var(--muted-light);
+  }
+
+  .edu-year {
+    font-size: 0.75rem;
+    color: var(--muted);
+  }
+
+  /* ── CONTACT ── */
+  .contact-section {
+    background: var(--surface);
+    text-align: center;
+  }
+
+  .contact-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+  }
+
+  .contact-heading {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    color: var(--text);
+  }
+
+  .contact-sub {
+    font-size: 1rem;
+    color: var(--muted-light);
+    max-width: 440px;
+    text-align: center;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    padding: 1.5rem 0;
+    border-top: 1px solid var(--border);
+  }
+
+  .footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes scrollPulse {
+    0%,
+    100% {
+      opacity: 0.3;
+      transform: scaleY(1);
+    }
+    50% {
+      opacity: 1;
+      transform: scaleY(1.2);
+    }
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    .hero-content {
+      flex-direction: column-reverse;
+      text-align: center;
+      gap: 2rem;
+    }
+
+    .hero-photo-wrap {
+      width: 180px;
+      height: 180px;
+    }
+
+    .hero-ctas {
+      justify-content: center;
+    }
+
+    .hero-meta {
+      justify-content: center;
+    }
+
+    .section-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .section-label {
+      position: static;
+    }
+
+    .timeline-item {
+      grid-template-columns: 20px 1fr;
+      gap: 1rem;
+    }
+
+    .timeline-header {
+      flex-direction: column;
+    }
+
+    .job-meta {
+      align-items: flex-start;
+    }
+
+    .edu-certs {
+      grid-template-columns: 1fr;
+    }
+
+    .nav-links {
+      gap: 1.25rem;
+    }
+
+    .footer-inner {
+      flex-direction: column;
+      gap: 0.5rem;
+      text-align: center;
+    }
+  }
+</style>

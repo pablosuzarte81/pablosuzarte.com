@@ -1,0 +1,22 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx astro:*)",
+      "Bash(npm install:*)",
+      "Bash(sudo apt-get:*)",
+      "Bash(python3 -c \"import json,sys; d=json.load\\(sys.stdin\\); print\\(d.get\\(''''tool_input'''',{}\\).get\\(''''file_path''''\\) or d.get\\(''''tool_response'''',{}\\).get\\(''''filePath'''',''''''''\\)\\)\")",
+      "Bash(npm run:*)",
+      "Bash(python3 -c \"from PIL import Image; print\\(''ok''\\)\")",
+      "Bash(pip3 install:*)",
+      "Bash(pip install:*)",
+      "Bash(python3 -m ensurepip --upgrade)",
+      "Bash(python3 -m pip install Pillow -q)",
+      "Bash(convert --version)",
+      "Bash(node -e \"console.log\\(''ok''\\)\")",
+      "Bash(node -e \"require\\(''sharp''\\)\")",
+      "Bash(node:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)"
+    ]
+  }
+}
