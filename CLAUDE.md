@@ -109,7 +109,7 @@ Pablo Suzarte — Senior Product UX Designer, 15+ years experience. Currently at
 
 **Tone:** Direct, human, no corporate speak. Confident but collaborative. Outcome-led language.
 
-**Domain:** pablosuzarte.com — transferred from Squarespace to Vercel (initiated 2026-03-19, may now be live).
+**Domain:** pablosuzarte.com — live on Vercel (domain transferred from Squarespace, confirmed live 2026-03-20).
 **LinkedIn:** linkedin.com/in/pablosuzarte/
 
 ## AI Assistant Conventions
