@@ -4,16 +4,18 @@ import '../styles/global.css'
 interface Props {
   title?: string
   description?: string
+  lang?: string
 }
 
 const {
   title = 'Pablo Suzarte — Senior UX Designer',
   description = 'Senior Product UX Designer with 15+ years of experience in UX & Service Design, Journey Orchestration and Experience Strategy. Currently at IKEA Global.',
+  lang = 'en',
 } = Astro.props
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
