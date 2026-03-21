@@ -12,13 +12,34 @@
   --bg: #08080f;
   --surface: #0f0f1c;
   --surface-2: #161625;
-  --border: #1c1c30;
+  --surface-3: #1d1d31;
+  --border: rgba(148, 163, 184, 0.16);
   --accent: #64ffda;
-  --accent-dim: rgba(100, 255, 218, 0.07);
-  --accent-glow: rgba(100, 255, 218, 0.2);
+  --accent-strong: #41d8b7;
+  --accent-soft: rgba(100, 255, 218, 0.1);
   --text: #e2e8f0;
   --muted: #64748b;
   --muted-light: #94a3b8;
+  --shadow: 0 18px 60px rgba(0, 0, 0, 0.28);
+  --font-sans: 'Manrope', system-ui, -apple-system, sans-serif;
+  --font-display: 'Instrument Serif', Georgia, serif;
+}
+
+html[data-style='brutalist'] {
+  --bg: #f5f500;
+  --surface: #ffffff;
+  --surface-2: #ff4f00;
+  --surface-3: #111111;
+  --border: #111111;
+  --accent: #111111;
+  --accent-strong: #111111;
+  --accent-soft: rgba(17, 17, 17, 0.12);
+  --text: #111111;
+  --muted: #111111;
+  --muted-light: #111111;
+  --shadow: 8px 8px 0 #111111;
+  --font-sans: 'Manrope', system-ui, -apple-system, sans-serif;
+  --font-display: 'Manrope', system-ui, -apple-system, sans-serif;
 }
 
 html {
@@ -26,12 +47,20 @@ html {
 }
 
 body {
-  background-color: var(--bg);
+  background:
+    radial-gradient(circle at top left, rgba(100, 255, 218, 0.08), transparent 24%),
+    radial-gradient(circle at top right, rgba(100, 180, 255, 0.06), transparent 22%),
+    linear-gradient(180deg, #0b0b13 0%, var(--bg) 100%);
   color: var(--text);
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-family: var(--font-sans);
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+}
+
+html[data-style='brutalist'] body {
+  background: var(--bg);
 }
 
 ::selection {
@@ -43,3 +72,12 @@ body {
 ::-webkit-scrollbar-track { background: var(--bg); }
 ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--muted); }
+
+a {
+  color: inherit;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}

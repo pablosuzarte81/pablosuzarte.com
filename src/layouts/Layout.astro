@@ -21,14 +21,60 @@ const {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
     <title>{title}</title>
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href={new URL(Astro.url.pathname, 'https://pablosuzarte.com').href} />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={Astro.url} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={new URL('/pablo_profile_photo.png', 'https://pablosuzarte.com')} />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={Astro.url} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={new URL('/pablo_profile_photo.png', 'https://pablosuzarte.com')} />
+
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.ico" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;1,14..32,400&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json" is:inline>
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Pablo Suzarte",
+        "jobTitle": "Senior Product UX Designer",
+        "url": "https://pablosuzarte.com",
+        "sameAs": [
+          "https://www.linkedin.com/in/pablosuzarte/"
+        ],
+        "knowsAbout": [
+          "UX Design",
+          "Service Design",
+          "User Research",
+          "Journey Mapping",
+          "Journey Orchestration",
+          "Experience Strategy",
+          "AI-Assisted Design"
+        ],
+        "worksFor": {
+          "@type": "Organization",
+          "name": "IKEA Global"
+        },
+        "description": "Senior Product UX Designer with 15+ years of experience in UX & Service Design, Journey Orchestration and Experience Strategy. Currently at IKEA Global."
+      }
+    </script>
   </head>
   <body>
     <slot />
