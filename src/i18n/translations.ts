@@ -19,6 +19,7 @@ export interface T {
     experience: string
     skills: string
     contact: string
+    playground: string
   }
   hero: {
     greeting: string
@@ -72,6 +73,7 @@ export interface T {
     heading: string
     sub: string
     cta: string
+    email: string
   }
   footer: {
     copyright: string
@@ -99,7 +101,7 @@ export const translations: Record<Locale, T> = {
       title: "Senior UX Leader — building teams that are ready for what's next.",
       tagline:
         '15+ years bringing people together around hard problems.\nNow helping teams move faster — using AI to close the gap between insight and action.',
-      cta1: 'See what I mean',
+      cta1: 'See the work',
       cta2: 'LinkedIn ↗',
       location: '📍 Greater Malmö, Sweden',
       currentRole: 'Currently @ IKEA Global',
@@ -220,6 +222,7 @@ export const translations: Record<Locale, T> = {
       heading: "Let's talk",
       sub: 'Looking for Head of UX, UX Director, and Principal Designer roles in product organisations that want to be genuinely outcome-led.\nBased in Malmö — open to Sweden, Copenhagen, and remote-first Europe.',
       cta: 'Connect on LinkedIn ↗',
+      email: 'or email me directly ↗',
     },
     footer: {
       copyright: '© 2026 Pablo Suzarte',
@@ -246,7 +249,7 @@ export const translations: Record<Locale, T> = {
       title: 'Senior UX-ledare — bygger team som är redo för nästa steg.',
       tagline:
         '15+ år av att samla människor kring svåra problem.\nNu hjälper jag team att röra sig snabbare — och använder AI för att överbrygga klyftan mellan insikt och handling.',
-      cta1: 'Se vad jag menar',
+      cta1: 'Se arbetet',
       cta2: 'LinkedIn ↗',
       location: '📍 Stor-Malmö, Sverige',
       currentRole: 'Just nu @ IKEA Global',
@@ -367,6 +370,7 @@ export const translations: Record<Locale, T> = {
       heading: 'Låt oss prata',
       sub: 'Söker Head of UX-, UX Director- och Principal Designer-roller i produktorganisationer som vill vara genuint outcome-ledda.\nBaserad i Malmö — öppen för Sverige, Köpenhamn och remote-first Europa.',
       cta: 'Kontakta mig på LinkedIn ↗',
+      email: 'eller mejla mig direkt ↗',
     },
     footer: {
       copyright: '© 2026 Pablo Suzarte',
@@ -393,7 +397,7 @@ export const translations: Record<Locale, T> = {
       title: 'Líder Senior de UX — construyendo equipos listos para lo que viene.',
       tagline:
         'Más de 15 años reuniendo personas alrededor de problemas difíciles.\nAhora ayudo a equipos a moverse más rápido — usando IA para cerrar la brecha entre el insight y la acción.',
-      cta1: 'Ver a qué me refiero',
+      cta1: 'Ver el trabajo',
       cta2: 'LinkedIn ↗',
       location: '📍 Gran Malmö, Suecia',
       currentRole: 'Actualmente en IKEA Global',
@@ -514,6 +518,7 @@ export const translations: Record<Locale, T> = {
       heading: 'Hablemos',
       sub: 'Busco roles de Head of UX, UX Director y Principal Designer en organizaciones de producto que quieran ser genuinamente orientadas a outcomes.\nBasado en Malmö — abierto a Suecia, Copenhague y Europa en remoto.',
       cta: 'Conectar en LinkedIn ↗',
+      email: 'o escríbeme directamente ↗',
     },
     footer: {
       copyright: '© 2026 Pablo Suzarte',

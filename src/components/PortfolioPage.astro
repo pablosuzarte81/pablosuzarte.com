@@ -82,7 +82,7 @@ const styleLabel = {
           }
         </p>
         <div class="hero-ctas">
-          <a href="#about" class="btn-primary">{t.hero.cta1}</a>
+          <a href="#work" class="btn-primary">{t.hero.cta1}</a>
           <a
             href="https://www.linkedin.com/in/pablosuzarte/"
             target="_blank"
@@ -153,17 +153,23 @@ const styleLabel = {
         <h2 class="section-title">{t.work.title}</h2>
         <div class="accent-line"></div>
       </div>
-      <div class="work-grid">
+      <div class:list={['work-grid', { 'work-grid--single': projects.length === 1 }]}>
         {
           projects.map((project) => (
             <a href={`/projects/${project.slug}`} class="project-card">
               <div class="project-card-cover">
-                <img
-                  src={project.coverImage}
-                  alt={project.title}
-                  loading="lazy"
-                  class="project-card-img"
-                />
+                {project.coverImage ? (
+                  <img
+                    src={project.coverImage}
+                    alt={project.title}
+                    loading="lazy"
+                    class="project-card-img"
+                  />
+                ) : (
+                  <div class="project-card-placeholder">
+                    <span class="project-card-placeholder-title">{project.title}</span>
+                  </div>
+                )}
               </div>
               <div class="project-card-body">
                 <p class="project-card-meta">
@@ -286,6 +292,9 @@ const styleLabel = {
         class="btn-primary btn-large"
       >
         {t.contact.cta}
+      </a>
+      <a href="mailto:pablosu@gmail.com" class="contact-email-link">
+        {t.contact.email}
       </a>
     </div>
   </section>
@@ -950,6 +959,12 @@ const styleLabel = {
     gap: 2rem;
   }
 
+  .work-grid--single {
+    grid-template-columns: 1fr;
+    max-width: 680px;
+    margin: 0 auto;
+  }
+
   .project-card {
     display: flex;
     flex-direction: column;
@@ -973,6 +988,25 @@ const styleLabel = {
     aspect-ratio: 16 / 9;
     overflow: hidden;
     background: var(--surface);
+  }
+
+  .project-card-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--surface-2) 0%, var(--bg) 100%);
+    padding: 2rem;
+  }
+
+  .project-card-placeholder-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--accent);
+    text-align: center;
+    opacity: 0.6;
+    letter-spacing: 0.02em;
   }
 
   .project-card-img {
@@ -1061,6 +1095,21 @@ const styleLabel = {
     color: var(--muted-light);
     max-width: 440px;
     text-align: center;
+  }
+
+  .contact-email-link {
+    margin-top: 0.75rem;
+    font-size: 0.875rem;
+    color: var(--muted);
+    text-decoration: none;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 1px;
+    transition: color 0.2s, border-color 0.2s;
+  }
+
+  .contact-email-link:hover {
+    color: var(--accent);
+    border-color: var(--accent);
   }
 
   /* ── FOOTER ── */
