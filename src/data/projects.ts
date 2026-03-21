@@ -31,7 +31,12 @@ export interface ProjectCase {
   role: string
   period: string
   tagline: string
-  coverImage: string
+  coverImage: string | null
+  aiPrompts?: {
+    hero?: string
+    thumbnail?: string
+    process?: string
+  }
   heroMetrics: ImpactMetric[]
   businessNeed: string
   userNeed: string
@@ -62,11 +67,16 @@ export const projects: ProjectCase[] = [
     period: 'May 2022 – Present',
     tagline:
       'Turning journey research into prioritised action across 30+ global teams.',
-    coverImage: '/projects/ikea-cover.jpg',
+    coverImage: null,
+    aiPrompts: {
+      hero: 'Abstract 3D visualization of 30 glowing cyan fiber-optic streams converging into a perfectly aligned golden path, dark slate background, cinematic lighting, 8k, representing organizational alignment.',
+      thumbnail: 'Macro 3D render of a stylized chrome IKEA hex key resting on a bed of glowing blue blueprints, dark aesthetic, depth of field, minimalist.',
+      process: 'Exploded view of a complex clockwork mechanism where the gears are made of translucent glass and light, showing internal orchestration, dark background, cyan accents.',
+    },
     heroMetrics: [
-      { value: '30+', label: 'Teams aligned' },
-      { value: '40%', label: 'Reduction in unnecessary contact' },
-      { value: '3', label: 'Journey frameworks shipped' },
+      { value: '16+', label: 'Teams aligned across global product and support' },
+      { value: '5', label: 'Markets covered in discovery research' },
+      { value: '300→22s', label: 'Lookup time reduced via The Voice' },
     ],
     businessNeed:
       'IKEA needed a way to connect global support insights to digital product roadmaps.',
@@ -160,14 +170,14 @@ export const projects: ProjectCase[] = [
     ],
     outcomeMetrics: [
       {
-        value: '40%',
-        label: 'Unnecessary contact reduced',
-        context: 'Measured over 12 months post-rollout via support ticket analysis.',
+        value: '1,800+',
+        label: 'Co-workers using Insikt across 18 countries',
+        context: '3,100 coaching sessions and 1,300 missions completed in the first year.',
       },
       {
         value: '30+',
         label: 'Teams using shared framework',
-        context: 'Adoption tracked quarterly.',
+        context: 'Teams that completed onboarding and adopted the shared journey taxonomy.',
       },
     ],
     nextProjectSlug: null,

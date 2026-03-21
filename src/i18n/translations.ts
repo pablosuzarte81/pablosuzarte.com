@@ -82,9 +82,9 @@ export interface T {
 export const translations: Record<Locale, T> = {
   en: {
     meta: {
-      title: 'Pablo Suzarte — Senior UX Designer',
+      title: 'Pablo Suzarte — Senior Product UX & Service Design Leader',
       description:
-        'Senior Product UX Designer with 15+ years of experience in UX & Service Design, Journey Orchestration and Experience Strategy. Currently at IKEA Global.',
+        'Senior UX Leader specializing in Service Design, User Research, Journey Mapping, and Journey Orchestration. 15+ years of experience, currently at IKEA Global.',
     },
     nav: {
       about: 'About',
@@ -92,12 +92,13 @@ export const translations: Record<Locale, T> = {
       experience: 'Experience',
       skills: 'Skills',
       contact: 'Contact',
+      playground: 'AI Playground',
     },
     hero: {
       greeting: "Hi, I'm",
       title: "Senior UX Leader — building teams that are ready for what's next.",
       tagline:
-        '15+ years bringing people together around hard problems.\nNow helping organisations unlock what becomes possible with AI.',
+        '15+ years bringing people together around hard problems.\nNow helping teams move faster — using AI to close the gap between insight and action.',
       cta1: 'See what I mean',
       cta2: 'LinkedIn ↗',
       location: '📍 Greater Malmö, Sweden',
@@ -132,10 +133,10 @@ export const translations: Record<Locale, T> = {
           period: 'May 2022 — Present',
           location: 'Malmö, Sweden',
           highlights: [
+            'Currently leading redesign of a complex global process across 16+ teams — grounded in 5-market research and cross-functional stakeholder alignment.',
             'Journey Orchestrator across global digital product teams — creating alignment structures that move teams from insights to prioritised action.',
-            'Translate journey research into self-service opportunities that reduce unnecessary contact demand and improve resolution quality.',
-            'Led cross-functional collaboration across product, business, data and support through workshops and co-creation sessions.',
-            'Built coaching and insight system (Insikt) empowering co-workers with meaningful data for development conversations.',
+            'Designed The Voice — reduced agent lookup time from 300 to 22 seconds across global support teams, enabling faster and higher-quality resolution.',
+            'Built Insikt — a coaching and performance tool adopted across 18 countries by 1,800+ users, generating 3,100 coaching sessions in its first year.',
             'Mentor in GIX Mentor Program 2023 — guided design students from research to validated prototypes in real product teams.',
           ],
         },
@@ -145,9 +146,9 @@ export const translations: Record<Locale, T> = {
           period: 'Apr 2019 — May 2022',
           location: 'Malmö, Sweden',
           highlights: [
-            'Lead B2B Designer across Business Center, Prisjakt Insights, Partners Portal and Design System.',
-            'Led B2B UX research and marketing team design collaboration.',
-            'Senior Designer for B2C categories, web team and 2020 platform redesign.',
+            'Lead B2B Designer across Business Center, Prisjakt Insights, Partners Portal and Design System — first dedicated design hire for the B2B product area.',
+            'Established UX research practice for B2B: ran discovery sessions that shaped roadmap priorities across three product teams.',
+            'Led UX for the 2020 platform redesign — scoped, facilitated, and delivered the visual and interaction direction across web and mobile.',
           ],
         },
         {
@@ -188,21 +189,21 @@ export const translations: Record<Locale, T> = {
       title: 'Skills',
       items: [
         'Journey Orchestration',
+        'Cross-functional Leadership',
+        'Experience Strategy',
         'User Research',
         'Service Design',
-        'Design Thinking',
-        'Journey Mapping',
         'Workshop Facilitation',
-        'Cross-functional Leadership',
-        'Product Design',
         'Stakeholder Management',
+        'Systems Thinking',
+        'Journey Mapping',
+        'Insight Systems',
+        'AI-Assisted Design',
         'Figma',
         'Prototyping',
         'Usability Testing',
-        'Silo Connector',
-        'Self-service Strategy',
-        'Insight Systems',
-        'Agile / Scrum',
+        'Information Architecture',
+        'Product Thinking',
       ],
       education: 'Education',
       certifications: 'Certifications',
@@ -217,7 +218,7 @@ export const translations: Record<Locale, T> = {
     contact: {
       label: '05',
       heading: "Let's talk",
-      sub: 'Open to senior UX, product design, and AI-augmented design roles.\nAlso happy to talk strategy, tools, or how I built this site.',
+      sub: 'Looking for Head of UX, UX Director, and Principal Designer roles in product organisations that want to be genuinely outcome-led.\nBased in Malmö — open to Sweden, Copenhagen, and remote-first Europe.',
       cta: 'Connect on LinkedIn ↗',
     },
     footer: {
@@ -228,9 +229,9 @@ export const translations: Record<Locale, T> = {
 
   sv: {
     meta: {
-      title: 'Pablo Suzarte — Senior UX-designer',
+      title: 'Pablo Suzarte — Senior UX-ledare & tjänstedesigner',
       description:
-        'Senior Product UX-designer med 15+ års erfarenhet inom UX & tjänstedesign, Journey Orchestration och upplevelsestrategi. Just nu på IKEA Global.',
+        'Senior UX-ledare specialiserad på tjänstedesign (Service Design), användarresearch, Journey Mapping och Journey Orchestration. 15+ års erfarenhet, just nu på IKEA Global.',
     },
     nav: {
       about: 'Om mig',
@@ -238,12 +239,13 @@ export const translations: Record<Locale, T> = {
       experience: 'Erfarenhet',
       skills: 'Kompetens',
       contact: 'Kontakt',
+      playground: 'AI Playground',
     },
     hero: {
       greeting: 'Hej, jag är',
       title: 'Senior UX-ledare — bygger team som är redo för nästa steg.',
       tagline:
-        '15+ år av att samla människor kring svåra problem.\nNu hjälper jag organisationer att frigöra det som blir möjligt med AI.',
+        '15+ år av att samla människor kring svåra problem.\nNu hjälper jag team att röra sig snabbare — och använder AI för att överbrygga klyftan mellan insikt och handling.',
       cta1: 'Se vad jag menar',
       cta2: 'LinkedIn ↗',
       location: '📍 Stor-Malmö, Sverige',
@@ -278,10 +280,10 @@ export const translations: Record<Locale, T> = {
           period: 'Maj 2022 — Nu',
           location: 'Malmö, Sverige',
           highlights: [
+            'Leder just nu redesignen av en komplex global process med 16+ team — grundad i research från 5 marknader och tvärfunktionell stakeholderalignering.',
             'Journey Orchestrator i globala digitala produktteam — skapar samordningsstrukturer som hjälper team gå från insikter till prioriterade åtgärder.',
-            'Översätter journey-research till möjligheter för självservice som minskar onödig kontaktvolym och förbättrar lösningskvaliteten.',
-            'Ledde tvärfunktionellt samarbete mellan produkt, affär, data och support via workshops och co-creation-sessioner.',
-            'Byggde coachnings- och insiktsystemet (Insikt) som ger medarbetare meningsfull data för utvecklingssamtal.',
+            'Designade The Voice — minskade agenternas söktid från 300 till 22 sekunder i globala supportteam, vilket möjliggör snabbare och bättre lösningar.',
+            'Byggde Insikt — ett coaching- och prestationsverktyg antaget i 18 länder av 1 800+ användare, som genererade 3 100 coachingssessioner under sitt första år.',
             'Mentor i GIX Mentor Program 2023 — guidade designstudenter från research till validerade prototyper i verkliga produktteam.',
           ],
         },
@@ -291,9 +293,9 @@ export const translations: Record<Locale, T> = {
           period: 'Apr 2019 — Maj 2022',
           location: 'Malmö, Sverige',
           highlights: [
-            'Lead B2B Designer för Business Center, Prisjakt Insights, Partners Portal och Design System.',
-            'Ledde B2B UX-research och designsamarbete med marknadsföringsteamet.',
-            'Senior Designer för B2C-kategorier, webbteam och plattformsomdesign 2020.',
+            'Lead B2B Designer för Business Center, Prisjakt Insights, Partners Portal och Design System — första dedikerade designrekryteringen för B2B-produktområdet.',
+            'Etablerade UX-researchpraxis för B2B: genomförde discovery-sessioner som formade roadmap-prioriteringar för tre produktteam.',
+            'Ledde UX för plattformsomdesignen 2020 — definierade, faciliterade och levererade den visuella och interaktiva riktningen för webb och mobil.',
           ],
         },
         {
@@ -334,21 +336,21 @@ export const translations: Record<Locale, T> = {
       title: 'Kompetens',
       items: [
         'Journey Orchestration',
+        'Cross-functional Leadership',
+        'Experience Strategy',
         'User Research',
         'Service Design',
-        'Design Thinking',
-        'Journey Mapping',
         'Workshop Facilitation',
-        'Cross-functional Leadership',
-        'Product Design',
         'Stakeholder Management',
+        'Systems Thinking',
+        'Journey Mapping',
+        'Insight Systems',
+        'AI-Assisted Design',
         'Figma',
         'Prototyping',
         'Usability Testing',
-        'Silo Connector',
-        'Self-service Strategy',
-        'Insight Systems',
-        'Agile / Scrum',
+        'Information Architecture',
+        'Product Thinking',
       ],
       education: 'Utbildning',
       certifications: 'Certifieringar',
@@ -363,7 +365,7 @@ export const translations: Record<Locale, T> = {
     contact: {
       label: '05',
       heading: 'Låt oss prata',
-      sub: 'Öppen för seniora UX-, produktdesign- och AI-förstärkta designroller.\nPratar gärna strategi, verktyg eller hur jag byggde den här sidan.',
+      sub: 'Söker Head of UX-, UX Director- och Principal Designer-roller i produktorganisationer som vill vara genuint outcome-ledda.\nBaserad i Malmö — öppen för Sverige, Köpenhamn och remote-first Europa.',
       cta: 'Kontakta mig på LinkedIn ↗',
     },
     footer: {
@@ -374,22 +376,23 @@ export const translations: Record<Locale, T> = {
 
   es: {
     meta: {
-      title: 'Pablo Suzarte — Diseñador UX Senior',
+      title: 'Pablo Suzarte — Líder Senior de UX y Diseño de Servicios',
       description:
-        'Diseñador Senior de Producto UX con más de 15 años de experiencia en UX y Diseño de Servicios, Orquestación de Journeys y Estrategia de Experiencia. Actualmente en IKEA Global.',
+        'Líder Senior de UX especializado en Diseño de Servicios (Service Design), Investigación de Usuarios, Journey Mapping y Orquestación de Journeys. Más de 15 años de experiencia, actualmente en IKEA Global.',
     },
     nav: {
       about: 'Sobre mí',
       work: 'Trabajo',
-      experience: 'Experiencia',
+      experience: 'Experience',
       skills: 'Habilidades',
       contact: 'Contacto',
+      playground: 'AI Playground',
     },
     hero: {
       greeting: 'Hola, soy',
       title: 'Líder Senior de UX — construyendo equipos listos para lo que viene.',
       tagline:
-        'Más de 15 años reuniendo personas alrededor de problemas difíciles.\nAhora ayudo a organizaciones a descubrir lo que es posible con IA.',
+        'Más de 15 años reuniendo personas alrededor de problemas difíciles.\nAhora ayudo a equipos a moverse más rápido — usando IA para cerrar la brecha entre el insight y la acción.',
       cta1: 'Ver a qué me refiero',
       cta2: 'LinkedIn ↗',
       location: '📍 Gran Malmö, Suecia',
@@ -424,10 +427,10 @@ export const translations: Record<Locale, T> = {
           period: 'Mayo 2022 — Presente',
           location: 'Malmö, Suecia',
           highlights: [
+            'Actualmente liderando el rediseño de un proceso global complejo con 16+ equipos — fundamentado en investigación en 5 mercados y alineamiento interfuncional de stakeholders.',
             'Journey Orchestrator en equipos de productos digitales globales — creando estructuras de alineamiento que mueven a los equipos de los insights a la acción priorizada.',
-            'Traduce la investigación de journeys en oportunidades de autoservicio que reducen la demanda de contacto innecesario y mejoran la calidad de resolución.',
-            'Lideró la colaboración interfuncional entre producto, negocio, datos y soporte a través de talleres y sesiones de co-creación.',
-            'Construyó el sistema de coaching e insights (Insikt) que empodera a los colaboradores con datos significativos para las conversaciones de desarrollo.',
+            'Diseñó The Voice — redujo el tiempo de búsqueda de agentes de 300 a 22 segundos en equipos de soporte globales, permitiendo una resolución más rápida y de mayor calidad.',
+            'Construyó Insikt — una herramienta de coaching y rendimiento adoptada en 18 países por 1.800+ usuarios, generando 3.100 sesiones de coaching en su primer año.',
             'Mentor en el GIX Mentor Program 2023 — guió a estudiantes de diseño desde la investigación hasta prototipos validados en equipos de producto reales.',
           ],
         },
@@ -437,9 +440,9 @@ export const translations: Record<Locale, T> = {
           period: 'Abr 2019 — Mayo 2022',
           location: 'Malmö, Suecia',
           highlights: [
-            'Lead B2B Designer para Business Center, Prisjakt Insights, Partners Portal y Sistema de Diseño.',
-            'Lideró la investigación UX B2B y la colaboración de diseño del equipo de marketing.',
-            'Senior Designer para categorías B2C, equipo web y rediseño de plataforma 2020.',
+            'Lead B2B Designer para Business Center, Prisjakt Insights, Partners Portal y Sistema de Diseño — primera contratación de diseño dedicada al área de producto B2B.',
+            'Estableció la práctica de investigación UX para B2B: realizó sesiones de discovery que dieron forma a las prioridades del roadmap de tres equipos de producto.',
+            'Lideró el UX del rediseño de plataforma 2020 — definió, facilitó y entregó la dirección visual e interactiva para web y móvil.',
           ],
         },
         {
@@ -480,21 +483,21 @@ export const translations: Record<Locale, T> = {
       title: 'Habilidades',
       items: [
         'Journey Orchestration',
+        'Cross-functional Leadership',
+        'Experience Strategy',
         'User Research',
         'Service Design',
-        'Design Thinking',
-        'Journey Mapping',
         'Workshop Facilitation',
-        'Cross-functional Leadership',
-        'Product Design',
         'Stakeholder Management',
+        'Systems Thinking',
+        'Journey Mapping',
+        'Insight Systems',
+        'AI-Assisted Design',
         'Figma',
         'Prototyping',
         'Usability Testing',
-        'Silo Connector',
-        'Self-service Strategy',
-        'Insight Systems',
-        'Agile / Scrum',
+        'Information Architecture',
+        'Product Thinking',
       ],
       education: 'Educación',
       certifications: 'Certificaciones',
@@ -509,7 +512,7 @@ export const translations: Record<Locale, T> = {
     contact: {
       label: '05',
       heading: 'Hablemos',
-      sub: 'Abierto a roles senior de UX, diseño de producto y diseño aumentado con IA.\nTambién feliz de hablar sobre estrategia, herramientas o cómo construí este sitio.',
+      sub: 'Busco roles de Head of UX, UX Director y Principal Designer en organizaciones de producto que quieran ser genuinamente orientadas a outcomes.\nBasado en Malmö — abierto a Suecia, Copenhague y Europa en remoto.',
       cta: 'Conectar en LinkedIn ↗',
     },
     footer: {
