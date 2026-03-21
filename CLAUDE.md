@@ -17,26 +17,35 @@ Personal portfolio site for Pablo Suzarte — Senior Product UX Designer.
 - `npm run preview` — preview production build
 - `npx astro check` — type check
 
-## Project Structure
+## Project Structure (Current — as of 2026-03-21)
 
 ```
 src/
   pages/
-    index.astro       # Single-page portfolio (all sections)
+    index.astro               # EN homepage — delegates to PortfolioPage.astro
+    sv/index.astro            # SV homepage — delegates to PortfolioPage.astro
+    es/index.astro            # ES homepage — delegates to PortfolioPage.astro
+    projects/
+      [slug].astro            # Dynamic case study template (getStaticPaths)
+  components/
+    PortfolioPage.astro       # All portfolio sections + scoped CSS (single source of truth)
   layouts/
-    Layout.astro      # Base HTML shell — imports global.css, loads Inter font
+    Layout.astro              # Base HTML shell — imports global.css, loads Inter font
   styles/
-    global.css        # Tailwind entry point + CSS custom properties + resets
+    global.css                # Tailwind entry point + CSS custom properties + resets
+  i18n/
+    translations.ts           # T interface + translations for en / sv / es
+  data/
+    projects.ts               # ProjectCase interface + projects[] array
 public/
-  pablo_profile_photo.png   # Used in hero section
-  pablo.jpg                 # Alternative photo
+  pablo_profile_photo.png     # Used in hero section
+  pablo.jpg                   # Alternative photo
   favicon.ico / favicon.svg
+  projects/                   # Cover images for case studies (e.g. ikea-cover.jpg) — ADD HERE
 .claude/
-  settings.local.json       # Claude Code permissions & hooks
-  commands/portfolio.md     # /portfolio skill definition
+  settings.local.json         # Claude Code permissions & hooks
+  commands/portfolio.md       # /portfolio skill definition
 ```
-
-No `src/components/` folder yet — all markup lives in `index.astro`.
 
 ## Configuration Notes
 
@@ -66,15 +75,18 @@ All CSS lives in `src/styles/global.css` and `src/pages/index.astro` (scoped `<s
 
 Single breakpoint at `768px` for mobile responsive layout.
 
-## Page Sections (index.astro)
+## Page Sections (PortfolioPage.astro)
 
-1. **Nav** — Fixed, glassmorphic (backdrop-filter blur), "PS" logo + anchor links
+Nav has 5 links: About · Work · Experience · Skills · Contact
+
+1. **Nav** — Fixed, glassmorphic (backdrop-filter blur), "PS" logo + anchor links + language switcher (EN/SV/ES)
 2. **Hero** — Full-height, split layout (text left / photo right), gradient radial bg, animated CTAs
-3. **About** — 3 paragraphs + 3 stat badges (15+ years / 4 orgs / AI native)
-4. **Experience** — Timeline with 5 jobs, custom dots + connecting lines, hover effects
-5. **Skills** — Pill tags grid + education + certifications
-6. **Contact** — LinkedIn CTA
-7. **Footer** — Copyright + tech stack credit
+3. **About** — label `01` — 3 paragraphs + 3 stat badges (15+ years / 4 orgs / AI native)
+4. **Work** — label `02` — 2-col project card grid; each card links to `/projects/[slug]`; data from `src/data/projects.ts`
+5. **Experience** — label `03` — Timeline with 5 jobs, custom dots + connecting lines, hover effects
+6. **Skills** — label `04` — Pill tags grid + education + certifications
+7. **Contact** — label `05` — LinkedIn CTA
+8. **Footer** — Copyright + tech stack credit
 
 ### Experience Data (hardcoded in index.astro frontmatter)
 
@@ -112,12 +124,38 @@ Pablo Suzarte — Senior Product UX Designer, 15+ years experience. Currently at
 **Domain:** pablosuzarte.com — live on Vercel (domain transferred from Squarespace, confirmed live 2026-03-20).
 **LinkedIn:** linkedin.com/in/pablosuzarte/
 
+## Case Study Pages (`/projects/[slug]`)
+
+Template: `src/pages/projects/[slug].astro` — dynamic route, English-only, outside i18n routing.
+
+Data source: `src/data/projects.ts` exports `ProjectCase[]`. To add a new case study, add an entry to the `projects` array — the page is generated automatically.
+
+**`ProjectCase` key fields:** `slug`, `title`, `company`, `role`, `period`, `tagline`, `coverImage`, `heroMetrics[]`, `businessNeed`, `userNeed`, `roleTitle`, `responsibilities[]`, `owned[]`, `collaborated[]`, `teamContext`, `challengeStatement` (HMW format), `problemDiscovery`, `researchMethods[]`, `workshops[]`, `dataAnalysisApproach`, `sharingSessions`, `insights[]`, `opportunities[]`, `designSteps[]` (with optional `stakeholderMoment`), `outcomeMetrics[]`, `nextProjectSlug`.
+
+**Cover images:** place in `public/projects/` and reference as `/projects/filename.jpg`.
+
+**Current entries:**
+| Slug | Company | Status |
+|---|---|---|
+| `ikea-journey-orchestration` | IKEA Global | Placeholder — real content TBD |
+
+**Sections in the template (in order):** back nav → hero (metrics) → 01 Overview → 02 My Role → 03 Problem Framing → 04 Research → 05 Synthesis → 06 Design Process (timeline) → 07 Impact → Next/Back
+
+## i18n Architecture
+
+- `src/i18n/translations.ts` exports `T` interface + `translations: Record<Locale, T>`
+- Locales: `en` (default, no prefix), `sv` (`/sv/`), `es` (`/es/`)
+- All portfolio text goes through `T` — update all 3 locales when adding new keys
+- Case study pages are English-only — not translated
+- `prefixDefaultLocale: false` in `astro.config.mjs` — EN has no URL prefix
+
 ## AI Assistant Conventions
 
-- **Do not refactor** unless explicitly asked. The single-file approach in `index.astro` is intentional.
-- **Keep the dark theme** — all additions should use CSS custom properties, not hardcoded colors.
+- **Do not refactor** unless explicitly asked. `PortfolioPage.astro` is the single source of truth for portfolio layout.
+- **Keep the dark theme** — all additions must use CSS custom properties, not hardcoded colors.
 - **Verify with `npm run build`** after any structural changes to catch Astro/TS errors.
 - **No new dependencies** without good reason — the current dep count is intentionally minimal.
-- **Content changes** (copy, experience entries, skills) live in the `---` frontmatter or inline in `index.astro`.
+- **Content changes** — portfolio copy lives in `translations.ts`; case study data lives in `src/data/projects.ts`.
 - **New sections** should follow the existing pattern: semantic HTML, scoped `<style>`, CSS custom properties.
+- **CSS is scoped** — classes in `PortfolioPage.astro` are NOT available in `[slug].astro`. Redefine layout utilities locally in each component.
 - When adding images, place them in `public/` and reference as `/filename.ext`.

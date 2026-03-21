@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro'
 import type { T, Locale } from '../i18n/translations'
+import { projects } from '../data/projects'
 
 interface Props {
   t: T
@@ -23,6 +24,7 @@ const langLinks = [
       <a href="#hero" class="nav-logo">PS</a>
       <ul class="nav-links">
         <li><a href="#about">{t.nav.about}</a></li>
+        <li><a href="#work">{t.nav.work}</a></li>
         <li><a href="#experience">{t.nav.experience}</a></li>
         <li><a href="#skills">{t.nav.skills}</a></li>
         <li><a href="#contact">{t.nav.contact}</a></li>
@@ -124,8 +126,50 @@ const langLinks = [
     </div>
   </section>
 
+  <!-- WORK -->
+  <section id="work" class="section section-alt">
+    <div class="container">
+      <div class="section-label centered">
+        <span class="label-num">{t.work.label}</span>
+        <h2 class="section-title">{t.work.title}</h2>
+        <div class="accent-line"></div>
+      </div>
+      <div class="work-grid">
+        {
+          projects.map((project) => (
+            <a href={`/projects/${project.slug}`} class="project-card">
+              <div class="project-card-cover">
+                <img
+                  src={project.coverImage}
+                  alt={project.title}
+                  loading="lazy"
+                  class="project-card-img"
+                />
+              </div>
+              <div class="project-card-body">
+                <p class="project-card-meta">
+                  {project.company} · {project.role}
+                </p>
+                <h3 class="project-card-title">{project.title}</h3>
+                <p class="project-card-tagline">{project.tagline}</p>
+                <div class="project-card-metrics">
+                  {project.heroMetrics.slice(0, 3).map((m) => (
+                    <span class="project-metric-badge">
+                      <strong>{m.value}</strong> {m.label}
+                    </span>
+                  ))}
+                </div>
+                <span class="project-card-cta">{t.work.cta} →</span>
+              </div>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
   <!-- EXPERIENCE -->
-  <section id="experience" class="section section-alt">
+  <section id="experience" class="section">
     <div class="container">
       <div class="section-label centered">
         <span class="label-num">{t.experience.label}</span>
@@ -165,7 +209,7 @@ const langLinks = [
   </section>
 
   <!-- SKILLS -->
-  <section id="skills" class="section">
+  <section id="skills" class="section section-alt">
     <div class="container section-grid">
       <div class="section-label">
         <span class="label-num">{t.skills.label}</span>
@@ -794,6 +838,100 @@ const langLinks = [
     color: var(--muted);
   }
 
+  /* ── WORK ── */
+  .work-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .project-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    text-decoration: none;
+    transition:
+      border-color 0.2s,
+      transform 0.2s;
+  }
+
+  .project-card:hover {
+    border-color: var(--accent-glow);
+    transform: translateY(-2px);
+  }
+
+  .project-card-cover {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background: var(--surface);
+  }
+
+  .project-card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .project-card-body {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    flex: 1;
+  }
+
+  .project-card-meta {
+    font-size: 0.75rem;
+    color: var(--accent);
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .project-card-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text);
+  }
+
+  .project-card-tagline {
+    font-size: 0.875rem;
+    color: var(--muted-light);
+    line-height: 1.6;
+  }
+
+  .project-card-metrics {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 0.5rem;
+  }
+
+  .project-metric-badge {
+    font-size: 0.75rem;
+    color: var(--muted-light);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 0.2rem 0.75rem;
+  }
+
+  .project-metric-badge strong {
+    color: var(--accent);
+  }
+
+  .project-card-cta {
+    font-size: 0.8rem;
+    color: var(--accent);
+    font-weight: 600;
+    margin-top: auto;
+    padding-top: 0.75rem;
+  }
+
   /* ── CONTACT ── */
   .contact-section {
     background: var(--surface);
@@ -911,6 +1049,10 @@ const langLinks = [
     }
 
     .edu-certs {
+      grid-template-columns: 1fr;
+    }
+
+    .work-grid {
       grid-template-columns: 1fr;
     }
 
