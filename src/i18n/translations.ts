@@ -15,6 +15,7 @@ export interface T {
   }
   nav: {
     about: string
+    work: string
     experience: string
     skills: string
     contact: string
@@ -41,6 +42,11 @@ export interface T {
     badge2Label: string
     badge3Num: string
     badge3Label: string
+  }
+  work: {
+    label: string
+    title: string
+    cta: string
   }
   experience: {
     label: string
@@ -82,6 +88,7 @@ export const translations: Record<Locale, T> = {
     },
     nav: {
       about: 'About',
+      work: 'Work',
       experience: 'Experience',
       skills: 'Skills',
       contact: 'Contact',
@@ -110,8 +117,13 @@ export const translations: Record<Locale, T> = {
       badge3Num: 'AI',
       badge3Label: 'Native practice',
     },
-    experience: {
+    work: {
       label: '02',
+      title: 'Work',
+      cta: 'View case study',
+    },
+    experience: {
+      label: '03',
       title: 'Experience',
       items: [
         {
@@ -172,7 +184,7 @@ export const translations: Record<Locale, T> = {
       ],
     },
     skills: {
-      label: '03',
+      label: '04',
       title: 'Skills',
       items: [
         'Journey Orchestration',
@@ -203,7 +215,7 @@ export const translations: Record<Locale, T> = {
       cert2Detail: 'Certified',
     },
     contact: {
-      label: '04',
+      label: '05',
       heading: "Let's talk",
       sub: 'Open to senior UX, product design, and AI-augmented design roles.\nAlso happy to talk strategy, tools, or how I built this site.',
       cta: 'Connect on LinkedIn ↗',
@@ -222,6 +234,7 @@ export const translations: Record<Locale, T> = {
     },
     nav: {
       about: 'Om mig',
+      work: 'Arbete',
       experience: 'Erfarenhet',
       skills: 'Kompetens',
       contact: 'Kontakt',
@@ -250,8 +263,13 @@ export const translations: Record<Locale, T> = {
       badge3Num: 'AI',
       badge3Label: 'Infödd praktik',
     },
-    experience: {
+    work: {
       label: '02',
+      title: 'Arbete',
+      cta: 'Se case study',
+    },
+    experience: {
+      label: '03',
       title: 'Erfarenhet',
       items: [
         {
@@ -312,7 +330,7 @@ export const translations: Record<Locale, T> = {
       ],
     },
     skills: {
-      label: '03',
+      label: '04',
       title: 'Kompetens',
       items: [
         'Journey Orchestration',
@@ -343,7 +361,7 @@ export const translations: Record<Locale, T> = {
       cert2Detail: 'Certifierad',
     },
     contact: {
-      label: '04',
+      label: '05',
       heading: 'Låt oss prata',
       sub: 'Öppen för seniora UX-, produktdesign- och AI-förstärkta designroller.\nPratar gärna strategi, verktyg eller hur jag byggde den här sidan.',
       cta: 'Kontakta mig på LinkedIn ↗',
@@ -362,6 +380,7 @@ export const translations: Record<Locale, T> = {
     },
     nav: {
       about: 'Sobre mí',
+      work: 'Trabajo',
       experience: 'Experiencia',
       skills: 'Habilidades',
       contact: 'Contacto',
@@ -390,8 +409,13 @@ export const translations: Record<Locale, T> = {
       badge3Num: 'IA',
       badge3Label: 'Práctica nativa',
     },
-    experience: {
+    work: {
       label: '02',
+      title: 'Trabajo',
+      cta: 'Ver caso de estudio',
+    },
+    experience: {
+      label: '03',
       title: 'Experiencia',
       items: [
         {
@@ -452,7 +476,7 @@ export const translations: Record<Locale, T> = {
       ],
     },
     skills: {
-      label: '03',
+      label: '04',
       title: 'Habilidades',
       items: [
         'Journey Orchestration',
@@ -483,7 +507,7 @@ export const translations: Record<Locale, T> = {
       cert2Detail: 'Certificado',
     },
     contact: {
-      label: '04',
+      label: '05',
       heading: 'Hablemos',
       sub: 'Abierto a roles senior de UX, diseño de producto y diseño aumentado con IA.\nTambién feliz de hablar sobre estrategia, herramientas o cómo construí este sitio.',
       cta: 'Conectar en LinkedIn ↗',
