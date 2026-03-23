@@ -17,7 +17,7 @@ Personal portfolio site for Pablo Suzarte — Senior Product UX Designer.
 - `npm run preview` — preview production build
 - `npx astro check` — type check
 
-## Project Structure (Current — as of 2026-03-21)
+## Project Structure (Current — as of 2026-03-23)
 
 ```
 src/
@@ -25,6 +25,7 @@ src/
     index.astro               # EN homepage — delegates to PortfolioPage.astro
     sv/index.astro            # SV homepage — delegates to PortfolioPage.astro
     es/index.astro            # ES homepage — delegates to PortfolioPage.astro
+    ai-project-brain-lab.astro # Dedicated AI + Education portfolio page
     projects/
       [slug].astro            # Dynamic case study template (getStaticPaths)
   components/
@@ -77,16 +78,28 @@ Single breakpoint at `768px` for mobile responsive layout.
 
 ## Page Sections (PortfolioPage.astro)
 
-Nav has 5 links: About · Work · Experience · Skills · Contact
+Nav has 5 links: About · AI & Education · Experience · Skills · Contact
 
 1. **Nav** — Fixed, glassmorphic (backdrop-filter blur), "PS" logo + anchor links + language switcher (EN/SV/ES)
 2. **Hero** — Full-height, split layout (text left / photo right), gradient radial bg, animated CTAs
 3. **About** — label `01` — 3 paragraphs + 3 stat badges (15+ years / 4 orgs / AI native)
-4. **Work** — label `02` — 2-col project card grid; each card links to `/projects/[slug]`; data from `src/data/projects.ts`
+4. **AI & Education** — label `02` — featured teaser for `AI Project Brain Lab`, linking to the dedicated page
 5. **Experience** — label `03` — Timeline with 5 jobs, custom dots + connecting lines, hover effects
 6. **Skills** — label `04` — Pill tags grid + education + certifications
 7. **Contact** — label `05` — LinkedIn CTA
 8. **Footer** — Copyright + tech stack credit
+
+## AI Project Brain Lab Page
+
+Route: `src/pages/ai-project-brain-lab.astro`
+
+- this page is now the internal portfolio home for the AI + Education project
+- it includes a second hero framing the future role around `Designing Project Intelligence`
+- it should stay aligned with the main portfolio visual language, not feel like a separate microsite
+
+### Future note
+
+The page is in a good enough live state, but the content still needs a refinement pass later. The next strong content pass should make the role definition, teaching arc, and conceptual language more elegant and more teachable without changing the overall direction.
 
 ### Experience Data (hardcoded in index.astro frontmatter)
 

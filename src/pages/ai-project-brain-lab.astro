@@ -39,6 +39,55 @@ import Layout from '../layouts/Layout.astro'
     </div>
   </section>
 
+  <section class="future-role-hero">
+    <div class="container">
+      <div class="future-role-panel">
+        <div class="future-role-copy">
+          <p class="project-meta">Designing Project Intelligence</p>
+          <h2 class="future-role-title">A future role for people who design how humans and AI think together.</h2>
+          <p class="future-role-text">
+            The focus of this master-program-style website is not only to explain a framework. It is to help people build a new mindset from 0 to 100 and design their own project intelligence.
+          </p>
+          <p class="future-role-text">
+            At the center of that role is a simple idea: a project brain is not a folder of notes. It is an operating system for human-AI collaboration.
+          </p>
+        </div>
+
+        <div class="future-role-stack">
+          <article class="info-card">
+            <p class="card-label">Role definition</p>
+            <h3>Single source of truth logic designer</h3>
+            <p>
+              Someone who turns repeated friction into the right file, structure, and workflow layer so serious projects can continue with clarity and low cognitive friction.
+            </p>
+          </article>
+          <article class="info-card">
+            <p class="card-label">Operating rule</p>
+            <h3>Structure should emerge from friction</h3>
+            <p>
+              If friction appears repeatedly, create the file or structure that solves that friction. Real projects teach what structure is necessary.
+            </p>
+          </article>
+        </div>
+      </div>
+
+      <div class="future-role-rules">
+        <article class="metric-card">
+          <span class="metric-value">05</span>
+          <span class="metric-label">minimum viable stack: CLAUDE, status, evidence, assets, working style</span>
+        </article>
+        <article class="metric-card">
+          <span class="metric-value">01</span>
+          <span class="metric-label">job per file: every layer has one clear responsibility</span>
+        </article>
+        <article class="metric-card">
+          <span class="metric-value">∞</span>
+          <span class="metric-label">the system grows only when repeated friction proves a new layer is needed</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
   <section class="section">
     <div class="container section-grid">
       <div class="section-label">
@@ -301,6 +350,49 @@ import Layout from '../layouts/Layout.astro'
     padding: 7rem 0 4rem;
   }
 
+  .future-role-hero {
+    padding: 0 0 5rem;
+  }
+
+  .future-role-panel {
+    display: grid;
+    grid-template-columns: minmax(0, 1.25fr) minmax(320px, 0.75fr);
+    gap: 1.25rem;
+    align-items: start;
+    margin-bottom: 1.25rem;
+  }
+
+  .future-role-copy,
+  .future-role-stack {
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.75rem;
+  }
+
+  .future-role-stack {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .future-role-title {
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    line-height: 1.08;
+    letter-spacing: -0.03em;
+    margin-bottom: 1rem;
+  }
+
+  .future-role-text {
+    max-width: 60ch;
+    margin-bottom: 1rem;
+  }
+
+  .future-role-rules {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
   .project-meta {
     color: var(--accent);
     font-size: 0.8rem;
@@ -462,6 +554,8 @@ import Layout from '../layouts/Layout.astro'
   @media (max-width: 768px) {
     .section-grid,
     .hero-metrics,
+    .future-role-panel,
+    .future-role-rules,
     .card-grid,
     .card-grid--two,
     .layer-grid {
