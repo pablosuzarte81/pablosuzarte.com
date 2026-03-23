@@ -8,6 +8,26 @@ interface ExperienceItem {
   highlights: string[]
 }
 
+interface StatItem {
+  value: string
+  label: string
+}
+
+interface DetailCard {
+  title: string
+  body: string
+}
+
+interface ComparisonGroup {
+  title: string
+  items: string[]
+}
+
+interface LayerItem {
+  name: string
+  description: string
+}
+
 export interface T {
   meta: {
     title: string
@@ -16,6 +36,7 @@ export interface T {
   nav: {
     about: string
     work: string
+    aiEducation: string
     experience: string
     skills: string
     contact: string
@@ -48,6 +69,37 @@ export interface T {
     label: string
     title: string
     cta: string
+  }
+  aiEducation: {
+    label: string
+    title: string
+    intro: string
+    featureKicker: string
+    featureTitle: string
+    featureMeta: string
+    featureDescription: string
+    points: string[]
+    metrics: StatItem[]
+    problemTitle: string
+    problemCards: DetailCard[]
+    shiftTitle: string
+    shiftOld: ComparisonGroup
+    shiftNew: ComparisonGroup
+    roleTitle: string
+    roleBody: string
+    roleCards: DetailCard[]
+    audienceTitle: string
+    audiencePoints: string[]
+    learnTitle: string
+    layers: LayerItem[]
+    phasesTitle: string
+    phases: DetailCard[]
+    proofTitle: string
+    proofCards: DetailCard[]
+    outcomesTitle: string
+    outcomes: string[]
+    primaryCta: string
+    secondaryCta: string
   }
   experience: {
     label: string
@@ -91,6 +143,7 @@ export const translations: Record<Locale, T> = {
     nav: {
       about: 'About',
       work: 'Work',
+      aiEducation: 'AI & Education',
       experience: 'Experience',
       skills: 'Skills',
       contact: 'Contact',
@@ -101,7 +154,7 @@ export const translations: Record<Locale, T> = {
       title: "Senior UX Leader — building teams that are ready for what's next.",
       tagline:
         '15+ years bringing people together around hard problems.\nNow helping teams move faster — using AI to close the gap between insight and action.',
-      cta1: 'See the work',
+      cta1: 'Explore AI & Education',
       cta2: 'LinkedIn ↗',
       location: '📍 Greater Malmö, Sweden',
       currentRole: 'Currently @ IKEA Global',
@@ -124,6 +177,155 @@ export const translations: Record<Locale, T> = {
       label: '02',
       title: 'Work',
       cta: 'View case study',
+    },
+    aiEducation: {
+      label: '02',
+      title: 'AI & Education',
+      intro:
+        'Alongside product leadership, I build AI-native learning experiences that turn complex ideas into something people can actually use. AI Project Brain Lab is the clearest example: a course-led website that teaches how to turn AI from a clever tool into a serious project collaborator.',
+      featureKicker: 'Self-initiated education product',
+      featureTitle: 'AI Project Brain Lab',
+      featureMeta: 'Course concept · Landing page · AI collaboration framework',
+      featureDescription:
+        'I designed the full learning narrative, landing-page experience, and teaching structure behind a course about project intelligence, continuity, and context design.',
+      points: [
+        'Built the positioning, copy, and UX for a course-led website around AI and serious project work.',
+        'Translated a complex framework into a readable, conversion-focused learning experience.',
+        'Used the project itself as proof of how design, education, and AI can work together.',
+      ],
+      metrics: [
+        { value: '08', label: 'course chapters translated into the portfolio' },
+        { value: '05', label: 'core system layers taught through the concept' },
+        { value: '1', label: 'live prototype used as a teaching and positioning artifact' },
+      ],
+      problemTitle: 'The problem it responds to',
+      problemCards: [
+        {
+          title: 'Context disappears',
+          body: 'People keep rebuilding the same background instead of building momentum across sessions.',
+        },
+        {
+          title: 'Continuity breaks',
+          body: 'Good thinking gets lost between tools, notes, and decisions, which makes serious work hard to continue.',
+        },
+        {
+          title: 'Outputs stay shallow',
+          body: 'AI looks useful in isolated moments, but it often fails when a project becomes complex and long-running.',
+        },
+      ],
+      shiftTitle: 'The central shift',
+      shiftOld: {
+        title: 'Reactive AI use',
+        items: [
+          'Ask isolated questions',
+          'Hope the output fits',
+          'Repeat project context constantly',
+          'Lose clarity between sessions',
+        ],
+      },
+      shiftNew: {
+        title: 'Designed AI collaboration',
+        items: [
+          'Design context deliberately',
+          'Build continuity into the workflow',
+          'Separate evidence, status, and decisions clearly',
+          'Guide intelligence across time',
+        ],
+      },
+      roleTitle: 'The role behind the course',
+      roleBody:
+        'The course frames a new professional posture: the Project Intelligence Designer. Someone who turns messy, evolving project reality into a usable system of clarity, continuity, and action.',
+      roleCards: [
+        {
+          title: 'Protects focus',
+          body: 'Keeps important work from drifting into noise and repetition.',
+        },
+        {
+          title: 'Designs continuity',
+          body: 'Makes continuation possible without constant restart.',
+        },
+        {
+          title: 'Reduces friction',
+          body: 'Turns messy project reality into a system humans and AI can actually use.',
+        },
+      ],
+      audienceTitle: 'Who the content is built for',
+      audiencePoints: [
+        'Designers, strategists, researchers, and builders tired of shallow AI workflows.',
+        'People who want stronger outputs, not just faster outputs.',
+        'Teams working through moving parts, evolving decisions, and cross-functional complexity.',
+        'Anyone who wants AI inside the workflow, not beside it.',
+      ],
+      learnTitle: 'What the course teaches',
+      layers: [
+        {
+          name: 'CLAUDE.md',
+          description: 'Defines what the project is, why it matters, and the worldview guiding the work.',
+        },
+        {
+          name: 'PROJECT_STATUS.md',
+          description: 'Makes current state, progress, and next steps legible.',
+        },
+        {
+          name: 'EVIDENCE_PACK.md',
+          description: 'Separates proof, research, and grounded findings from loose opinion.',
+        },
+        {
+          name: 'ASSET_INVENTORY.md',
+          description: 'Tracks what already exists so work can build on real material instead of memory.',
+        },
+        {
+          name: 'WORKING_STYLE.md',
+          description: 'Clarifies collaboration preferences, tone, and execution standards.',
+        },
+      ],
+      phasesTitle: 'How the learning journey unfolds',
+      phases: [
+        {
+          title: 'Understand the shift',
+          body: 'Why most AI workflows stay shallow and why structure changes collaboration quality.',
+        },
+        {
+          title: 'See the system',
+          body: 'Learn the five-layer project brain and what each layer is responsible for.',
+        },
+        {
+          title: 'Apply it to real work',
+          body: 'Translate the framework into an actual project workflow with clearer continuity.',
+        },
+        {
+          title: 'Stress-test the method',
+          body: 'Use the model across evolving work instead of one-off prompts.',
+        },
+        {
+          title: 'Leave with a repeatable practice',
+          body: 'Turn the ideas into a system you can reuse immediately in your own projects.',
+        },
+      ],
+      proofTitle: 'Why this project matters',
+      proofCards: [
+        {
+          title: 'Before',
+          body: 'Context lived in too many places, decisions were easy to lose, and every session required rebuilding the same understanding.',
+        },
+        {
+          title: 'The system',
+          body: 'A clearer structure separated memory, status, evidence, assets, and collaboration guidance so the project could continue without reset.',
+        },
+        {
+          title: 'After',
+          body: 'Onboarding became faster, continuity improved, and AI support moved from shallow assistance toward real project collaboration.',
+        },
+      ],
+      outcomesTitle: 'What people leave with',
+      outcomes: [
+        'A practical system for structuring project context',
+        'A clearer way to preserve continuity across sessions',
+        'A method for separating evidence, status, and decisions',
+        'A future-facing mental model for working with AI at a higher level',
+      ],
+      primaryCta: 'See the full breakdown',
+      secondaryCta: 'Ask me about this work',
     },
     experience: {
       label: '03',
@@ -239,6 +441,7 @@ export const translations: Record<Locale, T> = {
     nav: {
       about: 'Om mig',
       work: 'Arbete',
+      aiEducation: 'AI & utbildning',
       experience: 'Erfarenhet',
       skills: 'Kompetens',
       contact: 'Kontakt',
@@ -249,7 +452,7 @@ export const translations: Record<Locale, T> = {
       title: 'Senior UX-ledare — bygger team som är redo för nästa steg.',
       tagline:
         '15+ år av att samla människor kring svåra problem.\nNu hjälper jag team att röra sig snabbare — och använder AI för att överbrygga klyftan mellan insikt och handling.',
-      cta1: 'Se arbetet',
+      cta1: 'Utforska AI & utbildning',
       cta2: 'LinkedIn ↗',
       location: '📍 Stor-Malmö, Sverige',
       currentRole: 'Just nu @ IKEA Global',
@@ -272,6 +475,155 @@ export const translations: Record<Locale, T> = {
       label: '02',
       title: 'Arbete',
       cta: 'Se case study',
+    },
+    aiEducation: {
+      label: '02',
+      title: 'AI & utbildning',
+      intro:
+        'Parallellt med produktledarskap bygger jag AI-native lärandeupplevelser som gör komplexa idéer användbara på riktigt. AI Project Brain Lab är det tydligaste exemplet: en kursdriven webbplats som lär ut hur AI kan gå från smart verktyg till seriös projektpartner.',
+      featureKicker: 'Självinitierad utbildningsprodukt',
+      featureTitle: 'AI Project Brain Lab',
+      featureMeta: 'Kurskoncept · Landningssida · Ramverk för AI-samarbete',
+      featureDescription:
+        'Jag designade hela lärandenarrativet, landningssideupplevelsen och undervisningsstrukturen bakom en kurs om projektintelligens, kontinuitet och design av kontext.',
+      points: [
+        'Byggde positionering, copy och UX för en kursdriven webbplats om AI och seriöst projektarbete.',
+        'Översatte ett komplext ramverk till en läsbar, konverteringsfokuserad lärandeupplevelse.',
+        'Använde projektet självt som bevis på hur design, utbildning och AI kan samverka.',
+      ],
+      metrics: [
+        { value: '08', label: 'kurskapitel översatta in i portfolion' },
+        { value: '05', label: 'kärnlager i systemet som lärs ut genom konceptet' },
+        { value: '1', label: 'live prototyp använd som undervisnings- och positioneringsartefakt' },
+      ],
+      problemTitle: 'Problemet projektet svarar på',
+      problemCards: [
+        {
+          title: 'Kontext försvinner',
+          body: 'Människor bygger om samma bakgrund om och om igen istället för att bygga momentum mellan sessioner.',
+        },
+        {
+          title: 'Kontinuiteten bryts',
+          body: 'Bra tänkande går förlorat mellan verktyg, anteckningar och beslut, vilket gör seriöst arbete svårt att fortsätta.',
+        },
+        {
+          title: 'Resultaten blir ytliga',
+          body: 'AI ser användbart ut i isolerade ögonblick, men faller ofta när projekt blir komplexa och långvariga.',
+        },
+      ],
+      shiftTitle: 'Den centrala förflyttningen',
+      shiftOld: {
+        title: 'Reaktiv AI-användning',
+        items: [
+          'Ställ isolerade frågor',
+          'Hoppas att svaret passar',
+          'Upprepa projektkontext konstant',
+          'Tappa tydlighet mellan sessioner',
+        ],
+      },
+      shiftNew: {
+        title: 'Designat AI-samarbete',
+        items: [
+          'Designa kontext medvetet',
+          'Bygg kontinuitet in i arbetsflödet',
+          'Separera evidens, status och beslut tydligt',
+          'Styr intelligens över tid',
+        ],
+      },
+      roleTitle: 'Rollen bakom kursen',
+      roleBody:
+        'Kursen ramar in ett nytt professionellt förhållningssätt: Project Intelligence Designer. Någon som gör rörlig, komplex projektrealitet till ett användbart system av tydlighet, kontinuitet och handling.',
+      roleCards: [
+        {
+          title: 'Skyddar fokus',
+          body: 'Håller viktigt arbete borta från brus och repetition.',
+        },
+        {
+          title: 'Designar kontinuitet',
+          body: 'Gör fortsättning möjlig utan ständig omstart.',
+        },
+        {
+          title: 'Minskar friktion',
+          body: 'Förvandlar stökig projektrealitet till ett system människor och AI faktiskt kan använda.',
+        },
+      ],
+      audienceTitle: 'Vem innehållet är byggt för',
+      audiencePoints: [
+        'Designers, strateger, researchers och builders som är trötta på ytliga AI-flöden.',
+        'Människor som vill ha starkare resultat, inte bara snabbare resultat.',
+        'Team som arbetar genom rörliga delar, föränderliga beslut och tvärfunktionell komplexitet.',
+        'Alla som vill ha AI inne i arbetsflödet, inte bredvid det.',
+      ],
+      learnTitle: 'Vad kursen lär ut',
+      layers: [
+        {
+          name: 'CLAUDE.md',
+          description: 'Definierar vad projektet är, varför det spelar roll och vilket perspektiv som styr arbetet.',
+        },
+        {
+          name: 'PROJECT_STATUS.md',
+          description: 'Gör nuläge, framdrift och nästa steg tydliga.',
+        },
+        {
+          name: 'EVIDENCE_PACK.md',
+          description: 'Håller isär bevis, research och grundade insikter från lösa åsikter.',
+        },
+        {
+          name: 'ASSET_INVENTORY.md',
+          description: 'Visar vad som redan finns så arbetet bygger på verkligt material istället för minne.',
+        },
+        {
+          name: 'WORKING_STYLE.md',
+          description: 'Klargör samarbetsstil, ton och kvalitetsnivå.',
+        },
+      ],
+      phasesTitle: 'Hur läranderesan utvecklas',
+      phases: [
+        {
+          title: 'Förstå skiftet',
+          body: 'Varför de flesta AI-flöden blir ytliga och varför struktur förändrar kvaliteten på samarbetet.',
+        },
+        {
+          title: 'Se systemet',
+          body: 'Lär dig project brain-modellen med fem lager och vad varje lager ansvarar för.',
+        },
+        {
+          title: 'Tillämpa i verkligt arbete',
+          body: 'Översätt ramverket till ett verkligt projektflöde med tydligare kontinuitet.',
+        },
+        {
+          title: 'Stress-testa metoden',
+          body: 'Använd modellen över tid istället för i enstaka prompts.',
+        },
+        {
+          title: 'Lämna med en repeterbar praktik',
+          body: 'Förvandla idéerna till ett system du kan återanvända direkt i egna projekt.',
+        },
+      ],
+      proofTitle: 'Varför projektet spelar roll',
+      proofCards: [
+        {
+          title: 'Före',
+          body: 'Kontext låg på för många platser, beslut var lätta att tappa bort och varje session krävde att samma förståelse byggdes upp igen.',
+        },
+        {
+          title: 'Systemet',
+          body: 'En tydligare struktur separerade minne, status, evidens, tillgångar och samarbetsguidning så projektet kunde fortsätta utan reset.',
+        },
+        {
+          title: 'Efter',
+          body: 'Onboarding gick snabbare, kontinuiteten blev starkare och AI-stödet rörde sig från ytlig assistans mot verkligt projektsamarbete.',
+        },
+      ],
+      outcomesTitle: 'Vad människor lämnar med',
+      outcomes: [
+        'Ett praktiskt system för att strukturera projektkontext',
+        'Ett tydligare sätt att bevara kontinuitet mellan sessioner',
+        'En metod för att separera evidens, status och beslut',
+        'En framtidsrelevant mental modell för att arbeta med AI på en högre nivå',
+      ],
+      primaryCta: 'Se hela genomgången',
+      secondaryCta: 'Fråga mig om det här arbetet',
     },
     experience: {
       label: '03',
@@ -387,6 +739,7 @@ export const translations: Record<Locale, T> = {
     nav: {
       about: 'Sobre mí',
       work: 'Trabajo',
+      aiEducation: 'IA y educación',
       experience: 'Experience',
       skills: 'Habilidades',
       contact: 'Contacto',
@@ -397,7 +750,7 @@ export const translations: Record<Locale, T> = {
       title: 'Líder Senior de UX — construyendo equipos listos para lo que viene.',
       tagline:
         'Más de 15 años reuniendo personas alrededor de problemas difíciles.\nAhora ayudo a equipos a moverse más rápido — usando IA para cerrar la brecha entre el insight y la acción.',
-      cta1: 'Ver el trabajo',
+      cta1: 'Explorar IA y educación',
       cta2: 'LinkedIn ↗',
       location: '📍 Gran Malmö, Suecia',
       currentRole: 'Actualmente en IKEA Global',
@@ -420,6 +773,155 @@ export const translations: Record<Locale, T> = {
       label: '02',
       title: 'Trabajo',
       cta: 'Ver caso de estudio',
+    },
+    aiEducation: {
+      label: '02',
+      title: 'IA y educación',
+      intro:
+        'Además del liderazgo de producto, construyo experiencias de aprendizaje nativas en IA que convierten ideas complejas en algo realmente utilizable. AI Project Brain Lab es el ejemplo más claro: un sitio guiado por curso que enseña cómo llevar la IA de herramienta ingeniosa a colaborador serio de proyecto.',
+      featureKicker: 'Producto educativo autoimpulsado',
+      featureTitle: 'AI Project Brain Lab',
+      featureMeta: 'Concepto de curso · Landing page · Marco de colaboración con IA',
+      featureDescription:
+        'Diseñé toda la narrativa de aprendizaje, la experiencia de landing page y la estructura pedagógica detrás de un curso sobre inteligencia de proyecto, continuidad y diseño de contexto.',
+      points: [
+        'Construí el posicionamiento, el copy y la UX de un sitio guiado por curso sobre IA y trabajo serio de proyecto.',
+        'Traduje un marco complejo en una experiencia de aprendizaje legible y orientada a conversión.',
+        'Usé el propio proyecto como prueba de cómo diseño, educación e IA pueden trabajar juntos.',
+      ],
+      metrics: [
+        { value: '08', label: 'capítulos del curso traducidos dentro del portfolio' },
+        { value: '05', label: 'capas centrales del sistema enseñadas a través del concepto' },
+        { value: '1', label: 'prototipo vivo usado como artefacto de enseñanza y posicionamiento' },
+      ],
+      problemTitle: 'El problema al que responde',
+      problemCards: [
+        {
+          title: 'El contexto desaparece',
+          body: 'La gente vuelve a construir el mismo trasfondo una y otra vez en lugar de ganar impulso entre sesiones.',
+        },
+        {
+          title: 'La continuidad se rompe',
+          body: 'El buen pensamiento se pierde entre herramientas, notas y decisiones, y eso hace difícil continuar trabajo serio.',
+        },
+        {
+          title: 'Los outputs siguen siendo superficiales',
+          body: 'La IA parece útil en momentos aislados, pero suele fallar cuando el proyecto se vuelve complejo y de largo recorrido.',
+        },
+      ],
+      shiftTitle: 'El cambio central',
+      shiftOld: {
+        title: 'Uso reactivo de IA',
+        items: [
+          'Hacer preguntas aisladas',
+          'Esperar que la respuesta encaje',
+          'Repetir el contexto del proyecto constantemente',
+          'Perder claridad entre sesiones',
+        ],
+      },
+      shiftNew: {
+        title: 'Colaboración con IA diseñada',
+        items: [
+          'Diseñar el contexto deliberadamente',
+          'Construir continuidad dentro del flujo de trabajo',
+          'Separar evidencia, estado y decisiones con claridad',
+          'Guiar la inteligencia a lo largo del tiempo',
+        ],
+      },
+      roleTitle: 'El rol detrás del curso',
+      roleBody:
+        'El curso enmarca una nueva postura profesional: el Project Intelligence Designer. Alguien que convierte la realidad cambiante y desordenada de un proyecto en un sistema utilizable de claridad, continuidad y acción.',
+      roleCards: [
+        {
+          title: 'Protege el foco',
+          body: 'Evita que el trabajo importante se pierda en ruido y repetición.',
+        },
+        {
+          title: 'Diseña continuidad',
+          body: 'Hace posible continuar sin reinicios constantes.',
+        },
+        {
+          title: 'Reduce fricción',
+          body: 'Convierte la realidad desordenada del proyecto en un sistema que humanos e IA realmente pueden usar.',
+        },
+      ],
+      audienceTitle: 'Para quién está construido el contenido',
+      audiencePoints: [
+        'Diseñadores, estrategas, investigadores y builders cansados de flujos de IA superficiales.',
+        'Personas que quieren mejores outputs, no solo outputs más rápidos.',
+        'Equipos que trabajan con muchas piezas móviles, decisiones cambiantes y complejidad interfuncional.',
+        'Cualquiera que quiera la IA dentro del flujo de trabajo y no al lado.',
+      ],
+      learnTitle: 'Qué enseña el curso',
+      layers: [
+        {
+          name: 'CLAUDE.md',
+          description: 'Define qué es el proyecto, por qué importa y cuál es la visión que guía el trabajo.',
+        },
+        {
+          name: 'PROJECT_STATUS.md',
+          description: 'Hace visible el estado actual, el avance y los siguientes pasos.',
+        },
+        {
+          name: 'EVIDENCE_PACK.md',
+          description: 'Separa prueba, investigación y hallazgos sólidos de la opinión suelta.',
+        },
+        {
+          name: 'ASSET_INVENTORY.md',
+          description: 'Muestra qué existe ya para que el trabajo avance sobre material real y no sobre memoria.',
+        },
+        {
+          name: 'WORKING_STYLE.md',
+          description: 'Aclara preferencias de colaboración, tono y estándares de ejecución.',
+        },
+      ],
+      phasesTitle: 'Cómo se desarrolla el recorrido de aprendizaje',
+      phases: [
+        {
+          title: 'Entender el cambio',
+          body: 'Por qué la mayoría de los flujos con IA se quedan superficiales y por qué la estructura cambia la calidad de la colaboración.',
+        },
+        {
+          title: 'Ver el sistema',
+          body: 'Aprender el project brain de cinco capas y la responsabilidad de cada una.',
+        },
+        {
+          title: 'Aplicarlo a trabajo real',
+          body: 'Traducir el marco a un flujo de proyecto real con continuidad más clara.',
+        },
+        {
+          title: 'Poner a prueba el método',
+          body: 'Usar el modelo a través de trabajo evolutivo en lugar de prompts aislados.',
+        },
+        {
+          title: 'Salir con una práctica repetible',
+          body: 'Convertir las ideas en un sistema reutilizable de inmediato en proyectos propios.',
+        },
+      ],
+      proofTitle: 'Por qué este proyecto importa',
+      proofCards: [
+        {
+          title: 'Antes',
+          body: 'El contexto vivía en demasiados lugares, las decisiones eran fáciles de perder y cada sesión exigía reconstruir la misma comprensión.',
+        },
+        {
+          title: 'El sistema',
+          body: 'Una estructura más clara separó memoria, estado, evidencia, assets y guía de colaboración para que el proyecto pudiera continuar sin reinicio.',
+        },
+        {
+          title: 'Después',
+          body: 'El onboarding se volvió más rápido, la continuidad mejoró y el apoyo de IA pasó de asistencia superficial a colaboración real de proyecto.',
+        },
+      ],
+      outcomesTitle: 'Con qué sale la gente',
+      outcomes: [
+        'Un sistema práctico para estructurar contexto de proyecto',
+        'Una manera más clara de preservar continuidad entre sesiones',
+        'Un método para separar evidencia, estado y decisiones',
+        'Un modelo mental orientado al futuro para trabajar con IA a un nivel más alto',
+      ],
+      primaryCta: 'Ver el desglose completo',
+      secondaryCta: 'Pregúntame por este trabajo',
     },
     experience: {
       label: '03',

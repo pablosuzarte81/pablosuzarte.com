@@ -1,9 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro'
 import type { T, Locale } from '../i18n/translations'
-import { projects } from '../data/projects'
-import { Image } from 'astro:assets'
-import profilePhoto from '../assets/pablo_profile_photo.png'
 
 interface Props {
   t: T
@@ -32,7 +29,7 @@ const styleLabel = {
       <a href="#hero" class="nav-logo">PS</a>
       <ul class="nav-links">
         <li><a href="#about">{t.nav.about}</a></li>
-        <li><a href="#work">{t.nav.work}</a></li>
+        <li><a href="#ai-education">{t.nav.aiEducation}</a></li>
         <li><a href="#experience">{t.nav.experience}</a></li>
         <li><a href="#skills">{t.nav.skills}</a></li>
         <li><a href="#contact">{t.nav.contact}</a></li>
@@ -84,7 +81,7 @@ const styleLabel = {
           }
         </p>
         <div class="hero-ctas">
-          <a href="#work" class="btn-primary">{t.hero.cta1}</a>
+          <a href="#ai-education" class="btn-primary">{t.hero.cta1}</a>
           <a
             href="https://www.linkedin.com/in/pablosuzarte/"
             target="_blank"
@@ -102,14 +99,7 @@ const styleLabel = {
       </div>
       <div class="hero-right">
         <div class="hero-photo-wrap">
-          <Image
-            src={profilePhoto}
-            alt="Pablo Suzarte"
-            class="hero-photo"
-            format="webp"
-            quality={85}
-            loading="eager"
-          />
+          <img src="/pablo_profile_photo.png" alt="Pablo Suzarte" class="hero-photo" loading="eager" />
         </div>
       </div>
     </div>
@@ -149,50 +139,46 @@ const styleLabel = {
     </div>
   </section>
 
-  <!-- WORK -->
-  <section id="work" class="section section-alt">
-    <div class="container">
-      <div class="section-label centered">
-        <span class="label-num">{t.work.label}</span>
-        <h2 class="section-title">{t.work.title}</h2>
+  <!-- AI & EDUCATION -->
+  <section id="ai-education" class="section section-alt">
+    <div class="container section-grid">
+      <div class="section-label">
+        <span class="label-num">{t.aiEducation.label}</span>
+        <h2 class="section-title">{t.aiEducation.title}</h2>
         <div class="accent-line"></div>
       </div>
-      <div class:list={['work-grid', { 'work-grid--single': projects.filter((p) => p.showInWork !== false).length === 1 }]}>
-        {
-          projects.filter((p) => p.showInWork !== false).map((project) => (
-            <a href={project.workCardUrl ?? `/projects/${project.slug}`} class="project-card">
-              <div class="project-card-cover">
-                {project.coverImage ? (
-                  <img
-                    src={project.coverImage}
-                    alt={project.title}
-                    loading="lazy"
-                    class="project-card-img"
-                  />
-                ) : (
-                  <div class="project-card-placeholder">
-                    <span class="project-card-placeholder-title">{project.title}</span>
-                  </div>
-                )}
-              </div>
-              <div class="project-card-body">
-                <p class="project-card-meta">
-                  {project.company} · {project.role}
-                </p>
-                <h3 class="project-card-title">{project.title}</h3>
-                <p class="project-card-tagline">{project.tagline}</p>
-                <div class="project-card-metrics">
-                  {project.heroMetrics.slice(0, 3).map((m) => (
-                    <span class="project-metric-badge">
-                      <strong>{m.value}</strong> {m.label}
-                    </span>
-                  ))}
+      <div class="section-body ai-education-body">
+        <p class="ai-intro">{t.aiEducation.intro}</p>
+        <div class="ai-feature">
+          <a href="/ai-project-brain-lab" class="ai-feature-main ai-feature-link">
+            <p class="project-card-meta">{t.aiEducation.featureKicker}</p>
+            <h3 class="ai-feature-title">{t.aiEducation.featureTitle}</h3>
+            <p class="ai-feature-meta">{t.aiEducation.featureMeta}</p>
+            <p class="ai-feature-description">{t.aiEducation.featureDescription}</p>
+            <ul class="ai-point-list">
+              {t.aiEducation.points.map((point) => <li>{point}</li>)}
+            </ul>
+            <div class="ai-feature-actions">
+              <span class="btn-primary">{t.aiEducation.primaryCta}</span>
+              <span class="btn-secondary">{t.aiEducation.secondaryCta}</span>
+            </div>
+          </a>
+          <aside class="ai-feature-side">
+            <div class="ai-metrics">
+              {t.aiEducation.metrics.map((metric) => (
+                <div class="ai-metric-card">
+                  <strong>{metric.value}</strong>
+                  <span>{metric.label}</span>
                 </div>
-                <span class="project-card-cta">{t.work.cta}<span class="cta-arrow" aria-hidden="true">→</span></span>
-              </div>
-            </a>
-          ))
-        }
+              ))}
+            </div>
+          </aside>
+        </div>
+        <div class="ai-feature-footer">
+          <a href="/ai-project-brain-lab" class="project-card-cta">
+            {t.work.cta}<span class="cta-arrow" aria-hidden="true">→</span>
+          </a>
+        </div>
       </div>
     </div>
   </section>
@@ -400,7 +386,7 @@ const styleLabel = {
       const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
       if (!prefersReduced) {
         const revealEls = document.querySelectorAll(
-          '.section-label, .section-body, .timeline-item, .skill-pill, .badge, .project-card, .contact-inner > *'
+          '.section-label, .section-body, .timeline-item, .skill-pill, .badge, .project-card, .ai-feature-main, .ai-feature-side, .ai-metric-card, .contact-inner > *'
         )
 
         revealEls.forEach((el, i) => {
@@ -1284,6 +1270,154 @@ const styleLabel = {
     transform: translateX(5px);
   }
 
+  /* ── AI & EDUCATION ── */
+  .ai-education-body {
+    gap: 2rem;
+  }
+
+  .ai-intro {
+    max-width: 64ch;
+    color: var(--muted-light);
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  .ai-feature {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+    gap: 1.25rem;
+    align-items: start;
+  }
+
+  .ai-feature-main,
+  .ai-feature-side {
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: none;
+  }
+
+  .ai-feature-link {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+    transition:
+      border-color 0.25s ease,
+      transform 0.25s ease,
+      box-shadow 0.25s ease;
+  }
+
+  .ai-feature-link:hover {
+    border-color: var(--accent);
+    transform: translateY(-4px);
+    box-shadow:
+      0 16px 48px rgba(0, 0, 0, 0.3),
+      0 0 0 1px var(--accent-dim),
+      0 0 24px var(--accent-glow);
+  }
+
+  .ai-feature-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-top: 0.35rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .ai-feature-meta {
+    font-size: 0.75rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 1rem;
+  }
+
+  .ai-feature-description {
+    color: var(--muted-light);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 1.25rem;
+  }
+
+  .ai-point-list,
+  .ai-deliverable-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+  }
+
+  .ai-point-list li,
+  .ai-deliverable-list li {
+    position: relative;
+    padding-left: 1rem;
+    color: var(--muted-light);
+    font-size: 0.95rem;
+    line-height: 1.65;
+  }
+
+  .ai-point-list li::before,
+  .ai-deliverable-list li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    top: 0.1rem;
+    color: var(--accent);
+    font-size: 0.72rem;
+  }
+
+  .ai-feature-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.9rem;
+    margin-top: 1.5rem;
+  }
+
+  .ai-feature-actions .btn-primary,
+  .ai-feature-actions .btn-secondary {
+    pointer-events: none;
+  }
+
+  .ai-feature-side {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background: var(--surface);
+  }
+
+  .ai-metrics {
+    display: grid;
+    gap: 0.85rem;
+  }
+
+  .ai-metric-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    padding: 1rem 1.1rem;
+    background: rgba(8, 8, 15, 0.28);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+  }
+
+  .ai-metric-card strong {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--accent);
+  }
+
+  .ai-metric-card span {
+    color: var(--muted-light);
+    font-size: 0.88rem;
+    line-height: 1.5;
+  }
+
+  .ai-feature-footer {
+    display: flex;
+    justify-content: flex-start;
+  }
+
   /* ── CONTACT ── */
   .contact-section {
     background: var(--surface);
@@ -1352,6 +1486,15 @@ const styleLabel = {
   :global(html[data-style='brutalist']) .hero-meta,
   :global(html[data-style='brutalist']) .section-body p,
   :global(html[data-style='brutalist']) .project-card-tagline,
+  :global(html[data-style='brutalist']) .ai-feature-description,
+  :global(html[data-style='brutalist']) .ai-point-list li,
+  :global(html[data-style='brutalist']) .ai-deliverable-list li,
+  :global(html[data-style='brutalist']) .ai-detail-card p,
+  :global(html[data-style='brutalist']) .ai-role-lead p,
+  :global(html[data-style='brutalist']) .ai-layer-card p,
+  :global(html[data-style='brutalist']) .ai-phase-card p,
+  :global(html[data-style='brutalist']) .ai-check-item p,
+  :global(html[data-style='brutalist']) .ai-metric-card span,
   :global(html[data-style='brutalist']) .job-highlights li,
   :global(html[data-style='brutalist']) .contact-sub,
   :global(html[data-style='brutalist']) .footer-inner {
@@ -1364,6 +1507,15 @@ const styleLabel = {
   :global(html[data-style='brutalist']) .timeline-card,
   :global(html[data-style='brutalist']) .skill-pill,
   :global(html[data-style='brutalist']) .project-card,
+  :global(html[data-style='brutalist']) .ai-feature-main,
+  :global(html[data-style='brutalist']) .ai-feature-side,
+  :global(html[data-style='brutalist']) .ai-detail-card,
+  :global(html[data-style='brutalist']) .ai-role-lead,
+  :global(html[data-style='brutalist']) .ai-layer-card,
+  :global(html[data-style='brutalist']) .ai-phase-card,
+  :global(html[data-style='brutalist']) .ai-check-item,
+  :global(html[data-style='brutalist']) .ai-outcomes,
+  :global(html[data-style='brutalist']) .ai-metric-card,
   :global(html[data-style='brutalist']) .btn-secondary {
     background: #fff;
     border: 3px solid #111;
@@ -1405,6 +1557,10 @@ const styleLabel = {
   :global(html[data-style='brutalist']) .hero-title,
   :global(html[data-style='brutalist']) .section-title,
   :global(html[data-style='brutalist']) .contact-heading,
+  :global(html[data-style='brutalist']) .ai-feature-title,
+  :global(html[data-style='brutalist']) .ai-subsection-title,
+  :global(html[data-style='brutalist']) .ai-detail-card h4,
+  :global(html[data-style='brutalist']) .ai-phase-card h4,
   :global(html[data-style='brutalist']) .project-card-title {
     color: #111;
     font-family: var(--font-sans);
@@ -1416,6 +1572,10 @@ const styleLabel = {
   :global(html[data-style='brutalist']) .hero-greeting,
   :global(html[data-style='brutalist']) .label-num,
   :global(html[data-style='brutalist']) .project-card-meta,
+  :global(html[data-style='brutalist']) .ai-side-title,
+  :global(html[data-style='brutalist']) .ai-phase-step,
+  :global(html[data-style='brutalist']) .ai-check-item span,
+  :global(html[data-style='brutalist']) .ai-metric-card strong,
   :global(html[data-style='brutalist']) .job-role,
   :global(html[data-style='brutalist']) .project-card-cta,
   :global(html[data-style='brutalist']) .project-metric-badge strong {
@@ -1609,6 +1769,18 @@ const styleLabel = {
       grid-template-columns: 1fr;
     }
 
+    .ai-feature {
+      grid-template-columns: 1fr;
+    }
+
+    .ai-card-grid,
+    .ai-card-grid--compact,
+    .ai-layer-grid,
+    .ai-comparison,
+    .ai-role-panel {
+      grid-template-columns: 1fr;
+    }
+
     .nav-links {
       gap: 1rem;
     }
@@ -1623,6 +1795,10 @@ const styleLabel = {
   @media (max-width: 640px) {
     .nav-links {
       display: none;
+    }
+
+    .container {
+      padding: 0 1.25rem;
     }
 
     .nav-controls {
@@ -1640,6 +1816,22 @@ const styleLabel = {
 
     .style-toggle {
       padding: 0.4rem 0.55rem;
+    }
+
+    .ai-feature-main,
+    .ai-feature-side,
+    .ai-detail-card,
+    .ai-role-lead,
+    .ai-layer-card,
+    .ai-phase-card,
+    .ai-check-item,
+    .ai-outcomes {
+      padding: 1rem;
+    }
+
+    .ai-phase-card {
+      grid-template-columns: 44px 1fr;
+      gap: 0.75rem;
     }
   }
 </style>
