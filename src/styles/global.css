@@ -180,6 +180,91 @@ html[data-style='retro'] {
   --font-display: 'Georgia', serif;
 }
 
+html[data-style='ikea'] {
+  --bg: #003399;
+  --surface: #004ab3;
+  --surface-2: #0055cc;
+  --surface-3: #0060e0;
+  --border: rgba(255, 218, 0, 0.25);
+  --accent: #ffda00;
+  --accent-strong: #ffe640;
+  --accent-soft: rgba(255, 218, 0, 0.12);
+  --text: #ffffff;
+  --muted: #99bbee;
+  --muted-light: #bbddff;
+  --shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+  --font-sans: 'Manrope', system-ui, sans-serif;
+  --font-display: 'Manrope', system-ui, sans-serif;
+}
+
+html[data-style='win95'] {
+  --bg: #008080;
+  --surface: #c0c0c0;
+  --surface-2: #d4d0c8;
+  --surface-3: #ffffff;
+  --border: #808080;
+  --accent: #000080;
+  --accent-strong: #0000aa;
+  --accent-soft: rgba(0, 0, 128, 0.08);
+  --text: #000000;
+  --muted: #444444;
+  --muted-light: #666666;
+  --shadow: 2px 2px 0 #808080;
+  --font-sans: 'Courier New', 'MS Sans Serif', monospace;
+  --font-display: 'Courier New', monospace;
+}
+
+html[data-style='spotify'] {
+  --bg: #121212;
+  --surface: #181818;
+  --surface-2: #282828;
+  --surface-3: #333333;
+  --border: rgba(30, 215, 96, 0.15);
+  --accent: #1ed760;
+  --accent-strong: #1db954;
+  --accent-soft: rgba(30, 215, 96, 0.08);
+  --text: #ffffff;
+  --muted: #a7a7a7;
+  --muted-light: #b3b3b3;
+  --shadow: 0 18px 60px rgba(0, 0, 0, 0.5);
+  --font-sans: 'Manrope', system-ui, sans-serif;
+  --font-display: 'Manrope', system-ui, sans-serif;
+}
+
+html[data-style='netflix'] {
+  --bg: #141414;
+  --surface: #1a1a1a;
+  --surface-2: #222222;
+  --surface-3: #2a2a2a;
+  --border: rgba(229, 9, 20, 0.2);
+  --accent: #e50914;
+  --accent-strong: #ff1a25;
+  --accent-soft: rgba(229, 9, 20, 0.08);
+  --text: #ffffff;
+  --muted: #808080;
+  --muted-light: #999999;
+  --shadow: 0 18px 60px rgba(0, 0, 0, 0.5);
+  --font-sans: 'Manrope', system-ui, sans-serif;
+  --font-display: 'Manrope', system-ui, sans-serif;
+}
+
+html[data-style='terminal'] {
+  --bg: #1a1100;
+  --surface: #221800;
+  --surface-2: #2a1e00;
+  --surface-3: #332600;
+  --border: rgba(255, 176, 0, 0.15);
+  --accent: #ffb000;
+  --accent-strong: #ffc533;
+  --accent-soft: rgba(255, 176, 0, 0.08);
+  --text: #ffb000;
+  --muted: #996a00;
+  --muted-light: #cc8e00;
+  --shadow: 0 0 20px rgba(255, 176, 0, 0.08);
+  --font-sans: 'Courier New', monospace;
+  --font-display: 'Courier New', monospace;
+}
+
 html[data-style='inverted'] {
   --bg: #f8f8f8;
   --surface: #eaeaea;
@@ -284,6 +369,28 @@ html[data-style='sunset'] body {
 
 html[data-style='retro'] body {
   background: linear-gradient(180deg, #3a2814 0%, var(--bg) 100%);
+}
+
+html[data-style='ikea'] body {
+  background: linear-gradient(180deg, #004ab3 0%, var(--bg) 100%);
+}
+
+html[data-style='win95'] body {
+  background: var(--bg);
+}
+
+html[data-style='spotify'] body {
+  background: #121212;
+}
+
+html[data-style='netflix'] body {
+  background:
+    radial-gradient(circle at 50% 0%, rgba(229, 9, 20, 0.08), transparent 30%),
+    #141414;
+}
+
+html[data-style='terminal'] body {
+  background: #1a1100;
 }
 
 html[data-style='inverted'] body {
