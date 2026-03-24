@@ -39,6 +39,7 @@ export interface T {
     about: string
     work: string
     aiEducation: string
+    aiMindset: string
     experience: string
     skills: string
     contact: string
@@ -84,6 +85,22 @@ export interface T {
   work: {
     label: string
     title: string
+    cta: string
+  }
+  aiMindset: {
+    label: string
+    title: string
+    intro: string
+    approach: string
+    approachBody: string
+    toolkit: { name: string; use: string }[]
+    principlesTitle: string
+    principles: { name: string; desc: string }[]
+    parallelsTitle: string
+    parallels: { sd: string; pi: string }[]
+    visionTitle: string
+    visionBody: string
+    visionPoints: string[]
     cta: string
   }
   aiEducation: {
@@ -165,6 +182,7 @@ export const translations: Record<Locale, T> = {
       about: 'About',
       work: 'Work',
       aiEducation: 'AI & Education',
+      aiMindset: 'AI Mindset',
       experience: 'Experience',
       skills: 'Skills',
       contact: 'Contact',
@@ -218,6 +236,49 @@ export const translations: Record<Locale, T> = {
       label: '02',
       title: 'Work',
       cta: 'View case study',
+    },
+    aiMindset: {
+      label: '02',
+      title: 'AI Mindset',
+      intro:
+        'AI removed the tech bottleneck. The new challenge is designing how humans and AI think together. That is a service design problem — and I have been solving it for 15 years.',
+      approach: 'How I work with AI',
+      approachBody:
+        'I do not just use AI tools — I design the collaboration. I set up project intelligence structures: shared memory files, decision logs, collaboration norms, and evidence systems that let humans and AI agents produce their best work together.',
+      toolkit: [
+        { name: 'Claude & Claude Code', use: 'Deep reasoning, complex orchestration, building full applications from intent' },
+        { name: 'ChatGPT & Codex', use: 'Rapid prototyping, code generation, conversational exploration' },
+        { name: 'Gemini', use: 'Multi-modal research, large context analysis, cross-referencing sources' },
+        { name: 'Project Intelligence Setup', use: 'Configuring MD files, agent roles, shared memory, and reusable workflows for complex multi-step projects' },
+      ],
+      principlesTitle: 'Project Intelligence Principles',
+      principles: [
+        { name: 'Shared memory', desc: 'AI needs a clear understanding of what the project is, why it matters, and what must not be misunderstood.' },
+        { name: 'Current orientation', desc: 'A visible sense of where things stand: what is agreed, what is open, what is next.' },
+        { name: 'Evidence discipline', desc: 'Ideas grounded in visible evidence, not mixed with assumptions or storytelling.' },
+        { name: 'Asset awareness', desc: 'Both humans and AI know what materials exist so work stays grounded in reality.' },
+        { name: 'Collaboration clarity', desc: 'Knowing how to work together well, not just what the project is about.' },
+        { name: 'Decision continuity', desc: 'Decisions and their reasoning preserved so the team does not restart the same thinking.' },
+        { name: 'Role clarity', desc: 'Every collaborator — human or AI — has a clear role and responsibility.' },
+        { name: 'Reusable patterns', desc: 'Workflows and methods that work well are saved, refined, and reused.' },
+      ],
+      parallelsTitle: 'Same skill. New material.',
+      parallels: [
+        { sd: 'Service design makes complex experiences understandable.', pi: 'Project intelligence makes complex projects understandable.' },
+        { sd: 'Service design connects research, stakeholders, and journeys.', pi: 'Project intelligence connects evidence, decisions, and collaboration.' },
+        { sd: 'Service design reduces friction in services.', pi: 'Project intelligence reduces friction in how projects think and move.' },
+        { sd: 'Service design designs better conditions for users.', pi: 'Project intelligence designs better conditions for teams and AI.' },
+      ],
+      visionTitle: 'What I want to build next',
+      visionBody:
+        'I want to help organisations activate AI as a team superpower — not by replacing people, but by designing environments where every co-worker can use AI to learn faster, solve harder problems, and enjoy their work more.',
+      visionPoints: [
+        'Set up AI workflows tailored to your teams — not generic, human-centred',
+        'Mentor individuals and teams on how to think with AI, not just prompt it',
+        'Build project intelligence structures that scale across organisations',
+        'Help leadership understand the real potential — and the real conditions for it to work',
+      ],
+      cta: 'Let\u2019s talk about what\u2019s possible',
     },
     aiEducation: {
       label: '02',
@@ -491,6 +552,7 @@ export const translations: Record<Locale, T> = {
       about: 'Om mig',
       work: 'Arbete',
       aiEducation: 'AI & utbildning',
+      aiMindset: 'AI-tänk',
       experience: 'Erfarenhet',
       skills: 'Kompetens',
       contact: 'Kontakt',
@@ -544,6 +606,49 @@ export const translations: Record<Locale, T> = {
       label: '02',
       title: 'Arbete',
       cta: 'Se case study',
+    },
+    aiMindset: {
+      label: '02',
+      title: 'AI-tänk',
+      intro:
+        'AI har tagit bort den tekniska flaskhalsen. Den nya utmaningen är att designa hur människor och AI tänker tillsammans. Det är ett tjänstedesignproblem — och jag har löst det i 15 år.',
+      approach: 'Hur jag arbetar med AI',
+      approachBody:
+        'Jag använder inte bara AI-verktyg — jag designar samarbetet. Jag sätter upp projektintelligensstrukturer: delat minne, beslutsloggar, samarbetsnormer och evidenssystem som låter människor och AI-agenter producera sitt bästa arbete tillsammans.',
+      toolkit: [
+        { name: 'Claude & Claude Code', use: 'Djup resonering, komplex orkestrering, bygga hela applikationer från intention' },
+        { name: 'ChatGPT & Codex', use: 'Snabb prototyping, kodgenerering, utforskande samtal' },
+        { name: 'Gemini', use: 'Multimodal research, stor kontextanalys, korskontroll av källor' },
+        { name: 'Projektintelligens-setup', use: 'Konfigurera MD-filer, agentroller, delat minne och återanvändbara arbetsflöden för komplexa projekt' },
+      ],
+      principlesTitle: 'Principer för projektintelligens',
+      principles: [
+        { name: 'Delat minne', desc: 'AI behöver en tydlig förståelse för vad projektet är, varför det spelar roll och vad som inte får missförstås.' },
+        { name: 'Nulägesorientering', desc: 'En synlig känsla för var saker står: vad som är överenskommet, vad som är öppet, vad som är nästa steg.' },
+        { name: 'Evidensdisciplin', desc: 'Idéer grundade i synlig evidens, inte blandade med antaganden eller storytelling.' },
+        { name: 'Tillgångsmedvetenhet', desc: 'Både människor och AI vet vilka material som finns så arbetet förblir förankrat.' },
+        { name: 'Samarbetsklarhet', desc: 'Att veta hur man arbetar bra tillsammans, inte bara vad projektet handlar om.' },
+        { name: 'Beslutskontinuitet', desc: 'Beslut och deras resonemang bevaras så att teamet inte startar om samma tänkande.' },
+        { name: 'Rollklarhet', desc: 'Varje medarbetare — människa eller AI — har en tydlig roll och ansvar.' },
+        { name: 'Återanvändbara mönster', desc: 'Arbetsflöden och metoder som fungerar sparas, förfinas och återanvänds.' },
+      ],
+      parallelsTitle: 'Samma kompetens. Nytt material.',
+      parallels: [
+        { sd: 'Tjänstedesign gör komplexa upplevelser begripliga.', pi: 'Projektintelligens gör komplexa projekt begripliga.' },
+        { sd: 'Tjänstedesign kopplar research, intressenter och kundresor.', pi: 'Projektintelligens kopplar evidens, beslut och samarbete.' },
+        { sd: 'Tjänstedesign minskar friktion i tjänster.', pi: 'Projektintelligens minskar friktion i hur projekt tänker och rör sig.' },
+        { sd: 'Tjänstedesign designar bättre förutsättningar för användare.', pi: 'Projektintelligens designar bättre förutsättningar för team och AI.' },
+      ],
+      visionTitle: 'Vad jag vill bygga härnäst',
+      visionBody:
+        'Jag vill hjälpa organisationer att aktivera AI som en superkraft för team — inte genom att ersätta människor, utan genom att designa miljöer där varje medarbetare kan använda AI för att lära snabbare, lösa svårare problem och trivas mer.',
+      visionPoints: [
+        'Sätta upp AI-arbetsflöden anpassade för era team — inte generiska, utan mänskligt centrerade',
+        'Mentorskap för individer och team i hur man tänker med AI, inte bara promptar',
+        'Bygga projektintelligensstrukturer som skalas över organisationer',
+        'Hjälpa ledningen förstå den verkliga potentialen — och de verkliga förutsättningarna för att det ska fungera',
+      ],
+      cta: 'Låt oss prata om vad som är möjligt',
     },
     aiEducation: {
       label: '02',
@@ -817,6 +922,7 @@ export const translations: Record<Locale, T> = {
       about: 'Sobre mí',
       work: 'Trabajo',
       aiEducation: 'IA y educación',
+      aiMindset: 'Mentalidad IA',
       experience: 'Experience',
       skills: 'Habilidades',
       contact: 'Contacto',
@@ -870,6 +976,49 @@ export const translations: Record<Locale, T> = {
       label: '02',
       title: 'Trabajo',
       cta: 'Ver caso de estudio',
+    },
+    aiMindset: {
+      label: '02',
+      title: 'Mentalidad IA',
+      intro:
+        'La IA eliminó el cuello de botella técnico. El nuevo desafío es diseñar cómo humanos e IA piensan juntos. Eso es un problema de diseño de servicios — y llevo 15 años resolviéndolo.',
+      approach: 'Cómo trabajo con IA',
+      approachBody:
+        'No solo uso herramientas de IA — diseño la colaboración. Configuro estructuras de inteligencia de proyecto: memoria compartida, registros de decisiones, normas de colaboración y sistemas de evidencia que permiten que humanos y agentes de IA produzcan su mejor trabajo juntos.',
+      toolkit: [
+        { name: 'Claude & Claude Code', use: 'Razonamiento profundo, orquestación compleja, construir aplicaciones completas desde la intención' },
+        { name: 'ChatGPT & Codex', use: 'Prototipado rápido, generación de código, exploración conversacional' },
+        { name: 'Gemini', use: 'Investigación multimodal, análisis de contexto amplio, referencias cruzadas' },
+        { name: 'Setup de inteligencia de proyecto', use: 'Configurar archivos MD, roles de agentes, memoria compartida y flujos reutilizables para proyectos complejos' },
+      ],
+      principlesTitle: 'Principios de inteligencia de proyecto',
+      principles: [
+        { name: 'Memoria compartida', desc: 'La IA necesita una comprensión clara de qué es el proyecto, por qué importa y qué no debe malinterpretarse.' },
+        { name: 'Orientación actual', desc: 'Una sensación visible de dónde están las cosas: qué está acordado, qué está abierto, cuál es el siguiente paso.' },
+        { name: 'Disciplina de evidencia', desc: 'Ideas fundamentadas en evidencia visible, no mezcladas con suposiciones o storytelling.' },
+        { name: 'Conciencia de activos', desc: 'Tanto humanos como IA saben qué materiales existen para que el trabajo se mantenga anclado.' },
+        { name: 'Claridad colaborativa', desc: 'Saber cómo trabajar bien juntos, no solo de qué trata el proyecto.' },
+        { name: 'Continuidad de decisiones', desc: 'Las decisiones y su razonamiento se preservan para no reiniciar el mismo pensamiento.' },
+        { name: 'Claridad de roles', desc: 'Cada colaborador — humano o IA — tiene un rol y responsabilidad claros.' },
+        { name: 'Patrones reutilizables', desc: 'Los flujos y métodos que funcionan se guardan, refinan y reutilizan.' },
+      ],
+      parallelsTitle: 'Misma habilidad. Nuevo material.',
+      parallels: [
+        { sd: 'El diseño de servicios hace comprensibles las experiencias complejas.', pi: 'La inteligencia de proyecto hace comprensibles los proyectos complejos.' },
+        { sd: 'El diseño de servicios conecta investigación, stakeholders y journeys.', pi: 'La inteligencia de proyecto conecta evidencia, decisiones y colaboración.' },
+        { sd: 'El diseño de servicios reduce la fricción en servicios.', pi: 'La inteligencia de proyecto reduce la fricción en cómo los proyectos piensan y avanzan.' },
+        { sd: 'El diseño de servicios diseña mejores condiciones para usuarios.', pi: 'La inteligencia de proyecto diseña mejores condiciones para equipos e IA.' },
+      ],
+      visionTitle: 'Lo que quiero construir a continuación',
+      visionBody:
+        'Quiero ayudar a las organizaciones a activar la IA como un superpoder de equipo — no reemplazando personas, sino diseñando entornos donde cada colaborador pueda usar IA para aprender más rápido, resolver problemas más difíciles y disfrutar más de su trabajo.',
+      visionPoints: [
+        'Configurar flujos de trabajo con IA adaptados a tus equipos — no genéricos, centrados en personas',
+        'Mentoría para individuos y equipos en cómo pensar con IA, no solo hacer prompts',
+        'Construir estructuras de inteligencia de proyecto que escalen en organizaciones',
+        'Ayudar al liderazgo a entender el potencial real — y las condiciones reales para que funcione',
+      ],
+      cta: 'Hablemos de lo que es posible',
     },
     aiEducation: {
       label: '02',

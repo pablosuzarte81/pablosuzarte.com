@@ -30,6 +30,7 @@ const styleLabel = {
       <a href="#hero" class="nav-logo">PS</a>
       <ul class="nav-links">
         <li><a href="#about">{t.nav.about}</a></li>
+        <li><a href="#ai-mindset">{t.nav.aiMindset}</a></li>
         <li><a href="#experience">{t.nav.experience}</a></li>
         <li><a href="#skills">{t.nav.skills}</a></li>
         <li><a href="#writing">{t.nav.writing}</a></li>
@@ -81,7 +82,7 @@ const styleLabel = {
           }
         </p>
         <div class="hero-ctas">
-          <a href="#experience" class="btn-primary">{t.hero.cta1}</a>
+          <a href="#ai-mindset" class="btn-primary">{t.hero.cta1}</a>
           <a
             href="https://www.linkedin.com/in/pablosuzarte/"
             target="_blank"
@@ -167,6 +168,87 @@ const styleLabel = {
             <span class="badge-num">{t.about.badge3Num}</span>
             <span class="badge-label">{t.about.badge3Label}</span>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AI MINDSET -->
+  <section id="ai-mindset" class="section section-alt">
+    <div class="container section-grid">
+      <div class="section-label">
+        <span class="label-num">{t.aiMindset.label}</span>
+        <h2 class="section-title">{t.aiMindset.title}</h2>
+        <div class="accent-line"></div>
+      </div>
+      <div class="section-body">
+        <p class="mindset-intro">{t.aiMindset.intro}</p>
+
+        <!-- How I work -->
+        <div class="mindset-block">
+          <h3 class="mindset-heading">{t.aiMindset.approach}</h3>
+          <p class="mindset-body">{t.aiMindset.approachBody}</p>
+          <div class="toolkit-grid">
+            {t.aiMindset.toolkit.map((tool) => (
+              <div class="toolkit-card">
+                <h4 class="toolkit-name">{tool.name}</h4>
+                <p class="toolkit-use">{tool.use}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Principles -->
+        <div class="mindset-block">
+          <h3 class="mindset-heading">{t.aiMindset.principlesTitle}</h3>
+          <div class="principles-grid">
+            {t.aiMindset.principles.map((p, i) => (
+              <div class="principle-card">
+                <span class="principle-num">0{i + 1}</span>
+                <div>
+                  <h4 class="principle-name">{p.name}</h4>
+                  <p class="principle-desc">{p.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Parallels -->
+        <div class="mindset-block">
+          <h3 class="mindset-heading">{t.aiMindset.parallelsTitle}</h3>
+          <div class="parallels-grid">
+            {t.aiMindset.parallels.map((p) => (
+              <div class="parallel-row">
+                <div class="parallel-sd">
+                  <span class="parallel-label">Service Design</span>
+                  <p>{p.sd}</p>
+                </div>
+                <div class="parallel-arrow" aria-hidden="true">=</div>
+                <div class="parallel-pi">
+                  <span class="parallel-label">Project Intelligence</span>
+                  <p>{p.pi}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Vision -->
+        <div class="mindset-block mindset-vision">
+          <h3 class="mindset-heading">{t.aiMindset.visionTitle}</h3>
+          <p class="mindset-body">{t.aiMindset.visionBody}</p>
+          <ul class="vision-list">
+            {t.aiMindset.visionPoints.map((point) => <li>{point}</li>)}
+          </ul>
+          <a
+            href="https://www.linkedin.com/in/pablosuzarte/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-primary"
+          >
+            {t.aiMindset.cta}
+          </a>
         </div>
       </div>
     </div>
@@ -463,7 +545,7 @@ const styleLabel = {
       const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
       if (!prefersReduced) {
         const revealEls = document.querySelectorAll(
-          '.section-label, .section-body, .timeline-item, .skill-pill, .badge, .project-card, .writing-card, .contact-inner > *'
+          '.section-label, .section-body, .timeline-item, .skill-pill, .badge, .project-card, .writing-card, .toolkit-card, .principle-card, .parallel-row, .contact-inner > *'
         )
 
         revealEls.forEach((el, i) => {
@@ -1600,6 +1682,191 @@ const styleLabel = {
   }
   ── end AI & EDUCATION styles */
 
+  /* ── AI MINDSET ── */
+  .mindset-intro {
+    font-size: 1.15rem;
+    line-height: 1.65;
+    color: var(--text);
+    max-width: 640px;
+    margin-bottom: 2.5rem;
+  }
+
+  .mindset-block {
+    margin-bottom: 3rem;
+  }
+
+  .mindset-heading {
+    font-size: 1.15rem;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    color: var(--accent);
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+  }
+
+  .mindset-body {
+    font-size: 1rem;
+    line-height: 1.65;
+    color: rgba(226, 232, 240, 0.8);
+    max-width: 600px;
+    margin-bottom: 1.5rem;
+  }
+
+  .toolkit-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+
+  .toolkit-card {
+    padding: 1.25rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    transition: border-color 0.2s;
+  }
+
+  .toolkit-card:hover {
+    border-color: rgba(100, 255, 218, 0.25);
+  }
+
+  .toolkit-name {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 0.3rem;
+  }
+
+  .toolkit-use {
+    font-size: 0.82rem;
+    color: var(--muted);
+    line-height: 1.45;
+  }
+
+  .principles-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.6rem;
+  }
+
+  .principle-card {
+    display: flex;
+    gap: 0.75rem;
+    padding: 1rem 1.1rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    transition: border-color 0.2s;
+  }
+
+  .principle-card:hover {
+    border-color: rgba(100, 255, 218, 0.2);
+  }
+
+  .principle-num {
+    font-size: 0.7rem;
+    font-weight: 800;
+    color: var(--accent);
+    background: rgba(100, 255, 218, 0.08);
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .principle-name {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 0.2rem;
+  }
+
+  .principle-desc {
+    font-size: 0.8rem;
+    color: var(--muted);
+    line-height: 1.45;
+  }
+
+  .parallels-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .parallel-row {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 1rem;
+    align-items: center;
+    padding: 1rem 1.25rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+  }
+
+  .parallel-label {
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    display: block;
+    margin-bottom: 0.25rem;
+  }
+
+  .parallel-sd p,
+  .parallel-pi p {
+    font-size: 0.85rem;
+    color: rgba(226, 232, 240, 0.8);
+    line-height: 1.4;
+    margin: 0;
+  }
+
+  .parallel-arrow {
+    font-size: 1.25rem;
+    color: var(--accent);
+    opacity: 0.4;
+    font-weight: 800;
+  }
+
+  .mindset-vision {
+    padding: 2rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    border-left: 3px solid var(--accent);
+  }
+
+  .vision-list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 1.5rem;
+  }
+
+  .vision-list li {
+    position: relative;
+    padding-left: 1.25rem;
+    margin-bottom: 0.6rem;
+    font-size: 0.95rem;
+    color: rgba(226, 232, 240, 0.85);
+    line-height: 1.5;
+  }
+
+  .vision-list li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-size: 0.7rem;
+    top: 0.15em;
+  }
+
   /* ── WRITING ── */
   .writing-intro {
     color: var(--muted);
@@ -2013,6 +2280,24 @@ const styleLabel = {
 
     .work-grid {
       grid-template-columns: 1fr;
+    }
+
+    .toolkit-grid,
+    .principles-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .parallel-row {
+      grid-template-columns: 1fr;
+      gap: 0.5rem;
+    }
+
+    .parallel-arrow {
+      display: none;
+    }
+
+    .mindset-vision {
+      padding: 1.5rem;
     }
 
     .writing-card {
