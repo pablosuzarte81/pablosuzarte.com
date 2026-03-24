@@ -1055,5 +1055,36 @@ const nextProject = project.nextProjectSlug
     .project-nav-inner .nav-breadcrumb {
       display: none;
     }
+
+    .featured-project-card {
+      padding: 1.5rem;
+    }
+
+    .featured-project-title {
+      font-size: 1.5rem;
+    }
+
+    .featured-project-stats {
+      gap: 1.25rem;
+    }
+
+    .featured-stat-value {
+      font-size: 1.35rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .featured-project-card {
+      padding: 1.25rem;
+    }
+
+    .featured-project-stats {
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .featured-project-desc {
+      font-size: 0.9rem;
+    }
   }
 </style>
