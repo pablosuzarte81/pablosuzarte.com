@@ -2,231 +2,254 @@
 import Layout from '../../layouts/Layout.astro'
 ---
 
-<Layout title="Claude Code 101 — From Prompting to Orchestrating | Pablo Suzarte" description="A hands-on workshop template to take anyone from zero to orchestrating AI agents with Claude Code in terminal." lang="en">
+<Layout title="Claude Code 101 — From Prompting to Orchestrating | Pablo Suzarte" description="A hands-on workshop to take anyone from zero to orchestrating AI agents with Claude Code in terminal. Accessible and beginner-friendly." lang="en">
   <header class="ws-nav">
     <div class="ws-nav-inner">
       <a href="/" class="nav-back">&larr; Portfolio</a>
       <a href="/" class="nav-logo">PS</a>
-      <span class="nav-breadcrumb">Workshop Template</span>
+      <span class="nav-breadcrumb">Workshop</span>
     </div>
   </header>
 
-  <article class="ws">
-    <!-- HERO -->
-    <section class="ws-hero">
-      <div class="ws-container">
-        <p class="ws-kicker">Workshop Template</p>
-        <h1 class="ws-title">Claude Code 101</h1>
-        <p class="ws-subtitle">From prompting a chatbot to orchestrating agents that solve real problems.</p>
-        <div class="ws-meta-row">
-          <div class="ws-meta-item">
-            <span class="ws-meta-label">Duration</span>
-            <span class="ws-meta-value">3–4 hours</span>
-          </div>
-          <div class="ws-meta-item">
-            <span class="ws-meta-label">Level</span>
-            <span class="ws-meta-value">Beginner → Advanced</span>
-          </div>
-          <div class="ws-meta-item">
-            <span class="ws-meta-label">Format</span>
-            <span class="ws-meta-value">Hands-on, terminal-based</span>
-          </div>
-          <div class="ws-meta-item">
-            <span class="ws-meta-label">Outcome</span>
-            <span class="ws-meta-value">Fully set up AI working environment</span>
+  <main id="main-content">
+    <article class="ws">
+      <!-- HERO -->
+      <section class="ws-hero">
+        <div class="ws-container">
+          <p class="ws-kicker">For beginners and beyond</p>
+          <h1 class="ws-title">Claude Code 101</h1>
+          <p class="ws-subtitle">From asking a chatbot to orchestrating an agent that understands your world.</p>
+          <div class="ws-meta-row">
+            <div class="ws-meta-item">
+              <span class="ws-meta-label">Duration</span>
+              <span class="ws-meta-value">3–4 hours</span>
+            </div>
+            <div class="ws-meta-item">
+              <span class="ws-meta-label">Level</span>
+              <span class="ws-meta-value">Zero to Orchestrator</span>
+            </div>
+            <div class="ws-meta-item">
+              <span class="ws-meta-label">Focus</span>
+              <span class="ws-meta-value">The "AI Brain" Loop</span>
+            </div>
+            <div class="ws-meta-item">
+              <span class="ws-meta-label">Goal</span>
+              <span class="ws-meta-value">Your own AI workspace</span>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- PHILOSOPHY -->
-    <section class="ws-section">
-      <div class="ws-container">
-        <p class="ws-section-num">00</p>
-        <h2 class="ws-section-title">The mindset before the tool</h2>
-        <div class="ws-body">
-          <p>Most people prompt a chatbot. By the end of this workshop, you will orchestrate agents to handle complex, multi-step tasks. The difference is not the tool — it is the environment you design around it.</p>
-          <p>This workshop is built on <strong>Project Intelligence Principles</strong> — the same framework I use to set up human-AI collaboration at scale. Each module maps to a principle.</p>
-          <div class="ws-principle-map">
-            <div class="ws-pm-item"><span class="ws-pm-num">01</span><span class="ws-pm-principle">Shared Memory</span><span class="ws-pm-arrow">→</span><span class="ws-pm-module">CLAUDE.md & project setup</span></div>
-            <div class="ws-pm-item"><span class="ws-pm-num">02</span><span class="ws-pm-principle">Current Orientation</span><span class="ws-pm-arrow">→</span><span class="ws-pm-module">First conversation & context</span></div>
-            <div class="ws-pm-item"><span class="ws-pm-num">03</span><span class="ws-pm-principle">Evidence Discipline</span><span class="ws-pm-arrow">→</span><span class="ws-pm-module">Reading & understanding code</span></div>
-            <div class="ws-pm-item"><span class="ws-pm-num">04</span><span class="ws-pm-principle">Collaboration Clarity</span><span class="ws-pm-arrow">→</span><span class="ws-pm-module">Permissions & working agreements</span></div>
-            <div class="ws-pm-item"><span class="ws-pm-num">05</span><span class="ws-pm-principle">Role Clarity</span><span class="ws-pm-arrow">→</span><span class="ws-pm-module">Custom agents & slash commands</span></div>
-            <div class="ws-pm-item"><span class="ws-pm-num">06</span><span class="ws-pm-principle">Decision Continuity</span><span class="ws-pm-arrow">→</span><span class="ws-pm-module">Memory system & persistence</span></div>
-            <div class="ws-pm-item"><span class="ws-pm-num">07</span><span class="ws-pm-principle">Asset Awareness</span><span class="ws-pm-arrow">→</span><span class="ws-pm-module">MCP servers & external tools</span></div>
-            <div class="ws-pm-item"><span class="ws-pm-num">08</span><span class="ws-pm-principle">Reusable Patterns</span><span class="ws-pm-arrow">→</span><span class="ws-pm-module">Orchestrating complex tasks</span></div>
+      <!-- INTRO -->
+      <section class="ws-section">
+        <div class="ws-container">
+          <div class="ws-intro-grid">
+            <div class="ws-intro-text">
+              <h2 class="ws-section-title">What is this?</h2>
+              <div class="ws-body">
+                <p>Most AI experiences happen in a browser. You paste code, get a suggestion, and paste it back. That is <strong>prompting</strong>.</p>
+                <p>Claude Code is different. It is a tool that lives <em>inside</em> your computer's terminal. It doesn't just talk; it <strong>acts</strong>. It can read your files, run your tests, and build your projects alongside you.</p>
+                <p>This workshop is a slow, step-by-step journey for anyone—even if you've never used a terminal before.</p>
+              </div>
+            </div>
+            <div class="ws-intro-card">
+              <h3>The Transformation</h3>
+              <div class="ws-trans-step"><span>01</span> <strong>Prompting:</strong> Using AI as an oracle.</div>
+              <div class="ws-trans-arrow">&darr;</div>
+              <div class="ws-trans-step"><span>02</span> <strong>Collaborating:</strong> Using AI as a peer.</div>
+              <div class="ws-trans-arrow">&darr;</div>
+              <div class="ws-trans-step ws-trans-step--active"><span>03</span> <strong>Orchestrating:</strong> Designing a mind.</div>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+      <!-- MODULE 00: THE BRAIN -->
+      <section class="ws-section ws-section--alt">
+        <div class="ws-container">
+          <p class="ws-section-num">00</p>
+          <h2 class="ws-section-title">The Brain — how she thinks</h2>
+          <p class="ws-principle-tag">Mental Model: To work with an agent, you must understand its loop.</p>
+          <div class="ws-body">
+            <p>Unlike a standard chatbot, Claude Code operates in a continuous loop. I call this the <strong>"Agentic Brain"</strong>.</p>
+            
+            <div class="ws-brain-loop">
+              <div class="ws-loop-node">
+                <strong>Observe</strong>
+                <span>She reads your files and scans your project.</span>
+              </div>
+              <div class="ws-loop-node">
+                <strong>Think</strong>
+                <span>She reasons about your request vs the reality of the code.</span>
+              </div>
+              <div class="ws-loop-node">
+                <strong>Act</strong>
+                <span>She uses tools to edit files, run bash, or search content.</span>
+              </div>
+              <div class="ws-loop-node">
+                <strong>Reflect</strong>
+                <span>She checks the result and adjusts her next move.</span>
+              </div>
+            </div>
+
+            <h3>The Architect and the Builder</h3>
+            <p>Imagine you have two people in your terminal: an <strong>Architect</strong> who understands the big picture and a <strong>Builder</strong> who has all the tools. Claude Code is both.</p>
+            <p>Your job isn't to tell the Builder "write line 42". Your job is to tell the Architect: "Here is our goal. Help me get there."</p>
+          </div>
+        </div>
+      </section>
 
     <!-- PRE-REQUISITES -->
-    <section class="ws-section ws-section--alt">
+    <section class="ws-section">
       <div class="ws-container">
         <p class="ws-section-num">Setup</p>
-        <h2 class="ws-section-title">Before the workshop</h2>
+        <h2 class="ws-section-title">Before the journey starts</h2>
         <div class="ws-body">
-          <p>Participants need these ready before we start:</p>
+          <p>We need to prepare your environment. If any of these sound intimidating, don't worry—most only take a few seconds to verify.</p>
+          
           <div class="ws-checklist">
-            <div class="ws-check"><span class="ws-check-box">&#9744;</span><div><strong>Node.js 22+</strong> — <code>node --version</code> to verify</div></div>
-            <div class="ws-check"><span class="ws-check-box">&#9744;</span><div><strong>A terminal</strong> — macOS Terminal, iTerm2, Windows Terminal, or VS Code integrated terminal</div></div>
-            <div class="ws-check"><span class="ws-check-box">&#9744;</span><div><strong>An Anthropic account</strong> — sign up at claude.ai, you will authenticate during install</div></div>
-            <div class="ws-check"><span class="ws-check-box">&#9744;</span><div><strong>A project folder</strong> — any personal project, side project, or even an empty folder to experiment with</div></div>
-            <div class="ws-check"><span class="ws-check-box">&#9744;</span><div><strong>Git installed</strong> — Claude Code works best inside git repositories</div></div>
+            <div class="ws-check">
+              <span class="ws-check-box">&#9744;</span>
+              <div>
+                <strong>Node.js 22+</strong> — The engine that runs Claude Code.
+                <div class="ws-check-why">Verify: <code>node --version</code> in your terminal.</div>
+              </div>
+            </div>
+            <div class="ws-check">
+              <span class="ws-check-box">&#9744;</span>
+              <div>
+                <strong>Terminal</strong> — Your command center.
+                <div class="ws-check-why">Use Terminal (macOS), iTerm2, or Windows Terminal.</div>
+              </div>
+            </div>
+            <div class="ws-check">
+              <span class="ws-check-box">&#9744;</span>
+              <div>
+                <strong>Git</strong> — The AI's "Undo" button.
+                <div class="ws-check-why">Claude works best when she can see your project's history.</div>
+              </div>
+            </div>
+            <div class="ws-check">
+              <span class="ws-check-box">&#9744;</span>
+              <div>
+                <strong>Anthropic Account</strong> — The key to the brain.
+                <div class="ws-check-why">Sign up at <a href="https://claude.ai" target="_blank" rel="noopener noreferrer">claude.ai</a>.</div>
+              </div>
+            </div>
           </div>
+
           <div class="ws-code-block">
             <p class="ws-code-label">Step 1 — Install</p>
+            <p class="ws-code-note">Copy and paste this into your terminal and press Enter:</p>
             <div class="ws-cmd" data-cmd="npm install -g @anthropic-ai/claude-code">
               <code>npm install -g @anthropic-ai/claude-code</code>
-              <button type="button" class="ws-copy" aria-label="Copy command">Copy</button>
+              <button type="button" class="ws-copy" aria-label="Copy install command">Copy</button>
             </div>
           </div>
+
           <div class="ws-code-block">
-            <p class="ws-code-label">Step 2 — Launch</p>
+            <p class="ws-code-label">Step 2 — Launch & Login</p>
             <div class="ws-cmd" data-cmd="claude">
               <code>claude</code>
-              <button type="button" class="ws-copy" aria-label="Copy command">Copy</button>
+              <button type="button" class="ws-copy" aria-label="Copy launch command">Copy</button>
             </div>
-            <p class="ws-code-note">That's it. First run opens a browser to log in. After that, you're in.</p>
+            <p class="ws-code-note">Your browser will open. Log in with your Anthropic account. Then come back here.</p>
           </div>
         </div>
       </div>
     </section>
 
     <!-- MODULE 01 -->
-    <section class="ws-section">
+    <section class="ws-section ws-section--alt">
       <div class="ws-container">
         <p class="ws-section-num">01</p>
-        <h2 class="ws-section-title">Shared Memory — teaching AI who you are</h2>
-        <p class="ws-principle-tag">Principle: AI needs a clear understanding of what the project is, why it matters, and what must not be misunderstood.</p>
+        <h2 class="ws-section-title">Shared Memory — giving her a map</h2>
+        <p class="ws-principle-tag">Principle: Without a map, the best driver is lost.</p>
         <div class="ws-body">
-          <h3>What you will do</h3>
-          <p>Create a <code>CLAUDE.md</code> file — the shared memory between you and AI. This is not a README. It is a living agreement about what is true.</p>
-
-          <h3>Why it matters</h3>
-          <p>Without shared memory, every conversation starts from zero. With it, Claude Code understands your project, your stack, your conventions, and your constraints from the first message.</p>
+          <h3>The "Goldfish" Problem</h3>
+          <p>Standard chatbots have "goldfish memory"—they forget the context of your project every time you start a new chat. Claude Code solves this with a <strong>Shared Memory</strong> system.</p>
+          <p>By creating a <code>CLAUDE.md</code> file, you are writing an "orientation manual" that Claude reads <em>every time</em> you speak to her.</p>
 
           <div class="ws-exercise">
-            <p class="ws-exercise-label">Try it — 15 min</p>
-            <p>Inside Claude Code, run this — it scans your project and generates a CLAUDE.md for you:</p>
+            <p class="ws-exercise-label">Let's try it — 15 min</p>
+            <p>Inside your project (in the Claude terminal), type this command. It tells Claude to look around and create your map:</p>
             <div class="ws-cmd ws-cmd--prompt" data-cmd="/init">
               <code>/init</code>
-              <button type="button" class="ws-copy" aria-label="Copy">Copy</button>
+              <button type="button" class="ws-copy" aria-label="Copy init command">Copy</button>
             </div>
-            <p>Then edit the generated file together. Make sure it answers:</p>
-            <ol>
-              <li>What is this project? (one paragraph)</li>
-              <li>What is the tech stack?</li>
-              <li>What commands matter? (dev, build, test, deploy)</li>
-              <li>What conventions should never be broken?</li>
-              <li>What should AI never do? (delete files, push to main, etc.)</li>
-            </ol>
-          </div>
-
-          <div class="ws-code-block">
-            <p class="ws-code-label">Example CLAUDE.md — copy and adapt for your project</p>
-            <div class="ws-cmd ws-cmd--multi" data-cmd="# My Project&#10;&#10;## Stack&#10;- Next.js 15, TypeScript, Tailwind CSS&#10;- Deployed on Vercel&#10;&#10;## Commands&#10;- npm run dev — start dev server&#10;- npm run build — production build&#10;&#10;## Conventions&#10;- All components in src/components/&#10;- Never modify package-lock.json manually&#10;- Do not push to main without review">
-              <pre><code># My Project
-
-## Stack
-- Next.js 15, TypeScript, Tailwind CSS
-- Deployed on Vercel
-
-## Commands
-- npm run dev — start dev server
-- npm run build — production build
-
-## Conventions
-- All components in src/components/
-- Never modify package-lock.json manually
-- Do not push to main without review</code></pre>
-              <button type="button" class="ws-copy" aria-label="Copy to clipboard">Copy</button>
-            </div>
+            <p>Once she's done, she will create a <code>CLAUDE.md</code>. Read it. Does it describe your project correctly? If not, ask her: <em>"Update CLAUDE.md to reflect that this is a personal portfolio."</em></p>
           </div>
 
           <div class="ws-key-insight">
-            <strong>Key insight:</strong> CLAUDE.md is automatically loaded into every conversation. It is the most important file in your project for AI collaboration.
+            <strong>Key insight:</strong> <code>CLAUDE.md</code> is the difference between an AI that "guesses" and an AI that "knows." It's where you store your project's soul: its tech stack, its rules, and its goals.
           </div>
         </div>
       </div>
     </section>
 
     <!-- MODULE 02 -->
-    <section class="ws-section ws-section--alt">
+    <section class="ws-section">
       <div class="ws-container">
         <p class="ws-section-num">02</p>
-        <h2 class="ws-section-title">Current Orientation — your first real conversation</h2>
+        <h2 class="ws-section-title">Orientation — your first real conversation</h2>
         <p class="ws-principle-tag">Principle: The project needs a visible sense of where things stand now.</p>
         <div class="ws-body">
-          <h3>What you will do</h3>
-          <p>Have your first meaningful conversation with Claude Code. Not "write me a function" — but "understand where I am and help me move forward."</p>
+          <h3>Beyond "Write me a function"</h3>
+          <p>Most people use AI to generate snippets. Today, you will use it to <strong>explore</strong>. This is where you test the "Observe" part of the Brain's loop.</p>
 
           <div class="ws-exercise">
-            <p class="ws-exercise-label">Try it — 15 min</p>
-            <p>Open your project in terminal. Copy and paste these one at a time:</p>
-            <div class="ws-cmd" data-cmd="claude">
-              <code>claude</code>
-              <button type="button" class="ws-copy" aria-label="Copy">Copy</button>
+            <p class="ws-exercise-label">Let's try it — 15 min</p>
+            <p>Once you are inside Claude Code (by typing <code>claude</code>), try these progressive prompts. Notice how she uses tools to answer:</p>
+            <div class="ws-cmd ws-cmd--prompt" data-cmd="Read the project and tell me what you understand about it.">
+              <code>Read the project and tell me what you understand about it.</code>
+              <button type="button" class="ws-copy" aria-label="Copy prompt">Copy</button>
             </div>
-            <p>Once inside, try these prompts progressively:</p>
-            <div class="ws-cmd ws-cmd--prompt" data-cmd="Read the project and tell me what you understand about it">
-              <code>Read the project and tell me what you understand about it</code>
-              <button type="button" class="ws-copy" aria-label="Copy">Copy</button>
+            <div class="ws-cmd ws-cmd--prompt" data-cmd="What are the main folders and how do they connect?">
+              <code>What are the main folders and how do they connect?</code>
+              <button type="button" class="ws-copy" aria-label="Copy prompt">Copy</button>
             </div>
-            <div class="ws-cmd ws-cmd--prompt" data-cmd="What are the main files and how do they connect?">
-              <code>What are the main files and how do they connect?</code>
-              <button type="button" class="ws-copy" aria-label="Copy">Copy</button>
+            <div class="ws-cmd ws-cmd--prompt" data-cmd="If I wanted to change the primary color of the site, where would I look?">
+              <code>If I wanted to change the primary color of the site, where would I look?</code>
+              <button type="button" class="ws-copy" aria-label="Copy prompt">Copy</button>
             </div>
-            <div class="ws-cmd ws-cmd--prompt" data-cmd="I want to add a dark mode toggle. What is your approach before writing any code?">
-              <code>I want to add a dark mode toggle. What is your approach before writing any code?</code>
-              <button type="button" class="ws-copy" aria-label="Copy">Copy</button>
-            </div>
-            <p>Watch what happens. Claude reads your files, understands your structure, and reasons about your project. This is not a chatbot — it is an agent with tools.</p>
           </div>
 
           <div class="ws-tools-grid">
-            <div class="ws-tool"><strong>Read</strong><span>Reads any file in your project</span></div>
-            <div class="ws-tool"><strong>Glob</strong><span>Finds files by pattern (*.tsx, src/**/*)</span></div>
-            <div class="ws-tool"><strong>Grep</strong><span>Searches content across files</span></div>
-            <div class="ws-tool"><strong>Bash</strong><span>Runs terminal commands</span></div>
-            <div class="ws-tool"><strong>Edit</strong><span>Makes precise changes to files</span></div>
-            <div class="ws-tool"><strong>Write</strong><span>Creates new files</span></div>
+            <div class="ws-tool"><strong>Read</strong><span>She opens and reads a file.</span></div>
+            <div class="ws-tool"><strong>LS</strong><span>She lists files in a folder.</span></div>
+            <div class="ws-tool"><strong>Grep</strong><span>She searches for words across all files.</span></div>
           </div>
 
           <div class="ws-key-insight">
-            <strong>Key insight:</strong> Claude Code is not generating text — it is using tools to explore, understand, and modify your actual codebase. The quality of its work depends on how well you orient it.
+            <strong>Key insight:</strong> You are not just chatting; you are co-navigating. By asking Claude to explain <em>why</em> something is the way it is, you are training her (and yourself) on the project's logic.
           </div>
         </div>
       </div>
     </section>
 
     <!-- MODULE 03 -->
-    <section class="ws-section">
+    <section class="ws-section ws-section--alt">
       <div class="ws-container">
         <p class="ws-section-num">03</p>
-        <h2 class="ws-section-title">Evidence Discipline — read before you write</h2>
+        <h2 class="ws-section-title">Evidence — thinking before doing</h2>
         <p class="ws-principle-tag">Principle: Ideas should be grounded in visible evidence, not assumptions.</p>
         <div class="ws-body">
-          <h3>What you will do</h3>
-          <p>Learn to ask Claude Code to investigate before acting. The most common mistake beginners make: asking AI to write code without understanding the existing code first.</p>
+          <h3>The "Architect" Pause</h3>
+          <p>The most common AI mistake: asking for a change before understanding the context. This leads to broken code and frustration.</p>
+          <p>We will practice <strong>Evidence Discipline</strong>. We force the AI to show us it understands the current state before we let it change anything.</p>
 
           <div class="ws-exercise">
-            <p class="ws-exercise-label">Try it — 20 min</p>
-            <p>Pick a real file in your project. Before asking Claude to change anything, make it investigate first:</p>
-            <div class="ws-cmd ws-cmd--prompt" data-cmd="Read src/components/Header.tsx and explain how it works">
-              <code>Read src/components/Header.tsx and explain how it works</code>
-              <button type="button" class="ws-copy" aria-label="Copy">Copy</button>
+            <p class="ws-exercise-label">Let's try it — 20 min</p>
+            <p>Pick a file you want to change. Ask Claude to investigate it first:</p>
+            <div class="ws-cmd ws-cmd--prompt" data-cmd="Read [file-path] and explain how it handles data.">
+              <code>Read [file-path] and explain how it handles data.</code>
+              <button type="button" class="ws-copy" aria-label="Copy prompt">Copy</button>
             </div>
-            <div class="ws-cmd ws-cmd--prompt" data-cmd="How do other components in this project handle navigation?">
-              <code>How do other components in this project handle navigation?</code>
-              <button type="button" class="ws-copy" aria-label="Copy">Copy</button>
+            <p>Then, only after she explains it, give the command:</p>
+            <div class="ws-cmd ws-cmd--prompt" data-cmd="Based on that understanding, add a new field called 'lastUpdated'.">
+              <code>Based on that understanding, add a new field called 'lastUpdated'.</code>
+              <button type="button" class="ws-copy" aria-label="Copy prompt">Copy</button>
             </div>
-            <div class="ws-cmd ws-cmd--prompt" data-cmd="Now implement the change, following the patterns you found">
-              <code>Now implement the change, following the patterns you found</code>
-              <button type="button" class="ws-copy" aria-label="Copy">Copy</button>
-            </div>
-            <p>Replace the file paths with your own. The pattern is always: <strong>read → understand → then act.</strong></p>
           </div>
 
           <div class="ws-key-insight">
@@ -237,206 +260,159 @@ import Layout from '../../layouts/Layout.astro'
     </section>
 
     <!-- MODULE 04 -->
-    <section class="ws-section ws-section--alt">
+    <section class="ws-section">
       <div class="ws-container">
         <p class="ws-section-num">04</p>
-        <h2 class="ws-section-title">Collaboration Clarity — permissions and trust</h2>
+        <h2 class="ws-section-title">Clarity — permissions and trust</h2>
         <p class="ws-principle-tag">Principle: Good results depend on knowing how to work together well.</p>
         <div class="ws-body">
-          <h3>What you will do</h3>
-          <p>Configure how Claude Code works with you. Permissions are not restrictions — they are working agreements.</p>
+          <h3>The Safety Brake</h3>
+          <p>Claude Code is powerful. She can delete files, run commands, and commit code. To work together safely, we use <strong>Permissions</strong>.</p>
 
           <div class="ws-exercise">
-            <p class="ws-exercise-label">Try it — 10 min</p>
-            <p>Inside Claude Code, check your current permissions:</p>
+            <p class="ws-exercise-label">Let's try it — 10 min</p>
+            <p>Inside Claude Code, check your current "rules of engagement":</p>
             <div class="ws-cmd ws-cmd--prompt" data-cmd="/permissions">
               <code>/permissions</code>
-              <button type="button" class="ws-copy" aria-label="Copy">Copy</button>
+              <button type="button" class="ws-copy" aria-label="Copy permissions command">Copy</button>
             </div>
-            <p>Now try something that needs approval. When prompted, notice you can allow it just once, for the session, or permanently.</p>
-            <p>Pro tip: press <strong>Shift+Tab</strong> to cycle between permission modes (Default → Auto-accept edits → Plan mode).</p>
+            <p>You can choose to approve every single edit (Strict), or let her work autonomously for a session (Loose). </p>
+            <p><strong>Pro tip:</strong> Press <code>Shift + Tab</code> while she is working to toggle between "Review mode" and "Auto-accept".</p>
           </div>
 
           <div class="ws-key-insight">
-            <strong>Key insight:</strong> Start strict, loosen as trust builds. This mirrors how you onboard any new team member — you give more autonomy as they prove they understand the context.
+            <strong>Key insight:</strong> Start strict, loosen as trust builds. This mirrors how you onboard any new team member—you give more autonomy as they prove they understand the context.
           </div>
         </div>
       </div>
     </section>
 
     <!-- MODULE 05 -->
-    <section class="ws-section">
+    <section class="ws-section ws-section--alt">
       <div class="ws-container">
         <p class="ws-section-num">05</p>
-        <h2 class="ws-section-title">Role Clarity — custom agents and commands</h2>
+        <h2 class="ws-section-title">Roles — custom agents and commands</h2>
         <p class="ws-principle-tag">Principle: Every collaborator should have a clear role and responsibility.</p>
         <div class="ws-body">
-          <h3>What you will do</h3>
-          <p>Create custom slash commands that give Claude Code specific roles. Instead of one general AI, you design specialised agents.</p>
+          <h3>The Specialist Squad</h3>
+          <p>Claude Code is a generalist. But you can "program" her to be a specialist. By creating custom commands, you design specific roles for the Brain to inhabit.</p>
 
           <div class="ws-exercise">
-            <p class="ws-exercise-label">Try it — 20 min</p>
-            <p>Create your first custom command. Run these in your terminal (not inside Claude):</p>
+            <p class="ws-exercise-label">Let's try it — 20 min</p>
+            <p>We will create a <code>/review</code> specialist. In your terminal (outside Claude), run this:</p>
             <div class="ws-cmd" data-cmd="mkdir -p .claude/commands">
               <code>mkdir -p .claude/commands</code>
-              <button type="button" class="ws-copy" aria-label="Copy">Copy</button>
+              <button type="button" class="ws-copy" aria-label="Copy command">Copy</button>
             </div>
-            <p>Now paste the review.md content from below into <code>.claude/commands/review.md</code>. Then go back into Claude Code and type:</p>
-            <div class="ws-cmd ws-cmd--prompt" data-cmd="/review">
-              <code>/review</code>
-              <button type="button" class="ws-copy" aria-label="Copy">Copy</button>
+            <p>Now, create a file at <code>.claude/commands/review.md</code> and paste this instruction inside it:</p>
+            <div class="ws-code-block">
+              <pre><code>You are a Senior Reviewer. Look at my current 
+changes and find 3 ways to make them cleaner. 
+Be direct and brief.</code></pre>
             </div>
-            <p>That's it. You just created a specialist agent.</p>
-          </div>
-
-          <div class="ws-code-block">
-            <p class="ws-code-label">Example: .claude/commands/review.md — copy this to get started</p>
-            <div class="ws-cmd ws-cmd--multi" data-cmd="You are a senior code reviewer. Review the staged&#10;changes (git diff --cached) and provide feedback on:&#10;&#10;1. Code quality and readability&#10;2. Potential bugs or edge cases&#10;3. Performance considerations&#10;4. Whether the changes follow the project conventions&#10;   defined in CLAUDE.md&#10;&#10;Be direct. If it looks good, say so briefly.">
-              <pre><code>You are a senior code reviewer. Review the staged
-changes (git diff --cached) and provide feedback on:
-
-1. Code quality and readability
-2. Potential bugs or edge cases
-3. Performance considerations
-4. Whether the changes follow the project conventions
-   defined in CLAUDE.md
-
-Be direct. If it looks good, say so briefly.</code></pre>
-              <button type="button" class="ws-copy" aria-label="Copy to clipboard">Copy</button>
-            </div>
+            <p>Now go back into Claude and type <code>/review</code>. She will instantly switch from "Builder" to "Senior Reviewer."</p>
           </div>
 
           <div class="ws-key-insight">
-            <strong>Key insight:</strong> Custom commands turn Claude Code from a general assistant into a team of specialists. A <code>/review</code> agent, a <code>/test</code> agent, a <code>/deploy</code> agent — each with a clear role.
+            <strong>Key insight:</strong> Custom commands turn Claude from a general assistant into a team of specialists. One command for testing, one for documentation, one for performance—all living in your terminal.
           </div>
         </div>
       </div>
     </section>
 
     <!-- MODULE 06 -->
-    <section class="ws-section ws-section--alt">
+    <section class="ws-section">
       <div class="ws-container">
         <p class="ws-section-num">06</p>
-        <h2 class="ws-section-title">Decision Continuity — memory that persists</h2>
-        <p class="ws-principle-tag">Principle: Decisions and reasoning should be preserved so the team does not restart the same thinking.</p>
+        <h2 class="ws-section-title">Continuity — memory that persists</h2>
+        <p class="ws-principle-tag">Principle: Decisions should be preserved so the team does not restart the thinking.</p>
         <div class="ws-body">
-          <h3>What you will do</h3>
-          <p>Learn how Claude Code's memory system works. Conversations end, but important decisions should survive.</p>
+          <h3>Beyond the Session</h3>
+          <p>Most AI chats are ephemeral—they disappear when you close the tab. In Claude Code, you can tell the Brain what to <strong>remember</strong> for next time.</p>
 
           <div class="ws-exercise">
-            <p class="ws-exercise-label">Try it — 15 min</p>
-            <p>Inside Claude Code, make a decision and ask it to remember:</p>
-            <div class="ws-cmd ws-cmd--prompt" data-cmd="Let's use server components for all data fetching. Remember this decision.">
-              <code>Let's use server components for all data fetching. Remember this decision.</code>
-              <button type="button" class="ws-copy" aria-label="Copy">Copy</button>
+            <p class="ws-exercise-label">Let's try it — 15 min</p>
+            <p>Tell Claude a preference and ask her to remember it:</p>
+            <div class="ws-cmd ws-cmd--prompt" data-cmd="We always use functional components here. Remember this preference.">
+              <code>We always use functional components here. Remember this preference.</code>
+              <button type="button" class="ws-copy" aria-label="Copy prompt">Copy</button>
             </div>
-            <p>Now clear the conversation and test if it stuck:</p>
-            <div class="ws-cmd ws-cmd--prompt" data-cmd="/clear">
-              <code>/clear</code>
-              <button type="button" class="ws-copy" aria-label="Copy">Copy</button>
-            </div>
-            <div class="ws-cmd ws-cmd--prompt" data-cmd="What are our design decisions?">
-              <code>What are our design decisions?</code>
-              <button type="button" class="ws-copy" aria-label="Copy">Copy</button>
-            </div>
+            <p>Now, clear your chat with <code>/clear</code> and ask her: <em>"What are our project preferences?"</em> She will recall it from her persistent memory.</p>
           </div>
 
           <div class="ws-key-insight">
-            <strong>Key insight:</strong> The biggest failure mode in AI-assisted projects is losing context between sessions. CLAUDE.md + the memory system solve this — decisions carry forward, not just code.
+            <strong>Key insight:</strong> The biggest failure in AI projects is losing context. By using persistent memory, you ensure that every session starts with the wisdom of the last one.
           </div>
         </div>
       </div>
     </section>
 
     <!-- MODULE 07 -->
-    <section class="ws-section">
+    <section class="ws-section ws-section--alt">
       <div class="ws-container">
         <p class="ws-section-num">07</p>
-        <h2 class="ws-section-title">Asset Awareness — connecting external tools</h2>
+        <h2 class="ws-section-title">Awareness — connecting the world</h2>
         <p class="ws-principle-tag">Principle: Both humans and AI need to know what materials exist.</p>
         <div class="ws-body">
-          <h3>What you will do</h3>
-          <p>Connect Claude Code to external services using MCP (Model Context Protocol) servers. This extends what Claude can see and do.</p>
+          <h3>The Model Context Protocol (MCP)</h3>
+          <p>Claude Code can see more than just your files. She can see your Google Calendar, your GitHub issues, or your database. This is possible through <strong>MCP</strong>.</p>
 
           <div class="ws-exercise">
-            <p class="ws-exercise-label">Try it — 15 min</p>
-            <p>Inside Claude Code, open the settings:</p>
+            <p class="ws-exercise-label">Let's try it — 15 min</p>
+            <p>Inside Claude, open the settings to see what she can connect to:</p>
             <div class="ws-cmd ws-cmd--prompt" data-cmd="/settings">
               <code>/settings</code>
-              <button type="button" class="ws-copy" aria-label="Copy">Copy</button>
+              <button type="button" class="ws-copy" aria-label="Copy settings command">Copy</button>
             </div>
-            <p>Add an MCP server — Vercel, GitHub, or a file system server. Then try something like:</p>
-            <div class="ws-cmd ws-cmd--prompt" data-cmd="Check my latest Vercel deployments">
-              <code>Check my latest Vercel deployments</code>
-              <button type="button" class="ws-copy" aria-label="Copy">Copy</button>
-            </div>
-            <p>Claude now has awareness of systems outside your codebase. That is asset awareness.</p>
+            <p>Imagine connecting her to your team's Slack or your project's Trello. She becomes an agent that knows the <strong>business context</strong>, not just the code.</p>
           </div>
 
           <div class="ws-key-insight">
-            <strong>Key insight:</strong> MCP servers turn Claude Code from a code assistant into a workspace assistant. It can read your deployments, your project management tools, your documentation — anything you connect.
+            <strong>Key insight:</strong> MCP turns Claude from a "coding tool" into a "workspace agent." She becomes aware of the assets that exist outside the terminal.
           </div>
         </div>
       </div>
     </section>
 
     <!-- MODULE 08 -->
-    <section class="ws-section ws-section--alt">
+    <section class="ws-section">
       <div class="ws-container">
         <p class="ws-section-num">08</p>
-        <h2 class="ws-section-title">Reusable Patterns — orchestrating complex tasks</h2>
+        <h2 class="ws-section-title">Orchestration — the big goal</h2>
         <p class="ws-principle-tag">Principle: Workflows that work well should be saved, refined, and reused.</p>
         <div class="ws-body">
-          <h3>What you will do</h3>
-          <p>This is where it all comes together. You will orchestrate a complex, multi-step task — the kind that would take hours manually but minutes with a well-designed AI environment.</p>
+          <h3>The Orchestrator's Moment</h3>
+          <p>This is where it all comes together. You aren't asking for a function. You are asking for a <strong>result</strong>.</p>
 
           <div class="ws-exercise">
-            <p class="ws-exercise-label">Try it — 30 min</p>
-            <p>This is the big one. Pick an ambitious task and give Claude the full context:</p>
-            <div class="ws-cmd ws-cmd--prompt" data-cmd="Add a contact form to this site with validation and an API endpoint that sends an email. Read the project first, plan your approach, then implement it.">
-              <code>Add a contact form to this site with validation and an API endpoint that sends an email. Read the project first, plan your approach, then implement it.</code>
-              <button type="button" class="ws-copy" aria-label="Copy">Copy</button>
+            <p class="ws-exercise-label">The Finale — 30 min</p>
+            <p>Pick a real feature you've wanted to build. Give the full context:</p>
+            <div class="ws-cmd ws-cmd--prompt" data-cmd="Read the project first. Plan a new 'Contact Me' page with a form. Then implement it and add a commit when you are done.">
+              <code>Read the project first. Plan a new 'Contact Me' page with a form. Then implement it and add a commit when you are done.</code>
+              <button type="button" class="ws-copy" aria-label="Copy prompt">Copy</button>
             </div>
-            <p>Watch what happens. Claude will read your project, propose an approach, create files, edit existing ones, and handle errors — all autonomously. When it's done:</p>
-            <div class="ws-cmd ws-cmd--prompt" data-cmd="/commit">
-              <code>/commit</code>
-              <button type="button" class="ws-copy" aria-label="Copy">Copy</button>
-            </div>
-            <p>Claude writes the commit message from the actual changes. Review the git diff together.</p>
-          </div>
-
-          <div class="ws-progression">
-            <p class="ws-progression-title">The progression you just made:</p>
-            <div class="ws-progression-steps">
-              <div class="ws-prog-step">
-                <span class="ws-prog-num">1</span>
-                <div>
-                  <strong>Prompting</strong>
-                  <p>"Write me a function"</p>
-                </div>
-              </div>
-              <div class="ws-prog-arrow">→</div>
-              <div class="ws-prog-step">
-                <span class="ws-prog-num">2</span>
-                <div>
-                  <strong>Collaborating</strong>
-                  <p>"Read the project, then help me add this feature"</p>
-                </div>
-              </div>
-              <div class="ws-prog-arrow">→</div>
-              <div class="ws-prog-step">
-                <span class="ws-prog-num">3</span>
-                <div>
-                  <strong>Orchestrating</strong>
-                  <p>"Here is what I need. You have the context, the tools, and the permissions. Go."</p>
-                </div>
-              </div>
-            </div>
+            <p>Watch the Brain's loop in action: <strong>Observe</strong> (read files) &rarr; <strong>Think</strong> (plan the page) &rarr; <strong>Act</strong> (write code) &rarr; <strong>Reflect</strong> (check for errors).</p>
           </div>
 
           <div class="ws-key-insight">
-            <strong>Key insight:</strong> The environment you built in modules 01–07 is what makes module 08 possible. Without shared memory, permissions, custom roles, and connected tools — this would be just another chatbot prompt.
+            <strong>Key insight:</strong> Orchestration is the ultimate skill. It's when you stop doing the work and start <strong>directing</strong> the work.
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MODULE 09 -->
+    <section class="ws-section ws-section--alt">
+      <div class="ws-container">
+        <p class="ws-section-num">09</p>
+        <h2 class="ws-section-title">The Future — what's next?</h2>
+        <div class="ws-body">
+          <p>You've gone from zero to Orchestrator. But this is just the beginning. The future of software isn't just "AI-assisted"; it is **AI-native**.</p>
+          <ul class="ws-future-list">
+            <li><strong>Autonomous Teams:</strong> Agents that handle bug fixes and documentation while you sleep.</li>
+            <li><strong>Project Intelligence:</strong> Every team member has an AI peer that knows the entire history of the project.</li>
+            <li><strong>Natural Interface:</strong> Coding becomes a conversation about intent, not just syntax.</li>
+          </ul>
         </div>
       </div>
     </section>
@@ -444,23 +420,13 @@ Be direct. If it looks good, say so briefly.</code></pre>
     <!-- CLOSING -->
     <section class="ws-section">
       <div class="ws-container">
-        <p class="ws-section-num">09</p>
-        <h2 class="ws-section-title">What you built today</h2>
+        <h2 class="ws-section-title">You've designed a mind.</h2>
         <div class="ws-body">
-          <div class="ws-outcome-grid">
-            <div class="ws-outcome"><span class="ws-outcome-check">&#10003;</span> A CLAUDE.md that teaches AI your project</div>
-            <div class="ws-outcome"><span class="ws-outcome-check">&#10003;</span> Permission settings that match your trust level</div>
-            <div class="ws-outcome"><span class="ws-outcome-check">&#10003;</span> Custom slash commands for specialised roles</div>
-            <div class="ws-outcome"><span class="ws-outcome-check">&#10003;</span> A memory system that carries decisions forward</div>
-            <div class="ws-outcome"><span class="ws-outcome-check">&#10003;</span> Connected external tools via MCP</div>
-            <div class="ws-outcome"><span class="ws-outcome-check">&#10003;</span> The ability to orchestrate complex, multi-step tasks</div>
-          </div>
-
-          <p>You did not just learn a tool. You designed an environment — a working system where your mind collaborates with AI naturally. That is the difference between prompting and orchestrating.</p>
+          <p>You did not just learn a tool today. You built an environment where your mind and an AI's brain can think together naturally.</p>
           <p>This is <strong>Project Intelligence</strong>.</p>
 
           <div class="ws-cta-block">
-            <p>Want to run this workshop for your team?</p>
+            <p>Want to bring this workshop to your team or organization?</p>
             <div class="ws-cta-row">
               <a href="https://www.linkedin.com/in/pablosuzarte/" target="_blank" rel="noopener noreferrer" class="ws-cta">Get in touch with Pablo &rarr;</a>
               <a href="/" class="ws-cta ws-cta--secondary">&larr; Back to portfolio</a>
@@ -470,6 +436,7 @@ Be direct. If it looks good, say so briefly.</code></pre>
       </div>
     </section>
   </article>
+</main>
 
   <style>
     /* Claude / Anthropic color palette */
@@ -478,13 +445,14 @@ Be direct. If it looks good, say so briefly.</code></pre>
       --cl-surface: #252236;
       --cl-surface-2: #2d2a42;
       --cl-border: rgba(155, 149, 178, 0.15);
-      --cl-accent: #D97757;
-      --cl-accent-soft: rgba(217, 119, 87, 0.12);
-      --cl-accent-glow: rgba(217, 119, 87, 0.25);
+      --cl-accent: #E8956E; /* Improved contrast version of #D97757 */
+      --cl-accent-soft: rgba(232, 149, 110, 0.1);
+      --cl-accent-glow: rgba(232, 149, 110, 0.25);
       --cl-text: #E8DDD3;
       --cl-muted: #9B95B2;
       --cl-code: #E8A87C;
       color: var(--cl-text);
+      font-family: 'Manrope', system-ui, sans-serif;
     }
 
     .ws-nav {
@@ -504,7 +472,7 @@ Be direct. If it looks good, say so briefly.</code></pre>
     .ws {
       padding-top: 4rem;
       background:
-        radial-gradient(circle at 20% 10%, rgba(217, 119, 87, 0.06), transparent 40%),
+        radial-gradient(circle at 20% 10%, rgba(232, 149, 110, 0.06), transparent 40%),
         radial-gradient(circle at 80% 90%, rgba(155, 149, 178, 0.05), transparent 40%),
         linear-gradient(180deg, #1e1a2e 0%, var(--cl-bg) 100%);
       min-height: 100vh;
@@ -513,114 +481,101 @@ Be direct. If it looks good, say so briefly.</code></pre>
 
     .ws-hero { padding: 5rem 0 3rem; border-bottom: 1px solid var(--cl-border); }
     .ws-kicker { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--cl-accent); margin-bottom: 1rem; }
-    .ws-title { font-size: clamp(2.5rem, 6vw, 3.5rem); font-weight: 900; line-height: 1; letter-spacing: -0.04em; color: var(--cl-text); margin-bottom: 0.5rem; }
+    .ws-title { font-size: clamp(2.5rem, 6vw, 3.5rem); font-weight: 900; line-height: 1.1; letter-spacing: -0.04em; color: var(--cl-text); margin-bottom: 0.5rem; }
     .ws-subtitle { font-size: clamp(1.05rem, 2vw, 1.25rem); color: var(--cl-muted); line-height: 1.5; max-width: 560px; margin-bottom: 2rem; }
 
     .ws-meta-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
     .ws-meta-item { padding: 1rem; background: var(--cl-surface); border: 1px solid var(--cl-border); border-radius: 10px; }
     .ws-meta-label { display: block; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--cl-accent); margin-bottom: 0.25rem; }
-    .ws-meta-value { display: block; font-size: 0.9rem; font-weight: 600; color: var(--cl-text); }
+    .ws-meta-value { display: block; font-size: 0.85rem; font-weight: 600; color: var(--cl-text); }
 
-    .ws-section { padding: 4rem 0; }
+    .ws-section { padding: 5rem 0; }
     .ws-section--alt { background: var(--cl-surface); }
     .ws-section-num { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; color: var(--cl-accent); margin-bottom: 0.5rem; }
-    .ws-section-title { font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 800; letter-spacing: -0.02em; color: var(--cl-text); margin-bottom: 0.5rem; line-height: 1.15; }
-    .ws-principle-tag { font-size: 0.82rem; color: var(--cl-muted); font-style: italic; margin-bottom: 2rem; max-width: 600px; }
+    .ws-section-title { font-size: clamp(1.75rem, 4vw, 2.25rem); font-weight: 800; letter-spacing: -0.02em; color: var(--cl-text); margin-bottom: 0.5rem; line-height: 1.15; }
+    .ws-principle-tag { font-size: 0.85rem; color: var(--cl-muted); font-style: italic; margin-bottom: 2rem; max-width: 600px; }
 
-    .ws-body { color: rgba(232, 221, 211, 0.82); font-size: 1rem; line-height: 1.7; }
-    .ws-body p { margin-bottom: 1rem; }
-    .ws-body h3 { font-size: 1rem; font-weight: 700; color: var(--cl-text); margin: 2rem 0 0.5rem; }
-    .ws-body ol, .ws-body ul { margin: 0.5rem 0 1.5rem 1.25rem; }
-    .ws-body li { margin-bottom: 0.4rem; }
-    .ws-body strong { color: var(--cl-text); }
-    .ws-body code { font-size: 0.85em; background: var(--cl-surface-2); padding: 0.15rem 0.4rem; border-radius: 4px; color: var(--cl-code); }
+    .ws-body { color: rgba(232, 221, 211, 0.85); font-size: 1.05rem; line-height: 1.7; }
+    .ws-body p { margin-bottom: 1.25rem; }
+    .ws-body h3 { font-size: 1.1rem; font-weight: 700; color: var(--cl-text); margin: 2.5rem 0 0.75rem; }
+    .ws-body strong { color: var(--cl-accent); font-weight: 700; }
+    .ws-body a { color: var(--cl-accent); text-decoration: underline; text-underline-offset: 4px; }
+    .ws-body a:focus-visible { outline: 2px solid var(--cl-accent); outline-offset: 4px; border-radius: 2px; }
 
-    .ws-principle-map { display: flex; flex-direction: column; gap: 0.4rem; margin: 1.5rem 0; }
-    .ws-pm-item { display: grid; grid-template-columns: 2.5rem 11rem auto 1fr; gap: 0.75rem; align-items: center; padding: 0.6rem 0.8rem; background: var(--cl-surface); border: 1px solid var(--cl-border); border-radius: 8px; font-size: 0.85rem; }
-    .ws-pm-num { font-weight: 800; color: var(--cl-accent); font-size: 0.75rem; }
-    .ws-pm-principle { font-weight: 700; color: var(--cl-text); }
-    .ws-pm-arrow { color: var(--cl-accent); opacity: 0.4; }
-    .ws-pm-module { color: var(--cl-muted); }
+    .ws-intro-grid { display: grid; grid-template-columns: 1fr 280px; gap: 3rem; align-items: start; }
+    .ws-intro-card { background: var(--cl-surface-2); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--cl-border); }
+    .ws-intro-card h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--cl-muted); margin-bottom: 1.25rem; }
+    .ws-trans-step { font-size: 0.9rem; padding: 0.75rem; border-radius: 8px; display: flex; align-items: center; gap: 0.75rem; color: var(--cl-muted); }
+    .ws-trans-step span { font-weight: 800; color: var(--cl-accent); opacity: 0.5; }
+    .ws-trans-step--active { background: var(--cl-accent-soft); color: var(--cl-text); border: 1px solid var(--cl-accent-glow); }
+    .ws-trans-step--active span { opacity: 1; }
+    .ws-trans-arrow { text-align: center; color: var(--cl-accent); opacity: 0.3; margin: 0.25rem 0; }
 
-    .ws-exercise { margin: 1.5rem 0; padding: 1.5rem; background: var(--cl-accent-soft); border: 1px solid var(--cl-accent-glow); border-left: 3px solid var(--cl-accent); border-radius: 0 10px 10px 0; }
-    .ws-exercise-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--cl-accent); margin-bottom: 0.75rem; }
+    .ws-brain-loop { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin: 2rem 0; }
+    .ws-loop-node { padding: 1.25rem; background: var(--cl-surface-2); border: 1px solid var(--cl-border); border-radius: 12px; text-align: center; position: relative; }
+    .ws-loop-node strong { display: block; color: var(--cl-accent); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem; }
+    .ws-loop-node span { font-size: 0.8rem; color: var(--cl-muted); line-height: 1.4; display: block; }
+
+    .ws-checklist { display: flex; flex-direction: column; gap: 0.75rem; margin: 1.5rem 0 2rem; }
+    .ws-check { display: flex; gap: 1rem; padding: 1rem; background: var(--cl-surface); border: 1px solid var(--cl-border); border-radius: 10px; font-size: 0.95rem; }
+    .ws-check-box { color: var(--cl-accent); font-size: 1.2rem; margin-top: -2px; }
+    .ws-check-why { font-size: 0.8rem; color: var(--cl-muted); margin-top: 0.25rem; }
+
+    .ws-exercise { margin: 2.5rem 0; padding: 2rem; background: var(--cl-accent-soft); border: 1px solid var(--cl-accent-glow); border-left: 4px solid var(--cl-accent); border-radius: 0 12px 12px 0; }
+    .ws-exercise-label { font-size: 0.75rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: var(--cl-accent); margin-bottom: 1rem; }
 
     .ws-code-block { margin: 1.5rem 0; background: var(--cl-surface-2); border: 1px solid var(--cl-border); border-radius: 10px; overflow: hidden; }
-    .ws-code-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--cl-muted); padding: 0.75rem 1rem 0.5rem; }
-    .ws-code-block pre { padding: 0.5rem 0; overflow-x: auto; margin: 0; }
-    .ws-code-block code { font-size: 0.85rem; color: var(--cl-code); background: none; padding: 0; line-height: 1.6; }
-    .ws-code-note { font-size: 0.8rem; color: var(--cl-muted); padding: 0 1rem 0.75rem; }
+    .ws-code-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--cl-muted); padding: 1rem 1.25rem 0.5rem; }
+    .ws-code-block pre { padding: 1.25rem; overflow-x: auto; margin: 0; background: #000; }
+    .ws-code-block code { font-size: 0.9rem; color: var(--cl-code); background: none; padding: 0; line-height: 1.6; }
+    .ws-code-note { font-size: 0.85rem; color: var(--cl-muted); padding: 0.5rem 1.25rem 1.25rem; }
 
-    /* Copyable command blocks */
     .ws-cmd {
       display: flex; align-items: center; justify-content: space-between; gap: 1rem;
-      padding: 0.65rem 0.75rem 0.65rem 1rem;
-      background: var(--cl-surface-2); border: 1px solid var(--cl-border); border-radius: 8px;
-      margin: 0.5rem 0; cursor: pointer; transition: border-color 0.2s;
+      padding: 0.85rem 1rem;
+      background: #000; border: 1px solid var(--cl-border); border-radius: 8px;
+      margin: 0.75rem 0; cursor: pointer; transition: all 0.2s;
     }
-    .ws-cmd:hover { border-color: var(--cl-accent-glow); }
-    .ws-cmd code { font-size: 0.88rem; color: var(--cl-code); background: none; padding: 0; white-space: nowrap; overflow-x: auto; flex: 1; }
-    .ws-cmd--prompt { border-left: 3px solid var(--cl-accent-glow); }
+    .ws-cmd:hover { border-color: var(--cl-accent); box-shadow: 0 0 15px var(--cl-accent-glow); }
+    .ws-cmd:focus-within { outline: 2px solid var(--cl-accent); outline-offset: 4px; }
+    .ws-cmd code { font-size: 0.95rem; color: var(--cl-code); background: none; padding: 0; white-space: nowrap; overflow-x: auto; flex: 1; }
+    .ws-cmd--prompt { border-left: 4px solid var(--cl-accent); background: var(--cl-surface-2); }
     .ws-cmd--prompt code { color: var(--cl-text); white-space: normal; }
-    .ws-cmd--multi { flex-direction: column; align-items: stretch; cursor: default; }
-    .ws-cmd--multi pre { margin: 0; padding: 0; }
-    .ws-cmd--multi code { white-space: pre; }
-    .ws-cmd--multi .ws-copy { align-self: flex-end; }
 
     .ws-copy {
-      flex-shrink: 0; padding: 0.35rem 0.75rem; border: 1px solid var(--cl-border);
-      border-radius: 6px; background: transparent; color: var(--cl-muted); font-size: 0.72rem;
-      font-weight: 700; letter-spacing: 0.04em; cursor: pointer; transition: all 0.15s;
-      white-space: nowrap;
+      flex-shrink: 0; padding: 0.45rem 0.85rem; border: 1px solid var(--cl-border);
+      border-radius: 6px; background: var(--cl-surface); color: var(--cl-muted); font-size: 0.75rem;
+      font-weight: 700; letter-spacing: 0.04em; cursor: pointer; transition: all 0.2s;
     }
-    .ws-copy:hover { color: var(--cl-accent); border-color: var(--cl-accent); }
-    .ws-copy.ws-copied { color: var(--cl-accent); border-color: var(--cl-accent); background: var(--cl-accent-soft); }
+    .ws-copy:hover { color: var(--cl-accent); border-color: var(--cl-accent); background: var(--cl-surface-2); }
+    .ws-copy:focus-visible { outline: 2px solid var(--cl-accent); outline-offset: 2px; }
+    .ws-copy.ws-copied { color: #fff; background: #2a6d4d; border-color: #2a6d4d; }
 
-    .ws-key-insight { margin: 1.5rem 0; padding: 1rem 1.25rem; background: var(--cl-surface); border: 1px solid var(--cl-border); border-radius: 10px; font-size: 0.9rem; }
+    .ws-tools-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 2rem 0; }
+    .ws-tool { padding: 1.25rem; background: var(--cl-surface); border: 1px solid var(--cl-border); border-radius: 12px; }
+    .ws-tool strong { display: block; font-size: 0.95rem; color: var(--cl-accent); margin-bottom: 0.35rem; }
+    .ws-tool span { font-size: 0.85rem; color: var(--cl-muted); line-height: 1.4; }
 
-    .ws-tools-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem; margin: 1.5rem 0; }
-    .ws-tool { padding: 0.75rem; background: var(--cl-surface); border: 1px solid var(--cl-border); border-radius: 8px; }
-    .ws-tool strong { display: block; font-size: 0.85rem; color: var(--cl-accent); margin-bottom: 0.15rem; }
-    .ws-tool span { font-size: 0.75rem; color: var(--cl-muted); }
+    .ws-future-list { list-style: none; margin: 2rem 0; padding: 0; display: flex; flex-direction: column; gap: 1.25rem; }
+    .ws-future-list li { padding: 1.5rem; background: var(--cl-surface); border: 1px solid var(--cl-border); border-radius: 12px; font-size: 1rem; border-left: 4px solid var(--cl-accent); }
+    .ws-future-list strong { color: var(--cl-text); display: block; margin-bottom: 0.25rem; }
 
-    .ws-checklist { display: flex; flex-direction: column; gap: 0.5rem; margin: 1rem 0 1.5rem; }
-    .ws-check { display: flex; gap: 0.75rem; padding: 0.75rem 1rem; background: var(--cl-surface); border: 1px solid var(--cl-border); border-radius: 8px; font-size: 0.9rem; }
-    .ws-check-box { color: var(--cl-accent); flex-shrink: 0; }
+    .ws-key-insight { margin: 2rem 0; padding: 1.25rem 1.5rem; background: var(--cl-surface-2); border: 1px solid var(--cl-accent-glow); border-radius: 12px; font-size: 0.95rem; border-right: 4px solid var(--cl-accent); }
 
-    .ws-progression { margin: 2rem 0; padding: 1.5rem; background: var(--cl-surface); border: 1px solid var(--cl-border); border-radius: 12px; }
-    .ws-progression-title { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--cl-accent); margin-bottom: 1rem; }
-    .ws-progression-steps { display: flex; align-items: flex-start; gap: 0.75rem; }
-    .ws-prog-step { flex: 1; display: flex; gap: 0.6rem; }
-    .ws-prog-num { font-size: 0.75rem; font-weight: 800; color: var(--cl-accent); background: var(--cl-accent-soft); width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
-    .ws-prog-step strong { display: block; font-size: 0.9rem; color: var(--cl-text); }
-    .ws-prog-step p { font-size: 0.8rem; color: var(--cl-muted); margin: 0.15rem 0 0; }
-    .ws-prog-arrow { color: var(--cl-accent); opacity: 0.3; font-weight: 800; padding-top: 2px; flex-shrink: 0; }
-
-    .ws-outcome-grid { display: grid; gap: 0.4rem; margin: 0 0 2rem; }
-    .ws-outcome { display: flex; align-items: center; gap: 0.75rem; padding: 0.6rem 0; font-size: 0.95rem; color: var(--cl-text); border-bottom: 1px solid rgba(155, 149, 178, 0.08); }
-    .ws-outcome-check { color: var(--cl-accent); font-weight: 700; }
-
-    .ws-cta-block { margin-top: 2.5rem; padding: 2rem; background: var(--cl-surface); border: 1px solid var(--cl-border); border-radius: 12px; text-align: center; }
-    .ws-cta-block p { font-size: 1rem; color: var(--cl-muted); margin-bottom: 1rem; }
-    .ws-cta { display: inline-flex; padding: 0.75rem 1.5rem; background: var(--cl-accent); color: #1a1625; font-weight: 700; font-size: 0.9rem; border-radius: 8px; text-decoration: none; transition: opacity 0.2s; }
-    .ws-cta:hover { opacity: 0.85; }
-    .ws-cta--secondary { background: transparent; color: var(--cl-muted); border: 1px solid var(--cl-border); }
-    .ws-cta--secondary:hover { color: var(--cl-accent); border-color: var(--cl-accent); opacity: 1; }
-    .ws-cta-row { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
+    .ws-cta-block { margin-top: 4rem; padding: 3rem; background: var(--cl-surface-2); border: 1px solid var(--cl-border); border-radius: 16px; text-align: center; }
+    .ws-cta-block p { font-size: 1.1rem; color: var(--cl-muted); margin-bottom: 2rem; }
+    .ws-cta { display: inline-flex; padding: 1rem 2rem; background: var(--cl-accent); color: #1a1625; font-weight: 800; font-size: 1rem; border-radius: 10px; text-decoration: none; transition: all 0.2s; }
+    .ws-cta:hover { transform: translateY(-2px); box-shadow: 0 10px 25px var(--cl-accent-glow); }
+    .ws-cta:focus-visible { outline: 3px solid #fff; outline-offset: 4px; }
+    .ws-cta--secondary { background: transparent; color: var(--cl-text); border: 1px solid var(--cl-border); }
+    .ws-cta--secondary:hover { border-color: var(--cl-accent); color: var(--cl-accent); }
+    .ws-cta-row { display: flex; gap: 1.25rem; justify-content: center; flex-wrap: wrap; }
 
     @media (max-width: 768px) {
-      .ws-container { padding: 0 1.25rem; }
-      .ws-meta-row { grid-template-columns: repeat(2, 1fr); }
+      .ws-intro-grid { grid-template-columns: 1fr; }
+      .ws-brain-loop { grid-template-columns: repeat(2, 1fr); }
       .ws-tools-grid { grid-template-columns: 1fr; }
-      .ws-pm-item { grid-template-columns: 2rem 1fr; gap: 0.4rem; }
-      .ws-pm-arrow, .ws-pm-module { display: none; }
-      .ws-progression-steps { flex-direction: column; }
-      .ws-prog-arrow { transform: rotate(90deg); align-self: center; }
-      .ws-hero { padding: 4rem 0 2rem; }
-    }
-
-    @media (max-width: 480px) {
-      .ws-meta-row { grid-template-columns: 1fr; }
+      .ws-meta-row { grid-template-columns: repeat(2, 1fr); }
     }
   </style>
 
