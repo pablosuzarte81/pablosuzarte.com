@@ -200,19 +200,19 @@ const randomStyles = ['brutalist', 'neon', 'vaporwave', 'paper', 'ocean']
     <div class="hero-bg"></div>
     <div class="container hero-content">
       <div class="hero-left">
-        <p class="hero-greeting">{t.hero.greeting}</p>
+        <p class="hero-eyebrow">{t.hero.eyebrow}</p>
         <h1 class="hero-name">Pablo Suzarte</h1>
-        <h2 class="hero-title">{t.hero.title}</h2>
-        <p class="hero-tagline">
+        <h2 class="hero-title">
           {
-            t.hero.tagline.split('\n').map((line, i) => (
+            t.hero.title.split('\n').map((line, i) => (
               <>
                 {line}
                 {i === 0 && <br />}
               </>
             ))
           }
-        </p>
+        </h2>
+        <p class="hero-support">{t.hero.tagline}</p>
         <div class="hero-ctas">
           <a href="/me-and-ai" class="btn-primary">{t.hero.cta1}</a>
           <a
@@ -223,11 +223,6 @@ const randomStyles = ['brutalist', 'neon', 'vaporwave', 'paper', 'ocean']
           >
             {t.hero.cta2}
           </a>
-        </div>
-        <div class="hero-meta">
-          <span>{t.hero.location}</span>
-          <span>·</span>
-          <span>{t.hero.currentRole}</span>
         </div>
       </div>
       <div class="hero-right">
@@ -1379,8 +1374,8 @@ const randomStyles = ['brutalist', 'neon', 'vaporwave', 'paper', 'ocean']
   }
 
   .hero-photo-wrap {
-    width: 280px;
-    height: 280px;
+    width: 300px;
+    height: 300px;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -1394,13 +1389,14 @@ const randomStyles = ['brutalist', 'neon', 'vaporwave', 'paper', 'ocean']
     object-fit: contain;
   }
 
-  .hero-greeting {
-    font-size: 1rem;
-    color: var(--accent);
-    font-weight: 500;
-    letter-spacing: 0.05em;
+  .hero-eyebrow {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
     margin-bottom: 0.75rem;
-    animation: fadeUp 0.6s ease both;
+    animation: fadeUp 0.5s ease both;
   }
 
   .hero-name {
@@ -1408,46 +1404,37 @@ const randomStyles = ['brutalist', 'neon', 'vaporwave', 'paper', 'ocean']
     font-weight: 700;
     line-height: 1.05;
     letter-spacing: -0.02em;
-    background: linear-gradient(135deg, #e2e8f0 30%, #94a3b8 100%);
+    background: linear-gradient(135deg, var(--text) 30%, var(--muted-light) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    margin-bottom: 0.75rem;
-    animation: fadeUp 0.6s 0.1s ease both;
+    margin-bottom: 0.5rem;
+    animation: fadeUp 0.5s 0.08s ease both;
   }
 
   .hero-title {
-    font-size: clamp(1.2rem, 2.5vw, 1.75rem);
+    font-size: clamp(1.35rem, 2.8vw, 1.9rem);
     font-weight: 400;
     color: var(--accent);
-    margin-bottom: 1.5rem;
-    animation: fadeUp 0.6s 0.2s ease both;
+    line-height: 1.25;
+    margin-bottom: 1.75rem;
+    animation: fadeUp 0.5s 0.16s ease both;
   }
 
-  .hero-tagline {
-    font-size: 1.05rem;
+  .hero-support {
+    font-size: 1rem;
     color: var(--muted-light);
-    max-width: 520px;
-    line-height: 1.7;
+    max-width: 480px;
+    line-height: 1.6;
     margin-bottom: 2.5rem;
-    animation: fadeUp 0.6s 0.3s ease both;
+    animation: fadeUp 0.5s 0.24s ease both;
   }
 
   .hero-ctas {
     display: flex;
     gap: 1rem;
     flex-wrap: wrap;
-    margin-bottom: 2rem;
-    animation: fadeUp 0.6s 0.4s ease both;
-  }
-
-  .hero-meta {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    color: var(--muted);
-    font-size: 0.875rem;
-    animation: fadeUp 0.6s 0.5s ease both;
+    animation: fadeUp 0.5s 0.32s ease both;
   }
 
   .scroll-hint {
@@ -2930,7 +2917,7 @@ const randomStyles = ['brutalist', 'neon', 'vaporwave', 'paper', 'ocean']
   :global(html[data-style='brutalist']) .nav-links a,
   :global(html[data-style='brutalist']) .style-toggle,
   :global(html[data-style='brutalist']) .lang-link,
-  :global(html[data-style='brutalist']) .hero-meta,
+  :global(html[data-style='brutalist']) .hero-eyebrow,
   :global(html[data-style='brutalist']) .future-role-text,
   :global(html[data-style='brutalist']) .future-role-card p:last-child,
   :global(html[data-style='brutalist']) .future-role-metric span,
@@ -3002,7 +2989,7 @@ const randomStyles = ['brutalist', 'neon', 'vaporwave', 'paper', 'ocean']
     letter-spacing: -0.04em;
   }
 
-  :global(html[data-style='brutalist']) .hero-greeting,
+  :global(html[data-style='brutalist']) .hero-eyebrow,
   :global(html[data-style='brutalist']) .label-num,
   :global(html[data-style='brutalist']) .future-role-metric strong,
   :global(html[data-style='brutalist']) .project-card-meta,
@@ -3121,12 +3108,11 @@ const randomStyles = ['brutalist', 'neon', 'vaporwave', 'paper', 'ocean']
       transition-duration: 0.01ms !important;
     }
 
-    .hero-greeting,
+    .hero-eyebrow,
     .hero-name,
     .hero-title,
-    .hero-tagline,
+    .hero-support,
     .hero-ctas,
-    .hero-meta,
     .hero-right,
     .scroll-hint {
       animation: none;
@@ -3165,8 +3151,8 @@ const randomStyles = ['brutalist', 'neon', 'vaporwave', 'paper', 'ocean']
       justify-content: center;
     }
 
-    .hero-meta {
-      justify-content: center;
+    .hero-eyebrow {
+      text-align: center;
     }
 
     .future-role-panel,

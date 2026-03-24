@@ -47,13 +47,11 @@ export interface T {
     playground: string
   }
   hero: {
-    greeting: string
+    eyebrow: string
     title: string
     tagline: string
     cta1: string
     cta2: string
-    location: string
-    currentRole: string
     scroll: string
   }
   homeFutureRole: {
@@ -190,14 +188,12 @@ export const translations: Record<Locale, T> = {
       playground: 'AI Playground',
     },
     hero: {
-      greeting: "Hi, I'm",
-      title: 'I design environments where humans and AI think together — going from prompting chatbots to orchestrating agents that solve real problems.',
+      eyebrow: 'Senior Product UX Designer \u00B7 IKEA Global',
+      title: 'I orchestrate the space\nbetween people and AI.',
       tagline:
-        '15+ years of product design — UX, UI, service design, user research, and journey orchestration.\nNow I help teams unlock AI as a superpower: building the working environments where your mind collaborates with AI naturally, not artificially.',
-      cta1: 'See how I think about AI',
-      cta2: 'LinkedIn ↗',
-      location: '📍 Greater Malmö, Sweden',
-      currentRole: 'Currently @ IKEA Global',
+        'From journey maps to agent workflows \u2014 designing where real collaboration happens.',
+      cta1: 'How I think about AI',
+      cta2: 'LinkedIn \u2197',
       scroll: 'scroll',
     },
     homeFutureRole: {
@@ -594,14 +590,12 @@ export const translations: Record<Locale, T> = {
       playground: 'AI Playground',
     },
     hero: {
-      greeting: 'Hej, jag är',
-      title: 'Jag designar miljöer där människor och AI tänker tillsammans — från att prompta chatbotar till att orkestrera agenter som löser riktiga problem.',
+      eyebrow: 'Senior Product UX Designer \u00B7 IKEA Global',
+      title: 'Jag orkestrerar rummet\nmellan människor och AI.',
       tagline:
-        '15+ år av produktdesign — UX, UI, tjänstedesign, användarresearch och journey-orkestrering.\nNu hjälper jag team att frigöra AI som superkraft: bygger arbetsmiljöer där ditt tänkande samarbetar med AI naturligt, inte artificiellt.',
-      cta1: 'Se hur jag tänker kring AI',
-      cta2: 'LinkedIn ↗',
-      location: '📍 Stor-Malmö, Sverige',
-      currentRole: 'Just nu @ IKEA Global',
+        'Från journey maps till agentarbetsflöden \u2014 designar där riktigt samarbete sker.',
+      cta1: 'Hur jag tänker kring AI',
+      cta2: 'LinkedIn \u2197',
       scroll: 'scrolla',
     },
     homeFutureRole: {
@@ -998,14 +992,12 @@ export const translations: Record<Locale, T> = {
       playground: 'AI Playground',
     },
     hero: {
-      greeting: 'Hola, soy',
-      title: 'Diseño entornos donde humanos e IA piensan juntos — de hacer prompts a un chatbot a orquestar agentes que resuelven problemas reales.',
+      eyebrow: 'Senior Product UX Designer \u00B7 IKEA Global',
+      title: 'Orquesto el espacio\nentre personas e IA.',
       tagline:
-        'Más de 15 años de diseño de producto — UX, UI, diseño de servicios, investigación de usuarios y orquestación de journeys.\nAhora ayudo a equipos a liberar la IA como superpoder: construyendo entornos de trabajo donde tu mente colabora con la IA de forma natural, no artificial.',
+        'De journey maps a flujos de agentes \u2014 diseñando donde la colaboración real sucede.',
       cta1: 'Cómo pienso sobre la IA',
-      cta2: 'LinkedIn ↗',
-      location: '📍 Gran Malmö, Suecia',
-      currentRole: 'Actualmente en IKEA Global',
+      cta2: 'LinkedIn \u2197',
       scroll: 'scroll',
     },
     homeFutureRole: {
