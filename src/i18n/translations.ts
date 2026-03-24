@@ -434,7 +434,7 @@ export const translations: Record<Locale, T> = {
           role: 'Senior Product UX Designer',
           period: 'May 2022 — Present',
           location: 'Malmö, Sweden',
-          link: '/journey-teams',
+          link: 'https://journeyteams.vercel.app/',
           linkLabel: 'View Journey Teams presentation →',
           highlights: [
             'Currently leading redesign of a complex global process across 16+ teams — grounded in 5-market research and cross-functional stakeholder alignment.',
@@ -836,7 +836,7 @@ export const translations: Record<Locale, T> = {
           role: 'Senior Product UX Designer',
           period: 'Maj 2022 — Nu',
           location: 'Malmö, Sverige',
-          link: '/journey-teams',
+          link: 'https://journeyteams.vercel.app/',
           linkLabel: 'Se Journey Teams-presentation →',
           highlights: [
             'Leder just nu redesignen av en komplex global process med 16+ team — grundad i research från 5 marknader och tvärfunktionell stakeholderalignering.',
@@ -1238,7 +1238,7 @@ export const translations: Record<Locale, T> = {
           role: 'Senior Product UX Designer',
           period: 'Mayo 2022 — Presente',
           location: 'Malmö, Suecia',
-          link: '/journey-teams',
+          link: 'https://journeyteams.vercel.app/',
           linkLabel: 'Ver presentación Journey Teams →',
           highlights: [
             'Actualmente liderando el rediseño de un proceso global complejo con 16+ equipos — fundamentado en investigación en 5 mercados y alineamiento interfuncional de stakeholders.',

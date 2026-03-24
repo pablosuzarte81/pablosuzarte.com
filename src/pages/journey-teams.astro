@@ -1,0 +1,22 @@
+---
+const destination = 'https://journeyteams.vercel.app/';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="refresh" content={`0;url=${destination}`} />
+    <meta name="robots" content="noindex" />
+    <link rel="canonical" href={destination} />
+    <title>Redirecting...</title>
+    <script is:inline>
+      window.location.replace('https://journeyteams.vercel.app/');
+    </script>
+  </head>
+  <body>
+    <p>
+      Redirecting to <a href={destination}>Journey Teams</a>.
+    </p>
+  </body>
+</html>
