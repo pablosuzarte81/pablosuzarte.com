@@ -1,0 +1,5228 @@
+---
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Connecting the Silos: A Journey-Centric Approach</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style is:inline>
+/* ============================================================
+   Journey Teams — Connecting the Silos
+   IKEA Skapa inspired design
+   ============================================================ */
+
+/* ---------- Design Tokens ---------- */
+:root {
+  --blue:       #0058A3;
+  --blue-dark:  #003E77;
+  --yellow:     #FFDB00;
+  --dark:       #08131F;
+  --dark-2:     #0D1B2A;
+  --dark-3:     #13263A;
+  --mid:        #91A0AF;
+  --light:      #E8EEF3;
+  --mid-gray:   #314153;
+  --white:      #FFFFFF;
+  --text-soft:  rgba(255,255,255,0.74);
+  --line:       rgba(255,255,255,0.08);
+
+  --font: 'Inter', system-ui, -apple-system, sans-serif;
+
+  --space-xs:   0.5rem;
+  --space-s:    1rem;
+  --space-m:    1.5rem;
+  --space-l:    2.5rem;
+  --space-xl:   4rem;
+  --space-xxl:  6rem;
+
+  --radius-s:   4px;
+  --radius-m:   8px;
+  --radius-l:   16px;
+  --radius-xl:  24px;
+
+  --max-width:  1200px;
+  --text-max:   680px;
+
+  /* Narrative slide proportion rules */
+  --narrative-grid-text: 1.12fr;
+  --narrative-grid-visual: 0.88fr;
+  --narrative-gap: clamp(1.25rem, 2.6vw, 2.5rem);
+  --narrative-label-size: 0.82rem;
+  --narrative-title-size: clamp(2.1rem, 3.4vw, 3rem);
+  --narrative-title-measure: 19ch;
+  --narrative-title-leading: 1.08;
+  --narrative-lead-size: clamp(1.28rem, 2vw, 1.75rem);
+  --narrative-lead-measure: 39rem;
+  --narrative-lead-leading: 1.5;
+  --narrative-visual-size: min(34rem, 100%);
+}
+
+/* ---------- Reset ---------- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html {
+  font-size: 16px;
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+}
+body {
+  font-family: var(--font);
+  color: var(--white);
+  background:
+    radial-gradient(circle at top left, rgba(255, 219, 0, 0.08), transparent 22%),
+    radial-gradient(circle at 85% 15%, rgba(0, 88, 163, 0.18), transparent 28%),
+    linear-gradient(180deg, #06111c 0%, #08131f 100%);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; height: auto; display: block; }
+ul, ol { list-style: none; }
+strong { font-weight: 700; }
+
+/* ---------- Typography ---------- */
+.display-xl {
+  font-size: clamp(3.5rem, 9vw, 8rem);
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  color: var(--white);
+}
+.display-sub {
+  font-size: clamp(1.25rem, 3vw, 2.25rem);
+  font-weight: 700;
+  color: var(--yellow);
+  margin-top: var(--space-m);
+  letter-spacing: -0.01em;
+}
+.title-speaker {
+  margin-top: 1.1rem;
+  font-size: clamp(1rem, 2vw, 1.45rem);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: rgba(255,255,255,0.92);
+}
+.title-context {
+  margin-top: 0.55rem;
+  font-size: clamp(0.72rem, 1.1vw, 0.9rem);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.46);
+  max-width: 44rem;
+  line-height: 1.5;
+}
+.heading-xl {
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: var(--space-l);
+  color: var(--white);
+}
+.statement {
+  font-size: clamp(2rem, 4.5vw, 3.5rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: var(--space-l);
+}
+.body-xl {
+  font-size: clamp(1.125rem, 2vw, 1.5rem);
+  font-weight: 400;
+  line-height: 1.55;
+  margin-bottom: var(--space-m);
+  color: var(--text-soft);
+}
+.body-l {
+  font-size: clamp(1rem, 1.4vw, 1.125rem);
+  font-weight: 400;
+  line-height: 1.65;
+  margin-bottom: var(--space-s);
+  color: var(--text-soft);
+}
+.body-m {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.6;
+}
+.caption-note {
+  color: var(--text-soft);
+  font-size: 0.875rem;
+  margin-top: var(--space-s);
+  line-height: 1.5;
+}
+.caption-note--light {
+  color: rgba(255,255,255,0.55);
+  font-size: 0.875rem;
+  margin-top: var(--space-s);
+}
+.section-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--yellow);
+  margin-bottom: var(--space-m);
+  display: block;
+}
+.section-label--light {
+  color: rgba(255,255,255,0.5);
+}
+.eyebrow {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: var(--space-l);
+  display: block;
+}
+.tagline {
+  font-size: clamp(1rem, 1.5vw, 1.25rem);
+  font-weight: 400;
+  color: rgba(255,255,255,0.7);
+  margin-top: var(--space-xl);
+  line-height: 1.5;
+}
+.project-name {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.4);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-top: var(--space-m);
+}
+.heading--light { color: var(--white); }
+.body--light { color: rgba(255,255,255,0.85); }
+.italic { font-style: italic; }
+.with-purpose {
+  color: var(--yellow);
+  font-style: normal;
+}
+.highlight-yellow {
+  color: var(--yellow);
+  font-weight: 800;
+}
+.crayon-underline {
+  position: relative;
+  display: inline;
+}
+.crayon-underline::after {
+  content: "";
+  position: absolute;
+  left: -2%;
+  right: -2%;
+  bottom: -0.05em;
+  height: 0.18em;
+  background: var(--yellow);
+  opacity: 0.55;
+  border-radius: 40% 20% 40% 30% / 80% 60% 90% 50%;
+  transform: rotate(-0.5deg) scaleY(0.85);
+  z-index: -1;
+}
+
+/* ---------- Slide Counter ---------- */
+.slide-counter {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.75rem;
+  z-index: 200;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: rgba(255,255,255,0.35);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- Progress Bar ---------- */
+.progress-bar {
+  position: fixed;
+  top: 0; left: 0;
+  height: 3px;
+  background: var(--yellow);
+  width: 0%;
+  z-index: 200;
+  transition: width 0.08s linear;
+}
+
+/* ---------- Side Navigation ---------- */
+.sidenav {
+  position: fixed;
+  right: 1.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+.dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.18);
+  display: block;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+  position: relative;
+}
+.dot:hover {
+  background: var(--yellow);
+  transform: scale(1.5);
+}
+.dot.active {
+  background: var(--yellow);
+  transform: scale(1.8);
+  box-shadow: 0 0 0 3px rgba(255, 219, 0, 0.3);
+}
+.dot::after {
+  content: attr(data-label);
+  position: absolute;
+  right: 1.4rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--dark);
+  color: var(--white);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 3px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s;
+}
+.dot:hover::after { opacity: 1; }
+.dot.active::after {
+  opacity: 0;
+}
+
+/* ---------- Sections — Base ---------- */
+.section {
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  transition: background 0.4s ease;
+  contain: layout style;
+}
+.section__inner {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: var(--space-xxl) var(--space-xl);
+}
+
+/* ---------- Slide entrance animations ---------- */
+.section .section__inner {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.section.is-visible .section__inner,
+.section--title .section__inner {
+  opacity: 1;
+  transform: translateY(0);
+}
+.section__inner--title {
+  padding: var(--space-xxl) var(--space-xl);
+}
+.section__inner--problem-hero {
+  display: flex;
+  align-items: center;
+  min-height: 100vh;
+}
+.section__inner--text {
+  max-width: var(--text-max);
+}
+.section__inner--split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-xxl);
+  align-items: center;
+}
+.section__inner--reverse {
+  direction: rtl;
+}
+.section__inner--reverse > * {
+  direction: ltr;
+}
+.section__inner--stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+}
+.section__inner--center {
+  text-align: center;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+/* ---------- Split Images ---------- */
+.split__image img,
+.split__image--left img {
+  width: 100%;
+  height: 520px;
+  object-fit: cover;
+  border-radius: var(--radius-xl);
+  box-shadow: 0 24px 64px rgba(0,0,0,0.12);
+}
+
+/* ---------- Section Themes ---------- */
+.section--title    { background: transparent; }
+.section--problem  {
+  background: #08080F;
+  position: relative;
+  overflow: hidden;
+}
+
+.section--constellation-bg {
+  background: transparent;
+}
+.section--constellation-bg .section__inner {
+  position: relative;
+  z-index: 1;
+}
+
+.chase-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+.section--story    { display: block; overflow: visible; position: relative; z-index: 0; }
+
+/* Pull each section after a scroll-story up by 100vh to absorb the sticky trailing blank */
+.section--story + .section {
+  position: relative;
+  z-index: 1;
+  margin-top: -100vh;
+}
+.section--strategy    { background: #08080F; }
+.section--strategy.section--with-constellation { background: transparent; }
+.section--planning    { background: #08080F; }
+.section--onboarding  { background: #08080F; }
+.section--team        { background: #08080F; }
+.section--orchestrator{ background: #08080F; }
+.section--involved    { background: #08080F; }
+.section--research    { background: #08080F; }
+.section--analysis    { background: #08080F; }
+.section--sharing     { background: #08080F; }
+.section--artefact    { background: #08080F; }
+
+/* ---------- Artefact Layout ---------- */
+.section__inner--artefact {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 100%;
+  padding: var(--space-xl) var(--space-xl);
+}
+
+.artefact-header {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  width: 100%;
+}
+
+.artefact-header .heading-xl {
+  max-width: 56rem;
+}
+
+/* Physical → Digital transformation layout */
+.maps-transformation {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.maps-physical {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.maps-physical__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.maps-physical__item img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  border-radius: var(--radius-m);
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+}
+
+.maps-physical__item span {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: rgba(255,255,255,0.5);
+}
+
+.maps-arrow-down {
+  font-size: 1.5rem;
+  color: var(--yellow);
+  opacity: 0.5;
+  line-height: 1;
+  margin-top: 0.25rem;
+}
+
+/* Journey map — full width */
+.artefact-map-wrap {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.artefact-map {
+  border-radius: var(--radius-l);
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow:
+    0 24px 80px rgba(0,0,0,0.35),
+    inset 0 1px 0 rgba(255,255,255,0.04);
+  background: #fefefe;
+}
+
+.artefact-map {
+  position: relative;
+}
+
+.artefact-map img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Pain point dots overlay */
+.pain-dots {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.pain-dot {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: rgba(255, 40, 40, 1);
+  box-shadow: 0 0 10px rgba(255, 40, 40, 0.8), 0 0 28px rgba(255, 40, 40, 0.4), 0 0 50px rgba(255, 40, 40, 0.15);
+  animation: pain-blink var(--blink-speed, 2.5s) ease-in-out var(--blink-delay, 0s) infinite;
+}
+
+@keyframes pain-blink {
+  0%, 100% { opacity: 0.5; transform: scale(0.9); box-shadow: 0 0 8px rgba(255,40,40,0.6), 0 0 20px rgba(255,40,40,0.25); }
+  50% { opacity: 1; transform: scale(1.4); box-shadow: 0 0 18px rgba(255,40,40,0.9), 0 0 40px rgba(255,40,40,0.45), 0 0 70px rgba(255,40,40,0.15); }
+}
+
+/* Stats row */
+.artefact-stat-row {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+.artefact-stat {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+.artefact-stat__number {
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 900;
+  color: var(--yellow, #ffdb00);
+  line-height: 1;
+}
+
+.artefact-stat__label {
+  font-size: clamp(0.85rem, 1vw, 1rem);
+  color: rgba(255,255,255,0.5);
+  font-weight: 500;
+}
+
+.artefact-card-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  max-width: var(--max-width);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.artefact-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.2rem 1.5rem;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 12px;
+}
+
+.artefact-card__icon {
+  font-size: 1.3rem;
+  color: var(--yellow, #ffdb00);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.artefact-card__text {
+  font-size: clamp(0.9rem, 1.1vw, 1.05rem);
+  color: rgba(255,255,255,0.6);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.artefact-map-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.6rem;
+  padding: 0 0.25rem;
+}
+
+.artefact-map-labels span {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+}
+
+/* Pain point sample cards */
+.artefact-painpoints {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+}
+
+.artefact-painpoint {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  padding: 0.85rem 1rem;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: var(--radius-m);
+}
+
+.artefact-painpoint__icon {
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+
+.artefact-painpoint__title {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.2;
+  margin-bottom: 0.2rem;
+}
+
+.artefact-painpoint__desc {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.4;
+}
+
+.artefact-painpoint__link {
+  flex-shrink: 0;
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--yellow);
+  opacity: 0.7;
+  margin-top: 0.15rem;
+}
+
+/* ---------- Pain Point Zoom-In Slides ---------- */
+.section--painpoint {
+  background:
+    radial-gradient(circle at 25% 50%, rgba(255,219,0,0.04), transparent 30%),
+    linear-gradient(180deg, #0a1520 0%, #0d1e30 100%);
+}
+.section--painpoint-alt {
+  background:
+    radial-gradient(circle at 75% 50%, rgba(0,88,163,0.06), transparent 30%),
+    linear-gradient(180deg, #0d1e30 0%, #0a1520 100%);
+}
+
+.section__inner--painpoint {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-xl);
+  align-items: center;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: var(--space-xxl) var(--space-xl);
+}
+
+.section--painpoint-alt .section__inner--painpoint {
+  direction: rtl;
+}
+.section--painpoint-alt .section__inner--painpoint > * {
+  direction: ltr;
+}
+
+.painpoint-slide__label {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.2rem;
+}
+
+.painpoint-number {
+  font-size: 0.7rem;
+  font-weight: 900;
+  color: var(--yellow);
+  background: rgba(255,219,0,0.12);
+  border: 1px solid rgba(255,219,0,0.2);
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.painpoint-activity {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+}
+
+.painpoint-slide__title {
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  color: var(--white);
+  margin-bottom: 1rem;
+}
+
+.painpoint-slide__desc {
+  font-size: clamp(1rem, 1.4vw, 1.15rem);
+  line-height: 1.6;
+  color: rgba(255,255,255,0.72);
+  margin-bottom: 1.5rem;
+  max-width: 32rem;
+}
+
+.painpoint-slide__meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.painpoint-slide__video {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--yellow);
+  opacity: 0.85;
+}
+
+.painpoint-slide__impact {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.45);
+  line-height: 1.4;
+}
+
+.painpoint-slide__screenshot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.painpoint-slide__screenshot img {
+  width: 100%;
+  max-width: 520px;
+  border-radius: var(--radius-l);
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 24px 64px rgba(0,0,0,0.35);
+}
+
+.section--workshop-gallery {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: #08080F;
+}
+.section--outcomes    { background: #08080F; }
+.section--close       { background: #08080F; }
+.section--implication { background: #08080F; }
+
+/* ---------- Scroll Hint ---------- */
+.scroll-hint {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(255,255,255,0.3);
+  font-size: 1.25rem;
+  animation: bounce 2.5s ease-in-out infinite;
+  user-select: none;
+}
+@keyframes bounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50%       { transform: translateX(-50%) translateY(8px); }
+}
+
+/* ---------- Pullquote ---------- */
+.pullquote {
+  font-size: clamp(1.125rem, 2vw, 1.5rem);
+  font-weight: 700;
+  line-height: 1.45;
+  border-left: 4px solid var(--yellow);
+  padding-left: var(--space-m);
+  margin: var(--space-l) 0;
+  color: var(--white);
+  font-style: normal;
+}
+.pullquote--light {
+  color: var(--white);
+}
+
+/* ---------- Field Quote (Serba / participant voices) ---------- */
+.field-quote {
+  margin: var(--space-l) 0;
+  padding: var(--space-m) var(--space-l);
+  border-left: 3px solid var(--yellow);
+  background: rgba(255, 219, 0, 0.07);
+  border-radius: 0 var(--radius-m) var(--radius-m) 0;
+}
+.field-quote p {
+  font-size: clamp(1rem, 1.6vw, 1.25rem);
+  font-style: italic;
+  font-weight: 500;
+  line-height: 1.55;
+  color: var(--white);
+  margin-bottom: var(--space-xs);
+}
+.field-quote cite {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--yellow);
+  font-style: normal;
+}
+.field-quote--light .field-quote p { color: var(--white); }
+
+/* ---------- Big standalone field quote (s02 step 2) ---------- */
+.field-quote-eyebrow {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--yellow);
+  margin-bottom: var(--space-m);
+}
+.field-quote-big {
+  font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+  font-weight: 700;
+  font-style: italic;
+  line-height: 1.35;
+  color: var(--white);
+  border-left: 4px solid var(--yellow);
+  padding-left: var(--space-l);
+  margin: 0;
+}
+.field-quote-name {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.5);
+  padding-left: var(--space-l);
+  margin-top: var(--space-s);
+}
+
+.intro-connection {
+  width: min(var(--max-width), calc(100vw - 4rem));
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
+  gap: clamp(1.5rem, 4vw, 4rem);
+  align-items: center;
+  padding: 0;
+}
+
+.intro-connection__text {
+  max-width: 700px;
+}
+
+.intro-proof-list {
+  margin-top: var(--space-l);
+  display: grid;
+  gap: 0.85rem;
+}
+
+.intro-proof-list p {
+  margin: 0;
+  padding: 0.9rem 1rem;
+  border-left: 3px solid rgba(255, 219, 0, 0.95);
+  background: rgba(255,255,255,0.05);
+  border-radius: 0 16px 16px 0;
+  color: rgba(255,255,255,0.92);
+  font-size: clamp(0.98rem, 1.4vw, 1.08rem);
+  line-height: 1.5;
+}
+
+.intro-connection__visual {
+  display: grid;
+  gap: 1.1rem;
+  justify-items: center;
+}
+
+.connection-slide {
+  width: min(var(--max-width), calc(100vw - 4rem));
+  display: grid;
+  grid-template-columns: minmax(0, var(--narrative-grid-text)) minmax(320px, var(--narrative-grid-visual));
+  gap: var(--narrative-gap);
+  align-items: center;
+  min-height: 100vh;
+}
+
+.connection-slide--stacked {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  max-width: 52rem;
+  min-height: 0;
+}
+
+.connection-slide__text {
+  width: min(100%, 48rem);
+  position: relative;
+  z-index: 2;
+  padding-left: 0;
+  align-self: center;
+}
+
+.connection-slide__label {
+  color: var(--yellow);
+  font-size: var(--narrative-label-size);
+  margin-bottom: 1.2rem;
+}
+
+.connection-slide__text .problem-hero-title,
+.connection-slide--stacked .problem-hero-title {
+  max-width: var(--narrative-title-measure);
+  font-size: var(--narrative-title-size);
+  line-height: var(--narrative-title-leading);
+  letter-spacing: -0.032em;
+  color: rgba(255,255,255,0.9);
+  margin-bottom: 1.6rem;
+  text-wrap: balance;
+  font-weight: 700;
+}
+
+.connection-slide__visual {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  min-height: 29rem;
+  position: relative;
+  z-index: 2;
+  padding-left: 0.25rem;
+}
+
+.hook-proof {
+  width: var(--narrative-visual-size);
+  display: grid;
+  gap: 1.35rem;
+}
+
+.hook-metrics {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.9rem;
+}
+
+.hook-metrics--inline {
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.75rem;
+  margin-top: 2rem;
+  margin-bottom: 1.5rem;
+  width: 100%;
+  max-width: 32rem;
+}
+
+.hook-metric--compact {
+  aspect-ratio: 1;
+  padding: 1rem;
+  border-radius: var(--radius-l);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02)),
+    rgba(9, 21, 35, 0.78);
+  border: 1px solid rgba(255,255,255,0.09);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.18);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+  min-height: auto;
+}
+
+.hook-metric {
+  min-height: 8.6rem;
+  padding: 1.2rem 1.15rem;
+  border-radius: 1.35rem;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03)),
+    rgba(9, 21, 35, 0.78);
+  border: 1px solid rgba(255,255,255,0.09);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.05),
+    0 20px 40px rgba(0,0,0,0.18);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.hook-metric__value {
+  display: block;
+  font-size: clamp(2.4rem, 4vw, 3.6rem);
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: -0.05em;
+  color: var(--yellow);
+}
+
+.hook-metric__label {
+  display: block;
+  font-size: 0.92rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.72);
+}
+
+.hook-roles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  align-content: flex-start;
+}
+
+.hook-role {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.6rem;
+  padding: 0.72rem 0.95rem;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.10);
+  color: rgba(255,255,255,0.88);
+  font-size: 0.84rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+
+.silo-cluster {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+}
+
+.silo-pill {
+  padding: 0.75rem 1rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.18);
+  background: rgba(255,255,255,0.08);
+  color: var(--white);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.14);
+}
+
+.silo-bridge {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+}
+
+.silo-bridge__line {
+  flex: 1;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(255,255,255,0.08), rgba(255,219,0,0.8), rgba(255,255,255,0.08));
+}
+
+.silo-bridge__core {
+  min-width: 210px;
+  padding: 1rem 1.1rem;
+  border-radius: 24px;
+  background: rgba(255, 219, 0, 0.12);
+  border: 1px solid rgba(255, 219, 0, 0.3);
+  text-align: center;
+  box-shadow: 0 18px 40px rgba(0,0,0,0.16);
+}
+
+.silo-bridge__core strong {
+  display: block;
+  color: var(--white);
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.silo-bridge__core span {
+  display: block;
+  margin-top: 0.25rem;
+  color: rgba(255,255,255,0.72);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* ---------- Outcomes Teaser ---------- */
+.outcomes-teaser {
+  margin-top: var(--space-l);
+  padding-top: var(--space-l);
+  border-top: 1px solid rgba(255,255,255,0.15);
+}
+.outcomes-teaser__label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--yellow);
+  margin-bottom: var(--space-m);
+}
+.outcomes-teaser__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-s);
+  list-style: none;
+  padding: 0;
+}
+.outcomes-teaser__list li {
+  font-size: clamp(0.95rem, 1.4vw, 1.1rem);
+  font-weight: 500;
+  color: rgba(255,255,255,0.85);
+  padding-left: 1.25rem;
+  position: relative;
+}
+.outcomes-teaser__list li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--yellow);
+  font-size: 0.85rem;
+}
+
+/* ---------- Strategy Chain ---------- */
+.chain {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin: var(--space-l) 0;
+}
+.chain__item {
+  padding: var(--space-m) var(--space-m);
+  background: rgba(255,255,255,0.05);
+  border-radius: var(--radius-m);
+  border: 1px solid var(--line);
+}
+.chain__item strong {
+  display: block;
+  font-size: 1rem;
+  margin-bottom: 4px;
+}
+.chain__item p {
+  font-size: 0.9rem;
+  color: var(--text-soft);
+  line-height: 1.5;
+}
+.chain__item--highlight {
+  background: var(--blue);
+  border-color: var(--blue);
+}
+.chain__item--highlight strong,
+.chain__item--highlight p {
+  color: var(--white);
+}
+.chain__subline {
+  margin-top: var(--space-xs) !important;
+  font-size: 0.8rem !important;
+  opacity: 0.75;
+}
+.chain__arrow {
+  font-size: 1.125rem;
+  color: var(--text-soft);
+  padding: var(--space-xs) var(--space-m);
+  line-height: 1;
+}
+.number-highlight {
+  color: var(--yellow);
+  font-weight: 900;
+  font-size: 1.05em;
+}
+
+/* ---------- Journey Team ---------- */
+/* ---------- Team Constellation ---------- */
+.section--team {
+  position: relative;
+  overflow: hidden;
+}
+
+.team-constellation__canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.team-constellation {
+  position: relative;
+  width: 100%;
+  height: 80vh;
+  min-height: 500px;
+  max-height: 750px;
+  z-index: 1;
+}
+
+.team-constellation__lines {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+/* Center node */
+.team-constellation__center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  text-align: center;
+}
+
+.team-constellation__core {
+  background: rgba(255,219,0,0.08);
+  border: 2px solid rgba(255,219,0,0.25);
+  border-radius: 50%;
+  width: clamp(180px, 22vw, 260px);
+  height: clamp(180px, 22vw, 260px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  animation: core-breathe 5s ease-in-out infinite;
+  box-shadow: 0 0 60px rgba(255,219,0,0.06), 0 0 120px rgba(255,219,0,0.03);
+}
+
+.team-constellation__title {
+  font-size: clamp(1.3rem, 2vw, 1.8rem);
+  font-weight: 800;
+  color: var(--yellow, #ffdb00);
+  letter-spacing: -0.02em;
+  margin-bottom: 0.3rem;
+}
+
+.team-constellation__mission {
+  font-size: clamp(0.75rem, 0.95vw, 0.95rem);
+  color: rgba(255,255,255,0.6);
+  line-height: 1.4;
+  max-width: 180px;
+}
+
+/* Team member nodes */
+.team-constellation__node {
+  position: absolute;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  transition: transform 0.4s ease;
+}
+
+.team-constellation__node:hover {
+  transform: scale(1.05);
+}
+
+.team-constellation__node--tl { top: 12%; left: 8%; animation: team-float-a 8s ease-in-out infinite; }
+.team-constellation__node--tr { top: 12%; right: 8%; flex-direction: row-reverse; text-align: right; animation: team-float-b 9s ease-in-out infinite; }
+.team-constellation__node--bl { bottom: 12%; left: 8%; animation: team-float-c 10s ease-in-out infinite; }
+.team-constellation__node--br { bottom: 12%; right: 8%; flex-direction: row-reverse; text-align: right; animation: team-float-d 8.5s ease-in-out infinite; }
+
+@keyframes team-float-a {
+  0%, 100% { transform: translate(0, 0); }
+  25% { transform: translate(12px, -18px); }
+  50% { transform: translate(-6px, -24px); }
+  75% { transform: translate(-14px, -10px); }
+}
+
+@keyframes team-float-b {
+  0%, 100% { transform: translate(0, 0); }
+  25% { transform: translate(-14px, -14px); }
+  50% { transform: translate(8px, -22px); }
+  75% { transform: translate(16px, -8px); }
+}
+
+@keyframes team-float-c {
+  0%, 100% { transform: translate(0, 0); }
+  25% { transform: translate(10px, 16px); }
+  50% { transform: translate(-8px, 22px); }
+  75% { transform: translate(-16px, 6px); }
+}
+
+@keyframes team-float-d {
+  0%, 100% { transform: translate(0, 0); }
+  25% { transform: translate(-12px, 12px); }
+  50% { transform: translate(6px, 20px); }
+  75% { transform: translate(14px, 8px); }
+}
+
+@keyframes core-breathe {
+  0%, 100% { box-shadow: 0 0 40px rgba(255,219,0,0.05), 0 0 80px rgba(255,219,0,0.02); border-color: rgba(255,219,0,0.2); }
+  50% { box-shadow: 0 0 60px rgba(255,219,0,0.12), 0 0 120px rgba(255,219,0,0.05); border-color: rgba(255,219,0,0.4); }
+}
+
+.team-constellation__avatar {
+  width: clamp(70px, 9vw, 100px);
+  height: clamp(70px, 9vw, 100px);
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid rgba(255,255,255,0.12);
+  flex-shrink: 0;
+  box-shadow: 0 0 20px rgba(0,0,0,0.3);
+}
+
+.team-constellation__avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.team-constellation__info h3 {
+  font-size: clamp(1rem, 1.3vw, 1.3rem);
+  font-weight: 700;
+  color: var(--white);
+  margin: 0;
+  line-height: 1.2;
+}
+
+.team-constellation__info p {
+  font-size: clamp(0.8rem, 0.95vw, 0.95rem);
+  color: rgba(255,255,255,0.5);
+  margin: 0.2rem 0 0;
+  font-weight: 500;
+}
+
+/* Legacy grid styles (kept for reference) */
+.journey-team-stage {
+  min-height: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: clamp(2rem, 4vw, 3.75rem);
+  align-content: center;
+}
+
+.journey-team-stage__intro {
+  max-width: 58rem;
+}
+
+.journey-team-stage__summary {
+  max-width: 45rem;
+  color: rgba(255,255,255,0.76);
+}
+
+.journey-team-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(1rem, 1.8vw, 1.5rem);
+  align-items: stretch;
+}
+
+.journey-team-card {
+  position: relative;
+  min-height: 20rem;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  overflow: hidden;
+  border-radius: 1.75rem;
+  border: 1px solid rgba(255,255,255,0.08);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02)),
+    rgba(8,16,27,0.74);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.05),
+    0 28px 60px rgba(0,0,0,0.28);
+}
+
+.journey-team-card--lead {
+  background: rgba(12,21,34,0.88);
+  border-color: rgba(255,255,255,0.10);
+}
+
+.journey-team-card__photo {
+  position: relative;
+  min-height: 14rem;
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  padding: 1.4rem 1.15rem 0;
+  background:
+    radial-gradient(circle at 50% 18%, rgba(255,255,255,0.16), transparent 48%),
+    linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0));
+}
+
+.journey-team-card__photo::after {
+  content: "";
+  position: absolute;
+  left: 1rem;
+  right: 1rem;
+  bottom: 0;
+  height: 45%;
+  background: linear-gradient(180deg, rgba(8,16,27,0), rgba(8,16,27,0.85));
+  pointer-events: none;
+}
+
+.journey-team-card__photo img {
+  width: 100%;
+  max-width: 16rem;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  object-position: center bottom;
+  position: relative;
+  z-index: 1;
+}
+
+.journey-team-card__body {
+  position: relative;
+  z-index: 1;
+  padding: 1.1rem 1.25rem 1.3rem;
+  display: grid;
+  gap: 0.45rem;
+}
+
+.journey-team-card__eyebrow {
+  margin: 0;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.56);
+}
+
+.journey-team-card__name {
+  margin: 0;
+  font-size: clamp(1.2rem, 1.4vw, 1.5rem);
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  color: var(--white);
+}
+
+.journey-team-card--lead .journey-team-card__eyebrow,
+.journey-team-card--lead .journey-team-card__name {
+  color: var(--white);
+}
+
+.journey-team-card__role {
+  font-size: clamp(0.8rem, 0.9vw, 0.95rem);
+  color: var(--text-dim, #a0a0be);
+  margin: 2px 0 0;
+  line-height: 1.3;
+}
+
+.journey-team-card__org {
+  font-size: clamp(0.75rem, 0.85vw, 0.9rem);
+  color: var(--text-muted, #707088);
+  margin: 1px 0 0;
+  line-height: 1.3;
+  font-weight: 600;
+}
+
+.journey-team-card--lead .journey-team-card__role,
+.journey-team-card--lead .journey-team-card__org {
+  color: var(--text-dim, #a0a0be);
+}
+
+.journey-team-card--lead .journey-team-card__body {
+  background: rgba(255,255,255,0.06);
+}
+
+/* ---------- Kickoff Mosaic ---------- */
+.section--kickoff-gallery {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.kickoff-text-overlay {
+  position: relative;
+  z-index: 2;
+  padding: clamp(2rem, 5vw, 4rem) clamp(2rem, 6vw, 5rem);
+  padding-bottom: 1.5rem;
+}
+
+.kickoff-mosaic {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  grid-template-rows: 1fr 0.7fr;
+  gap: 10px;
+  padding: 0 clamp(2rem, 6vw, 5rem) clamp(1.5rem, 3vw, 2.5rem);
+  min-height: 0;
+}
+
+.kickoff-mosaic__hero {
+  grid-row: 1 / 2;
+  grid-column: 1 / 2;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.kickoff-mosaic__side {
+  grid-row: 1 / 2;
+  grid-column: 2 / 3;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.kickoff-mosaic__bottom {
+  grid-row: 2 / 3;
+  grid-column: 1 / 3;
+  display: flex;
+  gap: 10px;
+}
+
+.kickoff-mosaic__hero img,
+.kickoff-mosaic__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s ease;
+}
+
+.kickoff-mosaic__img {
+  flex: 1;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.kickoff-mosaic__hero:hover img,
+.kickoff-mosaic__img:hover img {
+  transform: scale(1.04);
+}
+
+/* ---------- Sharing Sessions Constellation ---------- */
+.section--sharing {
+  position: relative;
+  overflow: hidden;
+}
+
+.sharing-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.sharing-overlay {
+  position: relative;
+  z-index: 2;
+  padding: clamp(2rem, 5vw, 4rem) clamp(2rem, 6vw, 5rem);
+  max-width: 52%;
+  margin-right: auto;
+  margin-left: clamp(2rem, 6vw, 5rem);
+}
+
+.sharing-stat {
+  display: flex;
+  align-items: baseline;
+  gap: 0.8rem;
+  margin-top: 1.5rem;
+}
+
+.sharing-stat__number {
+  font-size: clamp(3rem, 6vw, 5rem);
+  font-weight: 900;
+  color: var(--yellow, #ffdb00);
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.sharing-stat__label {
+  font-size: clamp(0.95rem, 1.2vw, 1.15rem);
+  color: rgba(255,255,255,0.6);
+  line-height: 1.3;
+}
+
+/* ---------- Sharing Question Decision Tree ---------- */
+.sharing-question {
+  margin-top: var(--space-l);
+}
+
+.sharing-question__prompt {
+  font-size: clamp(0.9rem, 1.1vw, 1.05rem);
+  color: rgba(255,255,255,0.5);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 600;
+  margin: 0 0 0.4rem;
+}
+
+.sharing-question__text {
+  font-size: clamp(1.3rem, 2vw, 1.7rem);
+  font-weight: 700;
+  color: var(--white);
+  margin: 0 0 1.25rem;
+  font-style: italic;
+}
+
+.sharing-branches {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.sharing-branch {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.sharing-branch__label {
+  flex-shrink: 0;
+  font-size: 0.85rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.25rem 0.7rem;
+  border-radius: 6px;
+  line-height: 1.3;
+  margin-top: 0.1rem;
+}
+
+.sharing-branch--yes .sharing-branch__label {
+  background: rgba(255,219,0,0.2);
+  color: var(--yellow, #ffdb00);
+}
+
+.sharing-branch--no .sharing-branch__label {
+  background: rgba(204,0,78,0.2);
+  color: #ff6b9d;
+}
+
+.sharing-branch__desc {
+  font-size: clamp(0.95rem, 1.1vw, 1.1rem);
+  color: rgba(255,255,255,0.7);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.sharing-artefact {
+  position: absolute;
+  right: 8%;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+  width: clamp(280px, 35vw, 480px);
+  border-radius: 14px;
+  overflow: hidden;
+  border: 2px solid rgba(255,219,0,0.2);
+  box-shadow: 0 0 60px rgba(255,219,0,0.06), 0 0 120px rgba(255,219,0,0.03);
+  animation: artefact-glow 6s ease-in-out infinite;
+}
+
+.sharing-artefact img {
+  width: 100%;
+  display: block;
+}
+
+@keyframes artefact-glow {
+  0%, 100% { box-shadow: 0 0 40px rgba(255,219,0,0.04), 0 0 80px rgba(255,219,0,0.02); border-color: rgba(255,219,0,0.15); }
+  50% { box-shadow: 0 0 80px rgba(255,219,0,0.1), 0 0 140px rgba(255,219,0,0.04); border-color: rgba(255,219,0,0.35); }
+}
+
+/* ---------- Research Gallery ---------- */
+.section--research-gallery {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.research-text-overlay {
+  position: relative;
+  z-index: 2;
+  padding: clamp(2rem, 5vw, 4rem) clamp(2rem, 6vw, 5rem);
+  padding-bottom: 1rem;
+}
+
+.research-markets {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.research-market {
+  font-size: clamp(0.85rem, 1vw, 1rem);
+  font-weight: 600;
+  color: rgba(255,255,255,0.7);
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.08);
+  padding: 0.4rem 0.9rem;
+  border-radius: 8px;
+}
+
+.research-mosaic {
+  flex: 1;
+  display: flex;
+  gap: 8px;
+  padding: 0.5rem clamp(2rem, 6vw, 5rem) clamp(1rem, 2vw, 2rem);
+  min-height: 0;
+  overflow: hidden;
+}
+
+.research-mosaic__col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.research-mosaic__col--tall {
+  flex: 1.2;
+}
+
+.research-mosaic__img {
+  flex: 1;
+  border-radius: 12px;
+  overflow: hidden;
+  min-height: 0;
+}
+
+.research-mosaic__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s ease, filter 0.6s ease;
+  filter: brightness(0.85);
+}
+
+.research-mosaic__img:hover img {
+  transform: scale(1.05);
+  filter: brightness(1);
+}
+
+/* ---------- Onboarding Steps (horizontal timeline) ---------- */
+.onboarding-steps {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  gap: 0;
+  margin-top: 1.5rem;
+}
+
+.onboarding-step {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 2rem 1.75rem;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 16px;
+  transition: border-color 0.3s;
+}
+
+.onboarding-step:hover {
+  border-color: rgba(255,255,255,0.12);
+}
+
+.onboarding-step__number {
+  font-size: 2rem;
+  font-weight: 800;
+  color: rgba(255,219,0,0.5);
+  line-height: 1;
+  margin-bottom: 0.75rem;
+}
+
+.onboarding-step__title {
+  font-size: clamp(1.1rem, 1.3vw, 1.4rem);
+  font-weight: 700;
+  color: var(--white);
+  margin: 0 0 0.5rem;
+}
+
+.onboarding-step__desc {
+  font-size: clamp(0.9rem, 1vw, 1.05rem);
+  color: rgba(255,255,255,0.6);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.onboarding-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  padding: 0 1rem;
+  color: rgba(255,219,0,0.4);
+}
+
+.onboarding-arrow svg {
+  width: 28px;
+  height: 28px;
+}
+
+/* Mobile: stack vertically with downward arrows */
+@media (max-width: 768px) {
+  .onboarding-steps {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .onboarding-arrow {
+    padding: 0.75rem 0;
+    transform: rotate(90deg);
+  }
+}
+
+.onboarding-step__image {
+  flex-shrink: 0;
+  width: 180px;
+  height: 120px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.onboarding-step__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ---------- Role List ---------- */
+.role-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  margin: var(--space-m) 0 var(--space-l);
+}
+.role-list li {
+  padding: var(--space-s) var(--space-m);
+  background: rgba(255,255,255,0.1);
+  border-radius: var(--radius-m);
+  border: 1px solid rgba(255,255,255,0.15);
+  font-size: 0.975rem;
+  color: rgba(255,255,255,0.9);
+}
+
+/* ---------- Steps List ---------- */
+.steps-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-m);
+  margin: var(--space-l) 0;
+}
+.steps-list li {
+  display: flex;
+  gap: var(--space-m);
+  align-items: flex-start;
+}
+.steps-list li strong {
+  display: block;
+  font-size: 1rem;
+  margin-bottom: 4px;
+}
+.steps-list li p {
+  font-size: 0.9rem;
+  color: var(--text-soft);
+  line-height: 1.5;
+}
+.step-num {
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--blue);
+  line-height: 1;
+  min-width: 3rem;
+}
+
+/* ---------- Market Grid ---------- */
+.market-grid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  margin: var(--space-m) 0;
+  padding: var(--space-m);
+  background: rgba(255,255,255,0.05);
+  border-radius: var(--radius-m);
+  border-left: 3px solid var(--yellow);
+}
+.market-item {
+  font-size: 0.975rem;
+  line-height: 1.5;
+}
+.market-label {
+  font-weight: 700;
+  margin-right: var(--space-s);
+  color: #7fc3ff;
+}
+
+/* ---------- Stat Badge ---------- */
+.stat-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-m);
+  margin-top: var(--space-l);
+  padding: var(--space-m) var(--space-l);
+  background: var(--blue);
+  border-radius: var(--radius-l);
+  color: var(--white);
+}
+.stat-badge__number {
+  font-size: 3rem;
+  font-weight: 900;
+  line-height: 1;
+}
+.stat-badge__label {
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+/* ---------- Question Split ---------- */
+.question-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-m);
+}
+.question-card {
+  padding: var(--space-l);
+  border-radius: var(--radius-l);
+}
+.question-card--yes {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(127,195,255,0.35);
+}
+.question-card--no {
+  background: var(--blue);
+  color: var(--white);
+}
+.question-card--no .question-answer p {
+  color: rgba(255,255,255,0.9);
+}
+.question-prompt {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.55);
+  margin-bottom: var(--space-m);
+}
+.question-answer p {
+  font-size: 1.125rem;
+  font-weight: 500;
+  line-height: 1.55;
+  margin-bottom: var(--space-s);
+}
+.question-answer strong {
+  color: inherit;
+}
+
+/* ---------- Quick Wins ---------- */
+.quick-wins-section { }
+.wins-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-m);
+  margin-top: var(--space-m);
+}
+.win-card {
+  padding: var(--space-l);
+  background: rgba(255,255,255,0.05);
+  border-radius: var(--radius-l);
+  border: 1px solid var(--line);
+}
+.win-num {
+  font-size: 0.7rem;
+  font-weight: 900;
+  color: var(--yellow);
+  background: var(--dark);
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--space-m);
+}
+.win-card h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: var(--space-xs);
+  color: var(--white);
+}
+.win-card p {
+  font-size: 0.875rem;
+  color: var(--text-soft);
+  line-height: 1.55;
+}
+
+/* ---------- Constellation Canvas (fixed global layer) ---------- */
+.constellation-fixed {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+  background: #08080F;
+}
+
+/* Blur + dark scrim on constellation for slide 4 only */
+.section--with-constellation::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  backdrop-filter: blur(3px);
+  background: linear-gradient(180deg, rgba(6,17,28,0.4) 0%, rgba(6,17,28,0.18) 40%, rgba(6,17,28,0.3) 100%);
+}
+.section--with-constellation .section__inner {
+  position: relative;
+  z-index: 2;
+}
+
+/* ---------- Workshop Background ---------- */
+/* ---------- Workshop Gallery (mosaic layout like kickoff) ---------- */
+.workshop-text-overlay {
+  position: relative;
+  z-index: 2;
+  padding: clamp(2rem, 5vw, 4rem) clamp(2rem, 6vw, 5rem);
+  padding-bottom: 1.5rem;
+}
+
+.stat-row--inline {
+  margin: var(--space-m) 0 0;
+}
+
+.workshop-mosaic {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  grid-template-rows: 1fr 0.7fr;
+  gap: 10px;
+  padding: 0 clamp(2rem, 6vw, 5rem) clamp(1.5rem, 3vw, 2.5rem);
+  min-height: 0;
+}
+
+.workshop-mosaic__hero {
+  grid-row: 1 / 2;
+  grid-column: 1 / 2;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.workshop-mosaic__side {
+  grid-row: 1 / 2;
+  grid-column: 2 / 3;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.workshop-mosaic__bottom {
+  grid-row: 2 / 3;
+  grid-column: 1 / 3;
+  display: flex;
+  gap: 10px;
+}
+
+.workshop-mosaic__hero img,
+.workshop-mosaic__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s ease;
+}
+
+.workshop-mosaic__img {
+  flex: 1;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.workshop-mosaic__hero:hover img,
+.workshop-mosaic__img:hover img {
+  transform: scale(1.04);
+}
+
+.section__inner--overlay {
+  position: relative;
+  z-index: 1;
+}
+
+/* ---------- Workshop Stats ---------- */
+.stat-row {
+  display: flex;
+  gap: var(--space-xl);
+  margin: var(--space-l) 0;
+  align-items: flex-end;
+}
+.stat-block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.stat-number {
+  font-size: clamp(4rem, 9vw, 7rem);
+  font-weight: 900;
+  color: var(--yellow);
+  line-height: 1;
+}
+.stat-label {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: rgba(255,255,255,0.6);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* ---------- Opportunities Dashboard ---------- */
+.opps-dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+}
+
+.opps-hero-stat {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  text-align: center;
+}
+
+.opps-hero-stat__number {
+  font-size: clamp(4rem, 8vw, 6rem);
+  font-weight: 900;
+  color: var(--yellow, #ffdb00);
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.opps-hero-stat__label {
+  font-size: clamp(1rem, 1.3vw, 1.2rem);
+  color: rgba(255,255,255,0.5);
+  text-align: left;
+  max-width: 280px;
+  line-height: 1.4;
+}
+
+.opps-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  width: 100%;
+}
+
+.opp-card {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 14px;
+  padding: 1.2rem 1.3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  transition: border-color 0.3s, background 0.3s;
+  border-top: 3px solid var(--opp-color, rgba(255,255,255,0.1));
+}
+
+.opp-card:hover {
+  border-color: var(--opp-color, rgba(255,255,255,0.15));
+  background: rgba(255,255,255,0.04);
+}
+
+.opp-card__header {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.opp-card__count {
+  font-size: clamp(1.6rem, 2.2vw, 2rem);
+  font-weight: 900;
+  color: var(--opp-color, #fff);
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.opp-card__title {
+  font-size: clamp(0.85rem, 1vw, 1rem);
+  font-weight: 700;
+  color: var(--white, #fff);
+  line-height: 1.2;
+}
+
+.opp-card__desc {
+  font-size: clamp(0.8rem, 0.95vw, 0.92rem);
+  color: rgba(255,255,255,0.7);
+  line-height: 1.45;
+  margin: 0;
+}
+
+.opp-card__example {
+  font-size: clamp(0.78rem, 0.9vw, 0.88rem);
+  color: var(--opp-color, rgba(255,255,255,0.5));
+  line-height: 1.4;
+  font-style: normal;
+  font-weight: 600;
+  margin: 0;
+  padding-top: 0.5rem;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+/* ---------- Outcomes (legacy) ---------- */
+.outcomes-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-m);
+}
+.outcome-card {
+  background: rgba(255,255,255,0.05);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  border: 1px solid var(--line);
+}
+.outcome-card--featured {
+  border-color: var(--blue);
+  border-width: 2px;
+}
+.outcome-card__img img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 0;
+}
+.outcome-card__body {
+  padding: var(--space-m);
+}
+.outcome-card__body h3 {
+  font-size: 1rem;
+  font-weight: 800;
+  margin-bottom: var(--space-xs);
+  line-height: 1.3;
+}
+.outcome-card__body p {
+  font-size: 0.875rem;
+  color: var(--text-soft);
+  line-height: 1.55;
+  margin-bottom: var(--space-xs);
+}
+.outcome-quote {
+  font-weight: 700 !important;
+  color: #8fceff !important;
+  font-style: italic;
+}
+
+.outcomes-meta {
+  max-width: var(--text-max);
+}
+.outcomes-pullquote {
+  margin-top: var(--space-l);
+}
+
+/* ---------- Scroll Story ---------- */
+.scroll-story {
+  height: 300vh;
+  position: relative;
+}
+.scroll-story--2 { height: 200vh; }
+.scroll-story__stage {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+  background: var(--light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.scroll-story__stage--split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: stretch;
+}
+.scroll-story__stage--dark {
+  background: var(--dark);
+}
+.scroll-story__stage--clear {
+  background: transparent;
+}
+.scroll-story__stage--strategy {
+  background:
+    radial-gradient(circle at top left, rgba(255, 219, 0, 0.2), transparent 32%),
+    linear-gradient(135deg, #fffdf5 0%, #f3f7fb 45%, #edf3f8 100%);
+}
+
+/* General step — full-stage cross-fade (section 04 style) */
+.scroll-story__step {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+  pointer-events: none;
+}
+.scroll-story__step.is-active {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.scroll-story__stage--strategy .scroll-story__step {
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.manager-step {
+  width: min(var(--max-width), calc(100vw - 4rem));
+  display: grid;
+  grid-template-columns: minmax(300px, 420px) minmax(420px, 1fr);
+  gap: clamp(2rem, 4vw, 5rem);
+  align-items: center;
+  padding: 0;
+}
+
+/* Left column override for split stages */
+.story-steps-container {
+  position: relative;
+  height: 100vh;
+}
+.story-steps-container .scroll-story__step {
+  justify-content: flex-start;
+  padding-left: var(--space-xxl);
+  transform: translateY(28px);
+}
+.story-steps-container .scroll-story__step.is-active {
+  transform: translateY(0);
+}
+
+/* Right: persistent photo */
+.story-photo-panel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-l) var(--space-l) var(--space-l) var(--space-m);
+  height: 100vh;
+}
+.story-photo-panel img {
+  width: 100%;
+  height: 52vh;
+  object-fit: cover;
+  object-position: center 52%;
+  border-radius: var(--radius-xl);
+  box-shadow: 0 24px 64px rgba(0,0,0,0.08);
+}
+
+/* ---------- Manager Profile Cards (s03) ---------- */
+.managers-panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--space-l);
+  padding: 0 var(--space-xl) 0 var(--space-l);
+  height: 100vh;
+}
+.manager-card {
+  display: flex;
+  align-items: center;
+  gap: var(--space-m);
+  padding: var(--space-m) var(--space-l);
+  background: rgba(255,255,255,0.05);
+  border-radius: var(--radius-xl);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.07);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.manager-avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 3px solid var(--light);
+}
+.manager-info {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.manager-name {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--white);
+  letter-spacing: -0.01em;
+}
+.manager-role {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #8fceff;
+}
+.manager-team {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text-soft);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.manager-step__portrait--stack {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-m);
+}
+
+.manager-step__person {
+  padding: 0;
+  text-align: center;
+}
+
+.manager-step__person img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 0;
+  margin-bottom: var(--space-s);
+}
+
+.manager-step__text {
+  max-width: 620px;
+}
+
+.manager-step__support {
+  max-width: 34rem;
+  margin-top: var(--space-m);
+  color: var(--text-soft);
+}
+
+.manager-step--brief {
+  grid-template-columns: minmax(180px, 220px) minmax(480px, 1fr);
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+  align-items: start;
+}
+
+.manager-step--brief .manager-step__portrait--stack {
+  grid-template-columns: 1fr;
+  gap: 0.85rem;
+  align-content: start;
+  max-width: 172px;
+  padding-top: 0.45rem;
+}
+
+.manager-step--brief .manager-step__person {
+  display: grid;
+  grid-template-columns: 54px minmax(0, 1fr);
+  gap: 0.68rem;
+  align-items: center;
+  text-align: left;
+  padding: 0.45rem 0.55rem;
+  border-radius: 1rem;
+  background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.04);
+}
+
+.manager-step--brief .manager-step__person img {
+  width: 54px;
+  height: 54px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 50%;
+  margin-bottom: 0;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.03);
+}
+
+.manager-step--brief .manager-step__person > :not(img) {
+  align-self: center;
+}
+
+.manager-step--brief .manager-step__name {
+  font-size: 0.84rem;
+  font-weight: 700;
+  line-height: 1.15;
+  color: rgba(255,255,255,0.9);
+}
+
+.manager-step--brief .manager-step__role {
+  margin-top: 0.12rem;
+  font-size: 0.71rem;
+  font-weight: 500;
+  line-height: 1.2;
+  color: rgba(143, 206, 255, 0.76);
+}
+
+.manager-step--brief .manager-step__team {
+  margin-top: 0.18rem;
+  font-size: 0.63rem;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.46);
+}
+
+.manager-step--brief .manager-step__text {
+  max-width: 42rem;
+}
+
+.strategy-map {
+  display: grid;
+  gap: 1rem;
+  margin: 1.45rem 0 0.9rem;
+}
+
+.strategy-pillars {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.9rem;
+}
+
+.strategy-pillar {
+  min-height: 7.6rem;
+  padding: 1rem 1rem 1.05rem;
+  border-radius: 1.1rem;
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.05);
+}
+
+.strategy-pillar__title {
+  font-size: 1.02rem;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.strategy-pillar__meta {
+  margin-top: 0.45rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  line-height: 1.35;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  opacity: 0.82;
+}
+
+.strategy-pillar__note {
+  margin-top: 0.7rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  line-height: 1.35;
+  letter-spacing: 0.04em;
+  color: rgba(255,255,255,0.82);
+}
+
+.strategy-pillar__price {
+  display: flex;
+  flex-direction: column;
+  gap: 0.18rem;
+  margin-top: 0.85rem;
+}
+
+.strategy-pillar__price-label {
+  font-size: 0.68rem;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.78);
+}
+
+.strategy-pillar__price-value {
+  font-size: clamp(1.7rem, 2.8vw, 2.5rem);
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: -0.05em;
+  color: rgba(255,255,255,0.99);
+}
+
+.strategy-pillar__price-period {
+  font-size: 0.76rem;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 0.04em;
+  color: rgba(255,255,255,0.82);
+}
+
+.strategy-pillar--blue {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.12);
+  color: rgba(255,255,255,0.9);
+}
+
+.strategy-pillar--yellow {
+  background: linear-gradient(180deg, rgba(255, 219, 0, 0.92), rgba(233, 188, 0, 0.82));
+  color: #1a1400;
+  border: 1px solid rgba(255, 219, 0, 0.4);
+}
+
+
+.strategy-pillar--primary {
+  min-height: 8.4rem;
+  border-color: rgba(255, 219, 0, 0.26);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.07),
+    0 0 0 1px rgba(255, 219, 0, 0.06);
+}
+
+.strategy-pillar--primary .strategy-pillar__title {
+  font-size: 1.14rem;
+}
+
+.strategy-pillar--primary .strategy-pillar__meta {
+  color: rgba(38,29,0,0.86);
+}
+
+.strategy-pillar--expanded {
+  min-height: 13rem;
+  padding: 1.5rem 1.4rem;
+  border-radius: 1.35rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.strategy-pillar--expanded .strategy-pillar__title {
+  font-size: clamp(1.55rem, 2.8vw, 2.2rem);
+  line-height: 1.02;
+}
+
+.strategy-pillar--expanded .strategy-pillar__meta {
+  font-size: 0.92rem;
+  letter-spacing: 0.06em;
+}
+
+.strategy-pillar--expanded .strategy-pillar__price {
+  margin-top: 1rem;
+}
+
+.strategy-pillar--expanded .strategy-pillar__price-value {
+  font-size: clamp(2.3rem, 4vw, 3.3rem);
+}
+
+.strategy-pillar--expanded .strategy-pillar__price-label {
+  font-size: 0.74rem;
+}
+
+.strategy-pillar--expanded .strategy-pillar__price-period {
+  font-size: 0.84rem;
+}
+
+.strategy-pillar--expanded .strategy-pillar__note {
+  font-size: 0.8rem;
+}
+
+.strategy-pillar--teal {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.12);
+  color: rgba(255,255,255,0.9);
+}
+
+.strategy-pillar--slate {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.12);
+  color: rgba(255,255,255,0.9);
+}
+
+.strategy-support {
+  display: grid;
+  gap: 0.4rem;
+  padding: 1rem 1.1rem;
+  border-left: 4px solid var(--yellow);
+  background: rgba(255,255,255,0.05);
+  border-radius: 0 1rem 1rem 0;
+}
+
+.strategy-support__label {
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--yellow);
+}
+
+.strategy-support__text {
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.45;
+  color: rgba(255,255,255,0.9);
+}
+
+.manager-step--brief .body-xl {
+  max-width: 44rem;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.9);
+}
+
+.manager-step--brief .manager-step__support {
+  max-width: 42rem;
+  margin-top: 1rem;
+  color: rgba(255,255,255,0.72);
+}
+
+.manager-step--brief .manager-step__support strong {
+  color: rgba(255,255,255,0.95);
+  font-weight: 800;
+}
+
+.strategy-focus {
+  width: min(var(--max-width), calc(100vw - 4rem));
+  display: grid;
+  grid-template-columns: minmax(280px, 420px) minmax(460px, 1fr);
+  gap: clamp(1.5rem, 4vw, 4rem);
+  align-items: center;
+}
+
+.strategy-focus__card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.strategy-managers {
+  display: flex;
+  gap: 0.7rem;
+  align-items: center;
+  align-self: flex-start;
+}
+
+.strategy-manager {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.48rem;
+  min-height: 2.5rem;
+  padding: 0.38rem 0.65rem 0.38rem 0.38rem;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.10);
+  color: rgba(255,255,255,0.9);
+  font-size: 0.76rem;
+  font-weight: 700;
+  opacity: 0.92;
+  transform-origin: top left;
+  transform:
+    translate(var(--manager-morph-x, 0px), var(--manager-morph-y, 10px))
+    scale(var(--manager-morph-scale-x, 1), var(--manager-morph-scale-y, 1));
+  transition: opacity 260ms ease 140ms, transform 520ms cubic-bezier(0.22, 1, 0.36, 1) 80ms;
+}
+
+.strategy-manager img {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center top;
+  border: 1px solid rgba(255,255,255,0.14);
+}
+
+.strategy-focus__card .strategy-pillar {
+  width: min(100%, 24rem);
+  transform: scale(0.55);
+  transform-origin: top left;
+  opacity: 0;
+  transition: transform 600ms cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 400ms ease;
+}
+
+.strategy-focus__text {
+  max-width: 40rem;
+  opacity: 0;
+  transform: translateX(26px);
+  transition: opacity 400ms ease 300ms, transform 500ms cubic-bezier(0.16, 1, 0.3, 1) 300ms;
+}
+
+.strategy-focus__text .body-xl {
+  max-width: 40rem;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.9);
+}
+
+.strategy-focus__text .manager-step__support {
+  max-width: 38rem;
+}
+
+.strategy-focus__kpi {
+  margin-top: var(--space-l);
+  padding: var(--space-m) var(--space-l);
+  background: rgba(255,219,0,0.08);
+  border-left: 3px solid var(--yellow);
+  border-radius: 0 var(--radius-m) var(--radius-m) 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+.strategy-focus__kpi-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+}
+.strategy-focus__kpi-value {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 900;
+  color: var(--yellow);
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+.strategy-focus__kpi-period {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.5);
+}
+
+#s03b.is-visible .strategy-focus__card .strategy-pillar {
+  transform: scale(1);
+  opacity: 1;
+}
+
+#s03b.is-visible .strategy-focus__text {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+#s03b.is-visible .strategy-manager {
+  opacity: 1;
+  transform: translate(0, 0) scale(1, 1);
+}
+
+.manager-step__metric {
+  margin-top: 0.6rem;
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.62);
+}
+
+.manager-step__metric strong {
+  color: rgba(255,255,255,0.92);
+}
+
+.orchestrator-hero {
+  width: min(var(--max-width), calc(100vw - 4rem));
+  display: grid;
+  grid-template-columns: minmax(0, 0.48fr) minmax(0, 0.52fr);
+  gap: clamp(1.2rem, 2.4vw, 2.2rem);
+  align-items: start;
+}
+
+.orchestrator-hero__intro {
+  max-width: 31rem;
+  padding-top: 0;
+  padding-bottom: 0.5rem;
+  align-self: start;
+}
+
+.orchestrator-hero__eyebrow {
+  color: #ef8f76;
+  position: relative;
+  padding-left: 3.5rem;
+  letter-spacing: 0.16em;
+}
+
+.orchestrator-hero__eyebrow::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 2.6rem;
+  height: 1px;
+  background: #ef8f76;
+  transform: translateY(-50%);
+}
+
+.orchestrator-hero__intro .heading-xl {
+  max-width: 9ch;
+  font-size: clamp(2.65rem, 4.4vw, 4rem);
+  line-height: 0.98;
+  letter-spacing: -0.045em;
+  margin-bottom: 0.7rem;
+}
+
+.orchestrator-hero__intro .heading-xl .accent,
+.orchestrator-hero__intro .heading-xl strong {
+  color: var(--yellow);
+}
+
+.orchestrator-usp {
+  max-width: 28rem;
+  font-size: clamp(1.14rem, 1.6vw, 1.34rem);
+  line-height: 1.6;
+  color: rgba(255,255,255,0.78);
+}
+
+.orchestrator-hero__portrait {
+  display: block;
+  align-self: start;
+  padding-right: 1rem;
+  padding-top: 0.4rem;
+}
+
+.orchestrator-system {
+  width: min(100%, 28.5rem);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.orchestrator-portrait-wrap {
+  position: relative;
+  width: 100%;
+  padding-bottom: 2.25rem;
+}
+
+.orchestrator-hero__portrait img {
+  width: 100%;
+  max-width: none;
+  display: block;
+  height: 16.5rem;
+  object-fit: cover;
+  object-position: center 24%;
+  border-radius: 1.4rem;
+  box-shadow: 0 28px 70px rgba(0,0,0,0.18);
+  filter: saturate(1.02) contrast(1.02);
+}
+
+.orchestrator-identity {
+  width: calc(100% - 2rem);
+  position: absolute;
+  left: 1rem;
+  bottom: 0;
+  transform: none;
+  padding: 0.9rem 1rem 0.95rem;
+  border-radius: 1.2rem;
+  background:
+    linear-gradient(180deg, rgba(26, 34, 56, 0.92), rgba(17, 24, 42, 0.96)),
+    rgba(17, 24, 42, 0.92);
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow:
+    0 20px 40px rgba(0,0,0,0.24),
+    inset 0 1px 0 rgba(255,255,255,0.05);
+  backdrop-filter: blur(14px);
+  overflow: hidden;
+}
+
+.orchestrator-identity::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at top left, rgba(255, 219, 0, 0.14), transparent 36%),
+    linear-gradient(135deg, rgba(255,255,255,0.04), transparent 58%);
+  pointer-events: none;
+}
+
+.orchestrator-identity__label {
+  font-size: 0.82rem;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.72);
+  position: relative;
+  z-index: 1;
+}
+
+.orchestrator-identity__subtitle {
+  margin-top: 0.3rem;
+  font-size: 0.88rem;
+  line-height: 1.35;
+  color: rgba(255,255,255,0.92);
+  position: relative;
+  z-index: 1;
+}
+
+.orchestrator-capabilities {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.9rem;
+  width: 100%;
+}
+
+.orchestrator-capability {
+  padding: 1.2rem 1.2rem 1.15rem;
+  border-radius: 1.15rem;
+  background: linear-gradient(180deg, rgba(14, 21, 37, 0.96), rgba(11, 17, 31, 0.98));
+  border: 1px solid rgba(255,255,255,0.04);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.03);
+  min-height: 9.5rem;
+}
+
+.orchestrator-capability__head {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.05rem;
+}
+
+.orchestrator-capability__icon {
+  width: 1.35rem;
+  height: 1.35rem;
+  flex-shrink: 0;
+  border-radius: 999px;
+  position: relative;
+}
+
+.orchestrator-capability__icon::before,
+.orchestrator-capability__icon::after {
+  content: "";
+  position: absolute;
+}
+
+.orchestrator-capability__icon--connects {
+  background: rgba(255, 219, 0, 0.16);
+}
+
+.orchestrator-capability__icon--connects::before {
+  inset: 0.32rem;
+  border-radius: 50%;
+  background: var(--yellow);
+  box-shadow: -0.5rem 0 0 -0.08rem var(--yellow), 0.5rem 0 0 -0.08rem var(--yellow), 0 -0.5rem 0 -0.08rem var(--yellow), 0 0.5rem 0 -0.08rem var(--yellow);
+}
+
+.orchestrator-capability__icon--process {
+  background: rgba(239, 143, 118, 0.16);
+}
+
+.orchestrator-capability__icon--process::before {
+  left: 0.6rem;
+  top: 0.2rem;
+  width: 0.12rem;
+  height: 0.9rem;
+  background: #ef8f76;
+  border-radius: 999px;
+}
+
+.orchestrator-capability__icon--process::after {
+  left: 0.38rem;
+  top: 0.82rem;
+  width: 0.52rem;
+  height: 0.12rem;
+  background: #ef8f76;
+  border-radius: 999px;
+}
+
+.orchestrator-capability__icon--truth {
+  background: rgba(255, 219, 0, 0.16);
+}
+
+.orchestrator-capability__icon--truth::before {
+  left: 0.28rem;
+  top: 0.26rem;
+  width: 0.78rem;
+  height: 0.82rem;
+  border: 0.12rem solid var(--yellow);
+  border-top-width: 0.18rem;
+  border-radius: 0.28rem;
+}
+
+.orchestrator-capability__icon--clarifies {
+  background: rgba(239, 143, 118, 0.16);
+}
+
+.orchestrator-capability__icon--clarifies::before {
+  left: 0.28rem;
+  top: 0.28rem;
+  width: 0.72rem;
+  height: 0.72rem;
+  border: 0.12rem solid #ef8f76;
+  border-radius: 50%;
+}
+
+.orchestrator-capability__icon--clarifies::after {
+  right: 0.16rem;
+  bottom: 0.18rem;
+  width: 0.34rem;
+  height: 0.12rem;
+  background: #ef8f76;
+  transform: rotate(45deg);
+  border-radius: 999px;
+}
+
+.orchestrator-capability__icon--action {
+  background: rgba(255, 219, 0, 0.16);
+}
+
+.orchestrator-capability__icon--action::before {
+  left: 0.24rem;
+  top: 0.6rem;
+  width: 0.78rem;
+  height: 0.12rem;
+  background: var(--yellow);
+  border-radius: 999px;
+}
+
+.orchestrator-capability__icon--action::after {
+  right: 0.16rem;
+  top: 0.46rem;
+  width: 0.36rem;
+  height: 0.36rem;
+  border-top: 0.12rem solid var(--yellow);
+  border-right: 0.12rem solid var(--yellow);
+  transform: rotate(45deg);
+}
+
+.orchestrator-capability h3 {
+  font-size: 0.82rem;
+  font-weight: 800;
+  line-height: 1.22;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.96);
+}
+
+.orchestrator-capability p {
+  margin-top: 0.75rem;
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: rgba(255,255,255,0.66);
+}
+
+.orchestrator-capability--wide {
+  grid-column: 1 / -1;
+  min-height: 7.25rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  column-gap: 1rem;
+}
+
+.orchestrator-capability--wide .orchestrator-capability__head {
+  gap: 0.9rem;
+}
+
+.orchestrator-capability--wide p {
+  margin-top: 0.55rem;
+}
+
+.orchestrator-capability--wide::after {
+  content: "\2192";
+  align-self: center;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: rgba(255, 219, 0, 0.72);
+}
+
+.orchestrator-partners {
+  width: min(var(--max-width), calc(100vw - 4rem));
+  display: flex;
+  gap: 2.2rem;
+  margin-top: 0.8rem;
+}
+
+.orchestrator-partner {
+  display: grid;
+  gap: 0.12rem;
+}
+
+.orchestrator-partner__role {
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.38);
+}
+
+.orchestrator-partner__name {
+  font-size: 0.98rem;
+  font-weight: 800;
+  color: #ef8f76;
+}
+
+.orchestrator-partner:first-child .orchestrator-partner__name {
+  color: var(--yellow);
+}
+
+/* ---------- Orchestrator Slide Redesign ---------- */
+.orchestrator-stage {
+  width: min(var(--max-width), calc(100vw - 4rem));
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(1.2rem, 2.4vw, 2.2rem);
+  align-items: stretch;
+}
+
+.orchestrator-stage__copy {
+  max-width: none;
+  min-height: 100%;
+  padding: 2.2rem 2rem 2rem;
+  border-radius: 1.6rem;
+  background:
+    radial-gradient(circle at top left, rgba(255, 219, 0, 0.08), transparent 30%),
+    linear-gradient(180deg, rgba(18, 28, 48, 0.92), rgba(9, 15, 28, 0.98));
+  border: 1px solid rgba(255,255,255,0.06);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.04),
+    0 24px 60px rgba(0,0,0,0.18);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.orchestrator-stage__eyebrow {
+  color: #ef8f76;
+  position: relative;
+  padding-left: 3.5rem;
+  letter-spacing: 0.16em;
+}
+
+.orchestrator-stage__eyebrow::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 2.6rem;
+  height: 1px;
+  background: #ef8f76;
+  transform: translateY(-50%);
+}
+
+.orchestrator-stage__title {
+  max-width: 7ch;
+  margin: 0.8rem 0 0.9rem;
+  font-size: clamp(2.8rem, 4.8vw, 4.5rem);
+  font-weight: 800;
+  line-height: 0.96;
+  letter-spacing: -0.05em;
+  color: var(--yellow);
+}
+
+.orchestrator-stage__usp {
+  max-width: 28rem;
+  font-size: clamp(1.18rem, 1.7vw, 1.42rem);
+  line-height: 1.62;
+  color: rgba(255,255,255,0.86);
+}
+
+.orchestrator-stage__bridge {
+  max-width: 24rem;
+  margin-top: 1rem;
+  font-size: 1rem;
+  line-height: 1.52;
+  color: rgba(255,255,255,0.6);
+}
+
+.orchestrator-stage__system {
+  width: min(100%, 31rem);
+  margin: 0 auto;
+  display: grid;
+  gap: 0.95rem;
+}
+
+.orchestrator-stage__portrait {
+  position: relative;
+  width: 100%;
+  padding-bottom: 2.2rem;
+}
+
+.orchestrator-stage__portrait img {
+  width: 100%;
+  height: 18.5rem;
+  object-fit: cover;
+  object-position: center 24%;
+  border-radius: 1.5rem;
+  box-shadow: 0 28px 70px rgba(0,0,0,0.22);
+  filter: saturate(1.02) contrast(1.02);
+  display: block;
+}
+
+.orchestrator-stage__identity {
+  position: absolute;
+  left: 1rem;
+  right: 1rem;
+  bottom: 0;
+  padding: 0.95rem 1.05rem 1rem;
+  border-radius: 1.2rem;
+  background:
+    linear-gradient(180deg, rgba(28, 36, 58, 0.92), rgba(16, 24, 42, 0.96)),
+    rgba(17, 24, 42, 0.94);
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow:
+    0 20px 40px rgba(0,0,0,0.24),
+    inset 0 1px 0 rgba(255,255,255,0.05);
+  backdrop-filter: blur(14px);
+  overflow: hidden;
+}
+
+.orchestrator-stage__identity::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at top left, rgba(255, 219, 0, 0.14), transparent 36%),
+    linear-gradient(135deg, rgba(255,255,255,0.04), transparent 58%);
+  pointer-events: none;
+}
+
+.orchestrator-stage__identity-label,
+.orchestrator-stage__identity-subtitle {
+  position: relative;
+  z-index: 1;
+}
+
+.orchestrator-stage__identity-label {
+  font-size: 0.82rem;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.72);
+}
+
+.orchestrator-stage__identity-subtitle {
+  margin-top: 0.3rem;
+  font-size: 0.98rem;
+  line-height: 1.35;
+  color: rgba(255,255,255,0.92);
+}
+
+.orchestrator-stage__capabilities {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin-top: 0;
+}
+
+.orchestrator-card {
+  min-height: 8.5rem;
+  padding: 1rem 1rem 0.95rem;
+  border-radius: 1.15rem;
+  background: linear-gradient(180deg, rgba(14, 21, 37, 0.96), rgba(11, 17, 31, 0.98));
+  border: 1px solid rgba(255,255,255,0.05);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.03);
+}
+
+.orchestrator-card--wide {
+  grid-column: 1 / -1;
+  min-height: 6.8rem;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 1rem;
+}
+
+.orchestrator-card__marker {
+  width: 2.1rem;
+  height: 0.22rem;
+  border-radius: 999px;
+  margin-bottom: 0.9rem;
+}
+
+.orchestrator-card--yellow .orchestrator-card__marker {
+  background: linear-gradient(90deg, rgba(255, 219, 0, 0.95), rgba(255, 219, 0, 0.45));
+}
+
+.orchestrator-card--coral .orchestrator-card__marker {
+  background: linear-gradient(90deg, rgba(239, 143, 118, 0.95), rgba(239, 143, 118, 0.45));
+}
+
+.orchestrator-card h3 {
+  margin-top: 0;
+  font-size: 0.84rem;
+  font-weight: 800;
+  line-height: 1.22;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.96);
+}
+
+.orchestrator-card p {
+  margin-top: 0.78rem;
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: rgba(255,255,255,0.66);
+}
+
+.orchestrator-card__body h3 {
+  margin-top: 0;
+}
+
+.orchestrator-card__body p {
+  margin-top: 0.45rem;
+}
+
+.orchestrator-card--wide .orchestrator-card__marker {
+  margin-bottom: 0;
+  align-self: start;
+  margin-top: 0.25rem;
+}
+
+.orchestrator-card__arrow {
+  width: 1.1rem;
+  height: 1.1rem;
+  position: relative;
+}
+
+.orchestrator-card__arrow::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.48rem;
+  width: 0.78rem;
+  height: 0.12rem;
+  background: rgba(255, 219, 0, 0.78);
+  border-radius: 999px;
+}
+
+.orchestrator-card__arrow::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0.3rem;
+  width: 0.36rem;
+  height: 0.36rem;
+  border-top: 0.12rem solid rgba(255, 219, 0, 0.78);
+  border-right: 0.12rem solid rgba(255, 219, 0, 0.78);
+  transform: rotate(45deg);
+}
+
+.manager-step__impact {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-l);
+  padding: 0;
+  background: transparent;
+  color: var(--white);
+}
+
+.manager-step__impact-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #8fceff;
+}
+
+.impact-flow {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  font-size: clamp(1.1rem, 1.8vw, 1.35rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.impact-flow__arrow {
+  color: var(--yellow);
+  font-size: 1.3rem;
+}
+
+.impact-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding-top: var(--space-m);
+  border-top: 1px solid rgba(27, 50, 74, 0.12);
+}
+
+.impact-stat__value {
+  font-size: clamp(3rem, 6vw, 4.8rem);
+  font-weight: 800;
+  line-height: 0.95;
+  letter-spacing: -0.05em;
+}
+
+.impact-stat__meta {
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--text-soft);
+}
+
+.story-card {
+  width: min(var(--text-max), calc(100vw - 4rem));
+  max-width: none;
+  text-align: center;
+  padding: 0;
+}
+.story-card--left {
+  text-align: left;
+  padding: 0;
+}
+.problem-hero-copy {
+  position: relative;
+  z-index: 2;
+  width: min(42rem, calc(100vw - 4rem));
+  margin-right: auto;
+}
+.problem-hero-title {
+  font-size: clamp(1.6rem, 3vw, 2.5rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--yellow);
+  margin-bottom: var(--space-l);
+}
+
+.story-step-num {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: var(--space-l);
+}
+.cost-flow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--space-s);
+  margin: var(--space-l) 0;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--white);
+}
+.cost-arrow {
+  color: #8fceff;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+.cost-stat {
+  font-size: clamp(1.125rem, 2vw, 1.5rem);
+  font-weight: 700;
+  color: #8fceff;
+  margin-top: var(--space-m);
+  line-height: 1.4;
+}
+.cost-stat strong {
+  color: var(--white);
+}
+
+/* ---------- Timeline ---------- */
+.timeline-slide {
+  width: 100%;
+  max-width: min(var(--max-width), calc(100vw - 4rem));
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+}
+.timeline-intro { max-width: 600px; }
+
+.timeline-chart {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-s);
+  width: 100%;
+}
+
+/* Month labels */
+.tl-months {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: 4px;
+}
+.tl-months span {
+  text-align: center;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.55);
+  padding-bottom: var(--space-xs);
+}
+.tl-dim    { color: rgba(255,255,255,0.18) !important; }
+.tl-yellow { color: var(--yellow) !important; }
+
+/* Phase blocks */
+.tl-phases {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: 4px;
+  height: 88px;
+  align-items: stretch;
+}
+.tl-phase {
+  border-radius: var(--radius-m);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: var(--space-xs);
+  gap: 2px;
+  transition: opacity 0.3s;
+}
+.tl-phase span  { font-size: 0.75rem; font-weight: 700; line-height: 1.25; }
+.tl-phase small { font-size: 0.65rem; font-weight: 400; opacity: 0.8; line-height: 1.2; }
+
+.tl-phase--blue   { background: rgba(100,160,255,0.28); color: rgba(200,225,255,0.95); }
+.tl-phase--purple { background: rgba(160,100,255,0.28); color: rgba(220,200,255,0.95); }
+.tl-phase--orange { background: rgba(255,140, 60,0.28); color: rgba(255,215,170,0.95); }
+.tl-phase--green  { background: rgba( 60,210,120,0.28); color: rgba(180,255,210,0.95); }
+.tl-phase--pink   { background: rgba(255, 90,150,0.28); color: rgba(255,200,220,0.95); }
+.tl-phase--olive  { background: rgba(200,200, 80,0.28); color: rgba(240,240,180,0.95); }
+.tl-phase--finale { background: var(--yellow); color: var(--dark); }
+.tl-phase--finale span { font-size: 0.75rem; font-weight: 900; }
+.tl-phase--ghost  { background: rgba(255,255,255,0.04); border: 1px dashed rgba(255,255,255,0.08); }
+
+/* Milestones */
+.tl-milestones {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: 4px;
+  margin-top: var(--space-s);
+}
+.tl-milestone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+.tl-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.35);
+  flex-shrink: 0;
+}
+.tl-dot--yellow { background: var(--yellow); }
+.tl-milestone p {
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.5);
+  text-align: center;
+  line-height: 1.35;
+}
+.tl-milestone--big p { color: var(--yellow); font-weight: 700; }
+
+/* ---------- Stack Header ---------- */
+.stack__header {
+  max-width: var(--text-max);
+}
+
+/* ---------- Closing ---------- */
+.closing-quote {
+  font-size: clamp(1.75rem, 4.5vw, 3.25rem);
+  font-weight: 800;
+  line-height: 1.3;
+  color: var(--white);
+  border: none;
+  padding: 0;
+  margin: var(--space-xl) auto;
+  letter-spacing: -0.02em;
+  font-style: normal;
+}
+.closing-attribution {
+  font-size: clamp(1rem, 1.5vw, 1.25rem);
+  font-weight: 700;
+  color: var(--yellow);
+  margin-bottom: var(--space-l);
+}
+.closing-note {
+  font-size: 1rem;
+  color: rgba(255,255,255,0.65);
+  max-width: 560px;
+  margin: 0 auto;
+  line-height: 1.65;
+}
+
+/* ---------- Implication / Footer ---------- */
+.event-footer {
+  margin-top: var(--space-xxl);
+  font-size: 0.8rem;
+  color: var(--mid);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 960px) {
+  .section__inner--split {
+    grid-template-columns: 1fr;
+    gap: var(--space-l);
+  }
+  .section__inner--reverse {
+    direction: ltr;
+  }
+  .split__image img,
+  .split__image--left img {
+    height: 300px;
+  }
+  .wins-grid {
+    grid-template-columns: 1fr;
+  }
+  .outcomes-grid {
+    grid-template-columns: 1fr;
+  }
+  .question-split {
+    grid-template-columns: 1fr;
+  }
+  .stat-row {
+    gap: var(--space-l);
+  }
+  .sidenav {
+    display: none;
+  }
+  .section__inner {
+    padding: var(--space-xl) var(--space-m);
+  }
+  .section__inner--title {
+    padding: var(--space-xl) var(--space-m);
+  }
+  .intro-connection {
+    width: min(100vw - 2rem, 760px);
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 1rem;
+  }
+  .connection-slide {
+    width: min(100vw - 2rem, 760px);
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+  .connection-slide__text .problem-hero-title,
+  .connection-slide__text .body-xl {
+    max-width: none;
+  }
+  .connection-slide__visual {
+    justify-content: center;
+    min-height: 24rem;
+    padding-left: 0;
+  }
+  .hook-proof {
+    width: min(32rem, 100%);
+  }
+  .hook-metric {
+    min-height: 7.8rem;
+  }
+  .manager-step {
+    grid-template-columns: 1fr;
+    width: min(100vw - 2rem, 720px);
+    padding: 1.5rem;
+    gap: 1.5rem;
+  }
+  .manager-step--brief {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+  .manager-step--brief .manager-step__portrait--stack {
+    max-width: none;
+    grid-template-columns: 1fr 1fr;
+  }
+  .manager-step__portrait--stack {
+    grid-template-columns: 1fr 1fr;
+  }
+  .manager-step__text {
+    max-width: none;
+  }
+  .strategy-pillars {
+    grid-template-columns: 1fr;
+  }
+  .strategy-focus {
+    width: min(100vw - 2rem, 760px);
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .strategy-focus__card {
+    justify-content: flex-start;
+  }
+  .strategy-focus__card .strategy-pillar {
+    width: min(100%, 22rem);
+  }
+  .orchestrator-hero {
+    width: min(100vw - 2rem, 760px);
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .orchestrator-hero__intro {
+    max-width: none;
+    padding-top: 0;
+  }
+  .orchestrator-narrative {
+    max-width: none;
+  }
+  .orchestrator-system {
+    width: min(100%, 30rem);
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .orchestrator-hero__portrait {
+    padding-right: 0;
+  }
+  .orchestrator-hero__portrait img {
+    height: 18rem;
+  }
+  .orchestrator-capabilities {
+    grid-template-columns: 1fr;
+  }
+  .orchestrator-partners {
+    width: min(100vw - 2rem, 760px);
+    margin-top: 0.9rem;
+  }
+  .orchestrator-stage {
+    width: min(100vw - 2rem, 760px);
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .orchestrator-stage__copy {
+    max-width: none;
+    padding: 1.6rem 1.35rem 1.45rem;
+  }
+  .orchestrator-stage__system {
+    width: min(100%, 30rem);
+    margin-left: 0;
+  }
+  .orchestrator-stage__portrait img {
+    height: 18rem;
+  }
+  .orchestrator-stage__capabilities {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .stat-number { font-size: 3.5rem; }
+  .stat-row { gap: var(--space-m); }
+  .silo-bridge {
+    gap: 0.5rem;
+  }
+  .silo-bridge__core {
+    min-width: 0;
+    width: 100%;
+  }
+  .manager-step__portrait--stack {
+    grid-template-columns: 1fr;
+  }
+  .manager-step--brief .manager-step__portrait--stack {
+    grid-template-columns: 1fr;
+  }
+  .manager-step {
+    width: calc(100vw - 1.5rem);
+    border-radius: 28px;
+  }
+  .connection-slide__visual {
+    min-height: 18.5rem;
+  }
+  .hook-proof {
+    width: min(19rem, 100%);
+    gap: 0.95rem;
+  }
+  .hook-metrics {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.7rem;
+  }
+  .hook-metric {
+    min-height: 6.7rem;
+    padding: 0.95rem 0.85rem;
+  }
+  .hook-metric__value {
+    font-size: 2.2rem;
+  }
+  .hook-metric__label {
+    font-size: 0.72rem;
+  }
+  .hook-role {
+    min-height: 2.25rem;
+    padding: 0.58rem 0.72rem;
+    font-size: 0.74rem;
+  }
+  .strategy-focus__card .strategy-pillar {
+    width: 100%;
+  }
+  .orchestrator-hero__intro .heading-xl {
+    font-size: 2.7rem;
+  }
+  .orchestrator-usp {
+    max-width: none;
+    font-size: 0.96rem;
+  }
+  .orchestrator-identity {
+    width: calc(100% - 1.6rem);
+    left: 0.8rem;
+  }
+  .orchestrator-hero__portrait img {
+    height: 15rem;
+  }
+  .orchestrator-capability h3 {
+    font-size: 0.78rem;
+  }
+  .orchestrator-capability p {
+    font-size: 0.78rem;
+  }
+  .orchestrator-partners {
+    gap: 1.2rem;
+    flex-wrap: wrap;
+  }
+  .orchestrator-stage__title {
+    font-size: 2.8rem;
+  }
+  .orchestrator-stage__usp {
+    max-width: none;
+    font-size: 1rem;
+  }
+  .orchestrator-stage__portrait img {
+    height: 15rem;
+  }
+  .orchestrator-stage__identity {
+    left: 0.8rem;
+    right: 0.8rem;
+  }
+  .orchestrator-card {
+    min-height: 0;
+    padding: 1rem 1rem 0.95rem;
+  }
+  .orchestrator-card--wide {
+    grid-template-columns: auto 1fr;
+  }
+  .orchestrator-card__arrow {
+    display: none;
+  }
+  .orchestrator-card h3 {
+    font-size: 0.78rem;
+  }
+  .orchestrator-card p {
+    font-size: 0.82rem;
+  }
+}
+
+/* ---------- Manager Feature (individual full-screen) ---------- */
+.manager-feature {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: var(--space-xxl);
+  align-items: center;
+  width: 100%;
+}
+.manager-feature--reverse {
+  grid-template-columns: 1fr 300px;
+}
+.manager-feature--reverse .manager-feature__portrait {
+  order: 2;
+}
+.manager-feature--reverse .manager-feature__text {
+  order: 1;
+}
+.manager-feature__portrait img {
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center top;
+  box-shadow: 0 32px 80px rgba(0,0,0,0.45);
+  display: block;
+  margin: 0 auto;
+}
+.manager-feature__name {
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+  font-weight: 800;
+  color: var(--white);
+  letter-spacing: -0.02em;
+  margin-bottom: 4px;
+}
+.manager-feature__role {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--yellow);
+  margin-bottom: var(--space-l);
+  display: block;
+}
+
+/* ---------- Strategy Intro (s03 — managers + text, constellation behind) ---------- */
+.section--with-constellation {
+  background: transparent;
+}
+
+.strategy-intro {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-l);
+  max-width: 42rem;
+  position: relative;
+  z-index: 2;
+}
+
+.strategy-intro__text {
+  max-width: 38rem;
+}
+
+.strategy-intro__managers {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+/* --- Strategy Anchor (s03 rebuild) --- */
+.strategy-anchor {
+  width: min(var(--max-width), calc(100vw - 4rem));
+  display: grid;
+  grid-template-columns: minmax(280px, 1fr) minmax(320px, 1.1fr);
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.strategy-anchor__narrative {
+  max-width: 36rem;
+}
+
+.strategy-anchor__narrative .heading-xl {
+  margin-top: 0.6rem;
+}
+
+.strategy-anchor__narrative .body-xl {
+  margin-top: 1rem;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.9);
+}
+
+.strategy-anchor__narrative .body-l {
+  margin-top: 0.7rem;
+  color: rgba(255,255,255,0.7);
+}
+
+.strategy-anchor__cards {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+
+.strategy-anchor__managers {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+.strategy-anchor__managers--inline {
+  margin: var(--space-m) 0;
+}
+
+@media (max-width: 860px) {
+  .strategy-anchor {
+    grid-template-columns: 1fr;
+  }
+}
+
+.manager-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem 1rem 0.5rem 0.5rem;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.10);
+  flex: 1;
+  border-radius: 999px;
+}
+
+.manager-badge img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.manager-badge__info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.manager-badge__name {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.2;
+}
+
+.manager-badge__role {
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.2;
+}
+
+  </style>
+</head>
+<body>
+  <canvas id="constellationCanvas" class="constellation-fixed"></canvas>
+  <div class="progress-bar" id="progressBar"></div>
+  <div class="slide-counter" id="slideCounter">1 / 1</div>
+
+  <nav class="sidenav" id="sidenav">
+    <a href="#s01" class="dot" data-label="Title"></a>
+    <a href="#s02" class="dot" data-label="Problem"></a>
+    <a href="#s02b" class="dot" data-label="Core Question"></a>
+    <a href="#s03" class="dot" data-label="Strategic Anchor"></a>
+    <a href="#s03b" class="dot" data-label="Strategy Focus"></a>
+    <a href="#s04" class="dot" data-label="Orchestrator Role"></a>
+    <a href="#s05" class="dot" data-label="Journey Team"></a>
+    <a href="#s08" class="dot" data-label="Gather Evidence"></a>
+    <a href="#s09" class="dot" data-label="Shared Journey View"></a>
+    <a href="#s09b" class="dot" data-label="The Artefact"></a>
+    <a href="#s10" class="dot" data-label="Shared Awareness"></a>
+    <a href="#s11" class="dot" data-label="Big Workshop"></a>
+    <a href="#s12" class="dot" data-label="What It Produced"></a>
+    <a href="#s14" class="dot" data-label="Close"></a>
+  </nav>
+
+  <section id="s01" class="section section--title">
+    <div class="section__inner section__inner--title">
+      <p class="eyebrow">Digital Sharing Days 2026</p>
+      <h1 class="display-xl">Connecting<br>the Silos</h1>
+      <h2 class="display-sub">A Journey-Centric Approach</h2>
+      <p class="title-speaker">Pablo Suzarte · Orchestrator, Journey Teams Project</p>
+      <p class="title-context">Journey Teams · Remote Customer Meeting Point (RCMP) · Kitchen Exchange Journey</p>
+    </div>
+    <div class="scroll-hint">↓</div>
+  </section>
+
+  <section id="s02" class="section section--problem">
+    <canvas id="chaseCanvas" class="chase-canvas"></canvas>
+    <div class="section__inner section__inner--problem-hero">
+      <div class="story-card story-card--left problem-hero-copy">
+        <p class="problem-hero-title">The landscape</p>
+        <p class="body-xl body--light"><span class="crayon-underline">Customer Support at IKEA</span> operates across a complex landscape of products, systems, teams, and markets.</p>
+        <p class="body-xl body--light">The experience is shaped across many parts of the organisation, which makes it <strong class="highlight-yellow">difficult to build a shared understanding of the journey</strong> and identify improvement opportunities together.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="s02b" class="section section--problem section--constellation-bg">
+    <div class="section__inner">
+      <div class="connection-slide connection-slide--stacked">
+        <p class="section-label connection-slide__label">The Core Question</p>
+        <p class="problem-hero-title">How did we connect 80+ experts across Remote Customer Support?</p>
+        <div class="hook-metrics hook-metrics--inline">
+          <div class="hook-metric hook-metric--compact">
+            <span class="hook-metric__value">80+</span>
+            <span class="hook-metric__label">Co-workers</span>
+          </div>
+          <div class="hook-metric hook-metric--compact">
+            <span class="hook-metric__value">15+</span>
+            <span class="hook-metric__label">Teams</span>
+          </div>
+          <div class="hook-metric hook-metric--compact">
+            <span class="hook-metric__value">20</span>
+            <span class="hook-metric__label">Workshops</span>
+          </div>
+          <div class="hook-metric hook-metric--compact">
+            <span class="hook-metric__value">5</span>
+            <span class="hook-metric__label">Markets</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="s03" class="section section--strategy section--with-constellation">
+    <div class="section__inner">
+      <div class="strategy-anchor">
+        <div class="strategy-anchor__narrative">
+          <p class="section-label">The Strategic Anchor</p>
+          <h2 class="heading-xl">Petter and Christian had their eye on these four initiatives.</h2>
+          <div class="strategy-anchor__managers strategy-anchor__managers--inline">
+            <div class="manager-badge">
+              <img src="https://journeyteams.vercel.app/screenshots/02_strategy/christian1.png" alt="Christian Bernroth">
+              <div class="manager-badge__info">
+                <p class="manager-badge__name">Christian Bernroth</p>
+                <p class="manager-badge__role">Product Manager · Dig Prod Remote Meeting Point</p>
+              </div>
+            </div>
+            <div class="manager-badge">
+              <img src="https://journeyteams.vercel.app/screenshots/02_strategy/petter1.png" alt="Petter Bjelm">
+              <div class="manager-badge__info">
+                <p class="manager-badge__name">Petter Bjelm</p>
+                <p class="manager-badge__role">Product UX Manager · Dig Prod Remote Meeting Point</p>
+              </div>
+            </div>
+          </div>
+          <p class="body-xl">This was the third iteration of a Journey-Centric Approach in the RCMP area. They trusted it enough to scale it to the size of Journey Teams.</p>
+        </div>
+        <div class="strategy-anchor__cards">
+          <div class="strategy-pillars">
+            <div class="strategy-pillar strategy-pillar--blue">
+              <p class="strategy-pillar__title">Rebuild Resolution Experience</p>
+              <p class="strategy-pillar__meta">RRE · IBD-218</p>
+            </div>
+            <div class="strategy-pillar strategy-pillar--yellow strategy-pillar--primary">
+              <p class="strategy-pillar__title">Growth Plan 26 &amp; 27</p>
+              <p class="strategy-pillar__meta">Kitchen &amp; Storage</p>
+            </div>
+            <div class="strategy-pillar strategy-pillar--teal">
+              <p class="strategy-pillar__title">Ingka Digitalisation Strategy</p>
+              <p class="strategy-pillar__meta">Reduce fragmentation</p>
+            </div>
+            <div class="strategy-pillar strategy-pillar--slate">
+              <p class="strategy-pillar__title">OMP Co-worker Simplification</p>
+              <p class="strategy-pillar__meta">IBD-587</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="s03b" class="section section--strategy section--with-constellation">
+    <div class="section__inner">
+      <div class="strategy-focus">
+        <div class="strategy-focus__card">
+          <div class="strategy-anchor__managers">
+            <div class="manager-badge">
+              <img src="https://journeyteams.vercel.app/screenshots/02_strategy/christian1.png" alt="Christian Bernroth">
+              <div class="manager-badge__info">
+                <p class="manager-badge__name">Christian Bernroth</p>
+                <p class="manager-badge__role">Product Manager</p>
+              </div>
+            </div>
+            <div class="manager-badge">
+              <img src="https://journeyteams.vercel.app/screenshots/02_strategy/petter1.png" alt="Petter Bjelm">
+              <div class="manager-badge__info">
+                <p class="manager-badge__name">Petter Bjelm</p>
+                <p class="manager-badge__role">Product UX Manager</p>
+              </div>
+            </div>
+          </div>
+          <div class="strategy-pillar strategy-pillar--yellow strategy-pillar--primary strategy-pillar--expanded">
+            <p class="strategy-pillar__title">Growth Plan 26 &amp; 27</p>
+            <p class="strategy-pillar__meta">Kitchen &amp; Storage</p>
+          </div>
+        </div>
+        <div class="strategy-focus__text">
+          <p class="body-xl">We chose the Kitchen Exchange Journey because of Growth Plan 26 &amp; 27. More kitchens sold means more contacts to RCMP, and this journey already costs the organisation a lot.</p>
+          <div class="strategy-focus__kpi">
+            <span class="strategy-focus__kpi-label">Kitchen Exchange Journey · AHT</span>
+            <span class="strategy-focus__kpi-value">EUR 9.08M</span>
+            <span class="strategy-focus__kpi-period">per year in average handling time</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="s04" class="section section--planning">
+    <div class="section__inner">
+      <div class="orchestrator-stage">
+        <div class="orchestrator-stage__copy">
+          <p class="section-label orchestrator-stage__eyebrow">Strategic Partnership</p>
+          <h2 class="orchestrator-stage__title">The Orchestrator</h2>
+          <p class="orchestrator-stage__usp">Not a manager. A facilitator. A designer of collaboration.</p>
+          <p class="orchestrator-stage__bridge">The connective tissue. Right people, right room, right context, right time.</p>
+        </div>
+        <div class="orchestrator-stage__system">
+          <div class="orchestrator-stage__portrait">
+            <img src="https://journeyteams.vercel.app/screenshots/web/pablo-orchestrator.jpg" alt="Pablo Suzarte">
+            <div class="orchestrator-stage__identity">
+              <p class="orchestrator-stage__identity-label">The Orchestrator</p>
+              <p class="orchestrator-stage__identity-subtitle">Facilitator · Designer of collaboration</p>
+            </div>
+          </div>
+          <div class="orchestrator-stage__capabilities">
+            <article class="orchestrator-card orchestrator-card--yellow">
+              <div class="orchestrator-card__marker" aria-hidden="true"></div>
+              <h3>Connects teams</h3>
+              <p>Brings the right people into the right room at the right time</p>
+            </article>
+            <article class="orchestrator-card orchestrator-card--coral">
+              <div class="orchestrator-card__marker" aria-hidden="true"></div>
+              <h3>Designs the process</h3>
+              <p>Shapes every workshop, interview, and session with intention</p>
+            </article>
+            <article class="orchestrator-card orchestrator-card--yellow">
+              <div class="orchestrator-card__marker" aria-hidden="true"></div>
+              <h3>Keeps one source of truth</h3>
+              <p>One artefact everyone can point to</p>
+            </article>
+            <article class="orchestrator-card orchestrator-card--coral">
+              <div class="orchestrator-card__marker" aria-hidden="true"></div>
+              <h3>Clarifies shared work</h3>
+              <p>So nobody guesses who owns what</p>
+            </article>
+            <article class="orchestrator-card orchestrator-card--wide orchestrator-card--yellow">
+              <div class="orchestrator-card__marker" aria-hidden="true"></div>
+              <div class="orchestrator-card__body">
+                <h3>Turns insight into action</h3>
+                <p>Research doesn't stay in a deck. It moves into backlogs</p>
+              </div>
+              <div class="orchestrator-card__arrow" aria-hidden="true"></div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="s05" class="section section--team">
+    <canvas id="teamCanvas" class="team-constellation__canvas"></canvas>
+    <div class="section__inner">
+      <div class="team-constellation">
+        <div class="team-constellation__center">
+          <div class="team-constellation__core">
+            <h2 class="team-constellation__title">Journey Teams</h2>
+            <p class="team-constellation__mission">Bringing shared understanding to the RCMP organisation</p>
+          </div>
+        </div>
+        <div class="team-constellation__node team-constellation__node--tl">
+          <div class="team-constellation__avatar">
+            <img src="https://journeyteams.vercel.app/screenshots/03_team_and_kickoff/pablo2.png" alt="Pablo Suzarte" loading="lazy">
+          </div>
+          <div class="team-constellation__info">
+            <h3>Pablo Suzarte</h3>
+            <p>Journey Team Orchestrator</p>
+          </div>
+        </div>
+        <div class="team-constellation__node team-constellation__node--tr">
+          <div class="team-constellation__avatar">
+            <img src="https://journeyteams.vercel.app/screenshots/03_team_and_kickoff/suwen.png" alt="Suwen Shen" loading="lazy">
+          </div>
+          <div class="team-constellation__info">
+            <h3>Suwen Shen</h3>
+            <p>UX Journey Coordinator</p>
+          </div>
+        </div>
+        <div class="team-constellation__node team-constellation__node--bl">
+          <div class="team-constellation__avatar">
+            <img src="https://journeyteams.vercel.app/screenshots/03_team_and_kickoff/amina.png" alt="Amina Gummesson" loading="lazy">
+          </div>
+          <div class="team-constellation__info">
+            <h3>Amina Gummesson</h3>
+            <p>RCMP Experience Specialist</p>
+          </div>
+        </div>
+        <div class="team-constellation__node team-constellation__node--br">
+          <div class="team-constellation__avatar">
+            <img src="https://journeyteams.vercel.app/screenshots/03_team_and_kickoff/balazs.png" alt="Balazs Gobel" loading="lazy">
+          </div>
+          <div class="team-constellation__info">
+            <h3>Balazs Gobel</h3>
+            <p>Senior Product UX Designer</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="s06" class="section section--onboarding">
+    <div class="section__inner section__inner--stack">
+      <div class="stack__header">
+        <p class="section-label">Building Commitment</p>
+        <h2 class="heading-xl">Before the kickoff, we made sure everyone understood the work and wanted to be part of it.</h2>
+      </div>
+      <div class="onboarding-steps">
+        <div class="onboarding-step">
+          <div class="onboarding-step__number">01</div>
+          <h3 class="onboarding-step__title">Pre-study</h3>
+          <p class="onboarding-step__desc">Pablo and Suwen mapped the landscape: data collection, existing research, understanding the current state across markets and teams.</p>
+        </div>
+        <div class="onboarding-arrow" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="onboarding-step">
+          <div class="onboarding-step__number">02</div>
+          <h3 class="onboarding-step__title">Presenting to product teams</h3>
+          <p class="onboarding-step__desc">1-on-1 sessions with every product team and area. Not just introductions. Understanding each person's context before asking them to commit.</p>
+        </div>
+        <div class="onboarding-arrow" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="onboarding-step">
+          <div class="onboarding-step__number">03</div>
+          <h3 class="onboarding-step__title">Recruiting for the kickoff</h3>
+          <p class="onboarding-step__desc">The pre-study was compelling enough that people wanted in. Amina's manager saw the results and sent her to join the project directly.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="s07" class="section section--kickoff-gallery">
+    <div class="kickoff-text-overlay">
+      <p class="section-label">The Kickoff</p>
+      <h2 class="heading-xl">Everyone in one room. We presented the project, set expectations together, and invited them to join the research.</h2>
+      <p class="body-l">Embracing togetherness. People left as co-owners, not attendees.</p>
+    </div>
+    <div class="kickoff-mosaic">
+      <div class="kickoff-mosaic__hero">
+        <img src="https://journeyteams.vercel.app/screenshots/web/kick-off3.jpg" alt="Kickoff — group listening" loading="lazy">
+      </div>
+      <div class="kickoff-mosaic__side">
+        <div class="kickoff-mosaic__img">
+          <img src="https://journeyteams.vercel.app/screenshots/web/pablo-and-suwen.jpg" alt="Pablo and Suwen" loading="lazy">
+        </div>
+        <div class="kickoff-mosaic__img">
+          <img src="https://journeyteams.vercel.app/screenshots/web/kick-off1.jpg" alt="Kickoff — the room" loading="lazy">
+        </div>
+      </div>
+      <div class="kickoff-mosaic__bottom">
+        <div class="kickoff-mosaic__img">
+          <img src="https://journeyteams.vercel.app/screenshots/web/kick-off2.jpg" alt="Kickoff — presenting" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="s08" class="section section--research-gallery">
+    <div class="research-text-overlay">
+      <p class="section-label">Research across 5 markets</p>
+      <h2 class="heading-xl">Research: we taught them how to map. Then we mapped the Kitchen Exchange Journey together.</h2>
+      <p class="body-l">Scenario: a customer calls because the front cover is broken. Full-day workshops in each country with real co-workers.</p>
+      <div class="research-markets">
+        <span class="research-market">&#127480;&#127466; Sweden</span>
+        <span class="research-market">&#127465;&#127472; Denmark</span>
+        <span class="research-market">&#127465;&#127466; Germany</span>
+        <span class="research-market">&#127464;&#127462; Canada</span>
+        <span class="research-market">&#127466;&#127480; Spain</span>
+      </div>
+    </div>
+    <div class="research-mosaic">
+      <div class="research-mosaic__col research-mosaic__col--tall">
+        <div class="research-mosaic__img">
+          <img src="https://journeyteams.vercel.app/screenshots/web/research-img_2231.jpg" alt="Germany — co-workers mapping the journey" loading="lazy">
+        </div>
+        <div class="research-mosaic__img">
+          <img src="https://journeyteams.vercel.app/screenshots/web/dsc_8040-2.jpg" alt="Sweden — co-workers in the session" loading="lazy">
+        </div>
+      </div>
+      <div class="research-mosaic__col">
+        <div class="research-mosaic__img">
+          <img src="https://journeyteams.vercel.app/screenshots/web/research-IMG_2383-2.jpg" alt="Team celebrating after a session" loading="lazy">
+        </div>
+        <div class="research-mosaic__img">
+          <img src="https://journeyteams.vercel.app/screenshots/web/dsc_8065-2.jpg" alt="Close-up — writing pain points" loading="lazy">
+        </div>
+        <div class="research-mosaic__img">
+          <img src="https://journeyteams.vercel.app/screenshots/web/research-IMG_2396.jpg" alt="Denmark — presenting to the room" loading="lazy">
+        </div>
+      </div>
+      <div class="research-mosaic__col research-mosaic__col--tall">
+        <div class="research-mosaic__img">
+          <img src="https://journeyteams.vercel.app/screenshots/web/research-IMG_2390.jpg" alt="Mapping post-its on the table" loading="lazy">
+        </div>
+        <div class="research-mosaic__img">
+          <img src="https://journeyteams.vercel.app/screenshots/web/research-img_2399.jpg" alt="Co-workers discussing the map" loading="lazy">
+        </div>
+      </div>
+      <div class="research-mosaic__col">
+        <div class="research-mosaic__img">
+          <img src="https://journeyteams.vercel.app/screenshots/web/dsc_8139-2.jpg" alt="Group photo — IKEA spirit wall" loading="lazy">
+        </div>
+        <div class="research-mosaic__img">
+          <img src="https://journeyteams.vercel.app/screenshots/web/research-img_7398.jpg" alt="Co-workers looking at the completed map" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="s09" class="section section--analysis">
+    <div class="section__inner section__inner--artefact">
+      <div class="artefact-header">
+        <p class="section-label">Build One Shared Journey View</p>
+        <h2 class="heading-xl">From 5 physical maps to one digitalised source of truth.</h2>
+      </div>
+      <div class="maps-transformation">
+        <div class="maps-physical">
+          <div class="maps-physical__item">
+            <img src="https://journeyteams.vercel.app/screenshots/web/map-sweden.jpg" alt="Sweden — physical post-it map" loading="lazy">
+            <span>🇸🇪 Sweden</span>
+            <div class="maps-arrow-down" aria-hidden="true">↓</div>
+          </div>
+          <div class="maps-physical__item">
+            <img src="https://journeyteams.vercel.app/screenshots/web/map-germany.jpg" alt="Germany — physical post-it map" loading="lazy">
+            <span>🇩🇪 Germany</span>
+            <div class="maps-arrow-down" aria-hidden="true">↓</div>
+          </div>
+          <div class="maps-physical__item">
+            <img src="https://journeyteams.vercel.app/screenshots/web/map-denmark.jpg" alt="Denmark — physical post-it map" loading="lazy">
+            <span>🇩🇰 Denmark</span>
+            <div class="maps-arrow-down" aria-hidden="true">↓</div>
+          </div>
+          <div class="maps-physical__item">
+            <img src="https://journeyteams.vercel.app/screenshots/web/map-canada.jpg" alt="Canada — physical post-it map" loading="lazy">
+            <span>🇨🇦 Canada</span>
+            <div class="maps-arrow-down" aria-hidden="true">↓</div>
+          </div>
+          <div class="maps-physical__item">
+            <img src="https://journeyteams.vercel.app/screenshots/web/map-spain.jpg" alt="Spain — physical post-it map" loading="lazy">
+            <span>🇪🇸 Spain</span>
+            <div class="maps-arrow-down" aria-hidden="true">↓</div>
+          </div>
+        </div>
+        <div class="artefact-map-wrap">
+          <div class="artefact-map">
+            <img src="https://journeyteams.vercel.app/screenshots/web/digitalised-maps.png" alt="5 digitalised journey maps consolidated" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="s09b" class="section section--artefact">
+    <div class="section__inner section__inner--artefact">
+      <div class="artefact-header">
+        <p class="section-label">The Single Source of Truth</p>
+        <h2 class="heading-xl">This is the happy flow of the Kitchen Exchange Journey. It has 34 pain points.</h2>
+        <p class="body-l">Each red dot is a pain point linked to a real co-worker video. Not a description. A voice you can hear.</p>
+      </div>
+      <div class="artefact-map-wrap">
+        <div class="artefact-map" id="artefactMap">
+          <img src="https://journeyteams.vercel.app/screenshots/web/journey-map-full.png" alt="The digitalised as-is Kitchen Exchange Journey Map" loading="lazy">
+          <div class="pain-dots" id="painDots"></div>
+        </div>
+        <div class="artefact-map-labels">
+          <span>Issue Exploration</span>
+          <span>Solution &amp; Case Creation</span>
+          <span>Order &amp; Deliveries</span>
+          <span>Ending Call</span>
+          <span>After Call Work</span>
+        </div>
+      </div>
+      <div class="artefact-card-row">
+        <div class="artefact-card">
+          <span class="artefact-card__icon">&#9654;</span>
+          <p class="artefact-card__text">Each pain point has a video clip where a co-worker describes the problem in their own words</p>
+        </div>
+        <div class="artefact-card">
+          <span class="artefact-card__icon">&#9776;</span>
+          <p class="artefact-card__text">The journey is structured in Activities, Steps, Tasks, Pain Points, and which teams are involved</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="s10" class="section section--sharing">
+    <canvas id="sharingCanvas" class="sharing-canvas"></canvas>
+    <div class="sharing-overlay">
+      <p class="section-label">Sharing Sessions</p>
+      <div class="sharing-stat">
+        <span class="sharing-stat__number">22</span>
+        <span class="sharing-stat__label">sessions across product teams, areas, and markets</span>
+      </div>
+      <h2 class="heading-xl">We brought the evidence back to every team that owned a piece of the journey.</h2>
+      <div class="sharing-question">
+        <p class="sharing-question__prompt">One question per session:</p>
+        <p class="sharing-question__text">Did you know about this pain point?</p>
+        <div class="sharing-branches">
+          <div class="sharing-branch sharing-branch--yes">
+            <span class="sharing-branch__label">Yes</span>
+            <p class="sharing-branch__desc">What's the plan to fix it? A real conversation about priorities and ownership.</p>
+          </div>
+          <div class="sharing-branch sharing-branch--no">
+            <span class="sharing-branch__label">No</span>
+            <p class="sharing-branch__desc">Watch this video. A co-worker explaining the pain in their own words. That changed the room every time.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="s11" class="section section--workshop-gallery">
+    <div class="workshop-text-overlay">
+      <p class="section-label">The Big Workshop</p>
+      <h2 class="heading-xl">Divided into 4 groups, we worked through the pain points in group conversations, focusing on root causes, not solutions, to find opportunities for improvement.</h2>
+      <div class="stat-row stat-row--inline">
+        <div class="stat-block">
+          <span class="stat-number">40</span>
+          <span class="stat-label">people</span>
+        </div>
+        <div class="stat-block">
+          <span class="stat-number">2</span>
+          <span class="stat-label">days</span>
+        </div>
+        <div class="stat-block">
+          <span class="stat-number">4</span>
+          <span class="stat-label">groups</span>
+        </div>
+      </div>
+    </div>
+    <div class="workshop-mosaic">
+      <div class="workshop-mosaic__hero">
+        <img src="https://journeyteams.vercel.app/screenshots/web/workshop-presenting.jpg" alt="Workshop — presenting to the group" loading="lazy">
+      </div>
+      <div class="workshop-mosaic__side">
+        <div class="workshop-mosaic__img">
+          <img src="https://journeyteams.vercel.app/screenshots/web/workshop-group-table.jpg" alt="Workshop — group conversation at the table" loading="lazy">
+        </div>
+        <div class="workshop-mosaic__img">
+          <img src="https://journeyteams.vercel.app/screenshots/web/workshop-group-discussion.jpg" alt="Workshop — team discussing with screen" loading="lazy">
+        </div>
+      </div>
+      <div class="workshop-mosaic__bottom">
+        <div class="workshop-mosaic__img">
+          <img src="https://journeyteams.vercel.app/screenshots/web/workshop-audience.jpg" alt="Workshop — full audience listening" loading="lazy">
+        </div>
+        <div class="workshop-mosaic__img">
+          <img src="https://journeyteams.vercel.app/screenshots/web/workshop-whiteboard.jpg" alt="Workshop — working at the whiteboard" loading="lazy">
+        </div>
+        <div class="workshop-mosaic__img">
+          <img src="https://journeyteams.vercel.app/screenshots/web/workshop-full-room.jpg" alt="Workshop — full room presentation" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="s12" class="section section--outcomes">
+    <div class="section__inner section__inner--stack">
+      <div class="stack__header">
+        <p class="section-label">Opportunities for Improvement</p>
+        <h2 class="heading-xl"><span style="color: var(--yellow, #ffdb00)">75+</span> opportunities across systemic themes.</h2>
+      </div>
+      <div class="opps-dashboard">
+        <div class="opps-grid">
+          <div class="opp-card" style="--opp-color: var(--yellow, #ffdb00)">
+            <div class="opp-card__header">
+              <span class="opp-card__count">14</span>
+              <h3 class="opp-card__title">Unified Customer Information</h3>
+            </div>
+            <p class="opp-card__desc">Co-workers switch between 5+ systems per call. No single view of the customer exists.</p>
+            <p class="opp-card__example">One place for all customer and order information: profiles, history, notes, cases.</p>
+          </div>
+          <div class="opp-card" style="--opp-color: #5aaaff">
+            <div class="opp-card__header">
+              <span class="opp-card__count">12</span>
+              <h3 class="opp-card__title">Automation &amp; AI</h3>
+            </div>
+            <p class="opp-card__desc">After-call work takes minutes per call. Summaries, notes, and status changes are all manual.</p>
+            <p class="opp-card__example">AI-generated call summaries, auto-filled fields, smart templates that learn from patterns.</p>
+          </div>
+          <div class="opp-card" style="--opp-color: #3ee0a5">
+            <div class="opp-card__header">
+              <span class="opp-card__count">10</span>
+              <h3 class="opp-card__title">Knowledge &amp; Documentation</h3>
+            </div>
+            <p class="opp-card__desc">VETA procedures change constantly. Co-workers can't find the right one during a live call.</p>
+            <p class="opp-card__example">Trustworthy, searchable knowledge base embedded directly in the workflow.</p>
+          </div>
+          <div class="opp-card" style="--opp-color: #ff9f43">
+            <div class="opp-card__header">
+              <span class="opp-card__count">10</span>
+              <h3 class="opp-card__title">Process Standardisation</h3>
+            </div>
+            <p class="opp-card__desc">Same issue, different handling per market. No shared way of working across teams.</p>
+            <p class="opp-card__example">Standard processes for case handling, routing, notes, and customer verification.</p>
+          </div>
+          <div class="opp-card" style="--opp-color: #b49aff">
+            <div class="opp-card__header">
+              <span class="opp-card__count">8</span>
+              <h3 class="opp-card__title">Stock &amp; Delivery Visibility</h3>
+            </div>
+            <p class="opp-card__desc">Co-workers can't see stock or delivery options during the call. Customers wait for callbacks.</p>
+            <p class="opp-card__example">Real-time stock from all units, delivery options shown during resolution, not after.</p>
+          </div>
+          <div class="opp-card" style="--opp-color: #ff6b6b">
+            <div class="opp-card__header">
+              <span class="opp-card__count">8</span>
+              <h3 class="opp-card__title">System Simplification</h3>
+            </div>
+            <p class="opp-card__desc">Too many tools, none retired. Every new launch adds complexity without removing the old.</p>
+            <p class="opp-card__example">Decommission low-value tools, embed processes into the systems co-workers actually use.</p>
+          </div>
+          <div class="opp-card" style="--opp-color: #64d2ff">
+            <div class="opp-card__header">
+              <span class="opp-card__count">7</span>
+              <h3 class="opp-card__title">Coworker Experience</h3>
+            </div>
+            <p class="opp-card__desc">Onboarding takes weeks. Training lives outside the tools. Guidance depends on who you ask.</p>
+            <p class="opp-card__example">In-app guidance based on role and experience. Training embedded where the work happens.</p>
+          </div>
+          <div class="opp-card" style="--opp-color: #ff85a1">
+            <div class="opp-card__header">
+              <span class="opp-card__count">6</span>
+              <h3 class="opp-card__title">Customer Self-Service</h3>
+            </div>
+            <p class="opp-card__desc">Customers call because they can't find answers. Simple tasks require a co-worker.</p>
+            <p class="opp-card__example">Let customers verify info, send photos, and track orders before reaching support.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="s14" class="section section--implication">
+    <div class="section__inner section__inner--center">
+      <p class="section-label section-label--light">Journey-Centric Approach</p>
+      <blockquote class="closing-quote">
+        "We didn't break the silos.<br>
+        But we were able to connect them with purpose and context."
+      </blockquote>
+      <p class="closing-attribution">That is the value of the Journey-Centric Approach.</p>
+      <p class="closing-note">The "we" is intentional: the team, the stakeholders, the co-workers, and everyone who helped turn fragmented experience into shared direction.</p>
+    </div>
+  </section>
+
+  <script is:inline>
+document.addEventListener('DOMContentLoaded', () => {
+  const progressBar = document.getElementById('progressBar');
+  function updateProgress() {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    progressBar.style.width = pct + '%';
+  }
+  window.addEventListener('scroll', updateProgress, { passive: true });
+
+  const dots = document.querySelectorAll('.sidenav .dot');
+  dots.forEach(dot => {
+    dot.addEventListener('click', (e) => {
+      e.preventDefault();
+      const targetId = dot.getAttribute('href');
+      const target = document.querySelector(targetId);
+      if (target) target.scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+
+  const allSections = document.querySelectorAll('section[id]');
+  const totalSlides = allSections.length;
+  const slideCounter = document.getElementById('slideCounter');
+  const sectionIndexMap = new Map();
+  allSections.forEach((s, i) => sectionIndexMap.set(s, i + 1));
+
+  const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      entry.target.classList.toggle('is-visible', entry.isIntersecting);
+      if (entry.isIntersecting) {
+        const id = entry.target.getAttribute('id');
+        dots.forEach(dot => {
+          dot.classList.toggle('active', dot.getAttribute('href') === '#' + id);
+        });
+        const num = sectionIndexMap.get(entry.target) || 1;
+        slideCounter.textContent = num + ' / ' + totalSlides;
+      }
+    });
+  }, { threshold: 0.5 });
+  allSections.forEach(s => sectionObserver.observe(s));
+
+  initConstellation();
+  try { initChaseConstellation(); } catch(e) { console.warn('Chase constellation error:', e); }
+  try { initTeamConstellation(); } catch(e) { console.warn('Team constellation error:', e); }
+  try { initSharingConstellation(); } catch(e) { console.warn('Sharing constellation error:', e); }
+  try { initPainDots(); } catch(e) { console.warn('Pain dots error:', e); }
+});
+
+function initPainDots() {
+  const container = document.getElementById('painDots');
+  if (!container) return;
+  const dots = [
+    { x: 3, y: 55 }, { x: 7, y: 40 }, { x: 12, y: 65 }, { x: 16, y: 48 }, { x: 10, y: 75 },
+    { x: 5, y: 32 }, { x: 14, y: 58 },
+    { x: 23, y: 42 }, { x: 28, y: 60 }, { x: 33, y: 50 }, { x: 37, y: 70 }, { x: 25, y: 78 },
+    { x: 40, y: 45 }, { x: 31, y: 35 }, { x: 35, y: 62 }, { x: 42, y: 55 },
+    { x: 48, y: 52 }, { x: 53, y: 40 }, { x: 58, y: 65 }, { x: 50, y: 72 }, { x: 55, y: 55 },
+    { x: 46, y: 38 }, { x: 60, y: 48 },
+    { x: 68, y: 48 }, { x: 73, y: 60 }, { x: 70, y: 72 }, { x: 76, y: 42 },
+    { x: 66, y: 58 }, { x: 78, y: 68 },
+    { x: 83, y: 50 }, { x: 88, y: 65 }, { x: 93, y: 45 }, { x: 86, y: 72 }, { x: 95, y: 55 },
+  ];
+  dots.forEach((dot, i) => {
+    const el = document.createElement('div');
+    el.className = 'pain-dot';
+    el.style.left = dot.x + '%';
+    el.style.top = dot.y + '%';
+    el.style.setProperty('--blink-speed', (2 + Math.random() * 2) + 's');
+    el.style.setProperty('--blink-delay', (Math.random() * 3) + 's');
+    container.appendChild(el);
+  });
+}
+
+function initTeamConstellation() {
+  const canvas = document.getElementById('teamCanvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  let W, H;
+  function resize() {
+    const rect = canvas.parentElement.getBoundingClientRect();
+    W = canvas.width = rect.width * devicePixelRatio;
+    H = canvas.height = rect.height * devicePixelRatio;
+    canvas.style.width = rect.width + 'px';
+    canvas.style.height = rect.height + 'px';
+    ctx.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
+  }
+  resize();
+  window.addEventListener('resize', resize);
+  const members = [
+    { x: 0.16, y: 0.22 }, { x: 0.84, y: 0.22 },
+    { x: 0.16, y: 0.78 }, { x: 0.84, y: 0.78 },
+  ];
+  const center = { x: 0.5, y: 0.5 };
+  const pulses = [];
+  function spawnPulse() {
+    const member = members[Math.floor(Math.random() * members.length)];
+    pulses.push({ member, t: 0, speed: 0.005 + Math.random() * 0.005, outward: Math.random() > 0.4, hue: 45 + Math.random() * 15 });
+  }
+  setInterval(spawnPulse, 400);
+  const particles = Array.from({ length: 30 }, () => ({
+    x: Math.random(), y: Math.random(), vx: (Math.random() - 0.5) * 0.0002, vy: (Math.random() - 0.5) * 0.0002,
+    size: 1 + Math.random() * 1.5, alpha: 0.1 + Math.random() * 0.15,
+  }));
+  function draw() {
+    const w = W / devicePixelRatio; const h = H / devicePixelRatio;
+    ctx.clearRect(0, 0, w, h);
+    const cx = center.x * w; const cy = center.y * h;
+    members.forEach(m => {
+      ctx.beginPath(); ctx.moveTo(cx, cy); ctx.lineTo(m.x * w, m.y * h);
+      ctx.strokeStyle = 'rgba(255,219,0,0.08)'; ctx.lineWidth = 1.5; ctx.stroke();
+    });
+    for (let i = 0; i < members.length; i++) {
+      for (let j = i + 1; j < members.length; j++) {
+        ctx.beginPath(); ctx.moveTo(members[i].x * w, members[i].y * h); ctx.lineTo(members[j].x * w, members[j].y * h);
+        ctx.strokeStyle = 'rgba(255,255,255,0.025)'; ctx.lineWidth = 0.8; ctx.stroke();
+      }
+    }
+    for (let i = pulses.length - 1; i >= 0; i--) {
+      const p = pulses[i]; p.t += p.speed;
+      if (p.t > 1) { pulses.splice(i, 1); continue; }
+      const progress = p.outward ? p.t : 1 - p.t;
+      const mx = p.member.x * w; const my = p.member.y * h;
+      const px = cx + (mx - cx) * progress; const py = cy + (my - cy) * progress;
+      const alpha = Math.sin(p.t * Math.PI) * 0.8;
+      const glow = ctx.createRadialGradient(px, py, 0, px, py, 20);
+      glow.addColorStop(0, `hsla(${p.hue}, 100%, 70%, ${alpha * 0.5})`);
+      glow.addColorStop(0.5, `hsla(${p.hue}, 100%, 60%, ${alpha * 0.15})`);
+      glow.addColorStop(1, `hsla(${p.hue}, 100%, 50%, 0)`);
+      ctx.fillStyle = glow; ctx.beginPath(); ctx.arc(px, py, 20, 0, Math.PI * 2); ctx.fill();
+      ctx.beginPath(); ctx.arc(px, py, 3, 0, Math.PI * 2);
+      ctx.fillStyle = `hsla(${p.hue}, 100%, 85%, ${alpha})`; ctx.fill();
+    }
+    particles.forEach(p => {
+      p.x += p.vx; p.y += p.vy;
+      if (p.x < 0 || p.x > 1) p.vx *= -1; if (p.y < 0 || p.y > 1) p.vy *= -1;
+      ctx.beginPath(); ctx.arc(p.x * w, p.y * h, p.size, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(255,219,0,${p.alpha})`; ctx.fill();
+    });
+    if (running) requestAnimationFrame(draw);
+  }
+  const section = canvas.closest('.section');
+  let running = false;
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !running) { running = true; requestAnimationFrame(draw); }
+      else if (!entry.isIntersecting) { running = false; }
+    });
+  }, { threshold: 0.2 });
+  observer.observe(section);
+}
+
+function initSharingConstellation() {
+  const canvas = document.getElementById('sharingCanvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  let W, H;
+  function resize() {
+    const rect = canvas.parentElement.getBoundingClientRect();
+    W = canvas.width = rect.width * devicePixelRatio;
+    H = canvas.height = rect.height * devicePixelRatio;
+    canvas.style.width = rect.width + 'px';
+    canvas.style.height = rect.height + 'px';
+    ctx.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
+  }
+  resize(); window.addEventListener('resize', resize);
+  const teams = [
+    { label: 'Dialog', angle: 0.3 }, { label: 'C360A', angle: 0.85 },
+    { label: 'PIR', angle: 1.4 }, { label: 'SAMS', angle: 1.95 },
+    { label: 'CASE', angle: 2.5 }, { label: 'VETA', angle: 3.05 },
+    { label: 'MOSAIK', angle: 3.6 }, { label: 'Retail', angle: 4.15 },
+    { label: 'Group RCMP', angle: 4.7 }, { label: 'Co-workers', angle: 5.25 },
+  ];
+  const pulses = [];
+  function spawnPulse() {
+    const team = teams[Math.floor(Math.random() * teams.length)];
+    pulses.push({ team, t: 0, speed: 0.004 + Math.random() * 0.006, outward: Math.random() > 0.3, hue: Math.random() > 0.5 ? 55 : 160 });
+  }
+  setInterval(spawnPulse, 300);
+  function draw() {
+    const w = W / devicePixelRatio; const h = H / devicePixelRatio;
+    ctx.clearRect(0, 0, w, h);
+    const cx = w * 0.72; const cy = h * 0.5;
+    const radius = Math.min(w * 0.22, h * 0.36);
+    const centerGlow = ctx.createRadialGradient(cx, cy, 0, cx, cy, 100);
+    centerGlow.addColorStop(0, 'rgba(255,219,0,0.18)'); centerGlow.addColorStop(0.5, 'rgba(255,219,0,0.05)'); centerGlow.addColorStop(1, 'transparent');
+    ctx.fillStyle = centerGlow; ctx.beginPath(); ctx.arc(cx, cy, 100, 0, Math.PI * 2); ctx.fill();
+    ctx.beginPath(); ctx.arc(cx, cy, 28, 0, Math.PI * 2); ctx.fillStyle = 'rgba(255,219,0,0.7)'; ctx.fill();
+    ctx.font = '800 20px Inter, system-ui, sans-serif'; ctx.textAlign = 'center';
+    ctx.fillStyle = 'rgba(255,219,0,0.9)'; ctx.fillText('Journey Map', cx, cy + 48);
+    teams.forEach(team => {
+      const tx = cx + Math.cos(team.angle) * radius; const ty = cy + Math.sin(team.angle) * radius;
+      ctx.beginPath(); ctx.moveTo(cx, cy); ctx.lineTo(tx, ty);
+      ctx.strokeStyle = 'rgba(255,219,0,0.06)'; ctx.lineWidth = 1; ctx.stroke();
+    });
+    teams.forEach(team => {
+      const tx = cx + Math.cos(team.angle) * radius; const ty = cy + Math.sin(team.angle) * radius;
+      const nodeGlow = ctx.createRadialGradient(tx, ty, 0, tx, ty, 28);
+      nodeGlow.addColorStop(0, 'rgba(255,255,255,0.1)'); nodeGlow.addColorStop(1, 'rgba(255,255,255,0)');
+      ctx.fillStyle = nodeGlow; ctx.beginPath(); ctx.arc(tx, ty, 28, 0, Math.PI * 2); ctx.fill();
+      ctx.beginPath(); ctx.arc(tx, ty, 12, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(255,255,255,0.15)'; ctx.fill();
+      ctx.strokeStyle = 'rgba(255,219,0,0.2)'; ctx.lineWidth = 1; ctx.stroke();
+      ctx.fillStyle = 'rgba(255,255,255,0.6)'; ctx.font = '700 15px Inter, system-ui, sans-serif';
+      ctx.textAlign = Math.cos(team.angle) > 0 ? 'left' : 'right';
+      const labelX = tx + (Math.cos(team.angle) > 0 ? 20 : -20);
+      ctx.fillText(team.label, labelX, ty + 4);
+    });
+    for (let i = pulses.length - 1; i >= 0; i--) {
+      const p = pulses[i]; p.t += p.speed;
+      if (p.t > 1) { pulses.splice(i, 1); continue; }
+      const progress = p.outward ? p.t : 1 - p.t;
+      const tx = cx + Math.cos(p.team.angle) * radius; const ty = cy + Math.sin(p.team.angle) * radius;
+      const px = cx + (tx - cx) * progress; const py = cy + (ty - cy) * progress;
+      const alpha = Math.sin(p.t * Math.PI) * 0.9;
+      const glowGradient = ctx.createRadialGradient(px, py, 0, px, py, 18);
+      glowGradient.addColorStop(0, `hsla(${p.hue}, 100%, 70%, ${alpha * 0.6})`);
+      glowGradient.addColorStop(0.5, `hsla(${p.hue}, 100%, 60%, ${alpha * 0.2})`);
+      glowGradient.addColorStop(1, `hsla(${p.hue}, 100%, 50%, 0)`);
+      ctx.fillStyle = glowGradient; ctx.beginPath(); ctx.arc(px, py, 18, 0, Math.PI * 2); ctx.fill();
+      ctx.beginPath(); ctx.arc(px, py, 3, 0, Math.PI * 2);
+      ctx.fillStyle = `hsla(${p.hue}, 100%, 85%, ${alpha})`; ctx.fill();
+    }
+    requestAnimationFrame(draw);
+  }
+  const section = canvas.closest('.section');
+  let running = false;
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !running) { running = true; requestAnimationFrame(draw); }
+      else if (!entry.isIntersecting) { running = false; }
+    });
+  }, { threshold: 0.2 });
+  observer.observe(section);
+}
+
+function initChaseConstellation() {
+  const canvas = document.getElementById('chaseCanvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  const section = canvas.closest('section');
+  let W, H, running = false;
+  const teamNames = ['Dialog', 'C360 Admin', 'PIR', 'SAMS', 'Case Management', 'VETA', 'Mosaik', 'Retail', 'RCMP Co-workers'];
+  let target = { x: 0, y: 0, vx: 1.5, vy: 0.8 };
+  const chasers = teamNames.map((name) => ({
+    label: name, x: 0, y: 0, vx: 0, vy: 0, speed: 0.6 + Math.random() * 0.8, size: 38 + Math.random() * 14,
+  }));
+  function resize() {
+    const rect = section.getBoundingClientRect();
+    W = rect.width; H = rect.height;
+    canvas.width = W * devicePixelRatio; canvas.height = H * devicePixelRatio;
+    canvas.style.width = W + 'px'; canvas.style.height = H + 'px';
+    ctx.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
+    target.x = W * 0.65; target.y = H * 0.45;
+    chasers.forEach((c, i) => {
+      const angle = (i / chasers.length) * Math.PI * 2;
+      const dist = 300 + Math.random() * 200;
+      c.x = target.x + Math.cos(angle) * dist; c.y = target.y + Math.sin(angle) * dist;
+    });
+  }
+  function draw() {
+    if (!running) return;
+    ctx.clearRect(0, 0, W, H);
+    let fleeX = 0, fleeY = 0;
+    chasers.forEach(c => {
+      const dx = target.x - c.x; const dy = target.y - c.y;
+      const dist = Math.sqrt(dx * dx + dy * dy) || 1;
+      const force = 3000 / (dist * dist);
+      fleeX += (dx / dist) * force; fleeY += (dy / dist) * force;
+    });
+    target.vx += fleeX * 0.15 + Math.sin(Date.now() * 0.001) * 0.3;
+    target.vy += fleeY * 0.15 + Math.cos(Date.now() * 0.0013) * 0.3;
+    target.vx *= 0.96; target.vy *= 0.96;
+    const speed = Math.sqrt(target.vx * target.vx + target.vy * target.vy);
+    if (speed > 4) { target.vx = (target.vx / speed) * 4; target.vy = (target.vy / speed) * 4; }
+    target.x += target.vx; target.y += target.vy;
+    const pad = 80;
+    if (target.x < pad) { target.x = pad; target.vx = Math.abs(target.vx); }
+    if (target.x > W - pad) { target.x = W - pad; target.vx = -Math.abs(target.vx); }
+    if (target.y < pad) { target.y = pad; target.vy = Math.abs(target.vy); }
+    if (target.y > H - pad) { target.y = H - pad; target.vy = -Math.abs(target.vy); }
+    chasers.forEach((c, i) => {
+      const dx = target.x - c.x; const dy = target.y - c.y;
+      const dist = Math.sqrt(dx * dx + dy * dy) || 1;
+      c.vx += (dx / dist) * c.speed * 0.12; c.vy += (dy / dist) * c.speed * 0.12;
+      chasers.forEach((other, j) => {
+        if (i === j) return;
+        const odx = c.x - other.x; const ody = c.y - other.y;
+        const odist = Math.sqrt(odx * odx + ody * ody) || 1;
+        if (odist < 140) { c.vx += (odx / odist) * 1.2; c.vy += (ody / odist) * 1.2; }
+      });
+      c.vx *= 0.95; c.vy *= 0.95; c.x += c.vx; c.y += c.vy;
+    });
+    chasers.forEach(c => {
+      ctx.beginPath(); ctx.arc(c.x, c.y, c.size, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(100, 140, 190, 0.5)'; ctx.fill();
+      const glow = ctx.createRadialGradient(c.x, c.y, c.size * 0.3, c.x, c.y, c.size * 2);
+      glow.addColorStop(0, 'rgba(100, 140, 190, 0.12)'); glow.addColorStop(1, 'transparent');
+      ctx.fillStyle = glow; ctx.beginPath(); ctx.arc(c.x, c.y, c.size * 2, 0, Math.PI * 2); ctx.fill();
+      ctx.font = '600 11px Inter, system-ui, sans-serif'; ctx.textAlign = 'center';
+      const textW = ctx.measureText(c.label).width;
+      const chipX = c.x - textW / 2 - 6; const chipY = c.y + c.size + 4;
+      ctx.fillStyle = 'rgba(15, 22, 35, 0.75)'; ctx.beginPath(); ctx.roundRect(chipX, chipY, textW + 12, 20, 5); ctx.fill();
+      ctx.fillStyle = 'rgba(255, 255, 255, 0.5)'; ctx.fillText(c.label, c.x, chipY + 14);
+    });
+    const glowR = 60 + Math.sin(Date.now() * 0.002) * 10;
+    const tGlow = ctx.createRadialGradient(target.x, target.y, 0, target.x, target.y, glowR);
+    tGlow.addColorStop(0, 'rgba(255, 219, 0, 0.25)'); tGlow.addColorStop(0.5, 'rgba(255, 219, 0, 0.06)'); tGlow.addColorStop(1, 'transparent');
+    ctx.fillStyle = tGlow; ctx.beginPath(); ctx.arc(target.x, target.y, glowR, 0, Math.PI * 2); ctx.fill();
+    const dotR = 20 + Math.sin(Date.now() * 0.003) * 3;
+    ctx.beginPath(); ctx.arc(target.x, target.y, dotR, 0, Math.PI * 2);
+    ctx.fillStyle = 'rgba(255, 219, 0, 0.9)'; ctx.fill();
+    ctx.font = '800 20px Inter, system-ui, sans-serif'; ctx.textAlign = 'center';
+    ctx.fillStyle = 'rgba(255, 219, 0, 0.8)'; ctx.fillText('Shared Understanding', target.x, target.y + dotR + 28);
+    requestAnimationFrame(draw);
+  }
+  canvas.style.opacity = '0'; canvas.style.transition = 'opacity 0.8s ease';
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !running) { running = true; resize(); canvas.style.opacity = '1'; requestAnimationFrame(draw); }
+      else if (!entry.isIntersecting) { running = false; canvas.style.opacity = '0'; }
+    });
+  }, { threshold: 0.3 });
+  observer.observe(section);
+  window.addEventListener('resize', resize);
+}
+
+function initConstellation() {
+  const canvas = document.getElementById('constellationCanvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  let W, H;
+  const nodes = [
+    { id: 'journey', label: 'Journey Teams', x: 0.72, y: 0.48, type: 'center' },
+    { id: 'product', label: 'Product Owners', x: 0.62, y: 0.22 },
+    { id: 'ux', label: 'UX Designers', x: 0.78, y: 0.16 },
+    { id: 'special', label: 'Product Specialists', x: 0.88, y: 0.28 },
+    { id: 'data', label: 'Data Analysts', x: 0.92, y: 0.48 },
+    { id: 'rcmp', label: 'RCMP Co-workers', x: 0.88, y: 0.68 },
+    { id: 'dev', label: 'Developers', x: 0.78, y: 0.80 },
+    { id: 'eng', label: 'Engineering', x: 0.64, y: 0.78 },
+    { id: 'analytics', label: 'Data Analytics', x: 0.54, y: 0.66 },
+    { id: 'retail', label: 'Retail', x: 0.52, y: 0.48 },
+  ];
+  const scattered = {
+    journey: { x: 0.74, y: 0.50 }, product: { x: 0.52, y: 0.14 }, ux: { x: 0.82, y: 0.08 },
+    special: { x: 0.95, y: 0.22 }, data: { x: 0.94, y: 0.58 }, rcmp: { x: 0.88, y: 0.85 },
+    dev: { x: 0.68, y: 0.90 }, eng: { x: 0.48, y: 0.82 }, analytics: { x: 0.38, y: 0.62 }, retail: { x: 0.40, y: 0.38 },
+  };
+  const reconvergedCenterX = 0.75, reconvergedCenterY = 0.5, reconvergedRadius = 0.18;
+  const reconverged = {};
+  const outerNodes = nodes.filter(n => n.type !== 'center');
+  outerNodes.forEach((n, i) => {
+    const angle = (i / outerNodes.length) * Math.PI * 2 - Math.PI / 2;
+    reconverged[n.id] = { x: reconvergedCenterX + Math.cos(angle) * reconvergedRadius, y: reconvergedCenterY + Math.sin(angle) * reconvergedRadius };
+  });
+  reconverged.journey = { x: reconvergedCenterX, y: reconvergedCenterY };
+  const edges = [];
+  for (let i = 1; i < nodes.length; i++) edges.push([0, i]);
+  edges.push([1,2], [2,3], [3,4], [4,5], [5,6], [6,7], [7,8], [8,9], [9,1]);
+  let morphT = 0, targetMorphT = 0, canvasOpacity = 1, targetOpacity = 1, pulse = 0;
+  let ghostX = 0, ghostY = 0, ghostVx = 0, ghostVy = 0;
+  function resize() {
+    W = window.innerWidth; H = window.innerHeight;
+    canvas.width = W * devicePixelRatio; canvas.height = H * devicePixelRatio;
+    ctx.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
+    ghostX = 0.72 * W; ghostY = 0.48 * H;
+  }
+  function lerp(a, b, t) { return a + (b - a) * t; }
+  let slide3Active = 0, targetSlide3 = 0;
+  function getPos(node, t) {
+    const s = scattered[node.id] || { x: node.x, y: node.y };
+    const scatteredX = lerp(node.x * W, s.x * W, t);
+    const scatteredY = lerp(node.y * H, s.y * H, t);
+    if (slide3Active > 0.01 && node.type !== 'center') {
+      const rc = reconverged[node.id];
+      if (rc) return { x: lerp(scatteredX, rc.x * W, slide3Active), y: lerp(scatteredY, rc.y * H, slide3Active) };
+    }
+    return { x: scatteredX, y: scatteredY };
+  }
+  function updateTargets() {
+    const s01 = document.getElementById('s01');
+    const s02b = document.getElementById('s02b');
+    const s03 = document.getElementById('s03');
+    const s03b = document.getElementById('s03b');
+    if (!s01) return;
+    const r1 = s01.getBoundingClientRect();
+    const gone = Math.max(0, -r1.top) / H;
+    targetMorphT = Math.max(0, Math.min(1, gone));
+    let reconvergedVis = 0;
+    [s02b, s03, s03b].forEach(el => {
+      if (!el) return;
+      const r = el.getBoundingClientRect();
+      const vis = Math.max(0, Math.min(H, r.bottom) - Math.max(0, r.top)) / H;
+      reconvergedVis = Math.max(reconvergedVis, vis);
+    });
+    targetSlide3 = Math.max(0, Math.min(1, (reconvergedVis - 0.1) / 0.5));
+    if (targetSlide3 > 0.05) targetOpacity = targetSlide3;
+    else targetOpacity = Math.max(0, 1 - gone * 2.5);
+  }
+  function draw() {
+    morphT = lerp(morphT, targetMorphT, 0.12);
+    slide3Active = lerp(slide3Active, targetSlide3, 0.1);
+    canvasOpacity = lerp(canvasOpacity, targetOpacity, targetSlide3 > 0.05 ? 0.15 : 0.08);
+    canvas.style.opacity = canvasOpacity;
+    pulse += 0.015;
+    ctx.clearRect(0, 0, W, H);
+    const positions = nodes.map(n => getPos(n, morphT));
+    if (morphT > 0.3 && slide3Active < 0.3) {
+      const chaseStrength = Math.min(1, (morphT - 0.3) / 0.3) * (1 - slide3Active * 3.33);
+      for (let i = 1; i < nodes.length; i++) {
+        const s = scattered[nodes[i].id];
+        const baseX = s.x * W; const baseY = s.y * H;
+        const dx = ghostX - baseX; const dy = ghostY - baseY;
+        const dist = Math.sqrt(dx * dx + dy * dy) || 1;
+        const chase = Math.min(dist * 0.3, 80) * chaseStrength;
+        positions[i].x = baseX + (dx / dist) * chase; positions[i].y = baseY + (dy / dist) * chase;
+      }
+      let repX = 0, repY = 0;
+      for (let i = 1; i < positions.length; i++) {
+        const dx = ghostX - positions[i].x; const dy = ghostY - positions[i].y;
+        const dist = Math.sqrt(dx * dx + dy * dy) || 1;
+        const force = 2000 / (dist * dist);
+        repX += (dx / dist) * force; repY += (dy / dist) * force;
+      }
+      repX += (0.72 * W - ghostX) * 0.008; repY += (0.48 * H - ghostY) * 0.008;
+      ghostVx = (ghostVx + repX * chaseStrength) * 0.94; ghostVy = (ghostVy + repY * chaseStrength) * 0.94;
+      ghostX += ghostVx; ghostY += ghostVy;
+      ghostX = Math.max(W * 0.35, Math.min(W * 0.95, ghostX));
+      ghostY = Math.max(H * 0.1, Math.min(H * 0.9, ghostY));
+    } else if (slide3Active >= 0.3) {
+      ghostX = lerp(ghostX, reconvergedCenterX * W, 0.08); ghostY = lerp(ghostY, reconvergedCenterY * H, 0.08);
+      ghostVx *= 0.85; ghostVy *= 0.85;
+    } else {
+      ghostX = lerp(ghostX, positions[0].x, 0.1); ghostY = lerp(ghostY, positions[0].y, 0.1);
+      ghostVx *= 0.9; ghostVy *= 0.9;
+    }
+    edges.forEach(([a, b]) => {
+      const pa = a === 0 ? { x: ghostX, y: ghostY } : positions[a];
+      const pb = b === 0 ? { x: ghostX, y: ghostY } : positions[b];
+      const isToCenter = a === 0 || b === 0;
+      const alpha = isToCenter ? 0.15 * (1 - morphT * 0.85) : 0.04 * (1 - morphT * 0.9);
+      if (alpha < 0.005) return;
+      ctx.beginPath(); ctx.moveTo(pa.x, pa.y); ctx.lineTo(pb.x, pb.y);
+      ctx.strokeStyle = isToCenter ? `rgba(255, 219, 0, ${alpha})` : `rgba(255, 255, 255, ${alpha})`;
+      ctx.lineWidth = isToCenter ? 1.5 : 0.8; ctx.stroke();
+      if (isToCenter && morphT < 0.5) {
+        const t = (Math.sin(pulse * 2 + a + b) * 0.5 + 0.5);
+        const px = lerp(pa.x, pb.x, t); const py = lerp(pa.y, pb.y, t);
+        const glow = ctx.createRadialGradient(px, py, 0, px, py, 12);
+        glow.addColorStop(0, `rgba(255, 219, 0, ${0.4 * (1 - morphT * 2)})`); glow.addColorStop(1, 'transparent');
+        ctx.fillStyle = glow; ctx.beginPath(); ctx.arc(px, py, 12, 0, Math.PI * 2); ctx.fill();
+      }
+    });
+    if (slide3Active > 0.05) {
+      for (let i = 1; i < nodes.length; i++) {
+        const p = positions[i];
+        ctx.beginPath(); ctx.moveTo(ghostX, ghostY); ctx.lineTo(p.x, p.y);
+        ctx.strokeStyle = `rgba(255, 219, 0, ${0.25 * slide3Active})`; ctx.lineWidth = 1.5; ctx.stroke();
+        for (let pi = 0; pi < 2; pi++) {
+          const offset = pi * 0.5 + i * 0.35;
+          const raw = ((pulse * 0.6 + offset) % 2); const t = raw > 1 ? 2 - raw : raw;
+          const px = lerp(ghostX, p.x, t); const py = lerp(ghostY, p.y, t);
+          const particleAlpha = slide3Active * (0.6 + 0.4 * Math.sin(pulse * 3 + offset));
+          const pGlow = ctx.createRadialGradient(px, py, 0, px, py, 8);
+          pGlow.addColorStop(0, `rgba(255, 219, 0, ${0.7 * particleAlpha})`);
+          pGlow.addColorStop(0.5, `rgba(255, 219, 0, ${0.2 * particleAlpha})`);
+          pGlow.addColorStop(1, 'transparent');
+          ctx.fillStyle = pGlow; ctx.beginPath(); ctx.arc(px, py, 8, 0, Math.PI * 2); ctx.fill();
+          ctx.beginPath(); ctx.arc(px, py, 3, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(255, 219, 0, ${particleAlpha})`; ctx.fill();
+        }
+      }
+    }
+    nodes.forEach((node, i) => {
+      if (node.type === 'center') return;
+      const p = positions[i];
+      const ballSize = lerp(4, 18, morphT);
+      const ballAlpha = lerp(0.35, 0.6, morphT);
+      ctx.beginPath(); ctx.arc(p.x, p.y, ballSize + Math.sin(pulse + i) * 1.5, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(120, 160, 200, ${ballAlpha})`; ctx.fill();
+      const glow = ctx.createRadialGradient(p.x, p.y, ballSize * 0.5, p.x, p.y, ballSize * 2.5);
+      glow.addColorStop(0, `rgba(120, 160, 200, ${0.15 * ballAlpha})`); glow.addColorStop(1, 'transparent');
+      ctx.fillStyle = glow; ctx.beginPath(); ctx.arc(p.x, p.y, ballSize * 2.5, 0, Math.PI * 2); ctx.fill();
+      ctx.font = '600 11px Inter, system-ui, sans-serif'; ctx.textAlign = 'center';
+      const text = node.label; const textW = ctx.measureText(text).width;
+      const chipX = p.x - textW / 2 - 8; const chipY = p.y + ballSize + 6;
+      ctx.fillStyle = `rgba(20, 30, 45, 0.7)`; ctx.beginPath(); ctx.roundRect(chipX, chipY, textW + 16, 22, 6); ctx.fill();
+      ctx.strokeStyle = `rgba(255, 255, 255, 0.1)`; ctx.lineWidth = 0.5;
+      ctx.beginPath(); ctx.roundRect(chipX, chipY, textW + 16, 22, 6); ctx.stroke();
+      ctx.fillStyle = `rgba(255, 255, 255, 0.5)`; ctx.fillText(text, p.x, chipY + 15);
+    });
+    const glowR = lerp(70, 100, slide3Active) + Math.sin(pulse) * 15;
+    const glow = ctx.createRadialGradient(ghostX, ghostY, 0, ghostX, ghostY, glowR);
+    glow.addColorStop(0, `rgba(255, 219, 0, ${0.2 * 0.9})`); glow.addColorStop(0.5, `rgba(255, 219, 0, ${0.05 * 0.9})`); glow.addColorStop(1, 'transparent');
+    ctx.fillStyle = glow; ctx.beginPath(); ctx.arc(ghostX, ghostY, glowR, 0, Math.PI * 2); ctx.fill();
+    const dotR = lerp(8, 14, slide3Active) + Math.sin(pulse) * 2;
+    ctx.beginPath(); ctx.arc(ghostX, ghostY, dotR, 0, Math.PI * 2);
+    ctx.fillStyle = `rgba(255, 219, 0, 0.9)`; ctx.fill();
+    const label1Alpha = Math.max(0, 1 - morphT * 2);
+    const label2Alpha = Math.max(0, Math.min(1, (morphT - 0.3) / 0.3)) * (1 - slide3Active);
+    const label3Alpha = slide3Active;
+    ctx.textAlign = 'center';
+    if (label1Alpha > 0.01) { ctx.font = '800 13px Inter, system-ui, sans-serif'; ctx.fillStyle = `rgba(255, 219, 0, ${label1Alpha * 0.9})`; ctx.fillText('Journey Teams', ghostX, ghostY + dotR + 20); }
+    if (label2Alpha > 0.01) { ctx.font = '800 22px Inter, system-ui, sans-serif'; ctx.fillStyle = `rgba(255, 219, 0, ${label2Alpha * 0.7})`; ctx.fillText('Shared Understanding', ghostX, ghostY + dotR + 22); }
+    if (label3Alpha > 0.01) { ctx.font = '800 22px Inter, system-ui, sans-serif'; ctx.fillStyle = `rgba(255, 219, 0, ${label3Alpha * 0.9})`; ctx.fillText('Journey Centric Approach', ghostX, ghostY + dotR + 22); }
+    requestAnimationFrame(loop);
+  }
+  function loop() { updateTargets(); draw(); }
+  window.addEventListener('resize', resize, { passive: true });
+  resize(); requestAnimationFrame(loop);
+}
+  </script>
+</body>
+</html>

@@ -251,6 +251,46 @@ const nextProject = project.nextProjectSlug
     </div>
   </section>
 
+  <!-- FEATURED: JOURNEY TEAMS -->
+  {project.slug === 'ikea-journey-orchestration' && (
+    <section class="section section-alt">
+      <div class="container section-grid">
+        <div class="section-label">
+          <span class="label-num">08</span>
+          <h2 class="section-title">Featured Project</h2>
+          <div class="accent-line"></div>
+        </div>
+        <div class="section-body">
+          <div class="featured-project-card">
+            <div class="featured-project-content">
+              <p class="featured-project-kicker">Journey Teams · Digital Sharing Days 2026</p>
+              <h3 class="featured-project-title">Connecting the Silos</h3>
+              <p class="featured-project-subtitle">A Journey-Centric Approach</p>
+              <p class="featured-project-desc">
+                How we connected 80+ experts across Remote Customer Support to map the Kitchen Exchange Journey across 5 markets — and turned 34 pain points into 75+ improvement opportunities.
+              </p>
+              <div class="featured-project-stats">
+                <div class="featured-stat">
+                  <span class="featured-stat-value">80+</span>
+                  <span class="featured-stat-label">Co-workers</span>
+                </div>
+                <div class="featured-stat">
+                  <span class="featured-stat-value">5</span>
+                  <span class="featured-stat-label">Markets</span>
+                </div>
+                <div class="featured-stat">
+                  <span class="featured-stat-value">75+</span>
+                  <span class="featured-stat-label">Opportunities</span>
+                </div>
+              </div>
+              <a href="/journey-teams" class="btn-primary">View presentation →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  )}
+
   <!-- NEXT / BACK -->
   <section class="section section-alt">
     <div class="container">
@@ -864,6 +904,70 @@ const nextProject = project.nextProjectSlug
 
   .back-link:hover {
     opacity: 0.8;
+  }
+
+  /* ── FEATURED PROJECT ── */
+  .featured-project-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 2.5rem;
+    transition: border-color 0.3s;
+  }
+  .featured-project-card:hover {
+    border-color: rgba(100, 255, 218, 0.25);
+  }
+  .featured-project-kicker {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.75rem;
+  }
+  .featured-project-title {
+    font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    color: var(--text);
+    line-height: 1.1;
+    margin-bottom: 0.25rem;
+  }
+  .featured-project-subtitle {
+    font-size: 1.1rem;
+    color: var(--muted);
+    font-weight: 500;
+    margin-bottom: 1rem;
+  }
+  .featured-project-desc {
+    font-size: 0.95rem;
+    color: var(--muted);
+    line-height: 1.6;
+    max-width: 600px;
+    margin-bottom: 1.5rem;
+  }
+  .featured-project-stats {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+  }
+  .featured-stat {
+    display: flex;
+    flex-direction: column;
+  }
+  .featured-stat-value {
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: var(--accent);
+    line-height: 1;
+  }
+  .featured-stat-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--muted);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin-top: 0.25rem;
   }
 
   /* ── BUTTONS ── */

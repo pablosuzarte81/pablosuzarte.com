@@ -6,6 +6,8 @@ interface ExperienceItem {
   period: string
   location: string
   highlights: string[]
+  link?: string
+  linkLabel?: string
 }
 
 interface StatItem {
@@ -40,6 +42,7 @@ export interface T {
     experience: string
     skills: string
     contact: string
+    writing: string
     playground: string
   }
   hero: {
@@ -51,6 +54,19 @@ export interface T {
     location: string
     currentRole: string
     scroll: string
+  }
+  homeFutureRole: {
+    kicker: string
+    title: string
+    p1: string
+    p2: string
+    card1Label: string
+    card1Title: string
+    card1Body: string
+    card2Label: string
+    card2Title: string
+    card2Body: string
+    metrics: StatItem[]
   }
   about: {
     label: string
@@ -120,6 +136,11 @@ export interface T {
     cert2Name: string
     cert2Detail: string
   }
+  writing: {
+    label: string
+    title: string
+    intro: string
+  }
   contact: {
     label: string
     heading: string
@@ -147,6 +168,7 @@ export const translations: Record<Locale, T> = {
       experience: 'Experience',
       skills: 'Skills',
       contact: 'Contact',
+      writing: 'Writing',
       playground: 'AI Playground',
     },
     hero: {
@@ -159,6 +181,25 @@ export const translations: Record<Locale, T> = {
       location: '📍 Greater Malmö, Sweden',
       currentRole: 'Currently @ IKEA Global',
       scroll: 'scroll',
+    },
+    homeFutureRole: {
+      kicker: 'Designing Project Intelligence',
+      title: 'A future role for people who design how humans and AI think together.',
+      p1: 'The focus is not only to explain a framework. It is to help people build a new mindset from 0 to 100 and design their own project intelligence.',
+      p2: 'At the center of that role is a simple idea: a project brain is not a folder of notes. It is an operating system for human-AI collaboration.',
+      card1Label: 'Role definition',
+      card1Title: 'Single source of truth logic designer',
+      card1Body:
+        'Someone who turns repeated friction into the right file, structure, and workflow layer so serious projects can continue with clarity and low cognitive friction.',
+      card2Label: 'Operating rule',
+      card2Title: 'Structure should emerge from friction',
+      card2Body:
+        'If friction appears repeatedly, create the file or structure that solves that friction. Real projects teach what structure is necessary.',
+      metrics: [
+        { value: '05', label: 'minimum viable stack: CLAUDE, status, evidence, assets, working style' },
+        { value: '01', label: 'job per file: every layer has one clear responsibility' },
+        { value: '∞', label: 'the system grows only when repeated friction proves a new layer is needed' },
+      ],
     },
     about: {
       label: '01',
@@ -336,6 +377,8 @@ export const translations: Record<Locale, T> = {
           role: 'Senior Product UX Designer',
           period: 'May 2022 — Present',
           location: 'Malmö, Sweden',
+          link: '/projects/ikea-journey-orchestration',
+          linkLabel: 'View IKEA projects →',
           highlights: [
             'Currently leading redesign of a complex global process across 16+ teams — grounded in 5-market research and cross-functional stakeholder alignment.',
             'Journey Orchestrator across global digital product teams — creating alignment structures that move teams from insights to prioritised action.',
@@ -419,8 +462,14 @@ export const translations: Record<Locale, T> = {
       cert2Name: 'SCRUM',
       cert2Detail: 'Certified',
     },
-    contact: {
+    writing: {
       label: '05',
+      title: 'Writing',
+      intro:
+        'Thinking out loud about where service design, AI collaboration, and project intelligence meet.',
+    },
+    contact: {
+      label: '06',
       heading: "Let's talk",
       sub: 'Looking for Head of UX, UX Director, and Principal Designer roles in product organisations that want to be genuinely outcome-led.\nBased in Malmö — open to Sweden, Copenhagen, and remote-first Europe.',
       cta: 'Connect on LinkedIn ↗',
@@ -445,6 +494,7 @@ export const translations: Record<Locale, T> = {
       experience: 'Erfarenhet',
       skills: 'Kompetens',
       contact: 'Kontakt',
+      writing: 'Skrivande',
       playground: 'AI Playground',
     },
     hero: {
@@ -457,6 +507,25 @@ export const translations: Record<Locale, T> = {
       location: '📍 Stor-Malmö, Sverige',
       currentRole: 'Just nu @ IKEA Global',
       scroll: 'scrolla',
+    },
+    homeFutureRole: {
+      kicker: 'Designing Project Intelligence',
+      title: 'En framtida roll för människor som designar hur människor och AI tänker tillsammans.',
+      p1: 'Fokus är inte bara att förklara ett ramverk. Det är att hjälpa människor bygga ett nytt mindset från 0 till 100 och designa sin egen project intelligence.',
+      p2: 'I centrum för rollen finns en enkel idé: ett project brain är inte en mapp med anteckningar. Det är ett operativsystem för samarbete mellan människa och AI.',
+      card1Label: 'Rolldefinition',
+      card1Title: 'Single source of truth logic designer',
+      card1Body:
+        'Någon som omvandlar återkommande friktion till rätt fil, struktur och arbetslager så att seriösa projekt kan fortsätta med tydlighet och låg kognitiv friktion.',
+      card2Label: 'Arbetsregel',
+      card2Title: 'Structure should emerge from friction',
+      card2Body:
+        'Om friktion uppstår upprepade gånger ska man skapa filen eller strukturen som löser den. Verkliga projekt lär oss vilken struktur som faktiskt behövs.',
+      metrics: [
+        { value: '05', label: 'minimalt stack: CLAUDE, status, evidens, assets, working style' },
+        { value: '01', label: 'ett jobb per fil: varje lager har ett tydligt ansvar' },
+        { value: '∞', label: 'systemet växer bara när återkommande friktion visar att ett nytt lager behövs' },
+      ],
     },
     about: {
       label: '01',
@@ -634,6 +703,8 @@ export const translations: Record<Locale, T> = {
           role: 'Senior Product UX Designer',
           period: 'Maj 2022 — Nu',
           location: 'Malmö, Sverige',
+          link: '/projects/ikea-journey-orchestration',
+          linkLabel: 'Se IKEA-projekt →',
           highlights: [
             'Leder just nu redesignen av en komplex global process med 16+ team — grundad i research från 5 marknader och tvärfunktionell stakeholderalignering.',
             'Journey Orchestrator i globala digitala produktteam — skapar samordningsstrukturer som hjälper team gå från insikter till prioriterade åtgärder.',
@@ -717,8 +788,14 @@ export const translations: Record<Locale, T> = {
       cert2Name: 'SCRUM',
       cert2Detail: 'Certifierad',
     },
-    contact: {
+    writing: {
       label: '05',
+      title: 'Skrivande',
+      intro:
+        'Tankar om var tjänstedesign, AI-samarbete och projektintelligens möts.',
+    },
+    contact: {
+      label: '06',
       heading: 'Låt oss prata',
       sub: 'Söker Head of UX-, UX Director- och Principal Designer-roller i produktorganisationer som vill vara genuint outcome-ledda.\nBaserad i Malmö — öppen för Sverige, Köpenhamn och remote-first Europa.',
       cta: 'Kontakta mig på LinkedIn ↗',
@@ -743,6 +820,7 @@ export const translations: Record<Locale, T> = {
       experience: 'Experience',
       skills: 'Habilidades',
       contact: 'Contacto',
+      writing: 'Escritos',
       playground: 'AI Playground',
     },
     hero: {
@@ -755,6 +833,25 @@ export const translations: Record<Locale, T> = {
       location: '📍 Gran Malmö, Suecia',
       currentRole: 'Actualmente en IKEA Global',
       scroll: 'scroll',
+    },
+    homeFutureRole: {
+      kicker: 'Designing Project Intelligence',
+      title: 'Un rol futuro para personas que diseñan cómo humanos e IA piensan juntos.',
+      p1: 'El foco no es solo explicar un marco. Es ayudar a las personas a construir una nueva mentalidad de 0 a 100 y diseñar su propia project intelligence.',
+      p2: 'En el centro de ese rol hay una idea simple: un project brain no es una carpeta de notas. Es un sistema operativo para colaboración entre humanos e IA.',
+      card1Label: 'Definición del rol',
+      card1Title: 'Single source of truth logic designer',
+      card1Body:
+        'Alguien que convierte la fricción repetida en el archivo, la estructura y la capa de flujo correctos para que proyectos serios puedan continuar con claridad y baja fricción cognitiva.',
+      card2Label: 'Regla operativa',
+      card2Title: 'Structure should emerge from friction',
+      card2Body:
+        'Si la fricción aparece repetidamente, crea el archivo o la estructura que la resuelve. Los proyectos reales enseñan qué estructura es necesaria.',
+      metrics: [
+        { value: '05', label: 'stack mínimo viable: CLAUDE, estado, evidencia, assets, working style' },
+        { value: '01', label: 'un trabajo por archivo: cada capa tiene una responsabilidad clara' },
+        { value: '∞', label: 'el sistema crece solo cuando la fricción repetida demuestra que hace falta una nueva capa' },
+      ],
     },
     about: {
       label: '01',
@@ -932,6 +1029,8 @@ export const translations: Record<Locale, T> = {
           role: 'Senior Product UX Designer',
           period: 'Mayo 2022 — Presente',
           location: 'Malmö, Suecia',
+          link: '/projects/ikea-journey-orchestration',
+          linkLabel: 'Ver proyectos IKEA →',
           highlights: [
             'Actualmente liderando el rediseño de un proceso global complejo con 16+ equipos — fundamentado en investigación en 5 mercados y alineamiento interfuncional de stakeholders.',
             'Journey Orchestrator en equipos de productos digitales globales — creando estructuras de alineamiento que mueven a los equipos de los insights a la acción priorizada.',
@@ -1015,8 +1114,14 @@ export const translations: Record<Locale, T> = {
       cert2Name: 'SCRUM',
       cert2Detail: 'Certificado',
     },
-    contact: {
+    writing: {
       label: '05',
+      title: 'Escritos',
+      intro:
+        'Reflexiones sobre dónde se cruzan el diseño de servicios, la colaboración con IA y la inteligencia de proyectos.',
+    },
+    contact: {
+      label: '06',
       heading: 'Hablemos',
       sub: 'Busco roles de Head of UX, UX Director y Principal Designer en organizaciones de producto que quieran ser genuinamente orientadas a outcomes.\nBasado en Malmö — abierto a Suecia, Copenhague y Europa en remoto.',
       cta: 'Conectar en LinkedIn ↗',

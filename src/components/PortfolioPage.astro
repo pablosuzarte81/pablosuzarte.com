@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro'
 import type { T, Locale } from '../i18n/translations'
+import { posts } from '../data/blog'
 
 interface Props {
   t: T
@@ -32,6 +33,7 @@ const styleLabel = {
         <li><a href="#ai-education">{t.nav.aiEducation}</a></li>
         <li><a href="#experience">{t.nav.experience}</a></li>
         <li><a href="#skills">{t.nav.skills}</a></li>
+        <li><a href="#writing">{t.nav.writing}</a></li>
         <li><a href="#contact">{t.nav.contact}</a></li>
         <li><a href="/playground/chat" class="nav-highlight">{t.nav.playground}</a></li>
       </ul>
@@ -106,6 +108,39 @@ const styleLabel = {
     <div class="scroll-hint">
       <span>{t.hero.scroll}</span>
       <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <section class="future-role-hero">
+    <div class="container">
+      <div class="future-role-panel">
+        <div class="future-role-copy">
+          <p class="project-card-meta">{t.homeFutureRole.kicker}</p>
+          <h2 class="future-role-title">{t.homeFutureRole.title}</h2>
+          <p class="future-role-text">{t.homeFutureRole.p1}</p>
+          <p class="future-role-text">{t.homeFutureRole.p2}</p>
+        </div>
+        <div class="future-role-stack">
+          <article class="future-role-card">
+            <p class="project-card-meta">{t.homeFutureRole.card1Label}</p>
+            <h3>{t.homeFutureRole.card1Title}</h3>
+            <p>{t.homeFutureRole.card1Body}</p>
+          </article>
+          <article class="future-role-card">
+            <p class="project-card-meta">{t.homeFutureRole.card2Label}</p>
+            <h3>{t.homeFutureRole.card2Title}</h3>
+            <p>{t.homeFutureRole.card2Body}</p>
+          </article>
+        </div>
+      </div>
+      <div class="future-role-metrics">
+        {t.homeFutureRole.metrics.map((metric) => (
+          <article class="future-role-metric">
+            <strong>{metric.value}</strong>
+            <span>{metric.label}</span>
+          </article>
+        ))}
+      </div>
     </div>
   </section>
 
@@ -215,6 +250,11 @@ const styleLabel = {
                     <li>{h}</li>
                   ))}
                 </ul>
+                {job.link && (
+                  <a href={job.link} class="timeline-link">
+                    {job.linkLabel || 'View projects →'}
+                  </a>
+                )}
               </div>
             </div>
           ))
@@ -255,6 +295,44 @@ const styleLabel = {
               <p class="edu-degree">{t.skills.cert2Detail}</p>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WRITING -->
+  <section id="writing" class="section">
+    <div class="container section-grid">
+      <div class="section-label">
+        <span class="label-num">{t.writing.label}</span>
+        <h2 class="section-title">{t.writing.title}</h2>
+        <div class="accent-line"></div>
+      </div>
+      <div class="section-body">
+        <p class="writing-intro">{t.writing.intro}</p>
+        <div class="writing-grid">
+          {posts.map((post) => (
+            <a href={`/blog/${post.slug}`} class="writing-card">
+              <div class="writing-card-tags">
+                {post.tags.map((tag) => (
+                  <span class="writing-card-tag">{tag}</span>
+                ))}
+              </div>
+              <h3 class="writing-card-title">{post.title}</h3>
+              <p class="writing-card-subtitle">{post.subtitle}</p>
+              <div class="writing-card-meta">
+                <time datetime={post.date}>
+                  {new Date(post.date).toLocaleDateString('en-GB', {
+                    day: 'numeric',
+                    month: 'short',
+                    year: 'numeric',
+                  })}
+                </time>
+                <span>{post.readingTime}</span>
+              </div>
+              <span class="writing-card-cta">Read article <span aria-hidden="true">&rarr;</span></span>
+            </a>
+          ))}
         </div>
       </div>
     </div>
@@ -805,6 +883,91 @@ const styleLabel = {
     animation: scrollPulse 2s 1.5s ease-in-out infinite;
   }
 
+  .future-role-hero {
+    padding: 0 0 5rem;
+  }
+
+  .future-role-panel {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.8fr);
+    gap: 1.25rem;
+    align-items: start;
+    margin-bottom: 1.25rem;
+  }
+
+  .future-role-copy,
+  .future-role-card,
+  .future-role-metric {
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+  }
+
+  .future-role-copy {
+    padding: 1.75rem;
+  }
+
+  .future-role-title {
+    font-size: clamp(1.9rem, 4vw, 3rem);
+    line-height: 1.08;
+    letter-spacing: -0.03em;
+    margin: 0.35rem 0 1rem;
+  }
+
+  .future-role-text {
+    color: var(--muted-light);
+    font-size: 1rem;
+    line-height: 1.7;
+    max-width: 60ch;
+    margin-bottom: 1rem;
+  }
+
+  .future-role-stack {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .future-role-card {
+    padding: 1.5rem;
+  }
+
+  .future-role-card h3 {
+    color: var(--text);
+    font-size: 1.05rem;
+    margin: 0.35rem 0 0.55rem;
+  }
+
+  .future-role-card p:last-child {
+    color: var(--muted-light);
+    font-size: 0.95rem;
+    line-height: 1.65;
+  }
+
+  .future-role-metrics {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .future-role-metric {
+    padding: 1.1rem 1.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  .future-role-metric strong {
+    color: var(--accent);
+    font-size: 1.2rem;
+    font-weight: 700;
+  }
+
+  .future-role-metric span {
+    color: var(--muted-light);
+    font-size: 0.88rem;
+    line-height: 1.5;
+  }
+
   /* ── BUTTONS ── */
   .btn-primary {
     display: inline-flex;
@@ -1055,6 +1218,25 @@ const styleLabel = {
     color: var(--accent);
     font-size: 0.7rem;
     top: 0.15em;
+  }
+
+  .timeline-link {
+    display: inline-flex;
+    align-items: center;
+    margin-top: 1rem;
+    padding: 0.55rem 1.1rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--accent);
+    background: rgba(100, 255, 218, 0.06);
+    border: 1px solid rgba(100, 255, 218, 0.15);
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.2s, border-color 0.2s;
+  }
+  .timeline-link:hover {
+    background: rgba(100, 255, 218, 0.12);
+    border-color: var(--accent);
   }
 
   /* ── SKILLS ── */
@@ -1418,6 +1600,73 @@ const styleLabel = {
     justify-content: flex-start;
   }
 
+  /* ── WRITING ── */
+  .writing-intro {
+    color: var(--muted);
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+  }
+  .writing-grid {
+    display: grid;
+    gap: 1.25rem;
+  }
+  .writing-card {
+    display: block;
+    text-decoration: none;
+    padding: 1.75rem 2rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    transition: border-color 0.25s, transform 0.25s;
+  }
+  .writing-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+  }
+  .writing-card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 0.75rem;
+  }
+  .writing-card-tag {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: rgba(100, 255, 218, 0.06);
+    padding: 0.2rem 0.5rem;
+    border-radius: 3px;
+  }
+  .writing-card-title {
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: var(--text);
+    line-height: 1.15;
+    margin-bottom: 0.4rem;
+  }
+  .writing-card-subtitle {
+    font-size: 0.95rem;
+    color: var(--muted);
+    line-height: 1.5;
+    margin-bottom: 1rem;
+  }
+  .writing-card-meta {
+    display: flex;
+    gap: 1rem;
+    font-size: 0.8rem;
+    color: var(--muted);
+    margin-bottom: 0.75rem;
+  }
+  .writing-card-cta {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--accent);
+  }
+
   /* ── CONTACT ── */
   .contact-section {
     background: var(--surface);
@@ -1484,6 +1733,9 @@ const styleLabel = {
   :global(html[data-style='brutalist']) .style-toggle,
   :global(html[data-style='brutalist']) .lang-link,
   :global(html[data-style='brutalist']) .hero-meta,
+  :global(html[data-style='brutalist']) .future-role-text,
+  :global(html[data-style='brutalist']) .future-role-card p:last-child,
+  :global(html[data-style='brutalist']) .future-role-metric span,
   :global(html[data-style='brutalist']) .section-body p,
   :global(html[data-style='brutalist']) .project-card-tagline,
   :global(html[data-style='brutalist']) .ai-feature-description,
@@ -1503,6 +1755,9 @@ const styleLabel = {
 
   :global(html[data-style='brutalist']) .style-toggle,
   :global(html[data-style='brutalist']) .lang-switcher,
+  :global(html[data-style='brutalist']) .future-role-copy,
+  :global(html[data-style='brutalist']) .future-role-card,
+  :global(html[data-style='brutalist']) .future-role-metric,
   :global(html[data-style='brutalist']) .badge,
   :global(html[data-style='brutalist']) .timeline-card,
   :global(html[data-style='brutalist']) .skill-pill,
@@ -1555,6 +1810,8 @@ const styleLabel = {
   }
 
   :global(html[data-style='brutalist']) .hero-title,
+  :global(html[data-style='brutalist']) .future-role-title,
+  :global(html[data-style='brutalist']) .future-role-card h3,
   :global(html[data-style='brutalist']) .section-title,
   :global(html[data-style='brutalist']) .contact-heading,
   :global(html[data-style='brutalist']) .ai-feature-title,
@@ -1571,6 +1828,7 @@ const styleLabel = {
 
   :global(html[data-style='brutalist']) .hero-greeting,
   :global(html[data-style='brutalist']) .label-num,
+  :global(html[data-style='brutalist']) .future-role-metric strong,
   :global(html[data-style='brutalist']) .project-card-meta,
   :global(html[data-style='brutalist']) .ai-side-title,
   :global(html[data-style='brutalist']) .ai-phase-step,
@@ -1737,6 +1995,20 @@ const styleLabel = {
 
     .hero-meta {
       justify-content: center;
+    }
+
+    .future-role-panel,
+    .future-role-metrics {
+      grid-template-columns: 1fr;
+    }
+
+    .future-role-copy {
+      text-align: center;
+    }
+
+    .future-role-text {
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .section-grid {
