@@ -16,11 +16,7 @@ const langLinks = [
   { code: 'es', label: 'ES', href: '/es/' },
 ]
 
-const styleLabel = {
-  en: 'Switch the lens',
-  sv: 'Byt perspektiv',
-  es: 'Cambiar el lente',
-}[lang]
+const randomStyles = ['brutalist', 'neon', 'vaporwave', 'paper', 'ocean']
 ---
 
 <Layout title={t.meta.title} description={t.meta.description} lang={lang}>
@@ -54,13 +50,20 @@ const styleLabel = {
         </button>
         <button
           type="button"
-          class="style-toggle"
-          data-style-toggle
-          aria-pressed="false"
-          aria-label={styleLabel}
+          class="style-toggle danger-btn"
+          id="dangerBtn"
+          aria-label="Do not press"
         >
-          <span>{styleLabel}</span>
-          <strong data-style-toggle-label>Alternate</strong>
+          <span>Do not Press!</span>
+        </button>
+        <button
+          type="button"
+          class="style-toggle reset-btn"
+          id="resetBtn"
+          aria-label="Reset style"
+          style="display:none"
+        >
+          <span>Reset</span>
         </button>
         <div class="lang-switcher">
           {
@@ -547,33 +550,38 @@ const styleLabel = {
   <script is:inline>
     (() => {
       const root = document.documentElement
-      const toggle = document.querySelector('[data-style-toggle]')
-      const label = document.querySelector('[data-style-toggle-label]')
+      const dangerBtn = document.getElementById('dangerBtn')
+      const resetBtn = document.getElementById('resetBtn')
       const storageKey = 'pablo-site-style'
+      const styles = ['brutalist', 'neon', 'vaporwave', 'paper', 'ocean', 'barbie', 'hacker', 'sunset', 'retro', 'inverted']
 
-      if (!toggle || !label) return
+      if (!dangerBtn || !resetBtn) return
 
-      const setStyle = (value) => {
-        const style = value === 'brutalist' ? 'brutalist' : 'default'
-
-        if (style === 'brutalist') {
-          root.setAttribute('data-style', 'brutalist')
-          toggle.setAttribute('aria-pressed', 'true')
-          label.textContent = 'Modern'
+      function setStyle(name) {
+        root.removeAttribute('data-style')
+        if (name && name !== 'default') {
+          root.setAttribute('data-style', name)
+          resetBtn.style.display = ''
+          dangerBtn.querySelector('span').textContent = 'Again!'
         } else {
-          root.removeAttribute('data-style')
-          toggle.setAttribute('aria-pressed', 'false')
-          label.textContent = 'Alternate'
+          resetBtn.style.display = 'none'
+          dangerBtn.querySelector('span').textContent = 'Do not Press!'
         }
+        localStorage.setItem(storageKey, name || 'default')
       }
 
-      setStyle(localStorage.getItem(storageKey) || 'default')
+      // Restore on load
+      const saved = localStorage.getItem(storageKey)
+      if (saved && saved !== 'default') setStyle(saved)
 
-      toggle.addEventListener('click', () => {
-        const next = root.getAttribute('data-style') === 'brutalist' ? 'default' : 'brutalist'
-        localStorage.setItem(storageKey, next)
-        setStyle(next)
+      dangerBtn.addEventListener('click', () => {
+        const current = root.getAttribute('data-style') || ''
+        const available = styles.filter(s => s !== current)
+        const pick = available[Math.floor(Math.random() * available.length)]
+        setStyle(pick)
       })
+
+      resetBtn.addEventListener('click', () => setStyle('default'))
     })()
   </script>
 
@@ -886,13 +894,26 @@ const styleLabel = {
       background 0.2s;
   }
 
-  .style-toggle strong {
-    color: var(--accent);
-    font-weight: 700;
+  .danger-btn {
+    border-color: rgba(255, 60, 60, 0.3);
+    color: #ff6b6b;
+    background: rgba(255, 60, 60, 0.06);
   }
 
-  .style-toggle:hover {
-    color: var(--text);
+  .danger-btn:hover {
+    border-color: #ff6b6b;
+    color: #ff4444;
+    background: rgba(255, 60, 60, 0.12);
+    transform: translateY(-1px) scale(1.02);
+  }
+
+  .reset-btn {
+    color: var(--muted);
+    border-color: var(--border);
+  }
+
+  .reset-btn:hover {
+    color: var(--accent);
     border-color: var(--accent);
     transform: translateY(-1px);
   }
