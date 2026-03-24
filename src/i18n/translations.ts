@@ -191,10 +191,10 @@ export const translations: Record<Locale, T> = {
     },
     hero: {
       greeting: "Hi, I'm",
-      title: "Senior UX Leader — building teams that are ready for what's next.",
+      title: 'Designing how humans and AI collaborate — so teams can do their best work together.',
       tagline:
-        '15+ years bringing people together around hard problems.\nNow helping teams move faster — using AI to close the gap between insight and action.',
-      cta1: 'Explore AI & Education',
+        '15+ years of service design and journey orchestration.\nNow shaping the ways of working where AI becomes a real collaborator, not just a tool.',
+      cta1: 'See how I think about AI',
       cta2: 'LinkedIn ↗',
       location: '📍 Greater Malmö, Sweden',
       currentRole: 'Currently @ IKEA Global',
@@ -561,10 +561,10 @@ export const translations: Record<Locale, T> = {
     },
     hero: {
       greeting: 'Hej, jag är',
-      title: 'Senior UX-ledare — bygger team som är redo för nästa steg.',
+      title: 'Designar hur människor och AI samarbetar — så team kan göra sitt bästa arbete tillsammans.',
       tagline:
-        '15+ år av att samla människor kring svåra problem.\nNu hjälper jag team att röra sig snabbare — och använder AI för att överbrygga klyftan mellan insikt och handling.',
-      cta1: 'Utforska AI & utbildning',
+        '15+ år av tjänstedesign och journey-orkestrering.\nNu formar jag arbetssätten där AI blir en riktig samarbetspartner, inte bara ett verktyg.',
+      cta1: 'Se hur jag tänker kring AI',
       cta2: 'LinkedIn ↗',
       location: '📍 Stor-Malmö, Sverige',
       currentRole: 'Just nu @ IKEA Global',
@@ -931,10 +931,10 @@ export const translations: Record<Locale, T> = {
     },
     hero: {
       greeting: 'Hola, soy',
-      title: 'Líder Senior de UX — construyendo equipos listos para lo que viene.',
+      title: 'Diseño cómo humanos e IA colaboran — para que los equipos hagan su mejor trabajo juntos.',
       tagline:
-        'Más de 15 años reuniendo personas alrededor de problemas difíciles.\nAhora ayudo a equipos a moverse más rápido — usando IA para cerrar la brecha entre el insight y la acción.',
-      cta1: 'Explorar IA y educación',
+        'Más de 15 años de diseño de servicios y orquestación de journeys.\nAhora doy forma a las formas de trabajo donde la IA se convierte en un colaborador real, no solo una herramienta.',
+      cta1: 'Cómo pienso sobre la IA',
       cta2: 'LinkedIn ↗',
       location: '📍 Gran Malmö, Suecia',
       currentRole: 'Actualmente en IKEA Global',
