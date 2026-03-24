@@ -174,9 +174,9 @@ export interface T {
 export const translations: Record<Locale, T> = {
   en: {
     meta: {
-      title: 'Pablo Suzarte — Senior Product UX & Service Design Leader',
+      title: 'Pablo Suzarte — UX Designer & AI Collaboration Leader | Malmö, Sweden',
       description:
-        'Senior UX Leader specializing in Service Design, User Research, Journey Mapping, and Journey Orchestration. 15+ years of experience, currently at IKEA Global.',
+        'Senior UX Designer — 15+ years in service design, AI orchestration, and journey mapping. Designing how humans and AI work together. IKEA Global.',
     },
     nav: {
       about: 'About',
@@ -544,9 +544,9 @@ export const translations: Record<Locale, T> = {
 
   sv: {
     meta: {
-      title: 'Pablo Suzarte — Senior UX-ledare & tjänstedesigner',
+      title: 'Pablo Suzarte — UX-designer & AI-samarbete | Malmö, Sverige',
       description:
-        'Senior UX-ledare specialiserad på tjänstedesign (Service Design), användarresearch, Journey Mapping och Journey Orchestration. 15+ års erfarenhet, just nu på IKEA Global.',
+        'Senior UX-designer — 15+ år inom tjänstedesign, AI-orkestrering och journey mapping. Designar hur människor och AI arbetar tillsammans. IKEA Global.',
     },
     nav: {
       about: 'Om mig',
@@ -914,9 +914,9 @@ export const translations: Record<Locale, T> = {
 
   es: {
     meta: {
-      title: 'Pablo Suzarte — Líder Senior de UX y Diseño de Servicios',
+      title: 'Pablo Suzarte — Diseñador UX & Colaboración con IA | Malmö, Suecia',
       description:
-        'Líder Senior de UX especializado en Diseño de Servicios (Service Design), Investigación de Usuarios, Journey Mapping y Orquestación de Journeys. Más de 15 años de experiencia, actualmente en IKEA Global.',
+        'Diseñador UX Senior — 15+ años en diseño de servicios, orquestación de IA y journey mapping. Diseñando cómo humanos e IA colaboran. IKEA Global.',
     },
     nav: {
       about: 'Sobre mí',

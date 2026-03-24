@@ -5,13 +5,23 @@ interface Props {
   title?: string
   description?: string
   lang?: string
+  ogType?: string
+  ogImage?: string
+  articleDate?: string
+  extraHead?: string
 }
 
 const {
-  title = 'Pablo Suzarte — Senior UX Designer',
-  description = 'Senior Product UX Designer with 15+ years of experience in UX & Service Design, Journey Orchestration and Experience Strategy. Currently at IKEA Global.',
+  title = 'Pablo Suzarte — Senior UX Designer & AI Collaboration Specialist',
+  description = 'Senior Product UX Designer — 15+ years in service design, journey orchestration, and AI collaboration. Based in Malmö, Sweden. Currently at IKEA Global.',
   lang = 'en',
+  ogType = 'website',
+  ogImage = '/pablo_profile_photo.png',
+  articleDate,
 } = Astro.props
+
+const canonicalUrl = new URL(Astro.url.pathname, 'https://pablosuzarte.com').href
+const ogImageUrl = new URL(ogImage, 'https://pablosuzarte.com').href
 ---
 
 <!doctype html>
@@ -20,34 +30,43 @@ const {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
+    <meta name="author" content="Pablo Suzarte" />
     <title>{title}</title>
-    
-    <!-- Canonical URL -->
-    <link rel="canonical" href={new URL(Astro.url.pathname, 'https://pablosuzarte.com').href} />
 
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content={Astro.url} />
+    <!-- Canonical URL -->
+    <link rel="canonical" href={canonicalUrl} />
+
+    <!-- Hreflang — i18n alternates -->
+    <link rel="alternate" hreflang="en" href="https://pablosuzarte.com/" />
+    <link rel="alternate" hreflang="sv" href="https://pablosuzarte.com/sv/" />
+    <link rel="alternate" hreflang="es" href="https://pablosuzarte.com/es/" />
+    <link rel="alternate" hreflang="x-default" href="https://pablosuzarte.com/" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content={ogType} />
+    <meta property="og:url" content={canonicalUrl} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content={new URL('/pablo_profile_photo.png', 'https://pablosuzarte.com')} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:locale" content={lang === 'sv' ? 'sv_SE' : lang === 'es' ? 'es_ES' : 'en_US'} />
+    <meta property="og:site_name" content="Pablo Suzarte" />
+    {articleDate && <meta property="article:published_time" content={articleDate} />}
+    {articleDate && <meta property="article:author" content="Pablo Suzarte" />}
 
     <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content={Astro.url} />
-    <meta property="twitter:title" content={title} />
-    <meta property="twitter:description" content={description} />
-    <meta property="twitter:image" content={new URL('/pablo_profile_photo.png', 'https://pablosuzarte.com')} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
+
+    <!-- Geo targeting -->
+    <meta name="geo.region" content="SE-M" />
+    <meta name="geo.placename" content="Malmö" />
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.ico" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      rel="preload"
-      as="style"
-      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700;800&display=swap"
-    />
     <link
       href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
@@ -71,13 +90,22 @@ const {
           "Journey Mapping",
           "Journey Orchestration",
           "Experience Strategy",
-          "AI-Assisted Design"
+          "AI-Assisted Design",
+          "AI Orchestration",
+          "Project Intelligence",
+          "Human-AI Collaboration"
         ],
         "worksFor": {
           "@type": "Organization",
           "name": "IKEA Global"
         },
-        "description": "Senior Product UX Designer with 15+ years of experience in UX & Service Design, Journey Orchestration and Experience Strategy. Currently at IKEA Global."
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Malmö",
+          "addressRegion": "Skåne",
+          "addressCountry": "SE"
+        },
+        "description": "Senior Product UX Designer with 15+ years of experience. Designs environments where humans and AI think together."
       }
     </script>
   </head>

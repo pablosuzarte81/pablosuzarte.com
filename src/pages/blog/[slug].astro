@@ -52,7 +52,7 @@ function renderMarkdown(content: string): string {
 const htmlContent = renderMarkdown(post.content)
 ---
 
-<Layout title={`${post.title} — Pablo Suzarte`} description={post.excerpt} lang="en">
+<Layout title={`${post.title} — Service Design Meets AI | Pablo Suzarte`} description={post.excerpt} lang="en" ogType="article" articleDate={post.date}>
   <header class="blog-nav">
     <div class="blog-nav-inner">
       <a href="/" class="nav-back">&larr; Back</a>
