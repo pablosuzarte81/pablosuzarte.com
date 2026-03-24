@@ -193,7 +193,7 @@ export const translations: Record<Locale, T> = {
       greeting: "Hi, I'm",
       title: 'Designing how humans and AI collaborate — so teams can do their best work together.',
       tagline:
-        '15+ years of service design and journey orchestration.\nNow shaping the ways of working where AI becomes a real collaborator, not just a tool.',
+        '15+ years of product design — UX, UI, service design, user research, and journey orchestration.\nNow shaping the ways of working where AI becomes a real collaborator, not just a tool.',
       cta1: 'See how I think about AI',
       cta2: 'LinkedIn ↗',
       location: '📍 Greater Malmö, Sweden',
@@ -563,7 +563,7 @@ export const translations: Record<Locale, T> = {
       greeting: 'Hej, jag är',
       title: 'Designar hur människor och AI samarbetar — så team kan göra sitt bästa arbete tillsammans.',
       tagline:
-        '15+ år av tjänstedesign och journey-orkestrering.\nNu formar jag arbetssätten där AI blir en riktig samarbetspartner, inte bara ett verktyg.',
+        '15+ år av produktdesign — UX, UI, tjänstedesign, användarresearch och journey-orkestrering.\nNu formar jag arbetssätten där AI blir en riktig samarbetspartner, inte bara ett verktyg.',
       cta1: 'Se hur jag tänker kring AI',
       cta2: 'LinkedIn ↗',
       location: '📍 Stor-Malmö, Sverige',
@@ -933,7 +933,7 @@ export const translations: Record<Locale, T> = {
       greeting: 'Hola, soy',
       title: 'Diseño cómo humanos e IA colaboran — para que los equipos hagan su mejor trabajo juntos.',
       tagline:
-        'Más de 15 años de diseño de servicios y orquestación de journeys.\nAhora doy forma a las formas de trabajo donde la IA se convierte en un colaborador real, no solo una herramienta.',
+        'Más de 15 años de diseño de producto — UX, UI, diseño de servicios, investigación de usuarios y orquestación de journeys.\nAhora doy forma a las formas de trabajo donde la IA se convierte en un colaborador real, no solo una herramienta.',
       cta1: 'Cómo pienso sobre la IA',
       cta2: 'LinkedIn ↗',
       location: '📍 Gran Malmö, Suecia',
