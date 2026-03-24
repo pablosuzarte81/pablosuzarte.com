@@ -146,6 +146,7 @@
        ======================================== */
     .hero {
       min-height: 100vh;
+      padding-top: 4rem;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -578,6 +579,15 @@
 </head>
 <body>
 
+  <!-- NAV -->
+  <header style="position:fixed;top:0;left:0;right:0;z-index:100;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);background:rgba(10,10,11,0.8);border-bottom:1px solid rgba(255,255,255,0.06);">
+    <div style="max-width:900px;margin:0 auto;padding:0.9rem 2rem;display:flex;align-items:center;gap:1.5rem;">
+      <a href="/" style="color:#a1a1aa;font-size:0.85rem;font-weight:500;">&larr; Portfolio</a>
+      <a href="/" style="font-weight:800;font-size:1.1rem;letter-spacing:-0.04em;color:#e4e4e7;">PS</a>
+      <span style="color:#71717a;font-size:0.8rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;margin-left:auto;">How I Build with AI</span>
+    </div>
+  </header>
+
   <!-- ========================================
        HERO
        ======================================== -->
@@ -809,7 +819,7 @@
           See my AI projects
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
-        <a href="/" class="btn-secondary">Get in touch</a>
+        <a href="/" class="btn-secondary">&larr; Back to portfolio</a>
       </div>
     </div>
   </section>

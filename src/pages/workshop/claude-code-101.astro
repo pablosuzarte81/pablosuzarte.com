@@ -461,7 +461,10 @@ Be direct. If it looks good, say so briefly.</code></pre>
 
           <div class="ws-cta-block">
             <p>Want to run this workshop for your team?</p>
-            <a href="https://www.linkedin.com/in/pablosuzarte/" target="_blank" rel="noopener noreferrer" class="ws-cta">Get in touch with Pablo &rarr;</a>
+            <div class="ws-cta-row">
+              <a href="https://www.linkedin.com/in/pablosuzarte/" target="_blank" rel="noopener noreferrer" class="ws-cta">Get in touch with Pablo &rarr;</a>
+              <a href="/" class="ws-cta ws-cta--secondary">&larr; Back to portfolio</a>
+            </div>
           </div>
         </div>
       </div>
@@ -601,6 +604,9 @@ Be direct. If it looks good, say so briefly.</code></pre>
     .ws-cta-block p { font-size: 1rem; color: var(--cl-muted); margin-bottom: 1rem; }
     .ws-cta { display: inline-flex; padding: 0.75rem 1.5rem; background: var(--cl-accent); color: #1a1625; font-weight: 700; font-size: 0.9rem; border-radius: 8px; text-decoration: none; transition: opacity 0.2s; }
     .ws-cta:hover { opacity: 0.85; }
+    .ws-cta--secondary { background: transparent; color: var(--cl-muted); border: 1px solid var(--cl-border); }
+    .ws-cta--secondary:hover { color: var(--cl-accent); border-color: var(--cl-accent); opacity: 1; }
+    .ws-cta-row { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
 
     @media (max-width: 768px) {
       .ws-container { padding: 0 1.25rem; }
