@@ -1,0 +1,12 @@
+{
+  "rewrites": [
+    {
+      "source": "/journey-teams",
+      "destination": "https://journeyteams.vercel.app/"
+    },
+    {
+      "source": "/journey-teams/:path*",
+      "destination": "https://journeyteams.vercel.app/:path*"
+    }
+  ]
+}
