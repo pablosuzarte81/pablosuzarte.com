@@ -565,6 +565,7 @@ const randomStyles = ['brutalist', 'neon', 'vaporwave', 'paper', 'ocean']
         }
       </div>
       <span>{t.footer.built}</span>
+      <a href="/dashboard/" class="footer-dashboard-link">Dashboard</a>
     </div>
   </footer>
 
@@ -2902,6 +2903,17 @@ const randomStyles = ['brutalist', 'neon', 'vaporwave', 'paper', 'ocean']
   }
   .footer-lang-link:hover {
     color: var(--text);
+  }
+  .footer-dashboard-link {
+    font-size: 0.72rem;
+    font-weight: 500;
+    color: var(--muted);
+    text-decoration: none;
+    opacity: 0.4;
+    transition: opacity 0.2s;
+  }
+  .footer-dashboard-link:hover {
+    opacity: 0.8;
   }
   .footer-lang-link--active {
     color: var(--accent);
