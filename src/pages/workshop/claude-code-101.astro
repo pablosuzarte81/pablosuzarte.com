@@ -76,10 +76,19 @@ import Layout from '../../layouts/Layout.astro'
             <div class="ws-check"><span class="ws-check-box">&#9744;</span><div><strong>Git installed</strong> — Claude Code works best inside git repositories</div></div>
           </div>
           <div class="ws-code-block">
-            <p class="ws-code-label">Installation</p>
-            <pre><code>npm install -g @anthropic-ai/claude-code</code></pre>
-            <pre><code>claude</code></pre>
-            <p class="ws-code-note">First run will open a browser to authenticate. After that, you are in.</p>
+            <p class="ws-code-label">Step 1 — Install</p>
+            <div class="ws-cmd" data-cmd="npm install -g @anthropic-ai/claude-code">
+              <code>npm install -g @anthropic-ai/claude-code</code>
+              <button type="button" class="ws-copy" aria-label="Copy command">Copy</button>
+            </div>
+          </div>
+          <div class="ws-code-block">
+            <p class="ws-code-label">Step 2 — Launch</p>
+            <div class="ws-cmd" data-cmd="claude">
+              <code>claude</code>
+              <button type="button" class="ws-copy" aria-label="Copy command">Copy</button>
+            </div>
+            <p class="ws-code-note">That's it. First run opens a browser to log in. After that, you're in.</p>
           </div>
         </div>
       </div>
@@ -99,8 +108,13 @@ import Layout from '../../layouts/Layout.astro'
           <p>Without shared memory, every conversation starts from zero. With it, Claude Code understands your project, your stack, your conventions, and your constraints from the first message.</p>
 
           <div class="ws-exercise">
-            <p class="ws-exercise-label">Exercise — 15 min</p>
-            <p>Run <code>/init</code> in your project folder. Claude Code will scan your project and generate a CLAUDE.md. Then edit it together:</p>
+            <p class="ws-exercise-label">Try it — 15 min</p>
+            <p>Inside Claude Code, run this — it scans your project and generates a CLAUDE.md for you:</p>
+            <div class="ws-cmd ws-cmd--prompt" data-cmd="/init">
+              <code>/init</code>
+              <button type="button" class="ws-copy" aria-label="Copy">Copy</button>
+            </div>
+            <p>Then edit the generated file together. Make sure it answers:</p>
             <ol>
               <li>What is this project? (one paragraph)</li>
               <li>What is the tech stack?</li>
@@ -111,21 +125,24 @@ import Layout from '../../layouts/Layout.astro'
           </div>
 
           <div class="ws-code-block">
-            <p class="ws-code-label">Example CLAUDE.md structure</p>
-            <pre><code># My Project
+            <p class="ws-code-label">Example CLAUDE.md — copy and adapt for your project</p>
+            <div class="ws-cmd ws-cmd--multi" data-cmd="# My Project&#10;&#10;## Stack&#10;- Next.js 15, TypeScript, Tailwind CSS&#10;- Deployed on Vercel&#10;&#10;## Commands&#10;- npm run dev — start dev server&#10;- npm run build — production build&#10;&#10;## Conventions&#10;- All components in src/components/&#10;- Never modify package-lock.json manually&#10;- Do not push to main without review">
+              <pre><code># My Project
 
 ## Stack
 - Next.js 15, TypeScript, Tailwind CSS
 - Deployed on Vercel
 
 ## Commands
-- `npm run dev` — start dev server
-- `npm run build` — production build
+- npm run dev — start dev server
+- npm run build — production build
 
 ## Conventions
 - All components in src/components/
 - Never modify package-lock.json manually
 - Do not push to main without review</code></pre>
+              <button type="button" class="ws-copy" aria-label="Copy to clipboard">Copy</button>
+            </div>
           </div>
 
           <div class="ws-key-insight">
@@ -146,14 +163,26 @@ import Layout from '../../layouts/Layout.astro'
           <p>Have your first meaningful conversation with Claude Code. Not "write me a function" — but "understand where I am and help me move forward."</p>
 
           <div class="ws-exercise">
-            <p class="ws-exercise-label">Exercise — 15 min</p>
-            <p>Open your project in terminal and type <code>claude</code>. Try these progressively:</p>
-            <ol>
-              <li><strong>Orient:</strong> "Read the project and tell me what you understand about it"</li>
-              <li><strong>Assess:</strong> "What are the main files and how do they connect?"</li>
-              <li><strong>Plan:</strong> "I want to add [feature]. What is your approach before writing any code?"</li>
-            </ol>
-            <p>Notice: Claude Code reads your files, understands your structure, and reasons about your project. This is not a chatbot — it is an agent with tools.</p>
+            <p class="ws-exercise-label">Try it — 15 min</p>
+            <p>Open your project in terminal. Copy and paste these one at a time:</p>
+            <div class="ws-cmd" data-cmd="claude">
+              <code>claude</code>
+              <button type="button" class="ws-copy" aria-label="Copy">Copy</button>
+            </div>
+            <p>Once inside, try these prompts progressively:</p>
+            <div class="ws-cmd ws-cmd--prompt" data-cmd="Read the project and tell me what you understand about it">
+              <code>Read the project and tell me what you understand about it</code>
+              <button type="button" class="ws-copy" aria-label="Copy">Copy</button>
+            </div>
+            <div class="ws-cmd ws-cmd--prompt" data-cmd="What are the main files and how do they connect?">
+              <code>What are the main files and how do they connect?</code>
+              <button type="button" class="ws-copy" aria-label="Copy">Copy</button>
+            </div>
+            <div class="ws-cmd ws-cmd--prompt" data-cmd="I want to add a dark mode toggle. What is your approach before writing any code?">
+              <code>I want to add a dark mode toggle. What is your approach before writing any code?</code>
+              <button type="button" class="ws-copy" aria-label="Copy">Copy</button>
+            </div>
+            <p>Watch what happens. Claude reads your files, understands your structure, and reasons about your project. This is not a chatbot — it is an agent with tools.</p>
           </div>
 
           <div class="ws-tools-grid">
@@ -183,13 +212,21 @@ import Layout from '../../layouts/Layout.astro'
           <p>Learn to ask Claude Code to investigate before acting. The most common mistake beginners make: asking AI to write code without understanding the existing code first.</p>
 
           <div class="ws-exercise">
-            <p class="ws-exercise-label">Exercise — 20 min</p>
-            <p>Pick a real task in your project. Before asking Claude to implement it:</p>
-            <ol>
-              <li>Ask it to read the relevant files first: "Read src/components/Header.tsx and explain how it works"</li>
-              <li>Ask it to find related patterns: "How do other components in this project handle navigation?"</li>
-              <li>Only then: "Now implement [the change], following the patterns you found"</li>
-            </ol>
+            <p class="ws-exercise-label">Try it — 20 min</p>
+            <p>Pick a real file in your project. Before asking Claude to change anything, make it investigate first:</p>
+            <div class="ws-cmd ws-cmd--prompt" data-cmd="Read src/components/Header.tsx and explain how it works">
+              <code>Read src/components/Header.tsx and explain how it works</code>
+              <button type="button" class="ws-copy" aria-label="Copy">Copy</button>
+            </div>
+            <div class="ws-cmd ws-cmd--prompt" data-cmd="How do other components in this project handle navigation?">
+              <code>How do other components in this project handle navigation?</code>
+              <button type="button" class="ws-copy" aria-label="Copy">Copy</button>
+            </div>
+            <div class="ws-cmd ws-cmd--prompt" data-cmd="Now implement the change, following the patterns you found">
+              <code>Now implement the change, following the patterns you found</code>
+              <button type="button" class="ws-copy" aria-label="Copy">Copy</button>
+            </div>
+            <p>Replace the file paths with your own. The pattern is always: <strong>read → understand → then act.</strong></p>
           </div>
 
           <div class="ws-key-insight">
@@ -210,14 +247,14 @@ import Layout from '../../layouts/Layout.astro'
           <p>Configure how Claude Code works with you. Permissions are not restrictions — they are working agreements.</p>
 
           <div class="ws-exercise">
-            <p class="ws-exercise-label">Exercise — 10 min</p>
-            <p>Explore the permission system:</p>
-            <ol>
-              <li>Try running something that requires approval — notice the permission prompt</li>
-              <li>Type <code>/permissions</code> to see current settings</li>
-              <li>Add an allow rule: "Allow npm run commands" — so Claude can test without asking every time</li>
-              <li>Understand the levels: ask every time → allow for session → allow permanently</li>
-            </ol>
+            <p class="ws-exercise-label">Try it — 10 min</p>
+            <p>Inside Claude Code, check your current permissions:</p>
+            <div class="ws-cmd ws-cmd--prompt" data-cmd="/permissions">
+              <code>/permissions</code>
+              <button type="button" class="ws-copy" aria-label="Copy">Copy</button>
+            </div>
+            <p>Now try something that needs approval. When prompted, notice you can allow it just once, for the session, or permanently.</p>
+            <p>Pro tip: press <strong>Shift+Tab</strong> to cycle between permission modes (Default → Auto-accept edits → Plan mode).</p>
           </div>
 
           <div class="ws-key-insight">
@@ -238,19 +275,24 @@ import Layout from '../../layouts/Layout.astro'
           <p>Create custom slash commands that give Claude Code specific roles. Instead of one general AI, you design specialised agents.</p>
 
           <div class="ws-exercise">
-            <p class="ws-exercise-label">Exercise — 20 min</p>
-            <p>Create your first custom command:</p>
-            <ol>
-              <li>Create the folder: <code>.claude/commands/</code></li>
-              <li>Create a file: <code>.claude/commands/review.md</code></li>
-              <li>Write a prompt that defines a code reviewer role</li>
-              <li>Use it: type <code>/review</code> in Claude Code</li>
-            </ol>
+            <p class="ws-exercise-label">Try it — 20 min</p>
+            <p>Create your first custom command. Run these in your terminal (not inside Claude):</p>
+            <div class="ws-cmd" data-cmd="mkdir -p .claude/commands">
+              <code>mkdir -p .claude/commands</code>
+              <button type="button" class="ws-copy" aria-label="Copy">Copy</button>
+            </div>
+            <p>Now paste the review.md content from below into <code>.claude/commands/review.md</code>. Then go back into Claude Code and type:</p>
+            <div class="ws-cmd ws-cmd--prompt" data-cmd="/review">
+              <code>/review</code>
+              <button type="button" class="ws-copy" aria-label="Copy">Copy</button>
+            </div>
+            <p>That's it. You just created a specialist agent.</p>
           </div>
 
           <div class="ws-code-block">
-            <p class="ws-code-label">Example: .claude/commands/review.md</p>
-            <pre><code>You are a senior code reviewer. Review the staged
+            <p class="ws-code-label">Example: .claude/commands/review.md — copy this to get started</p>
+            <div class="ws-cmd ws-cmd--multi" data-cmd="You are a senior code reviewer. Review the staged&#10;changes (git diff --cached) and provide feedback on:&#10;&#10;1. Code quality and readability&#10;2. Potential bugs or edge cases&#10;3. Performance considerations&#10;4. Whether the changes follow the project conventions&#10;   defined in CLAUDE.md&#10;&#10;Be direct. If it looks good, say so briefly.">
+              <pre><code>You are a senior code reviewer. Review the staged
 changes (git diff --cached) and provide feedback on:
 
 1. Code quality and readability
@@ -260,6 +302,8 @@ changes (git diff --cached) and provide feedback on:
    defined in CLAUDE.md
 
 Be direct. If it looks good, say so briefly.</code></pre>
+              <button type="button" class="ws-copy" aria-label="Copy to clipboard">Copy</button>
+            </div>
           </div>
 
           <div class="ws-key-insight">
@@ -280,13 +324,21 @@ Be direct. If it looks good, say so briefly.</code></pre>
           <p>Learn how Claude Code's memory system works. Conversations end, but important decisions should survive.</p>
 
           <div class="ws-exercise">
-            <p class="ws-exercise-label">Exercise — 15 min</p>
-            <ol>
-              <li>Make a design decision during a conversation: "Let's use server components for all data fetching"</li>
-              <li>Ask Claude to remember it: "Remember this decision for future conversations"</li>
-              <li>Start a new conversation (<code>/clear</code>) and ask: "What are our design decisions?"</li>
-              <li>Explore: CLAUDE.md is the project's long-term memory. The memory system stores preferences and decisions across sessions.</li>
-            </ol>
+            <p class="ws-exercise-label">Try it — 15 min</p>
+            <p>Inside Claude Code, make a decision and ask it to remember:</p>
+            <div class="ws-cmd ws-cmd--prompt" data-cmd="Let's use server components for all data fetching. Remember this decision.">
+              <code>Let's use server components for all data fetching. Remember this decision.</code>
+              <button type="button" class="ws-copy" aria-label="Copy">Copy</button>
+            </div>
+            <p>Now clear the conversation and test if it stuck:</p>
+            <div class="ws-cmd ws-cmd--prompt" data-cmd="/clear">
+              <code>/clear</code>
+              <button type="button" class="ws-copy" aria-label="Copy">Copy</button>
+            </div>
+            <div class="ws-cmd ws-cmd--prompt" data-cmd="What are our design decisions?">
+              <code>What are our design decisions?</code>
+              <button type="button" class="ws-copy" aria-label="Copy">Copy</button>
+            </div>
           </div>
 
           <div class="ws-key-insight">
@@ -307,13 +359,18 @@ Be direct. If it looks good, say so briefly.</code></pre>
           <p>Connect Claude Code to external services using MCP (Model Context Protocol) servers. This extends what Claude can see and do.</p>
 
           <div class="ws-exercise">
-            <p class="ws-exercise-label">Exercise — 15 min</p>
-            <ol>
-              <li>Open settings: <code>/settings</code></li>
-              <li>Add an MCP server (e.g., Vercel, GitHub, or a file system server)</li>
-              <li>Use the new capability: "Check my Vercel deployments" or "List my GitHub issues"</li>
-              <li>Notice how Claude now has awareness of systems outside your codebase</li>
-            </ol>
+            <p class="ws-exercise-label">Try it — 15 min</p>
+            <p>Inside Claude Code, open the settings:</p>
+            <div class="ws-cmd ws-cmd--prompt" data-cmd="/settings">
+              <code>/settings</code>
+              <button type="button" class="ws-copy" aria-label="Copy">Copy</button>
+            </div>
+            <p>Add an MCP server — Vercel, GitHub, or a file system server. Then try something like:</p>
+            <div class="ws-cmd ws-cmd--prompt" data-cmd="Check my latest Vercel deployments">
+              <code>Check my latest Vercel deployments</code>
+              <button type="button" class="ws-copy" aria-label="Copy">Copy</button>
+            </div>
+            <p>Claude now has awareness of systems outside your codebase. That is asset awareness.</p>
           </div>
 
           <div class="ws-key-insight">
@@ -334,15 +391,18 @@ Be direct. If it looks good, say so briefly.</code></pre>
           <p>This is where it all comes together. You will orchestrate a complex, multi-step task — the kind that would take hours manually but minutes with a well-designed AI environment.</p>
 
           <div class="ws-exercise">
-            <p class="ws-exercise-label">Exercise — 30 min</p>
-            <p>Pick an ambitious task and let Claude Code orchestrate it:</p>
-            <ol>
-              <li><strong>Define the goal clearly:</strong> "Add a contact form with validation, API endpoint, and email sending"</li>
-              <li><strong>Let it plan:</strong> Claude will read your project, understand the patterns, and propose an approach</li>
-              <li><strong>Watch it work:</strong> It will create files, edit existing ones, run tests, fix errors — autonomously</li>
-              <li><strong>Review together:</strong> Check the git diff, discuss trade-offs, request changes</li>
-              <li><strong>Commit:</strong> Use <code>/commit</code> — Claude writes the commit message from the actual changes</li>
-            </ol>
+            <p class="ws-exercise-label">Try it — 30 min</p>
+            <p>This is the big one. Pick an ambitious task and give Claude the full context:</p>
+            <div class="ws-cmd ws-cmd--prompt" data-cmd="Add a contact form to this site with validation and an API endpoint that sends an email. Read the project first, plan your approach, then implement it.">
+              <code>Add a contact form to this site with validation and an API endpoint that sends an email. Read the project first, plan your approach, then implement it.</code>
+              <button type="button" class="ws-copy" aria-label="Copy">Copy</button>
+            </div>
+            <p>Watch what happens. Claude will read your project, propose an approach, create files, edit existing ones, and handle errors — all autonomously. When it's done:</p>
+            <div class="ws-cmd ws-cmd--prompt" data-cmd="/commit">
+              <code>/commit</code>
+              <button type="button" class="ws-copy" aria-label="Copy">Copy</button>
+            </div>
+            <p>Claude writes the commit message from the actual changes. Review the git diff together.</p>
           </div>
 
           <div class="ws-progression">
@@ -461,10 +521,35 @@ Be direct. If it looks good, say so briefly.</code></pre>
     .ws-exercise-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.75rem; }
 
     .ws-code-block { margin: 1.5rem 0; background: var(--surface-2); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
-    .ws-code-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); padding: 0.75rem 1rem 0; }
-    .ws-code-block pre { padding: 0.75rem 1rem; overflow-x: auto; }
+    .ws-code-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); padding: 0.75rem 1rem 0.5rem; }
+    .ws-code-block pre { padding: 0.5rem 0; overflow-x: auto; margin: 0; }
     .ws-code-block code { font-size: 0.85rem; color: var(--accent); background: none; padding: 0; line-height: 1.6; }
     .ws-code-note { font-size: 0.8rem; color: var(--muted); padding: 0 1rem 0.75rem; }
+
+    /* Copyable command blocks */
+    .ws-cmd {
+      display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+      padding: 0.65rem 0.75rem 0.65rem 1rem;
+      background: var(--surface-2); border: 1px solid var(--border); border-radius: 8px;
+      margin: 0.5rem 0; cursor: pointer; transition: border-color 0.2s;
+    }
+    .ws-cmd:hover { border-color: rgba(100, 255, 218, 0.3); }
+    .ws-cmd code { font-size: 0.88rem; color: var(--accent); background: none; padding: 0; white-space: nowrap; overflow-x: auto; flex: 1; }
+    .ws-cmd--prompt { border-left: 3px solid rgba(100, 255, 218, 0.25); }
+    .ws-cmd--prompt code { color: var(--text); white-space: normal; }
+    .ws-cmd--multi { flex-direction: column; align-items: stretch; cursor: default; }
+    .ws-cmd--multi pre { margin: 0; padding: 0; }
+    .ws-cmd--multi code { white-space: pre; }
+    .ws-cmd--multi .ws-copy { align-self: flex-end; }
+
+    .ws-copy {
+      flex-shrink: 0; padding: 0.35rem 0.75rem; border: 1px solid var(--border);
+      border-radius: 6px; background: transparent; color: var(--muted); font-size: 0.72rem;
+      font-weight: 700; letter-spacing: 0.04em; cursor: pointer; transition: all 0.15s;
+      white-space: nowrap;
+    }
+    .ws-copy:hover { color: var(--accent); border-color: var(--accent); }
+    .ws-copy.ws-copied { color: var(--accent); border-color: var(--accent); background: rgba(100, 255, 218, 0.08); }
 
     .ws-key-insight { margin: 1.5rem 0; padding: 1rem 1.25rem; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; font-size: 0.9rem; }
 
@@ -510,4 +595,29 @@ Be direct. If it looks good, say so briefly.</code></pre>
       .ws-meta-row { grid-template-columns: 1fr; }
     }
   </style>
+
+  <script is:inline>
+    document.querySelectorAll('.ws-copy').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation()
+        const container = btn.closest('.ws-cmd')
+        const text = container ? container.dataset.cmd : ''
+        if (!text) return
+        navigator.clipboard.writeText(text.replace(/&#10;/g, '\n')).then(() => {
+          btn.textContent = 'Copied!'
+          btn.classList.add('ws-copied')
+          setTimeout(() => {
+            btn.textContent = 'Copy'
+            btn.classList.remove('ws-copied')
+          }, 2000)
+        })
+      })
+    })
+    // Click anywhere on the command block to copy too
+    document.querySelectorAll('.ws-cmd:not(.ws-cmd--multi)').forEach(cmd => {
+      cmd.addEventListener('click', () => {
+        cmd.querySelector('.ws-copy')?.click()
+      })
+    })
+  </script>
 </Layout>
