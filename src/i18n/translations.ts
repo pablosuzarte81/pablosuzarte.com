@@ -186,7 +186,7 @@ export const translations: Record<Locale, T> = {
       experience: 'Experience',
       skills: 'Skills',
       contact: 'Contact',
-      writing: 'Writing',
+      writing: 'Blog',
       playground: 'AI Playground',
     },
     hero: {
@@ -556,7 +556,7 @@ export const translations: Record<Locale, T> = {
       experience: 'Erfarenhet',
       skills: 'Kompetens',
       contact: 'Kontakt',
-      writing: 'Skrivande',
+      writing: 'Blog',
       playground: 'AI Playground',
     },
     hero: {
@@ -926,7 +926,7 @@ export const translations: Record<Locale, T> = {
       experience: 'Experience',
       skills: 'Habilidades',
       contact: 'Contacto',
-      writing: 'Escritos',
+      writing: 'Blog',
       playground: 'AI Playground',
     },
     hero: {
