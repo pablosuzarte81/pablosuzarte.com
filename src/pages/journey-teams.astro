@@ -103,6 +103,30 @@ strong { font-weight: 700; }
   font-weight: 700;
   letter-spacing: 0.02em;
   color: rgba(255,255,255,0.92);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.title-speaker__avatar {
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1.5px solid rgba(255, 255, 255, 0.2);
+}
+.title-speaker__text {
+  display: flex;
+  flex-direction: column;
+}
+.title-speaker__name {
+  font-size: clamp(1rem, 2vw, 1.45rem);
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.92);
+}
+.title-speaker__role {
+  font-size: clamp(0.75rem, 1.2vw, 0.95rem);
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.45);
 }
 .title-context {
   margin-top: 0.55rem;
@@ -412,7 +436,8 @@ strong { font-weight: 700; }
 .section--strategy    { background: #08080F; }
 .section--strategy.section--with-constellation { background: transparent; }
 .section--planning    { background: #08080F; }
-.section--onboarding  { background: #08080F; }
+.section--onboarding  { background: #08080F; position: relative; overflow: hidden; }
+.section--onboarding .section__inner { position: relative; z-index: 1; }
 .section--team        { background: #08080F; }
 .section--orchestrator{ background: #08080F; }
 .section--involved    { background: #08080F; }
@@ -490,6 +515,15 @@ strong { font-weight: 700; }
 }
 
 /* Journey map — full width */
+.maps-insight {
+  text-align: left;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-top: var(--space-l);
+}
 .artefact-map-wrap {
   width: 100%;
   max-width: var(--max-width);
@@ -579,8 +613,8 @@ strong { font-weight: 700; }
   align-items: flex-start;
   gap: 1rem;
   padding: 1.2rem 1.5rem;
-  background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(13, 27, 42, 0.85);
+  border: 1px solid rgba(255,255,255,0.1);
   border-radius: 12px;
 }
 
@@ -774,14 +808,328 @@ strong { font-weight: 700; }
 .section--workshop-gallery {
   position: relative;
   min-height: 100vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   overflow: hidden;
   background: #08080F;
 }
 .section--outcomes    { background: #08080F; }
+.section--outcomes-detail { background: #08080F; position: relative; overflow: hidden; }
+.section--outcomes-detail .section__inner { position: relative; z-index: 1; }
+.section--feedback    { background: #08080F; }
+.section--dxd         { background: #08080F; }
 .section--close       { background: #08080F; }
+
+/* ---------- DXD Landscape ---------- */
+.dxd-subtitle {
+  font-size: clamp(0.9rem, 1.1vw, 1.05rem);
+  color: rgba(255, 255, 255, 0.45);
+  margin-top: -0.5rem;
+}
+
+/* Tension layout: two sides with center divider */
+.dxd-tension {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 0;
+  max-width: var(--max-width);
+  align-items: start;
+}
+
+.dxd-tension__side {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-s);
+}
+
+/* Column labels */
+.dxd-tension__label {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: clamp(1.1rem, 1.4vw, 1.3rem);
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  padding-bottom: 0.5rem;
+}
+.dxd-tension__label--green { color: #3ee0a5; }
+.dxd-tension__label--red   { color: #ff6b6b; }
+
+.dxd-tension__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* Card stack */
+.dxd-tension__cards {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+/* Individual cards */
+.dxd-card {
+  padding: 0.9rem 1.2rem;
+  border-radius: var(--radius-m);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  transition: border-color 0.2s ease, background 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+.dxd-card strong {
+  font-size: clamp(0.92rem, 1.1vw, 1.05rem);
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.92);
+  line-height: 1.35;
+}
+.dxd-card span {
+  font-size: clamp(0.8rem, 0.95vw, 0.9rem);
+  color: rgba(255, 255, 255, 0.45);
+  line-height: 1.35;
+}
+
+/* Green card accent */
+.dxd-card--green {
+  border-left: 3px solid rgba(62, 224, 165, 0.4);
+}
+.dxd-card--green:hover {
+  border-color: rgba(62, 224, 165, 0.25);
+  background: rgba(62, 224, 165, 0.04);
+}
+
+/* Red card accent */
+.dxd-card--red {
+  border-left: 3px solid rgba(255, 107, 107, 0.4);
+}
+.dxd-card--red:hover {
+  border-color: rgba(255, 107, 107, 0.25);
+  background: rgba(255, 107, 107, 0.04);
+}
+
+/* Center divider */
+.dxd-tension__divider {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 1.5rem;
+  align-self: stretch;
+  padding-top: 2.8rem; /* align with cards, below labels */
+}
+.dxd-tension__divider-line {
+  flex: 1;
+  width: 1px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(255, 255, 255, 0.15) 20%,
+    rgba(255, 255, 255, 0.15) 80%,
+    transparent
+  );
+}
+.dxd-tension__divider-badge {
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  color: rgba(255, 255, 255, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-s);
+  padding: 0.3rem 0.65rem;
+  margin: 0.75rem 0;
+  text-transform: uppercase;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+/* Conclusion with inflection point styling */
+.dxd-conclusion--inflection {
+  max-width: 52rem;
+  margin-top: var(--space-l);
+  display: flex;
+  align-items: stretch;
+  gap: 1.25rem;
+  padding: 1.5rem 2rem;
+  background: rgba(255, 219, 0, 0.03);
+  border: 1px solid rgba(255, 219, 0, 0.12);
+  border-radius: var(--radius-l);
+}
+.dxd-conclusion__accent {
+  width: 3px;
+  flex-shrink: 0;
+  border-radius: 2px;
+  background: linear-gradient(to bottom, #FFDB00, rgba(255, 219, 0, 0.3));
+}
+.dxd-conclusion__text {
+  font-size: clamp(1.05rem, 1.4vw, 1.25rem);
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.55;
+}
+
+/* ---------- Feedback Quotes ---------- */
+.feedback-quotes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  max-width: var(--max-width);
+  margin-top: var(--space-xl);
+}
+.feedback-quotes--single {
+  grid-template-columns: 1fr;
+  max-width: 44rem;
+}
+.feedback-quotes--three {
+  grid-template-columns: 1fr;
+  max-width: 52rem;
+}
+.feedback-quotes--three .feedback-quote {
+  flex-direction: row;
+  align-items: center;
+  gap: 2rem;
+  padding: 1.5rem 2rem;
+}
+.feedback-quotes--three .feedback-quote__text {
+  flex: 1;
+}
+.feedback-quotes--three .feedback-quote__author {
+  flex-shrink: 0;
+  min-width: 10rem;
+  text-align: right;
+}
+.feedback-quote {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-left: 3px solid var(--yellow);
+  border-radius: 12px;
+  padding: 2rem 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin: 0;
+}
+.feedback-quote__text {
+  font-size: clamp(1rem, 1.3vw, 1.2rem);
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.6;
+  margin: 0;
+}
+.feedback-quote__avatar {
+  width: 2.8rem;
+  height: 2.8rem;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+}
+.feedback-quote__author {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.15rem;
+}
+.feedback-quote__name {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--white);
+}
+.feedback-quote__role {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.4);
+}
 .section--implication { background: #08080F; }
+
+/* ---------- Outcomes Canvas ---------- */
+.outcomes-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  filter: blur(16px);
+  opacity: 0.3;
+}
+
+/* ---------- Outcomes Grid ---------- */
+/* ---------- Outcomes Node System ---------- */
+.outcomes-node-system {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 2rem 3rem;
+  max-width: 56rem;
+  margin: 0 auto;
+  align-items: center;
+}
+.outcomes-center {
+  grid-row: 1 / 3;
+  grid-column: 2 / 3;
+  width: 10rem;
+  height: 10rem;
+  border-radius: 50%;
+  border: 2px solid var(--yellow);
+  background: rgba(255, 219, 0, 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  z-index: 2;
+}
+.outcomes-center__label {
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--yellow);
+  line-height: 1.2;
+}
+.outcome-card {
+  padding: 1.2rem 1.5rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-left: 3px solid var(--card-color, #fff);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.outcome-card--tl { grid-row: 1; grid-column: 1; }
+.outcome-card--tr { grid-row: 1; grid-column: 3; }
+.outcome-card--bl { grid-row: 2; grid-column: 1; }
+.outcome-card--br { grid-row: 2; grid-column: 3; }
+.outcome-card__title {
+  font-size: clamp(1rem, 1.2vw, 1.15rem);
+  font-weight: 800;
+  color: var(--card-color, #fff);
+  line-height: 1.2;
+}
+.outcome-card__desc {
+  font-size: clamp(0.85rem, 1vw, 0.95rem);
+  color: rgba(255, 255, 255, 0.55);
+  line-height: 1.45;
+  margin: 0;
+}
+.outcome-card__desc strong {
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 700;
+}
+.outcomes-lines {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+.outcomes-subtitle {
+  font-size: clamp(1rem, 1.4vw, 1.25rem);
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.5;
+  text-align: left;
+  max-width: 42rem;
+  margin-top: -0.5rem;
+}
 
 /* ---------- Scroll Hint ---------- */
 .scroll-hint {
@@ -1488,7 +1836,7 @@ strong { font-weight: 700; }
 /* ---------- Kickoff Mosaic ---------- */
 .section--kickoff-gallery {
   position: relative;
-  min-height: 100vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -1559,108 +1907,148 @@ strong { font-weight: 700; }
   overflow: hidden;
 }
 
-.sharing-canvas {
+.sharing-canvas,
+.commitment-canvas {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   z-index: 0;
+  filter: blur(12px);
+  opacity: 0.5;
 }
 
+/* ---------- Sharing: Two-Column Layout ---------- */
 .sharing-overlay {
   position: relative;
   z-index: 2;
-  padding: clamp(2rem, 5vw, 4rem) clamp(2rem, 6vw, 5rem);
-  max-width: 52%;
-  margin-right: auto;
-  margin-left: clamp(2rem, 6vw, 5rem);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: center;
+  min-height: 100vh;
+  padding: clamp(2rem, 5vw, 4rem) clamp(3rem, 7vw, 6rem);
+  box-sizing: border-box;
+}
+
+.sharing-col--left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.sharing-col--right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .sharing-stat {
   display: flex;
   align-items: baseline;
-  gap: 0.8rem;
+  gap: 1rem;
   margin-top: 1.5rem;
 }
 
 .sharing-stat__number {
-  font-size: clamp(3rem, 6vw, 5rem);
+  font-size: clamp(4.5rem, 8vw, 7rem);
   font-weight: 900;
   color: var(--yellow, #ffdb00);
   line-height: 1;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.04em;
 }
 
 .sharing-stat__label {
-  font-size: clamp(0.95rem, 1.2vw, 1.15rem);
-  color: rgba(255,255,255,0.6);
-  line-height: 1.3;
+  font-size: clamp(1rem, 1.3vw, 1.25rem);
+  color: rgba(255,255,255,0.55);
+  line-height: 1.35;
+  max-width: 10em;
 }
 
 /* ---------- Sharing Question Decision Tree ---------- */
 .sharing-question {
-  margin-top: var(--space-l);
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px;
+  padding: clamp(1.5rem, 2.5vw, 2.5rem);
 }
 
 .sharing-question__prompt {
-  font-size: clamp(0.9rem, 1.1vw, 1.05rem);
-  color: rgba(255,255,255,0.5);
+  font-size: clamp(0.8rem, 1vw, 0.95rem);
+  color: rgba(255,255,255,0.4);
   text-transform: uppercase;
-  letter-spacing: 0.06em;
-  font-weight: 600;
-  margin: 0 0 0.4rem;
+  letter-spacing: 0.1em;
+  font-weight: 700;
+  margin: 0 0 0.6rem;
 }
 
 .sharing-question__text {
-  font-size: clamp(1.3rem, 2vw, 1.7rem);
+  font-size: clamp(1.4rem, 2.2vw, 1.8rem);
   font-weight: 700;
   color: var(--white);
-  margin: 0 0 1.25rem;
+  margin: 0 0 1.75rem;
   font-style: italic;
+  line-height: 1.3;
 }
 
 .sharing-branches {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 0;
+}
+
+.sharing-connector {
+  width: 2px;
+  height: 1.25rem;
+  background: rgba(255,255,255,0.12);
+  margin-left: 2rem;
 }
 
 .sharing-branch {
   display: flex;
   align-items: flex-start;
-  gap: 1rem;
-  padding: 1rem 1.25rem;
+  gap: 1.25rem;
+  padding: 1.25rem 1.5rem;
   border-radius: 12px;
   background: rgba(255,255,255,0.04);
   border: 1px solid rgba(255,255,255,0.08);
+  transition: background 0.2s ease;
+}
+
+.sharing-branch:hover {
+  background: rgba(255,255,255,0.07);
 }
 
 .sharing-branch__label {
   flex-shrink: 0;
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  padding: 0.25rem 0.7rem;
+  padding: 0.3rem 0.85rem;
   border-radius: 6px;
   line-height: 1.3;
   margin-top: 0.1rem;
+  min-width: 2.5rem;
+  text-align: center;
 }
 
 .sharing-branch--yes .sharing-branch__label {
-  background: rgba(255,219,0,0.2);
+  background: rgba(255,219,0,0.18);
   color: var(--yellow, #ffdb00);
+  border: 1px solid rgba(255,219,0,0.25);
 }
 
 .sharing-branch--no .sharing-branch__label {
-  background: rgba(204,0,78,0.2);
+  background: rgba(204,0,78,0.18);
   color: #ff6b9d;
+  border: 1px solid rgba(204,0,78,0.25);
 }
 
 .sharing-branch__desc {
   font-size: clamp(0.95rem, 1.1vw, 1.1rem);
   color: rgba(255,255,255,0.7);
-  line-height: 1.5;
+  line-height: 1.55;
   margin: 0;
 }
 
@@ -1691,7 +2079,7 @@ strong { font-weight: 700; }
 /* ---------- Research Gallery ---------- */
 .section--research-gallery {
   position: relative;
-  min-height: 100vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -1755,6 +2143,22 @@ strong { font-weight: 700; }
   display: block;
   transition: transform 0.6s ease, filter 0.6s ease;
   filter: brightness(0.85);
+}
+
+.research-mosaic__text {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  padding: 1.2rem 1rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.03);
+}
+.research-mosaic__text .body-xl {
+  font-size: clamp(0.95rem, 1.4vw, 1.15rem);
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.75);
+  margin: 0;
 }
 
 .research-mosaic__img:hover img {
@@ -2059,33 +2463,31 @@ strong { font-weight: 700; }
 .workshop-mosaic {
   flex: 1;
   display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  grid-template-rows: 1fr 0.7fr;
-  gap: 10px;
-  padding: 0 clamp(2rem, 6vw, 5rem) clamp(1.5rem, 3vw, 2.5rem);
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  padding: 0 clamp(1rem, 3vw, 2rem) clamp(1rem, 2vw, 1.5rem);
   min-height: 0;
 }
-
-.workshop-mosaic__hero {
-  grid-row: 1 / 2;
-  grid-column: 1 / 2;
-  border-radius: 14px;
-  overflow: hidden;
-}
-
-.workshop-mosaic__side {
-  grid-row: 1 / 2;
-  grid-column: 2 / 3;
+.workshop-mosaic__col {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 8px;
+  min-height: 0;
 }
-
-.workshop-mosaic__bottom {
-  grid-row: 2 / 3;
-  grid-column: 1 / 3;
+.workshop-mosaic__text {
+  flex: 1;
   display: flex;
-  gap: 10px;
+  align-items: center;
+  padding: 1.2rem 1.5rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.03);
+}
+.workshop-mosaic__text .body-xl {
+  font-size: clamp(0.95rem, 1.4vw, 1.15rem);
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.75);
+  margin: 0;
 }
 
 .workshop-mosaic__hero img,
@@ -2123,10 +2525,15 @@ strong { font-weight: 700; }
 .stat-block {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
+  padding: 1rem 1.8rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+  min-width: 6rem;
 }
 .stat-number {
-  font-size: clamp(4rem, 9vw, 7rem);
+  font-size: clamp(3rem, 7vw, 5rem);
   font-weight: 900;
   color: var(--yellow);
   line-height: 1;
@@ -2137,6 +2544,7 @@ strong { font-weight: 700; }
   color: rgba(255,255,255,0.6);
   letter-spacing: 0.08em;
   text-transform: uppercase;
+  margin-top: 0.3rem;
 }
 
 /* ---------- Opportunities Dashboard ---------- */
@@ -2209,17 +2617,24 @@ strong { font-weight: 700; }
 }
 
 .opp-card__title {
-  font-size: clamp(0.85rem, 1vw, 1rem);
-  font-weight: 700;
-  color: var(--white, #fff);
-  line-height: 1.2;
+  font-size: clamp(1rem, 1.3vw, 1.25rem);
+  font-weight: 800;
+  color: var(--opp-color, #fff);
+  line-height: 1.15;
+  min-height: 3.45em;
+  display: flex;
+  align-items: center;
 }
 
 .opp-card__desc {
-  font-size: clamp(0.8rem, 0.95vw, 0.92rem);
-  color: rgba(255,255,255,0.7);
-  line-height: 1.45;
+  font-size: clamp(0.9rem, 1.1vw, 1.05rem);
+  color: rgba(255,255,255,0.6);
+  line-height: 1.4;
   margin: 0;
+}
+.opp-card__desc strong {
+  color: rgba(255,255,255,0.9);
+  font-weight: 700;
 }
 
 .opp-card__example {
@@ -3509,6 +3924,9 @@ strong { font-weight: 700; }
   z-index: 2;
   width: min(42rem, calc(100vw - 4rem));
   margin-right: auto;
+  border: 1.5px solid rgba(255, 255, 255, 0.09);
+  border-radius: var(--radius-xl);
+  padding: var(--space-l) var(--space-xl);
 }
 .problem-hero-title {
   font-size: clamp(1.6rem, 3vw, 2.5rem);
@@ -4013,7 +4431,7 @@ strong { font-weight: 700; }
 
 /* --- Strategy Anchor (s03 rebuild) --- */
 .strategy-anchor {
-  width: min(var(--max-width), calc(100vw - 4rem));
+  width: min(var(--max-width), calc(100vw - 7rem));
   display: grid;
   grid-template-columns: minmax(280px, 1fr) minmax(320px, 1.1fr);
   gap: clamp(2rem, 5vw, 5rem);
@@ -4108,7 +4526,10 @@ strong { font-weight: 700; }
   </style>
 </head>
 <body>
+
+  <!-- Fixed constellation — persists behind sections 01 and 02 -->
   <canvas id="constellationCanvas" class="constellation-fixed"></canvas>
+
   <div class="progress-bar" id="progressBar"></div>
   <div class="slide-counter" id="slideCounter">1 / 1</div>
 
@@ -4125,21 +4546,35 @@ strong { font-weight: 700; }
     <a href="#s09b" class="dot" data-label="The Artefact"></a>
     <a href="#s10" class="dot" data-label="Shared Awareness"></a>
     <a href="#s11" class="dot" data-label="Big Workshop"></a>
-    <a href="#s12" class="dot" data-label="What It Produced"></a>
+    <a href="#s12" class="dot" data-label="Opportunities"></a>
+    <a href="#s13" class="dot" data-label="Outcomes"></a>
+    <a href="#s13b" class="dot" data-label="Feedback"></a>
+    <a href="#s13c" class="dot" data-label="DXD Landscape"></a>
     <a href="#s14" class="dot" data-label="Close"></a>
   </nav>
 
+  <!-- ============================================================
+       01 — TITLE (constellation in background)
+  ============================================================ -->
   <section id="s01" class="section section--title">
     <div class="section__inner section__inner--title">
       <p class="eyebrow">Digital Sharing Days 2026</p>
       <h1 class="display-xl">Connecting<br>the Silos</h1>
       <h2 class="display-sub">A Journey-Centric Approach</h2>
-      <p class="title-speaker">Pablo Suzarte · Orchestrator, Journey Teams Project</p>
-      <p class="title-context">Journey Teams · Remote Customer Meeting Point (RCMP) · Kitchen Exchange Journey</p>
+      <div class="title-speaker">
+        <img class="title-speaker__avatar" src="https://journeyteams.vercel.app/screenshots/web/pablo2.jpg" alt="Pablo Suzarte">
+        <div class="title-speaker__text">
+          <span class="title-speaker__name">Pablo Suzarte</span>
+          <span class="title-speaker__role">Orchestrator, Journey Teams Project</span>
+        </div>
+      </div>
     </div>
     <div class="scroll-hint">↓</div>
   </section>
 
+  <!-- ============================================================
+       02 — THE PROBLEM
+  ============================================================ -->
   <section id="s02" class="section section--problem">
     <canvas id="chaseCanvas" class="chase-canvas"></canvas>
     <div class="section__inner section__inner--problem-hero">
@@ -4156,6 +4591,7 @@ strong { font-weight: 700; }
       <div class="connection-slide connection-slide--stacked">
         <p class="section-label connection-slide__label">The Core Question</p>
         <p class="problem-hero-title">How did we connect 80+ experts across Remote Customer Support?</p>
+
         <div class="hook-metrics hook-metrics--inline">
           <div class="hook-metric hook-metric--compact">
             <span class="hook-metric__value">80+</span>
@@ -4174,10 +4610,14 @@ strong { font-weight: 700; }
             <span class="hook-metric__label">Markets</span>
           </div>
         </div>
+
       </div>
     </div>
   </section>
 
+  <!-- ============================================================
+       03 — STRATEGIC ANCHOR: The managers' challenge
+  ============================================================ -->
   <section id="s03" class="section section--strategy section--with-constellation">
     <div class="section__inner">
       <div class="strategy-anchor">
@@ -4202,6 +4642,7 @@ strong { font-weight: 700; }
           </div>
           <p class="body-xl">This was the third iteration of a Journey-Centric Approach in the RCMP area. They trusted it enough to scale it to the size of Journey Teams.</p>
         </div>
+
         <div class="strategy-anchor__cards">
           <div class="strategy-pillars">
             <div class="strategy-pillar strategy-pillar--blue">
@@ -4226,6 +4667,9 @@ strong { font-weight: 700; }
     </div>
   </section>
 
+  <!-- ============================================================
+       03b — STRATEGY FOCUS: Growth Plan expanded + AHT impact
+  ============================================================ -->
   <section id="s03b" class="section section--strategy section--with-constellation">
     <div class="section__inner">
       <div class="strategy-focus">
@@ -4263,6 +4707,9 @@ strong { font-weight: 700; }
     </div>
   </section>
 
+  <!-- ============================================================
+       04 — HOW WE PLANNED
+  ============================================================ -->
   <section id="s04" class="section section--planning">
     <div class="section__inner">
       <div class="orchestrator-stage">
@@ -4272,6 +4719,7 @@ strong { font-weight: 700; }
           <p class="orchestrator-stage__usp">Not a manager. A facilitator. A designer of collaboration.</p>
           <p class="orchestrator-stage__bridge">The connective tissue. Right people, right room, right context, right time.</p>
         </div>
+
         <div class="orchestrator-stage__system">
           <div class="orchestrator-stage__portrait">
             <img src="https://journeyteams.vercel.app/screenshots/web/pablo-orchestrator.jpg" alt="Pablo Suzarte">
@@ -4280,33 +4728,34 @@ strong { font-weight: 700; }
               <p class="orchestrator-stage__identity-subtitle">Facilitator · Designer of collaboration</p>
             </div>
           </div>
-          <div class="orchestrator-stage__capabilities">
-            <article class="orchestrator-card orchestrator-card--yellow">
-              <div class="orchestrator-card__marker" aria-hidden="true"></div>
-              <h3>Connects teams</h3>
-              <p>Brings the right people into the right room at the right time</p>
-            </article>
-            <article class="orchestrator-card orchestrator-card--coral">
-              <div class="orchestrator-card__marker" aria-hidden="true"></div>
-              <h3>Designs the process</h3>
-              <p>Shapes every workshop, interview, and session with intention</p>
-            </article>
-            <article class="orchestrator-card orchestrator-card--yellow">
-              <div class="orchestrator-card__marker" aria-hidden="true"></div>
-              <h3>Keeps one source of truth</h3>
-              <p>One artefact everyone can point to</p>
-            </article>
-            <article class="orchestrator-card orchestrator-card--coral">
-              <div class="orchestrator-card__marker" aria-hidden="true"></div>
-              <h3>Clarifies shared work</h3>
-              <p>So nobody guesses who owns what</p>
-            </article>
-            <article class="orchestrator-card orchestrator-card--wide orchestrator-card--yellow">
-              <div class="orchestrator-card__marker" aria-hidden="true"></div>
-              <div class="orchestrator-card__body">
-                <h3>Turns insight into action</h3>
-                <p>Research doesn't stay in a deck. It moves into backlogs</p>
-              </div>
+
+            <div class="orchestrator-stage__capabilities">
+              <article class="orchestrator-card orchestrator-card--yellow">
+                <div class="orchestrator-card__marker" aria-hidden="true"></div>
+                <h3>Connects teams</h3>
+                <p>Brings the right people into the right room at the right time</p>
+              </article>
+              <article class="orchestrator-card orchestrator-card--coral">
+                <div class="orchestrator-card__marker" aria-hidden="true"></div>
+                <h3>Designs the process</h3>
+                <p>Shapes every workshop, interview, and session with intention</p>
+              </article>
+              <article class="orchestrator-card orchestrator-card--yellow">
+                <div class="orchestrator-card__marker" aria-hidden="true"></div>
+                <h3>Keeps one source of truth</h3>
+                <p>One artefact everyone can point to</p>
+              </article>
+              <article class="orchestrator-card orchestrator-card--coral">
+                <div class="orchestrator-card__marker" aria-hidden="true"></div>
+                <h3>Clarifies shared work</h3>
+                <p>So nobody guesses who owns what</p>
+              </article>
+              <article class="orchestrator-card orchestrator-card--wide orchestrator-card--yellow">
+                <div class="orchestrator-card__marker" aria-hidden="true"></div>
+                <div class="orchestrator-card__body">
+                  <h3>Turns insight into action</h3>
+                  <p>Research doesn't stay in a deck. It moves into backlogs</p>
+                </div>
               <div class="orchestrator-card__arrow" aria-hidden="true"></div>
             </article>
           </div>
@@ -4315,16 +4764,23 @@ strong { font-weight: 700; }
     </div>
   </section>
 
+  <!-- ============================================================
+       05 — HOW WE BUILT THE TEAM
+  ============================================================ -->
   <section id="s05" class="section section--team">
     <canvas id="teamCanvas" class="team-constellation__canvas"></canvas>
     <div class="section__inner">
       <div class="team-constellation">
+
+        <!-- Center node -->
         <div class="team-constellation__center">
           <div class="team-constellation__core">
             <h2 class="team-constellation__title">Journey Teams</h2>
             <p class="team-constellation__mission">Bringing shared understanding to the RCMP organisation</p>
           </div>
         </div>
+
+        <!-- Team members orbiting -->
         <div class="team-constellation__node team-constellation__node--tl">
           <div class="team-constellation__avatar">
             <img src="https://journeyteams.vercel.app/screenshots/03_team_and_kickoff/pablo2.png" alt="Pablo Suzarte" loading="lazy">
@@ -4334,6 +4790,7 @@ strong { font-weight: 700; }
             <p>Journey Team Orchestrator</p>
           </div>
         </div>
+
         <div class="team-constellation__node team-constellation__node--tr">
           <div class="team-constellation__avatar">
             <img src="https://journeyteams.vercel.app/screenshots/03_team_and_kickoff/suwen.png" alt="Suwen Shen" loading="lazy">
@@ -4343,6 +4800,7 @@ strong { font-weight: 700; }
             <p>UX Journey Coordinator</p>
           </div>
         </div>
+
         <div class="team-constellation__node team-constellation__node--bl">
           <div class="team-constellation__avatar">
             <img src="https://journeyteams.vercel.app/screenshots/03_team_and_kickoff/amina.png" alt="Amina Gummesson" loading="lazy">
@@ -4352,6 +4810,7 @@ strong { font-weight: 700; }
             <p>RCMP Experience Specialist</p>
           </div>
         </div>
+
         <div class="team-constellation__node team-constellation__node--br">
           <div class="team-constellation__avatar">
             <img src="https://journeyteams.vercel.app/screenshots/03_team_and_kickoff/balazs.png" alt="Balazs Gobel" loading="lazy">
@@ -4365,29 +4824,38 @@ strong { font-weight: 700; }
     </div>
   </section>
 
+  <!-- ============================================================
+       06 — GETTING EVERYONE ON BOARD (3 steps)
+  ============================================================ -->
   <section id="s06" class="section section--onboarding">
+    <canvas id="commitmentCanvas" class="commitment-canvas"></canvas>
     <div class="section__inner section__inner--stack">
       <div class="stack__header">
         <p class="section-label">Building Commitment</p>
         <h2 class="heading-xl">Before the kickoff, we made sure everyone understood the work and wanted to be part of it.</h2>
       </div>
+
       <div class="onboarding-steps">
         <div class="onboarding-step">
           <div class="onboarding-step__number">01</div>
           <h3 class="onboarding-step__title">Pre-study</h3>
           <p class="onboarding-step__desc">Pablo and Suwen mapped the landscape: data collection, existing research, understanding the current state across markets and teams.</p>
         </div>
+
         <div class="onboarding-arrow" aria-hidden="true">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </div>
+
         <div class="onboarding-step">
           <div class="onboarding-step__number">02</div>
           <h3 class="onboarding-step__title">Presenting to product teams</h3>
           <p class="onboarding-step__desc">1-on-1 sessions with every product team and area. Not just introductions. Understanding each person's context before asking them to commit.</p>
         </div>
+
         <div class="onboarding-arrow" aria-hidden="true">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </div>
+
         <div class="onboarding-step">
           <div class="onboarding-step__number">03</div>
           <h3 class="onboarding-step__title">Recruiting for the kickoff</h3>
@@ -4397,10 +4865,13 @@ strong { font-weight: 700; }
     </div>
   </section>
 
+  <!-- ============================================================
+       07 — THE KICKOFF (parallax gallery)
+  ============================================================ -->
   <section id="s07" class="section section--kickoff-gallery">
     <div class="kickoff-text-overlay">
       <p class="section-label">The Kickoff</p>
-      <h2 class="heading-xl">Everyone in one room. We presented the project, set expectations together, and invited them to join the research.</h2>
+      <h2 class="heading-xl"><strong class="highlight-yellow">Kick off:</strong> everyone in one room. We presented the project, set expectations together, and invited them to join the research.</h2>
       <p class="body-l">Embracing togetherness. People left as co-owners, not attendees.</p>
     </div>
     <div class="kickoff-mosaic">
@@ -4423,11 +4894,13 @@ strong { font-weight: 700; }
     </div>
   </section>
 
+  <!-- ============================================================
+       08 — THE RESEARCH
+  ============================================================ -->
   <section id="s08" class="section section--research-gallery">
     <div class="research-text-overlay">
       <p class="section-label">Research across 5 markets</p>
-      <h2 class="heading-xl">Research: we taught them how to map. Then we mapped the Kitchen Exchange Journey together.</h2>
-      <p class="body-l">Scenario: a customer calls because the front cover is broken. Full-day workshops in each country with real co-workers.</p>
+      <h2 class="heading-xl"><strong class="highlight-yellow">Research:</strong> we went to the markets to map the Kitchen Exchange Journey.</h2>
       <div class="research-markets">
         <span class="research-market">&#127480;&#127466; Sweden</span>
         <span class="research-market">&#127465;&#127472; Denmark</span>
@@ -4449,8 +4922,8 @@ strong { font-weight: 700; }
         <div class="research-mosaic__img">
           <img src="https://journeyteams.vercel.app/screenshots/web/research-IMG_2383-2.jpg" alt="Team celebrating after a session" loading="lazy">
         </div>
-        <div class="research-mosaic__img">
-          <img src="https://journeyteams.vercel.app/screenshots/web/dsc_8065-2.jpg" alt="Close-up — writing pain points" loading="lazy">
+        <div class="research-mosaic__text">
+          <p class="body-xl">First <strong class="highlight-yellow">we taught them how to map their journey,</strong> then we mapped efficiently. We <strong class="highlight-yellow">recorded the sessions</strong> to bring the <strong class="highlight-yellow">voice of the co-worker.</strong></p>
         </div>
         <div class="research-mosaic__img">
           <img src="https://journeyteams.vercel.app/screenshots/web/research-IMG_2396.jpg" alt="Denmark — presenting to the room" loading="lazy">
@@ -4475,12 +4948,18 @@ strong { font-weight: 700; }
     </div>
   </section>
 
+  <!-- ============================================================
+       09 — ANALYSIS: FROM 5 MAPS TO 1
+  ============================================================ -->
   <section id="s09" class="section section--analysis">
     <div class="section__inner section__inner--artefact">
+
       <div class="artefact-header">
         <p class="section-label">Build One Shared Journey View</p>
-        <h2 class="heading-xl">From 5 physical maps to one digitalised source of truth.</h2>
+        <h2 class="heading-xl">We <strong class="highlight-yellow">digitalised the 5 different maps</strong> for analysis.</h2>
       </div>
+
+      <!-- Physical maps row -->
       <div class="maps-transformation">
         <div class="maps-physical">
           <div class="maps-physical__item">
@@ -4509,25 +4988,37 @@ strong { font-weight: 700; }
             <div class="maps-arrow-down" aria-hidden="true">↓</div>
           </div>
         </div>
+
+        <!-- Digitalised result -->
         <div class="artefact-map-wrap">
           <div class="artefact-map">
             <img src="https://journeyteams.vercel.app/screenshots/web/digitalised-maps.png" alt="5 digitalised journey maps consolidated" loading="lazy">
           </div>
         </div>
+
+        <p class="body-xl maps-insight">We discovered that markets operate quite differently, even in the tools they use.</p>
       </div>
+
     </div>
   </section>
 
+  <!-- ============================================================
+       09b — THE JOURNEY MAP ARTEFACT
+  ============================================================ -->
   <section id="s09b" class="section section--artefact">
     <div class="section__inner section__inner--artefact">
+
       <div class="artefact-header">
         <p class="section-label">The Single Source of Truth</p>
-        <h2 class="heading-xl">This is the happy flow of the Kitchen Exchange Journey. It has 34 pain points.</h2>
-        <p class="body-l">Each red dot is a pain point linked to a real co-worker video. Not a description. A voice you can hear.</p>
+        <h2 class="heading-xl"><strong class="highlight-yellow">The Journey Map.</strong> A consolidated view of how Kitchen Exchange Resolutions work today.</h2>
+        <p class="body-l">This is the happy flow of the Kitchen Exchange Journey and it still has <strong class="highlight-yellow">34 pain points.</strong></p>
       </div>
+
+      <!-- Journey map with animated pain point dots -->
       <div class="artefact-map-wrap">
         <div class="artefact-map" id="artefactMap">
           <img src="https://journeyteams.vercel.app/screenshots/web/journey-map-full.png" alt="The digitalised as-is Kitchen Exchange Journey Map" loading="lazy">
+          <!-- 24 pain point dots scattered across the map -->
           <div class="pain-dots" id="painDots"></div>
         </div>
         <div class="artefact-map-labels">
@@ -4538,49 +5029,62 @@ strong { font-weight: 700; }
           <span>After Call Work</span>
         </div>
       </div>
+
       <div class="artefact-card-row">
-        <div class="artefact-card">
-          <span class="artefact-card__icon">&#9654;</span>
-          <p class="artefact-card__text">Each pain point has a video clip where a co-worker describes the problem in their own words</p>
-        </div>
         <div class="artefact-card">
           <span class="artefact-card__icon">&#9776;</span>
           <p class="artefact-card__text">The journey is structured in Activities, Steps, Tasks, Pain Points, and which teams are involved</p>
         </div>
+        <div class="artefact-card">
+          <span class="artefact-card__icon">&#9654;</span>
+          <p class="artefact-card__text">Each pain point has a video clip where a co-worker describes the problem in their own words</p>
+        </div>
       </div>
+
     </div>
   </section>
 
+  <!-- ============================================================
+       10 — SHARING SESSIONS
+  ============================================================ -->
   <section id="s10" class="section section--sharing">
     <canvas id="sharingCanvas" class="sharing-canvas"></canvas>
     <div class="sharing-overlay">
-      <p class="section-label">Sharing Sessions</p>
-      <div class="sharing-stat">
-        <span class="sharing-stat__number">22</span>
-        <span class="sharing-stat__label">sessions across product teams, areas, and markets</span>
+      <div class="sharing-col sharing-col--left">
+        <p class="section-label">Sharing Sessions</p>
+        <div class="sharing-stat">
+          <span class="sharing-stat__number">22</span>
+          <span class="sharing-stat__label">sessions across product teams, areas, and markets</span>
+        </div>
+        <h2 class="heading-xl"><strong class="highlight-yellow">Sharing:</strong> we brought the evidence back to every team that owned a piece of the journey.</h2>
       </div>
-      <h2 class="heading-xl">We brought the evidence back to every team that owned a piece of the journey.</h2>
-      <div class="sharing-question">
-        <p class="sharing-question__prompt">One question per session:</p>
-        <p class="sharing-question__text">Did you know about this pain point?</p>
-        <div class="sharing-branches">
-          <div class="sharing-branch sharing-branch--yes">
-            <span class="sharing-branch__label">Yes</span>
-            <p class="sharing-branch__desc">What's the plan to fix it? A real conversation about priorities and ownership.</p>
-          </div>
-          <div class="sharing-branch sharing-branch--no">
-            <span class="sharing-branch__label">No</span>
-            <p class="sharing-branch__desc">Watch this video. A co-worker explaining the pain in their own words. That changed the room every time.</p>
+      <div class="sharing-col sharing-col--right">
+        <div class="sharing-question">
+          <p class="sharing-question__prompt">One question per session</p>
+          <p class="sharing-question__text">"Did you know about this pain point?"</p>
+          <div class="sharing-branches">
+            <div class="sharing-branch sharing-branch--yes">
+              <span class="sharing-branch__label">Yes</span>
+              <p class="sharing-branch__desc">What's the plan to fix it? A real conversation about priorities and ownership.</p>
+            </div>
+            <div class="sharing-connector"></div>
+            <div class="sharing-branch sharing-branch--no">
+              <span class="sharing-branch__label">No</span>
+              <p class="sharing-branch__desc">Watch this video. A co-worker explaining the pain in their own words. That changed the room every time.</p>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- ============================================================
+       11 — THE BIG WORKSHOP
+  ============================================================ -->
   <section id="s11" class="section section--workshop-gallery">
     <div class="workshop-text-overlay">
       <p class="section-label">The Big Workshop</p>
-      <h2 class="heading-xl">Divided into 4 groups, we worked through the pain points in group conversations, focusing on root causes, not solutions, to find opportunities for improvement.</h2>
+      <h2 class="heading-xl"><strong class="highlight-yellow">The Big Workshop:</strong> divided into 4 groups, we worked through the pain points in group conversations.</h2>
       <div class="stat-row stat-row--inline">
         <div class="stat-block">
           <span class="stat-number">40</span>
@@ -4597,113 +5101,306 @@ strong { font-weight: 700; }
       </div>
     </div>
     <div class="workshop-mosaic">
-      <div class="workshop-mosaic__hero">
-        <img src="https://journeyteams.vercel.app/screenshots/web/workshop-presenting.jpg" alt="Workshop — presenting to the group" loading="lazy">
-      </div>
-      <div class="workshop-mosaic__side">
+      <div class="workshop-mosaic__col">
         <div class="workshop-mosaic__img">
-          <img src="https://journeyteams.vercel.app/screenshots/web/workshop-group-table.jpg" alt="Workshop — group conversation at the table" loading="lazy">
+          <img src="https://journeyteams.vercel.app/screenshots/web/workshop-presenting.jpg" alt="Workshop presenting" loading="lazy">
         </div>
         <div class="workshop-mosaic__img">
-          <img src="https://journeyteams.vercel.app/screenshots/web/workshop-group-discussion.jpg" alt="Workshop — team discussing with screen" loading="lazy">
+          <img src="https://journeyteams.vercel.app/screenshots/web/workshop-lounge.jpg" alt="Workshop lounge" loading="lazy">
         </div>
       </div>
-      <div class="workshop-mosaic__bottom">
+      <div class="workshop-mosaic__col">
         <div class="workshop-mosaic__img">
-          <img src="https://journeyteams.vercel.app/screenshots/web/workshop-audience.jpg" alt="Workshop — full audience listening" loading="lazy">
+          <img src="https://journeyteams.vercel.app/screenshots/web/workshop-group-table.jpg" alt="Workshop group table" loading="lazy">
+        </div>
+        <div class="workshop-mosaic__text">
+          <p class="body-xl">Focusing on <strong class="highlight-yellow">root causes,</strong> not solutions, to find opportunities for improvement.</p>
         </div>
         <div class="workshop-mosaic__img">
-          <img src="https://journeyteams.vercel.app/screenshots/web/workshop-whiteboard.jpg" alt="Workshop — working at the whiteboard" loading="lazy">
+          <img src="https://journeyteams.vercel.app/screenshots/web/workshop-group-discussion-real.jpg" alt="Workshop group discussion" loading="lazy">
+        </div>
+      </div>
+      <div class="workshop-mosaic__col">
+        <div class="workshop-mosaic__img">
+          <img src="https://journeyteams.vercel.app/screenshots/web/workshop-audience.jpg" alt="Workshop audience" loading="lazy">
         </div>
         <div class="workshop-mosaic__img">
-          <img src="https://journeyteams.vercel.app/screenshots/web/workshop-full-room.jpg" alt="Workshop — full room presentation" loading="lazy">
+          <img src="https://journeyteams.vercel.app/screenshots/web/workshop-main.jpg" alt="Workshop main session" loading="lazy">
+        </div>
+      </div>
+      <div class="workshop-mosaic__col">
+        <div class="workshop-mosaic__img">
+          <img src="https://journeyteams.vercel.app/screenshots/web/workshop-whiteboard.jpg" alt="Workshop whiteboard" loading="lazy">
+        </div>
+        <div class="workshop-mosaic__img">
+          <img src="https://journeyteams.vercel.app/screenshots/web/workshop-full-room.jpg" alt="Workshop full room" loading="lazy">
         </div>
       </div>
     </div>
   </section>
 
+  <!-- ============================================================
+       12 — OUTCOMES
+  ============================================================ -->
   <section id="s12" class="section section--outcomes">
     <div class="section__inner section__inner--stack">
       <div class="stack__header">
         <p class="section-label">Opportunities for Improvement</p>
         <h2 class="heading-xl"><span style="color: var(--yellow, #ffdb00)">75+</span> opportunities across systemic themes.</h2>
       </div>
+
+      <!-- Opportunities Dashboard -->
       <div class="opps-dashboard">
+
+
+        <!-- 8 Theme cards -->
         <div class="opps-grid">
+
           <div class="opp-card" style="--opp-color: var(--yellow, #ffdb00)">
             <div class="opp-card__header">
               <span class="opp-card__count">14</span>
               <h3 class="opp-card__title">Unified Customer Information</h3>
             </div>
-            <p class="opp-card__desc">Co-workers switch between 5+ systems per call. No single view of the customer exists.</p>
-            <p class="opp-card__example">One place for all customer and order information: profiles, history, notes, cases.</p>
+            <p class="opp-card__desc"><strong>One view</strong> of the customer across all systems.</p>
           </div>
+
           <div class="opp-card" style="--opp-color: #5aaaff">
             <div class="opp-card__header">
               <span class="opp-card__count">12</span>
               <h3 class="opp-card__title">Automation &amp; AI</h3>
             </div>
-            <p class="opp-card__desc">After-call work takes minutes per call. Summaries, notes, and status changes are all manual.</p>
-            <p class="opp-card__example">AI-generated call summaries, auto-filled fields, smart templates that learn from patterns.</p>
+            <p class="opp-card__desc"><strong>AI summaries</strong> and smart templates for after-call work.</p>
           </div>
+
           <div class="opp-card" style="--opp-color: #3ee0a5">
             <div class="opp-card__header">
               <span class="opp-card__count">10</span>
               <h3 class="opp-card__title">Knowledge &amp; Documentation</h3>
             </div>
-            <p class="opp-card__desc">VETA procedures change constantly. Co-workers can't find the right one during a live call.</p>
-            <p class="opp-card__example">Trustworthy, searchable knowledge base embedded directly in the workflow.</p>
+            <p class="opp-card__desc"><strong>Searchable knowledge</strong> embedded in the workflow.</p>
           </div>
+
           <div class="opp-card" style="--opp-color: #ff9f43">
             <div class="opp-card__header">
               <span class="opp-card__count">10</span>
               <h3 class="opp-card__title">Process Standardisation</h3>
             </div>
-            <p class="opp-card__desc">Same issue, different handling per market. No shared way of working across teams.</p>
-            <p class="opp-card__example">Standard processes for case handling, routing, notes, and customer verification.</p>
+            <p class="opp-card__desc"><strong>One way of working</strong> across all markets.</p>
           </div>
+
           <div class="opp-card" style="--opp-color: #b49aff">
             <div class="opp-card__header">
               <span class="opp-card__count">8</span>
               <h3 class="opp-card__title">Stock &amp; Delivery Visibility</h3>
             </div>
-            <p class="opp-card__desc">Co-workers can't see stock or delivery options during the call. Customers wait for callbacks.</p>
-            <p class="opp-card__example">Real-time stock from all units, delivery options shown during resolution, not after.</p>
+            <p class="opp-card__desc"><strong>Real-time stock</strong> and delivery visible during the call.</p>
           </div>
+
           <div class="opp-card" style="--opp-color: #ff6b6b">
             <div class="opp-card__header">
               <span class="opp-card__count">8</span>
               <h3 class="opp-card__title">System Simplification</h3>
             </div>
-            <p class="opp-card__desc">Too many tools, none retired. Every new launch adds complexity without removing the old.</p>
-            <p class="opp-card__example">Decommission low-value tools, embed processes into the systems co-workers actually use.</p>
+            <p class="opp-card__desc"><strong>Fewer tools,</strong> retire what is no longer needed.</p>
           </div>
+
           <div class="opp-card" style="--opp-color: #64d2ff">
             <div class="opp-card__header">
               <span class="opp-card__count">7</span>
-              <h3 class="opp-card__title">Coworker Experience</h3>
+              <h3 class="opp-card__title">Co-worker Experience</h3>
             </div>
-            <p class="opp-card__desc">Onboarding takes weeks. Training lives outside the tools. Guidance depends on who you ask.</p>
-            <p class="opp-card__example">In-app guidance based on role and experience. Training embedded where the work happens.</p>
+            <p class="opp-card__desc"><strong>In-app guidance</strong> where the work happens.</p>
           </div>
+
           <div class="opp-card" style="--opp-color: #ff85a1">
             <div class="opp-card__header">
               <span class="opp-card__count">6</span>
               <h3 class="opp-card__title">Customer Self-Service</h3>
             </div>
-            <p class="opp-card__desc">Customers call because they can't find answers. Simple tasks require a co-worker.</p>
-            <p class="opp-card__example">Let customers verify info, send photos, and track orders before reaching support.</p>
+            <p class="opp-card__desc"><strong>Self-resolve</strong> simple tasks before reaching support.</p>
           </div>
+
         </div>
       </div>
     </div>
   </section>
 
+  <!-- ============================================================
+       13 — OUTCOMES
+  ============================================================ -->
+  <section id="s13" class="section section--outcomes-detail">
+    <canvas id="outcomesCanvas" class="outcomes-canvas"></canvas>
+    <div class="section__inner section__inner--stack">
+      <div class="stack__header">
+        <p class="section-label">What It Produced</p>
+        <h2 class="heading-xl"><strong class="highlight-yellow">Outcomes</strong></h2>
+        <p class="outcomes-subtitle">Combined with <strong class="highlight-yellow">75+ opportunities</strong> and quick wins, this proves that a journey-centric approach is the way forward.</p>
+      </div>
+
+      <div class="outcomes-node-system">
+        <div class="outcome-card outcome-card--tl" style="--card-color: #ffdb00;">
+          <h3 class="outcome-card__title">Self-Service</h3>
+          <p class="outcome-card__desc">Supporting <strong>Hantera</strong> to reduce <strong>non-value-added contacts</strong> to RCMP.</p>
+        </div>
+
+        <div class="outcome-card outcome-card--tr" style="--card-color: #5aaaff;">
+          <h3 class="outcome-card__title">Case Management</h3>
+          <p class="outcome-card__desc">Guiding <strong>Microsoft Dynamics</strong> with real <strong>co-worker needs.</strong></p>
+        </div>
+
+        <div class="outcomes-center">
+          <span class="outcomes-center__label">Journey-Centric<br>Approach</span>
+        </div>
+
+        <div class="outcome-card outcome-card--bl" style="--card-color: #3ee0a5;">
+          <h3 class="outcome-card__title">Co-worker Research</h3>
+          <p class="outcome-card__desc">Co-workers <strong>kept researching</strong> on their own to <strong>improve resolution tools.</strong></p>
+        </div>
+
+        <div class="outcome-card outcome-card--br" style="--card-color: #ff9f43;">
+          <h3 class="outcome-card__title">Quick Wins</h3>
+          <p class="outcome-card__desc"><strong>3 quick wins</strong> already tied to <strong>AHT, FTR,</strong> and co-worker efficiency.</p>
+        </div>
+
+        <svg class="outcomes-lines" aria-hidden="true"></svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       13b — FEEDBACK
+  ============================================================ -->
+  <section id="s13b" class="section section--feedback">
+    <div class="section__inner section__inner--center">
+      <p class="section-label">Feedback</p>
+      <div class="feedback-quotes feedback-quotes--three">
+        <blockquote class="feedback-quote" style="border-left-color: #ffdb00;">
+          <p class="feedback-quote__text">"It was an <strong class="highlight-yellow">eye opener</strong> that the different teams did not speak as much as I thought they did. Now I understand why we have trouble with some systems and why information doesn't come to us."</p>
+          <footer class="feedback-quote__author">
+            <img class="feedback-quote__avatar" src="https://journeyteams.vercel.app/feedback/emelie.png" alt="Emelie Biel">
+            <span class="feedback-quote__name">Emelie Biel</span>
+            <span class="feedback-quote__role">RCMP Co-worker</span>
+          </footer>
+        </blockquote>
+        <blockquote class="feedback-quote" style="border-left-color: #3ee0a5;">
+          <p class="feedback-quote__text">"It was really good to feel that our <strong style="color: #3ee0a5;">feelings and voices can be heard</strong> from the right department. We even started our own survey to keep gathering feedback from our peers."</p>
+          <footer class="feedback-quote__author">
+            <img class="feedback-quote__avatar" src="https://journeyteams.vercel.app/feedback/trine.png" alt="Trine Rasmussen">
+            <span class="feedback-quote__name">Trine Rasmussen</span>
+            <span class="feedback-quote__role">RCMP Co-worker</span>
+          </footer>
+        </blockquote>
+        <blockquote class="feedback-quote" style="border-left-color: #5aaaff;">
+          <p class="feedback-quote__text">"Having people from different products at the same table helps you understand why something is not a priority for one team but is <strong style="color: #5aaaff;">critical for the business.</strong> You get the bigger picture and from there you can move forward much easier."</p>
+          <footer class="feedback-quote__author">
+            <img class="feedback-quote__avatar" src="https://journeyteams.vercel.app/feedback/Srboljub.png" alt="Srboljub Stojadinovic">
+            <span class="feedback-quote__name">Srboljub Stojadinovic</span>
+            <span class="feedback-quote__role">Senior Product Developer, Dialog</span>
+          </footer>
+        </blockquote>
+        <blockquote class="feedback-quote" style="border-left-color: #ff9f43;">
+          <p class="feedback-quote__text">"Many product teams chase quick wins because <strong style="color: #ff9f43;">cross-team collaboration is too hard</strong> in this setup. You took the role nobody else would take and made sure we could <strong style="color: #ff9f43;">focus on the right things, together.</strong> You kept driving the work forward, not just setting direction."</p>
+          <footer class="feedback-quote__author">
+            <img class="feedback-quote__avatar" src="https://journeyteams.vercel.app/feedback/jessica.png" alt="Jessica Bjermer">
+            <span class="feedback-quote__name">Jessica Bjermer</span>
+            <span class="feedback-quote__role">Senior Product UX Designer, C360 Admin</span>
+          </footer>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       13c — DXD LANDSCAPE RESEARCH
+  ============================================================ -->
+  <section id="s13c" class="section section--dxd">
+    <div class="section__inner section__inner--stack">
+      <div class="stack__header">
+        <p class="section-label">The Bigger Picture</p>
+        <h2 class="heading-xl"><strong class="highlight-yellow">Journey approaches in DXD.</strong> We are great at creating journeys.</h2>
+        <p class="dxd-subtitle">Research across Service Design, Product UX, Design Ops, and cross-team orchestration roles.</p>
+      </div>
+
+      <div class="dxd-tension">
+        <!-- Left: What is strong -->
+        <div class="dxd-tension__side">
+          <div class="dxd-tension__label dxd-tension__label--green">
+            <span class="dxd-tension__dot" style="background:#3ee0a5;"></span>
+            What is strong
+          </div>
+          <div class="dxd-tension__cards">
+            <div class="dxd-card dxd-card--green">
+              <strong>Making dependencies visible</strong>
+              <span>across teams</span>
+            </div>
+            <div class="dxd-card dxd-card--green">
+              <strong>Surfacing hidden friction</strong>
+              <span>in the experience</span>
+            </div>
+            <div class="dxd-card dxd-card--green">
+              <strong>Creating shared understanding</strong>
+              <span>between silos</span>
+            </div>
+            <div class="dxd-card dxd-card--green">
+              <strong>Supporting prioritisation</strong>
+              <span>and planning conversations</span>
+            </div>
+            <div class="dxd-card dxd-card--green">
+              <strong>Framing strategic initiatives</strong>
+              <span>with journey thinking</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Center divider -->
+        <div class="dxd-tension__divider">
+          <div class="dxd-tension__divider-line"></div>
+          <div class="dxd-tension__divider-badge">GAP</div>
+          <div class="dxd-tension__divider-line"></div>
+        </div>
+
+        <!-- Right: What is missing -->
+        <div class="dxd-tension__side">
+          <div class="dxd-tension__label dxd-tension__label--red">
+            <span class="dxd-tension__dot" style="background:#ff6b6b;"></span>
+            What is missing
+          </div>
+          <div class="dxd-tension__cards">
+            <div class="dxd-card dxd-card--red">
+              <strong>No stable journey ownership</strong>
+              <span>across products</span>
+            </div>
+            <div class="dxd-card dxd-card--red">
+              <strong>No cross-product prioritisation</strong>
+              <span>authority</span>
+            </div>
+            <div class="dxd-card dxd-card--red">
+              <strong>No unified KPI model</strong>
+              <span>at journey level</span>
+            </div>
+            <div class="dxd-card dxd-card--red">
+              <strong>No lifecycle governance</strong>
+              <span>or monitoring over time</span>
+            </div>
+            <div class="dxd-card dxd-card--red">
+              <strong>Influence depends on individuals</strong>
+              <span>not systems</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================
+       14 — THE BROADER IMPLICATION
+  ============================================================ -->
   <section id="s14" class="section section--implication">
     <div class="section__inner section__inner--center">
       <p class="section-label section-label--light">Journey-Centric Approach</p>
       <blockquote class="closing-quote">
-        "We didn't break the silos.<br>
+        "We didn’t break the silos.<br>
         But we were able to connect them with purpose and context."
       </blockquote>
       <p class="closing-attribution">That is the value of the Journey-Centric Approach.</p>
@@ -4712,26 +5409,47 @@ strong { font-weight: 700; }
   </section>
 
   <script is:inline>
+// ============================================================
+//  Journey Teams — Scroll presentation engine
+//  Pure CSS scroll-snap handles slide transitions.
+//  JS handles: progress bar, nav dots, entrance animations,
+//  constellation canvas, and smooth nav clicks.
+// ============================================================
+
 document.addEventListener('DOMContentLoaded', () => {
+  // --------------------------------------------------------
+  //  Progress bar
+  // --------------------------------------------------------
   const progressBar = document.getElementById('progressBar');
+
   function updateProgress() {
     const scrollTop = window.scrollY;
     const docHeight = document.documentElement.scrollHeight - window.innerHeight;
     const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
     progressBar.style.width = pct + '%';
   }
+
   window.addEventListener('scroll', updateProgress, { passive: true });
 
+  // --------------------------------------------------------
+  //  Nav dots — click scrolls smoothly to section
+  // --------------------------------------------------------
   const dots = document.querySelectorAll('.sidenav .dot');
+
   dots.forEach(dot => {
     dot.addEventListener('click', (e) => {
       e.preventDefault();
       const targetId = dot.getAttribute('href');
       const target = document.querySelector(targetId);
-      if (target) target.scrollIntoView({ behavior: 'smooth' });
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
     });
   });
 
+  // --------------------------------------------------------
+  //  Section visibility — entrance animations + active dot
+  // --------------------------------------------------------
   const allSections = document.querySelectorAll('section[id]');
   const totalSlides = allSections.length;
   const slideCounter = document.getElementById('slideCounter');
@@ -4740,7 +5458,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const sectionObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
+      // Entrance animation
       entry.target.classList.toggle('is-visible', entry.isIntersecting);
+
+      // Active dot + slide counter
       if (entry.isIntersecting) {
         const id = entry.target.getAttribute('id');
         dots.forEach(dot => {
@@ -4750,30 +5471,51 @@ document.addEventListener('DOMContentLoaded', () => {
         slideCounter.textContent = num + ' / ' + totalSlides;
       }
     });
-  }, { threshold: 0.5 });
+  }, {
+    threshold: 0.5
+  });
+
   allSections.forEach(s => sectionObserver.observe(s));
 
+
+  // --------------------------------------------------------
+  //  CONSTELLATION
+  // --------------------------------------------------------
   initConstellation();
   try { initChaseConstellation(); } catch(e) { console.warn('Chase constellation error:', e); }
   try { initTeamConstellation(); } catch(e) { console.warn('Team constellation error:', e); }
   try { initSharingConstellation(); } catch(e) { console.warn('Sharing constellation error:', e); }
+  try { initCommitmentConstellation(); } catch(e) { console.warn('Commitment constellation error:', e); }
+  try { initOutcomesConstellation(); } catch(e) { console.warn('Outcomes constellation error:', e); }
+  try { initOutcomesLines(); } catch(e) { console.warn('Outcomes lines error:', e); }
   try { initPainDots(); } catch(e) { console.warn('Pain dots error:', e); }
 });
 
+// ============================================================
+//  PAIN DOTS — 24 blinking red dots on the journey map
+// ============================================================
 function initPainDots() {
   const container = document.getElementById('painDots');
   if (!container) return;
+
+  // 34 pain points distributed across the 5 phases of the journey
   const dots = [
+    // Issue Exploration (0-20%)
     { x: 3, y: 55 }, { x: 7, y: 40 }, { x: 12, y: 65 }, { x: 16, y: 48 }, { x: 10, y: 75 },
     { x: 5, y: 32 }, { x: 14, y: 58 },
+    // Solution & Case Creation (20-45%)
     { x: 23, y: 42 }, { x: 28, y: 60 }, { x: 33, y: 50 }, { x: 37, y: 70 }, { x: 25, y: 78 },
     { x: 40, y: 45 }, { x: 31, y: 35 }, { x: 35, y: 62 }, { x: 42, y: 55 },
+    // Order & Deliveries (45-65%)
     { x: 48, y: 52 }, { x: 53, y: 40 }, { x: 58, y: 65 }, { x: 50, y: 72 }, { x: 55, y: 55 },
     { x: 46, y: 38 }, { x: 60, y: 48 },
+    // Ending Call (65-80%)
     { x: 68, y: 48 }, { x: 73, y: 60 }, { x: 70, y: 72 }, { x: 76, y: 42 },
     { x: 66, y: 58 }, { x: 78, y: 68 },
+    // After Call Work (80-100%)
     { x: 83, y: 50 }, { x: 88, y: 65 }, { x: 93, y: 45 }, { x: 86, y: 72 }, { x: 95, y: 55 },
   ];
+
   dots.forEach((dot, i) => {
     const el = document.createElement('div');
     el.className = 'pain-dot';
@@ -4785,11 +5527,15 @@ function initPainDots() {
   });
 }
 
+// ============================================================
+//  TEAM CONSTELLATION — Animated connections + neon pulses
+// ============================================================
 function initTeamConstellation() {
   const canvas = document.getElementById('teamCanvas');
   if (!canvas) return;
   const ctx = canvas.getContext('2d');
   let W, H;
+
   function resize() {
     const rect = canvas.parentElement.getBoundingClientRect();
     W = canvas.width = rect.width * devicePixelRatio;
@@ -4798,153 +5544,639 @@ function initTeamConstellation() {
     canvas.style.height = rect.height + 'px';
     ctx.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
   }
+
   resize();
   window.addEventListener('resize', resize);
+
+  // 4 team member positions (matching CSS: tl, tr, bl, br)
+  // These are approximate percentages matching the CSS layout
   const members = [
-    { x: 0.16, y: 0.22 }, { x: 0.84, y: 0.22 },
-    { x: 0.16, y: 0.78 }, { x: 0.84, y: 0.78 },
+    { x: 0.16, y: 0.22 }, // top-left — Pablo
+    { x: 0.84, y: 0.22 }, // top-right — Suwen
+    { x: 0.16, y: 0.78 }, // bottom-left — Amina
+    { x: 0.84, y: 0.78 }, // bottom-right — Balazs
   ];
+
   const center = { x: 0.5, y: 0.5 };
+
+  // Neon pulses
   const pulses = [];
   function spawnPulse() {
     const member = members[Math.floor(Math.random() * members.length)];
-    pulses.push({ member, t: 0, speed: 0.005 + Math.random() * 0.005, outward: Math.random() > 0.4, hue: 45 + Math.random() * 15 });
-  }
-  setInterval(spawnPulse, 400);
-  const particles = Array.from({ length: 30 }, () => ({
-    x: Math.random(), y: Math.random(), vx: (Math.random() - 0.5) * 0.0002, vy: (Math.random() - 0.5) * 0.0002,
-    size: 1 + Math.random() * 1.5, alpha: 0.1 + Math.random() * 0.15,
-  }));
-  function draw() {
-    const w = W / devicePixelRatio; const h = H / devicePixelRatio;
-    ctx.clearRect(0, 0, w, h);
-    const cx = center.x * w; const cy = center.y * h;
-    members.forEach(m => {
-      ctx.beginPath(); ctx.moveTo(cx, cy); ctx.lineTo(m.x * w, m.y * h);
-      ctx.strokeStyle = 'rgba(255,219,0,0.08)'; ctx.lineWidth = 1.5; ctx.stroke();
+    pulses.push({
+      member,
+      t: 0,
+      speed: 0.005 + Math.random() * 0.005,
+      outward: Math.random() > 0.4,
+      hue: 45 + Math.random() * 15, // warm yellow range
     });
+  }
+
+  setInterval(spawnPulse, 400);
+
+  // Ambient particles
+  const particles = Array.from({ length: 30 }, () => ({
+    x: Math.random(),
+    y: Math.random(),
+    vx: (Math.random() - 0.5) * 0.0002,
+    vy: (Math.random() - 0.5) * 0.0002,
+    size: 1.5 + Math.random() * 2,
+    alpha: 0.5 + Math.random() * 0.35,
+  }));
+
+  function draw() {
+    const w = W / devicePixelRatio;
+    const h = H / devicePixelRatio;
+    ctx.clearRect(0, 0, w, h);
+
+    const cx = center.x * w;
+    const cy = center.y * h;
+
+    // Draw connection lines from center to each member
+    members.forEach(m => {
+      const mx = m.x * w;
+      const my = m.y * h;
+
+      ctx.beginPath();
+      ctx.moveTo(cx, cy);
+      ctx.lineTo(mx, my);
+      ctx.strokeStyle = 'rgba(255,219,0,0.40)';
+      ctx.lineWidth = 1.5;
+      ctx.stroke();
+    });
+
+    // Cross connections between members
     for (let i = 0; i < members.length; i++) {
       for (let j = i + 1; j < members.length; j++) {
-        ctx.beginPath(); ctx.moveTo(members[i].x * w, members[i].y * h); ctx.lineTo(members[j].x * w, members[j].y * h);
-        ctx.strokeStyle = 'rgba(255,255,255,0.025)'; ctx.lineWidth = 0.8; ctx.stroke();
+        ctx.beginPath();
+        ctx.moveTo(members[i].x * w, members[i].y * h);
+        ctx.lineTo(members[j].x * w, members[j].y * h);
+        ctx.strokeStyle = 'rgba(255,255,255,0.125)';
+        ctx.lineWidth = 0.8;
+        ctx.stroke();
       }
     }
+
+    // Draw neon pulses
     for (let i = pulses.length - 1; i >= 0; i--) {
-      const p = pulses[i]; p.t += p.speed;
+      const p = pulses[i];
+      p.t += p.speed;
       if (p.t > 1) { pulses.splice(i, 1); continue; }
+
       const progress = p.outward ? p.t : 1 - p.t;
-      const mx = p.member.x * w; const my = p.member.y * h;
-      const px = cx + (mx - cx) * progress; const py = cy + (my - cy) * progress;
+      const mx = p.member.x * w;
+      const my = p.member.y * h;
+
+      const px = cx + (mx - cx) * progress;
+      const py = cy + (my - cy) * progress;
+
       const alpha = Math.sin(p.t * Math.PI) * 0.8;
+
+      // Outer glow
       const glow = ctx.createRadialGradient(px, py, 0, px, py, 20);
-      glow.addColorStop(0, `hsla(${p.hue}, 100%, 70%, ${alpha * 0.5})`);
-      glow.addColorStop(0.5, `hsla(${p.hue}, 100%, 60%, ${alpha * 0.15})`);
+      glow.addColorStop(0, `hsla(${p.hue}, 100%, 70%, ${alpha * 0.9})`);
+      glow.addColorStop(0.5, `hsla(${p.hue}, 100%, 60%, ${alpha * 0.35})`);
       glow.addColorStop(1, `hsla(${p.hue}, 100%, 50%, 0)`);
-      ctx.fillStyle = glow; ctx.beginPath(); ctx.arc(px, py, 20, 0, Math.PI * 2); ctx.fill();
-      ctx.beginPath(); ctx.arc(px, py, 3, 0, Math.PI * 2);
-      ctx.fillStyle = `hsla(${p.hue}, 100%, 85%, ${alpha})`; ctx.fill();
+      ctx.fillStyle = glow;
+      ctx.beginPath();
+      ctx.arc(px, py, 20, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Bright core
+      ctx.beginPath();
+      ctx.arc(px, py, 3, 0, Math.PI * 2);
+      ctx.fillStyle = `hsla(${p.hue}, 100%, 85%, ${alpha})`;
+      ctx.fill();
     }
+
+    // Ambient particles
     particles.forEach(p => {
-      p.x += p.vx; p.y += p.vy;
-      if (p.x < 0 || p.x > 1) p.vx *= -1; if (p.y < 0 || p.y > 1) p.vy *= -1;
-      ctx.beginPath(); ctx.arc(p.x * w, p.y * h, p.size, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(255,219,0,${p.alpha})`; ctx.fill();
+      p.x += p.vx;
+      p.y += p.vy;
+      if (p.x < 0 || p.x > 1) p.vx *= -1;
+      if (p.y < 0 || p.y > 1) p.vy *= -1;
+
+      ctx.beginPath();
+      ctx.arc(p.x * w, p.y * h, p.size, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(255,219,0,${p.alpha})`;
+      ctx.fill();
     });
+
     if (running) requestAnimationFrame(draw);
   }
+
+  // Only animate when visible
   const section = canvas.closest('.section');
   let running = false;
+
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
-      if (entry.isIntersecting && !running) { running = true; requestAnimationFrame(draw); }
+      if (entry.isIntersecting && !running) {
+        running = true;
+        requestAnimationFrame(draw);
+      } else if (!entry.isIntersecting) {
+        running = false;
+      }
+    });
+  }, { threshold: 0.2 });
+
+  observer.observe(section);
+}
+
+// ============================================================
+//  SHARING SESSIONS — Neon constellation with journey map center
+// ============================================================
+function initSharingConstellation() {
+  const canvas = document.getElementById('sharingCanvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  let W, H;
+
+  function resize() {
+    const rect = canvas.parentElement.getBoundingClientRect();
+    W = canvas.width = rect.width * devicePixelRatio;
+    H = canvas.height = rect.height * devicePixelRatio;
+    canvas.style.width = rect.width + 'px';
+    canvas.style.height = rect.height + 'px';
+    ctx.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
+  }
+
+  resize();
+  window.addEventListener('resize', resize);
+
+  // Product team nodes around the Journey Map center
+  const teams = [
+    { label: 'Dialog', angle: 0.3 },
+    { label: 'C360A', angle: 0.85 },
+    { label: 'PIR', angle: 1.4 },
+    { label: 'SAMS', angle: 1.95 },
+    { label: 'CASE', angle: 2.5 },
+    { label: 'VETA', angle: 3.05 },
+    { label: 'MOSAIK', angle: 3.6 },
+    { label: 'Retail', angle: 4.15 },
+    { label: 'Group RCMP', angle: 4.7 },
+    { label: 'Co-workers', angle: 5.25 },
+  ];
+
+  // Neon pulses traveling along connections
+  const pulses = [];
+  function spawnPulse() {
+    const team = teams[Math.floor(Math.random() * teams.length)];
+    pulses.push({
+      team: team,
+      t: 0, // 0 = center, 1 = team node
+      speed: 0.004 + Math.random() * 0.006,
+      outward: Math.random() > 0.3, // mostly outward from map
+      hue: Math.random() > 0.5 ? 55 : 160, // yellow or green-cyan
+    });
+  }
+
+  // Spawn pulses regularly
+  setInterval(spawnPulse, 300);
+
+  function draw() {
+    const w = W / devicePixelRatio;
+    const h = H / devicePixelRatio;
+    ctx.clearRect(0, 0, w, h);
+
+    // Center of the constellation — right side
+    const cx = w * 0.72;
+    const cy = h * 0.5;
+    const radius = Math.min(w * 0.22, h * 0.36);
+
+    // Center node — "Journey Map"
+    const centerGlow = ctx.createRadialGradient(cx, cy, 0, cx, cy, 100);
+    centerGlow.addColorStop(0, 'rgba(255,219,0,0.18)');
+    centerGlow.addColorStop(0.5, 'rgba(255,219,0,0.05)');
+    centerGlow.addColorStop(1, 'transparent');
+    ctx.fillStyle = centerGlow;
+    ctx.beginPath();
+    ctx.arc(cx, cy, 100, 0, Math.PI * 2);
+    ctx.fill();
+
+    ctx.beginPath();
+    ctx.arc(cx, cy, 28, 0, Math.PI * 2);
+    ctx.fillStyle = 'rgba(255,219,0,0.7)';
+    ctx.fill();
+
+    ctx.font = '800 20px Inter, system-ui, sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillStyle = 'rgba(255,219,0,0.9)';
+    ctx.fillText('Journey Map', cx, cy + 48);
+
+    // Draw connections from center to team nodes
+    teams.forEach(team => {
+      const tx = cx + Math.cos(team.angle) * radius;
+      const ty = cy + Math.sin(team.angle) * radius;
+
+      ctx.beginPath();
+      ctx.moveTo(cx, cy);
+      ctx.lineTo(tx, ty);
+      ctx.strokeStyle = 'rgba(255,219,0,0.06)';
+      ctx.lineWidth = 1;
+      ctx.stroke();
+    });
+
+    // Draw team nodes
+    teams.forEach(team => {
+      const tx = cx + Math.cos(team.angle) * radius;
+      const ty = cy + Math.sin(team.angle) * radius;
+
+      // Node glow
+      const nodeGlow = ctx.createRadialGradient(tx, ty, 0, tx, ty, 28);
+      nodeGlow.addColorStop(0, 'rgba(255,255,255,0.1)');
+      nodeGlow.addColorStop(1, 'rgba(255,255,255,0)');
+      ctx.fillStyle = nodeGlow;
+      ctx.beginPath();
+      ctx.arc(tx, ty, 28, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Node circle
+      ctx.beginPath();
+      ctx.arc(tx, ty, 12, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(255,255,255,0.15)';
+      ctx.fill();
+      ctx.strokeStyle = 'rgba(255,219,0,0.2)';
+      ctx.lineWidth = 1;
+      ctx.stroke();
+
+      // Label
+      ctx.fillStyle = 'rgba(255,255,255,0.6)';
+      ctx.font = '700 15px Inter, system-ui, sans-serif';
+      ctx.textAlign = Math.cos(team.angle) > 0 ? 'left' : 'right';
+      const labelX = tx + (Math.cos(team.angle) > 0 ? 20 : -20);
+      ctx.fillText(team.label, labelX, ty + 4);
+    });
+
+    // Draw neon pulses
+    for (let i = pulses.length - 1; i >= 0; i--) {
+      const p = pulses[i];
+      p.t += p.speed;
+      if (p.t > 1) { pulses.splice(i, 1); continue; }
+
+      const progress = p.outward ? p.t : 1 - p.t;
+      const tx = cx + Math.cos(p.team.angle) * radius;
+      const ty = cy + Math.sin(p.team.angle) * radius;
+
+      const px = cx + (tx - cx) * progress;
+      const py = cy + (ty - cy) * progress;
+
+      // Neon glow
+      const alpha = Math.sin(p.t * Math.PI) * 0.9; // fade in/out
+      const glowGradient = ctx.createRadialGradient(px, py, 0, px, py, 18);
+      const hue = p.hue;
+      glowGradient.addColorStop(0, `hsla(${hue}, 100%, 70%, ${alpha * 0.6})`);
+      glowGradient.addColorStop(0.5, `hsla(${hue}, 100%, 60%, ${alpha * 0.2})`);
+      glowGradient.addColorStop(1, `hsla(${hue}, 100%, 50%, 0)`);
+      ctx.fillStyle = glowGradient;
+      ctx.beginPath();
+      ctx.arc(px, py, 18, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Bright core
+      ctx.beginPath();
+      ctx.arc(px, py, 3, 0, Math.PI * 2);
+      ctx.fillStyle = `hsla(${hue}, 100%, 85%, ${alpha})`;
+      ctx.fill();
+    }
+
+    requestAnimationFrame(draw);
+  }
+
+  // Only animate when section is visible
+  const section = canvas.closest('.section');
+  let running = false;
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !running) {
+        running = true;
+        requestAnimationFrame(draw);
+      } else if (!entry.isIntersecting) {
+        running = false;
+      }
+    });
+  }, { threshold: 0.2 });
+
+  observer.observe(section);
+}
+
+// ============================================================
+//  SLIDE 2 — Chase constellation: balls chase "Shared Understanding"
+// ============================================================
+// ============================================================
+//  BUILDING COMMITMENT — Blurred background constellation
+// ============================================================
+function initCommitmentConstellation() {
+  const canvas = document.getElementById('commitmentCanvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  const section = canvas.closest('section');
+  let W, H, running = false;
+
+  const nodes = [
+    { x: 0.2, y: 0.3 }, { x: 0.35, y: 0.15 }, { x: 0.5, y: 0.4 },
+    { x: 0.65, y: 0.2 }, { x: 0.8, y: 0.35 }, { x: 0.75, y: 0.7 },
+    { x: 0.3, y: 0.75 }, { x: 0.55, y: 0.65 }, { x: 0.15, y: 0.55 },
+    { x: 0.85, y: 0.55 }, { x: 0.45, y: 0.85 }, { x: 0.7, y: 0.85 },
+  ];
+
+  const particles = Array.from({ length: 20 }, () => ({
+    x: Math.random(), y: Math.random(),
+    vx: (Math.random() - 0.5) * 0.0003,
+    vy: (Math.random() - 0.5) * 0.0003,
+    size: 1.5 + Math.random() * 2,
+    alpha: 0.15 + Math.random() * 0.2,
+  }));
+
+  function resize() {
+    const rect = section.getBoundingClientRect();
+    W = rect.width; H = rect.height;
+    canvas.width = W * devicePixelRatio;
+    canvas.height = H * devicePixelRatio;
+    canvas.style.width = W + 'px';
+    canvas.style.height = H + 'px';
+    ctx.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
+  }
+
+  resize();
+  window.addEventListener('resize', resize);
+
+  function draw() {
+    if (!running) return;
+    ctx.clearRect(0, 0, W, H);
+
+    // Connections
+    for (let i = 0; i < nodes.length; i++) {
+      for (let j = i + 1; j < nodes.length; j++) {
+        const dx = (nodes[i].x - nodes[j].x) * W;
+        const dy = (nodes[i].y - nodes[j].y) * H;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < 300) {
+          ctx.beginPath();
+          ctx.moveTo(nodes[i].x * W, nodes[i].y * H);
+          ctx.lineTo(nodes[j].x * W, nodes[j].y * H);
+          ctx.strokeStyle = `rgba(255, 219, 0, ${0.2 * (1 - dist / 300)})`;
+          ctx.lineWidth = 1;
+          ctx.stroke();
+        }
+      }
+    }
+
+    // Nodes
+    nodes.forEach(n => {
+      ctx.beginPath();
+      ctx.arc(n.x * W, n.y * H, 4, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(255, 219, 0, 0.5)';
+      ctx.fill();
+    });
+
+    // Floating particles
+    particles.forEach(p => {
+      p.x += p.vx; p.y += p.vy;
+      if (p.x < 0 || p.x > 1) p.vx *= -1;
+      if (p.y < 0 || p.y > 1) p.vy *= -1;
+      ctx.beginPath();
+      ctx.arc(p.x * W, p.y * H, p.size, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(255, 219, 0, ${p.alpha})`;
+      ctx.fill();
+    });
+
+    requestAnimationFrame(draw);
+  }
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !running) { running = true; resize(); requestAnimationFrame(draw); }
       else if (!entry.isIntersecting) { running = false; }
     });
   }, { threshold: 0.2 });
   observer.observe(section);
 }
 
-function initSharingConstellation() {
-  const canvas = document.getElementById('sharingCanvas');
+// ============================================================
+//  OUTCOMES — Constellation with "Journey-Centric Approach" center
+// ============================================================
+function initOutcomesConstellation() {
+  const canvas = document.getElementById('outcomesCanvas');
   if (!canvas) return;
   const ctx = canvas.getContext('2d');
-  let W, H;
+  const section = canvas.closest('section');
+  let W, H, running = false;
+
+  const outcomes = [
+    { label: 'Self-Service', angle: 0.4 },
+    { label: 'Case Management', angle: 1.2 },
+    { label: 'Co-worker Research', angle: 2.0 },
+    { label: 'Quick Wins', angle: 2.8 },
+    { label: '75+ Opportunities', angle: 3.6 },
+    { label: 'Hantera', angle: 4.4 },
+    { label: 'MS Dynamics', angle: 5.2 },
+    { label: 'AHT Reduction', angle: 6.0 },
+  ];
+
+  const particles = Array.from({ length: 25 }, () => ({
+    x: Math.random(), y: Math.random(),
+    vx: (Math.random() - 0.5) * 0.0003,
+    vy: (Math.random() - 0.5) * 0.0003,
+    size: 1.5 + Math.random() * 2,
+    alpha: 0.15 + Math.random() * 0.2,
+  }));
+
   function resize() {
-    const rect = canvas.parentElement.getBoundingClientRect();
-    W = canvas.width = rect.width * devicePixelRatio;
-    H = canvas.height = rect.height * devicePixelRatio;
-    canvas.style.width = rect.width + 'px';
-    canvas.style.height = rect.height + 'px';
+    const rect = section.getBoundingClientRect();
+    W = rect.width; H = rect.height;
+    canvas.width = W * devicePixelRatio;
+    canvas.height = H * devicePixelRatio;
+    canvas.style.width = W + 'px';
+    canvas.style.height = H + 'px';
     ctx.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
   }
-  resize(); window.addEventListener('resize', resize);
-  const teams = [
-    { label: 'Dialog', angle: 0.3 }, { label: 'C360A', angle: 0.85 },
-    { label: 'PIR', angle: 1.4 }, { label: 'SAMS', angle: 1.95 },
-    { label: 'CASE', angle: 2.5 }, { label: 'VETA', angle: 3.05 },
-    { label: 'MOSAIK', angle: 3.6 }, { label: 'Retail', angle: 4.15 },
-    { label: 'Group RCMP', angle: 4.7 }, { label: 'Co-workers', angle: 5.25 },
-  ];
-  const pulses = [];
-  function spawnPulse() {
-    const team = teams[Math.floor(Math.random() * teams.length)];
-    pulses.push({ team, t: 0, speed: 0.004 + Math.random() * 0.006, outward: Math.random() > 0.3, hue: Math.random() > 0.5 ? 55 : 160 });
-  }
-  setInterval(spawnPulse, 300);
+
+  resize();
+  window.addEventListener('resize', resize);
+
+  let pulse = 0;
+
   function draw() {
-    const w = W / devicePixelRatio; const h = H / devicePixelRatio;
-    ctx.clearRect(0, 0, w, h);
-    const cx = w * 0.72; const cy = h * 0.5;
-    const radius = Math.min(w * 0.22, h * 0.36);
-    const centerGlow = ctx.createRadialGradient(cx, cy, 0, cx, cy, 100);
-    centerGlow.addColorStop(0, 'rgba(255,219,0,0.18)'); centerGlow.addColorStop(0.5, 'rgba(255,219,0,0.05)'); centerGlow.addColorStop(1, 'transparent');
-    ctx.fillStyle = centerGlow; ctx.beginPath(); ctx.arc(cx, cy, 100, 0, Math.PI * 2); ctx.fill();
-    ctx.beginPath(); ctx.arc(cx, cy, 28, 0, Math.PI * 2); ctx.fillStyle = 'rgba(255,219,0,0.7)'; ctx.fill();
-    ctx.font = '800 20px Inter, system-ui, sans-serif'; ctx.textAlign = 'center';
-    ctx.fillStyle = 'rgba(255,219,0,0.9)'; ctx.fillText('Journey Map', cx, cy + 48);
-    teams.forEach(team => {
-      const tx = cx + Math.cos(team.angle) * radius; const ty = cy + Math.sin(team.angle) * radius;
-      ctx.beginPath(); ctx.moveTo(cx, cy); ctx.lineTo(tx, ty);
-      ctx.strokeStyle = 'rgba(255,219,0,0.06)'; ctx.lineWidth = 1; ctx.stroke();
+    if (!running) return;
+    ctx.clearRect(0, 0, W, H);
+    pulse += 0.015;
+
+    const cx = W * 0.5;
+    const cy = H * 0.5;
+    const radius = Math.min(W * 0.28, H * 0.38);
+
+    // Center glow
+    const cGlow = ctx.createRadialGradient(cx, cy, 0, cx, cy, 90);
+    cGlow.addColorStop(0, 'rgba(255, 219, 0, 0.2)');
+    cGlow.addColorStop(0.5, 'rgba(255, 219, 0, 0.05)');
+    cGlow.addColorStop(1, 'transparent');
+    ctx.fillStyle = cGlow;
+    ctx.beginPath();
+    ctx.arc(cx, cy, 90, 0, Math.PI * 2);
+    ctx.fill();
+
+    // Center dot
+    ctx.beginPath();
+    ctx.arc(cx, cy, 24 + Math.sin(pulse) * 2, 0, Math.PI * 2);
+    ctx.fillStyle = 'rgba(255, 219, 0, 0.7)';
+    ctx.fill();
+
+    // Center label
+    ctx.font = '700 14px Inter, system-ui, sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillStyle = 'rgba(255, 219, 0, 0.9)';
+    ctx.fillText('Journey-Centric', cx, cy + 44);
+    ctx.fillText('Approach', cx, cy + 60);
+
+    // Connections and nodes
+    outcomes.forEach((o, i) => {
+      const a = o.angle + pulse * 0.05;
+      const tx = cx + Math.cos(a) * radius;
+      const ty = cy + Math.sin(a) * radius;
+
+      // Connection line
+      ctx.beginPath();
+      ctx.moveTo(cx, cy);
+      ctx.lineTo(tx, ty);
+      ctx.strokeStyle = 'rgba(255, 219, 0, 0.08)';
+      ctx.lineWidth = 1;
+      ctx.stroke();
+
+      // Node ring
+      ctx.beginPath();
+      ctx.arc(tx, ty, 10, 0, Math.PI * 2);
+      ctx.strokeStyle = 'rgba(255, 255, 255, 0.25)';
+      ctx.lineWidth = 1.5;
+      ctx.stroke();
+
+      // Label
+      ctx.font = '600 11px Inter, system-ui, sans-serif';
+      ctx.textAlign = Math.cos(a) > 0 ? 'left' : 'right';
+      ctx.fillStyle = 'rgba(255, 255, 255, 0.5)';
+      const lx = tx + (Math.cos(a) > 0 ? 16 : -16);
+      ctx.fillText(o.label, lx, ty + 4);
     });
-    teams.forEach(team => {
-      const tx = cx + Math.cos(team.angle) * radius; const ty = cy + Math.sin(team.angle) * radius;
-      const nodeGlow = ctx.createRadialGradient(tx, ty, 0, tx, ty, 28);
-      nodeGlow.addColorStop(0, 'rgba(255,255,255,0.1)'); nodeGlow.addColorStop(1, 'rgba(255,255,255,0)');
-      ctx.fillStyle = nodeGlow; ctx.beginPath(); ctx.arc(tx, ty, 28, 0, Math.PI * 2); ctx.fill();
-      ctx.beginPath(); ctx.arc(tx, ty, 12, 0, Math.PI * 2);
-      ctx.fillStyle = 'rgba(255,255,255,0.15)'; ctx.fill();
-      ctx.strokeStyle = 'rgba(255,219,0,0.2)'; ctx.lineWidth = 1; ctx.stroke();
-      ctx.fillStyle = 'rgba(255,255,255,0.6)'; ctx.font = '700 15px Inter, system-ui, sans-serif';
-      ctx.textAlign = Math.cos(team.angle) > 0 ? 'left' : 'right';
-      const labelX = tx + (Math.cos(team.angle) > 0 ? 20 : -20);
-      ctx.fillText(team.label, labelX, ty + 4);
+
+    // Floating particles
+    particles.forEach(p => {
+      p.x += p.vx; p.y += p.vy;
+      if (p.x < 0 || p.x > 1) p.vx *= -1;
+      if (p.y < 0 || p.y > 1) p.vy *= -1;
+      ctx.beginPath();
+      ctx.arc(p.x * W, p.y * H, p.size, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(255, 219, 0, ${p.alpha})`;
+      ctx.fill();
     });
-    for (let i = pulses.length - 1; i >= 0; i--) {
-      const p = pulses[i]; p.t += p.speed;
-      if (p.t > 1) { pulses.splice(i, 1); continue; }
-      const progress = p.outward ? p.t : 1 - p.t;
-      const tx = cx + Math.cos(p.team.angle) * radius; const ty = cy + Math.sin(p.team.angle) * radius;
-      const px = cx + (tx - cx) * progress; const py = cy + (ty - cy) * progress;
-      const alpha = Math.sin(p.t * Math.PI) * 0.9;
-      const glowGradient = ctx.createRadialGradient(px, py, 0, px, py, 18);
-      glowGradient.addColorStop(0, `hsla(${p.hue}, 100%, 70%, ${alpha * 0.6})`);
-      glowGradient.addColorStop(0.5, `hsla(${p.hue}, 100%, 60%, ${alpha * 0.2})`);
-      glowGradient.addColorStop(1, `hsla(${p.hue}, 100%, 50%, 0)`);
-      ctx.fillStyle = glowGradient; ctx.beginPath(); ctx.arc(px, py, 18, 0, Math.PI * 2); ctx.fill();
-      ctx.beginPath(); ctx.arc(px, py, 3, 0, Math.PI * 2);
-      ctx.fillStyle = `hsla(${p.hue}, 100%, 85%, ${alpha})`; ctx.fill();
-    }
+
     requestAnimationFrame(draw);
   }
-  const section = canvas.closest('.section');
-  let running = false;
+
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
-      if (entry.isIntersecting && !running) { running = true; requestAnimationFrame(draw); }
+      if (entry.isIntersecting && !running) { running = true; resize(); requestAnimationFrame(draw); }
       else if (!entry.isIntersecting) { running = false; }
     });
   }, { threshold: 0.2 });
   observer.observe(section);
+}
+
+// ============================================================
+//  OUTCOMES — Neon pulse lines from center to cards
+// ============================================================
+function initOutcomesLines() {
+  const svg = document.querySelector('.outcomes-lines');
+  if (!svg) return;
+  const container = svg.closest('.outcomes-node-system');
+  const center = container.querySelector('.outcomes-center');
+  const cards = container.querySelectorAll('.outcome-card');
+  const colors = ['#ffdb00', '#5aaaff', '#3ee0a5', '#ff9f43'];
+  let running = false;
+  let lines = [];
+
+  function getPositions() {
+    const cr = container.getBoundingClientRect();
+    const cc = center.getBoundingClientRect();
+    const cx = cc.left + cc.width / 2 - cr.left;
+    const cy = cc.top + cc.height / 2 - cr.top;
+    lines = [];
+    cards.forEach((card, i) => {
+      const r = card.getBoundingClientRect();
+      const tx = i % 2 === 0 ? r.right - cr.left : r.left - cr.left;
+      const ty = r.top + r.height / 2 - cr.top;
+      lines.push({ cx, cy, tx, ty, color: colors[i % colors.length] });
+    });
+    svg.setAttribute('viewBox', `0 0 ${cr.width} ${cr.height}`);
+  }
+
+  // Pulses traveling outward
+  const pulses = [];
+  function spawnPulse() {
+    if (lines.length === 0) return;
+    const idx = Math.floor(Math.random() * lines.length);
+    pulses.push({ idx, t: 0, speed: 0.008 + Math.random() * 0.006 });
+  }
+
+  function draw() {
+    if (!running) return;
+    svg.innerHTML = '';
+
+    // Static lines
+    lines.forEach((l, i) => {
+      const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+      line.setAttribute('x1', l.cx); line.setAttribute('y1', l.cy);
+      line.setAttribute('x2', l.tx); line.setAttribute('y2', l.ty);
+      line.setAttribute('stroke', l.color);
+      line.setAttribute('stroke-opacity', '0.12');
+      line.setAttribute('stroke-width', '1.5');
+      svg.appendChild(line);
+    });
+
+    // Neon pulses
+    for (let i = pulses.length - 1; i >= 0; i--) {
+      const p = pulses[i];
+      p.t += p.speed;
+      if (p.t > 1) { pulses.splice(i, 1); continue; }
+      const l = lines[p.idx];
+      const px = l.cx + (l.tx - l.cx) * p.t;
+      const py = l.cy + (l.ty - l.cy) * p.t;
+      const alpha = Math.sin(p.t * Math.PI);
+
+      // Glow
+      const glow = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+      glow.setAttribute('cx', px); glow.setAttribute('cy', py);
+      glow.setAttribute('r', '12');
+      glow.setAttribute('fill', l.color);
+      glow.setAttribute('fill-opacity', String(alpha * 0.25));
+      svg.appendChild(glow);
+
+      // Core
+      const core = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+      core.setAttribute('cx', px); core.setAttribute('cy', py);
+      core.setAttribute('r', '3');
+      core.setAttribute('fill', l.color);
+      core.setAttribute('fill-opacity', String(alpha * 0.9));
+      svg.appendChild(core);
+    }
+
+    requestAnimationFrame(draw);
+  }
+
+  getPositions();
+  window.addEventListener('resize', getPositions);
+
+  const pulseInterval = setInterval(spawnPulse, 350);
+
+  new IntersectionObserver(entries => {
+    if (entries[0].isIntersecting && !running) {
+      running = true;
+      getPositions();
+      requestAnimationFrame(draw);
+    } else if (!entries[0].isIntersecting) {
+      running = false;
+    }
+  }, { threshold: 0.2 }).observe(container);
 }
 
 function initChaseConstellation() {
@@ -4953,153 +6185,350 @@ function initChaseConstellation() {
   const ctx = canvas.getContext('2d');
   const section = canvas.closest('section');
   let W, H, running = false;
-  const teamNames = ['Dialog', 'C360 Admin', 'PIR', 'SAMS', 'Case Management', 'VETA', 'Mosaik', 'Retail', 'RCMP Co-workers'];
+
+  const teamNames = [
+    'Dialog', 'C360 Admin', 'PIR', 'SAMS',
+    'Case Management', 'VETA', 'Mosaik',
+    'Retail', 'RCMP Co-workers'
+  ];
+
+  // The fleeing center
   let target = { x: 0, y: 0, vx: 1.5, vy: 0.8 };
-  const chasers = teamNames.map((name) => ({
-    label: name, x: 0, y: 0, vx: 0, vy: 0, speed: 0.6 + Math.random() * 0.8, size: 38 + Math.random() * 14,
+
+  // Chasing balls
+  const chasers = teamNames.map((name, i) => ({
+    label: name,
+    x: 0, y: 0,
+    vx: 0, vy: 0,
+    speed: 0.6 + Math.random() * 0.8,
+    size: 38 + Math.random() * 14,
   }));
+
   function resize() {
     const rect = section.getBoundingClientRect();
-    W = rect.width; H = rect.height;
-    canvas.width = W * devicePixelRatio; canvas.height = H * devicePixelRatio;
-    canvas.style.width = W + 'px'; canvas.style.height = H + 'px';
+    W = rect.width;
+    H = rect.height;
+    canvas.width = W * devicePixelRatio;
+    canvas.height = H * devicePixelRatio;
+    canvas.style.width = W + 'px';
+    canvas.style.height = H + 'px';
     ctx.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
-    target.x = W * 0.65; target.y = H * 0.45;
+
+    // Place target at right-center
+    target.x = W * 0.65;
+    target.y = H * 0.45;
+
+    // Scatter chasers around
     chasers.forEach((c, i) => {
       const angle = (i / chasers.length) * Math.PI * 2;
       const dist = 300 + Math.random() * 200;
-      c.x = target.x + Math.cos(angle) * dist; c.y = target.y + Math.sin(angle) * dist;
+      c.x = target.x + Math.cos(angle) * dist;
+      c.y = target.y + Math.sin(angle) * dist;
     });
   }
+
   function draw() {
     if (!running) return;
     ctx.clearRect(0, 0, W, H);
+
+    // === TARGET (Shared Understanding) MOVEMENT ===
+    // Flee from nearest chasers
     let fleeX = 0, fleeY = 0;
     chasers.forEach(c => {
-      const dx = target.x - c.x; const dy = target.y - c.y;
+      const dx = target.x - c.x;
+      const dy = target.y - c.y;
       const dist = Math.sqrt(dx * dx + dy * dy) || 1;
       const force = 3000 / (dist * dist);
-      fleeX += (dx / dist) * force; fleeY += (dy / dist) * force;
+      fleeX += (dx / dist) * force;
+      fleeY += (dy / dist) * force;
     });
+
+    // Add some wandering
     target.vx += fleeX * 0.15 + Math.sin(Date.now() * 0.001) * 0.3;
     target.vy += fleeY * 0.15 + Math.cos(Date.now() * 0.0013) * 0.3;
-    target.vx *= 0.96; target.vy *= 0.96;
+
+    // Damping
+    target.vx *= 0.96;
+    target.vy *= 0.96;
+
+    // Speed limit
     const speed = Math.sqrt(target.vx * target.vx + target.vy * target.vy);
-    if (speed > 4) { target.vx = (target.vx / speed) * 4; target.vy = (target.vy / speed) * 4; }
-    target.x += target.vx; target.y += target.vy;
+    if (speed > 4) {
+      target.vx = (target.vx / speed) * 4;
+      target.vy = (target.vy / speed) * 4;
+    }
+
+    target.x += target.vx;
+    target.y += target.vy;
+
+    // Bounce off walls with padding
     const pad = 80;
-    if (target.x < pad) { target.x = pad; target.vx = Math.abs(target.vx); }
+    if (target.x < W * 0.5) { target.x = W * 0.5; target.vx = Math.abs(target.vx); }
     if (target.x > W - pad) { target.x = W - pad; target.vx = -Math.abs(target.vx); }
     if (target.y < pad) { target.y = pad; target.vy = Math.abs(target.vy); }
     if (target.y > H - pad) { target.y = H - pad; target.vy = -Math.abs(target.vy); }
+
+    // === CHASERS MOVEMENT ===
     chasers.forEach((c, i) => {
-      const dx = target.x - c.x; const dy = target.y - c.y;
+      // Chase the target
+      const dx = target.x - c.x;
+      const dy = target.y - c.y;
       const dist = Math.sqrt(dx * dx + dy * dy) || 1;
-      c.vx += (dx / dist) * c.speed * 0.12; c.vy += (dy / dist) * c.speed * 0.12;
+
+      c.vx += (dx / dist) * c.speed * 0.12;
+      c.vy += (dy / dist) * c.speed * 0.12;
+
+      // Repel from other chasers (don't clump)
       chasers.forEach((other, j) => {
         if (i === j) return;
-        const odx = c.x - other.x; const ody = c.y - other.y;
+        const odx = c.x - other.x;
+        const ody = c.y - other.y;
         const odist = Math.sqrt(odx * odx + ody * ody) || 1;
-        if (odist < 140) { c.vx += (odx / odist) * 1.2; c.vy += (ody / odist) * 1.2; }
+        if (odist < 140) {
+          c.vx += (odx / odist) * 1.2;
+          c.vy += (ody / odist) * 1.2;
+        }
       });
-      c.vx *= 0.95; c.vy *= 0.95; c.x += c.vx; c.y += c.vy;
+
+      c.vx *= 0.95;
+      c.vy *= 0.95;
+      c.x += c.vx;
+      c.y += c.vy;
+
+      // Keep balls on the right half of the screen
+      const leftWall = W * 0.5;
+      if (c.x < leftWall) {
+        c.x = leftWall;
+        c.vx = Math.abs(c.vx);
+      }
+      if (c.x > W - pad) { c.x = W - pad; c.vx = -Math.abs(c.vx); }
+      if (c.y < pad) { c.y = pad; c.vy = Math.abs(c.vy); }
+      if (c.y > H - pad) { c.y = H - pad; c.vy = -Math.abs(c.vy); }
     });
-    chasers.forEach(c => {
-      ctx.beginPath(); ctx.arc(c.x, c.y, c.size, 0, Math.PI * 2);
-      ctx.fillStyle = 'rgba(100, 140, 190, 0.5)'; ctx.fill();
-      const glow = ctx.createRadialGradient(c.x, c.y, c.size * 0.3, c.x, c.y, c.size * 2);
-      glow.addColorStop(0, 'rgba(100, 140, 190, 0.12)'); glow.addColorStop(1, 'transparent');
-      ctx.fillStyle = glow; ctx.beginPath(); ctx.arc(c.x, c.y, c.size * 2, 0, Math.PI * 2); ctx.fill();
-      ctx.font = '600 11px Inter, system-ui, sans-serif'; ctx.textAlign = 'center';
-      const textW = ctx.measureText(c.label).width;
-      const chipX = c.x - textW / 2 - 6; const chipY = c.y + c.size + 4;
-      ctx.fillStyle = 'rgba(15, 22, 35, 0.75)'; ctx.beginPath(); ctx.roundRect(chipX, chipY, textW + 12, 20, 5); ctx.fill();
-      ctx.fillStyle = 'rgba(255, 255, 255, 0.5)'; ctx.fillText(c.label, c.x, chipY + 14);
+
+    // === DRAW CHASERS ===
+    const ballColors = [
+      '0, 88, 163',    // IKEA blue
+      '17, 135, 56',   // green
+      '232, 119, 34',  // orange
+      '204, 0, 78',    // pink
+      '255, 219, 0',   // IKEA yellow
+      '0, 124, 176',   // teal
+      '196, 49, 42',   // red
+      '186, 148, 98',  // beige
+      '100, 100, 100', // grey
+    ];
+    chasers.forEach((c, ci) => {
+      const r = c.size;
+      const col = ballColors[ci % ballColors.length];
+
+      // Transparent ring with unique color
+      ctx.beginPath();
+      ctx.arc(c.x, c.y, r, 0, Math.PI * 2);
+      ctx.strokeStyle = `rgba(${col}, 0.4)`;
+      ctx.lineWidth = 2;
+      ctx.stroke();
+
+      // Label inside the ball (wrap if needed)
+      ctx.font = '600 11px Inter, system-ui, sans-serif';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillStyle = 'rgba(255, 255, 255, 0.55)';
+      const words = c.label.split(' ');
+      const maxW = r * 1.6;
+      const lines = [];
+      let line = '';
+      words.forEach(w => {
+        const test = line ? line + ' ' + w : w;
+        if (ctx.measureText(test).width > maxW && line) {
+          lines.push(line);
+          line = w;
+        } else {
+          line = test;
+        }
+      });
+      if (line) lines.push(line);
+      const lh = 14;
+      const startY = c.y - ((lines.length - 1) * lh) / 2;
+      lines.forEach((l, li) => {
+        ctx.fillText(l, c.x, startY + li * lh);
+      });
     });
+
+    // === DRAW TARGET (Shared Understanding) ===
+    // Big glow
     const glowR = 60 + Math.sin(Date.now() * 0.002) * 10;
     const tGlow = ctx.createRadialGradient(target.x, target.y, 0, target.x, target.y, glowR);
-    tGlow.addColorStop(0, 'rgba(255, 219, 0, 0.25)'); tGlow.addColorStop(0.5, 'rgba(255, 219, 0, 0.06)'); tGlow.addColorStop(1, 'transparent');
-    ctx.fillStyle = tGlow; ctx.beginPath(); ctx.arc(target.x, target.y, glowR, 0, Math.PI * 2); ctx.fill();
+    tGlow.addColorStop(0, 'rgba(255, 219, 0, 0.25)');
+    tGlow.addColorStop(0.5, 'rgba(255, 219, 0, 0.06)');
+    tGlow.addColorStop(1, 'transparent');
+    ctx.fillStyle = tGlow;
+    ctx.beginPath();
+    ctx.arc(target.x, target.y, glowR, 0, Math.PI * 2);
+    ctx.fill();
+
+    // Dot
     const dotR = 20 + Math.sin(Date.now() * 0.003) * 3;
-    ctx.beginPath(); ctx.arc(target.x, target.y, dotR, 0, Math.PI * 2);
-    ctx.fillStyle = 'rgba(255, 219, 0, 0.9)'; ctx.fill();
-    ctx.font = '800 20px Inter, system-ui, sans-serif'; ctx.textAlign = 'center';
-    ctx.fillStyle = 'rgba(255, 219, 0, 0.8)'; ctx.fillText('Shared Understanding', target.x, target.y + dotR + 28);
+    ctx.beginPath();
+    ctx.arc(target.x, target.y, dotR, 0, Math.PI * 2);
+    ctx.fillStyle = 'rgba(255, 219, 0, 0.9)';
+    ctx.fill();
+
+    // Label
+    ctx.font = '800 20px Inter, system-ui, sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillStyle = 'rgba(255, 219, 0, 0.8)';
+    ctx.fillText('Shared Understanding', target.x, target.y + dotR + 28);
+
     requestAnimationFrame(draw);
   }
-  canvas.style.opacity = '0'; canvas.style.transition = 'opacity 0.8s ease';
+
+  // Fade in/out
+  let opacity = 0;
+  canvas.style.opacity = '0';
+  canvas.style.transition = 'opacity 0.8s ease';
+
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
-      if (entry.isIntersecting && !running) { running = true; resize(); canvas.style.opacity = '1'; requestAnimationFrame(draw); }
-      else if (!entry.isIntersecting) { running = false; canvas.style.opacity = '0'; }
+      if (entry.isIntersecting && !running) {
+        running = true;
+        resize();
+        canvas.style.opacity = '1';
+        requestAnimationFrame(draw);
+      } else if (!entry.isIntersecting) {
+        running = false;
+        canvas.style.opacity = '0';
+      }
     });
   }, { threshold: 0.3 });
+
   observer.observe(section);
   window.addEventListener('resize', resize);
 }
+
+// ============================================================
+//  CONSTELLATION — rebuilt clean
+// ============================================================
 
 function initConstellation() {
   const canvas = document.getElementById('constellationCanvas');
   if (!canvas) return;
   const ctx = canvas.getContext('2d');
   let W, H;
+
+  // Node definitions — teams in the RCMP constellation
   const nodes = [
-    { id: 'journey', label: 'Journey Teams', x: 0.72, y: 0.48, type: 'center' },
-    { id: 'product', label: 'Product Owners', x: 0.62, y: 0.22 },
-    { id: 'ux', label: 'UX Designers', x: 0.78, y: 0.16 },
-    { id: 'special', label: 'Product Specialists', x: 0.88, y: 0.28 },
-    { id: 'data', label: 'Data Analysts', x: 0.92, y: 0.48 },
-    { id: 'rcmp', label: 'RCMP Co-workers', x: 0.88, y: 0.68 },
-    { id: 'dev', label: 'Developers', x: 0.78, y: 0.80 },
-    { id: 'eng', label: 'Engineering', x: 0.64, y: 0.78 },
-    { id: 'analytics', label: 'Data Analytics', x: 0.54, y: 0.66 },
-    { id: 'retail', label: 'Retail', x: 0.52, y: 0.48 },
+    { id: 'journey',  label: 'Journey Teams',       x: 0.72, y: 0.48, type: 'center' },
+    { id: 'product',  label: 'Product Owners',       x: 0.62, y: 0.22 },
+    { id: 'ux',       label: 'UX Designers',         x: 0.78, y: 0.16 },
+    { id: 'special',  label: 'Product Specialists',  x: 0.88, y: 0.28 },
+    { id: 'data',     label: 'Data Analysts',        x: 0.92, y: 0.48 },
+    { id: 'rcmp',     label: 'RCMP Co-workers',      x: 0.88, y: 0.68 },
+    { id: 'dev',      label: 'Developers',           x: 0.78, y: 0.80 },
+    { id: 'eng',      label: 'Engineering',          x: 0.64, y: 0.78 },
+    { id: 'analytics',label: 'Data Analytics',        x: 0.54, y: 0.66 },
+    { id: 'retail',   label: 'Retail',                x: 0.52, y: 0.48 },
   ];
+
+  // Scattered positions for slide 2 (broken apart)
   const scattered = {
-    journey: { x: 0.74, y: 0.50 }, product: { x: 0.52, y: 0.14 }, ux: { x: 0.82, y: 0.08 },
-    special: { x: 0.95, y: 0.22 }, data: { x: 0.94, y: 0.58 }, rcmp: { x: 0.88, y: 0.85 },
-    dev: { x: 0.68, y: 0.90 }, eng: { x: 0.48, y: 0.82 }, analytics: { x: 0.38, y: 0.62 }, retail: { x: 0.40, y: 0.38 },
+    journey:  { x: 0.74, y: 0.50 },
+    product:  { x: 0.52, y: 0.14 },
+    ux:       { x: 0.82, y: 0.08 },
+    special:  { x: 0.95, y: 0.22 },
+    data:     { x: 0.94, y: 0.58 },
+    rcmp:     { x: 0.88, y: 0.85 },
+    dev:      { x: 0.68, y: 0.90 },
+    eng:      { x: 0.48, y: 0.82 },
+    analytics:{ x: 0.38, y: 0.62 },
+    retail:   { x: 0.40, y: 0.38 },
   };
-  const reconvergedCenterX = 0.75, reconvergedCenterY = 0.5, reconvergedRadius = 0.18;
+
+  // Reconverged positions for slide 3 — hub-and-spoke circle, aligned right (0.75, 0.5)
+  const reconvergedCenterX = 0.75;
+  const reconvergedCenterY = 0.5;
+  const reconvergedRadius = 0.18;
   const reconverged = {};
   const outerNodes = nodes.filter(n => n.type !== 'center');
   outerNodes.forEach((n, i) => {
     const angle = (i / outerNodes.length) * Math.PI * 2 - Math.PI / 2;
-    reconverged[n.id] = { x: reconvergedCenterX + Math.cos(angle) * reconvergedRadius, y: reconvergedCenterY + Math.sin(angle) * reconvergedRadius };
+    reconverged[n.id] = {
+      x: reconvergedCenterX + Math.cos(angle) * reconvergedRadius,
+      y: reconvergedCenterY + Math.sin(angle) * reconvergedRadius
+    };
   });
   reconverged.journey = { x: reconvergedCenterX, y: reconvergedCenterY };
+
+  // Edges — connections between nodes
   const edges = [];
-  for (let i = 1; i < nodes.length; i++) edges.push([0, i]);
-  edges.push([1,2], [2,3], [3,4], [4,5], [5,6], [6,7], [7,8], [8,9], [9,1]);
-  let morphT = 0, targetMorphT = 0, canvasOpacity = 1, targetOpacity = 1, pulse = 0;
-  let ghostX = 0, ghostY = 0, ghostVx = 0, ghostVy = 0;
-  function resize() {
-    W = window.innerWidth; H = window.innerHeight;
-    canvas.width = W * devicePixelRatio; canvas.height = H * devicePixelRatio;
-    ctx.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
-    ghostX = 0.72 * W; ghostY = 0.48 * H;
+  const center = nodes[0];
+  for (let i = 1; i < nodes.length; i++) {
+    edges.push([0, i]); // center to each node
   }
+  // Some cross connections
+  edges.push([1,2], [2,3], [3,4], [4,5], [5,6], [6,7], [7,8], [8,9], [9,1]);
+
+  // State
+  let morphT = 0;       // 0 = connected (s01), 1 = scattered (s02)
+  let targetMorphT = 0;
+  let canvasOpacity = 1;
+  let targetOpacity = 1;
+  let pulse = 0;
+
+  // Center dot escape physics
+  let ghostX = 0, ghostY = 0; // actual position of fleeing center
+  let ghostVx = 0, ghostVy = 0;
+
+  function resize() {
+    W = window.innerWidth;
+    H = window.innerHeight;
+    canvas.width = W * devicePixelRatio;
+    canvas.height = H * devicePixelRatio;
+    ctx.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
+    ghostX = 0.72 * W;
+    ghostY = 0.48 * H;
+  }
+
   function lerp(a, b, t) { return a + (b - a) * t; }
-  let slide3Active = 0, targetSlide3 = 0;
+
   function getPos(node, t) {
     const s = scattered[node.id] || { x: node.x, y: node.y };
     const scatteredX = lerp(node.x * W, s.x * W, t);
     const scatteredY = lerp(node.y * H, s.y * H, t);
+
+    // If slide 3 is active, lerp toward reconverged hub-and-spoke positions
     if (slide3Active > 0.01 && node.type !== 'center') {
       const rc = reconverged[node.id];
-      if (rc) return { x: lerp(scatteredX, rc.x * W, slide3Active), y: lerp(scatteredY, rc.y * H, slide3Active) };
+      if (rc) {
+        return {
+          x: lerp(scatteredX, rc.x * W, slide3Active),
+          y: lerp(scatteredY, rc.y * H, slide3Active)
+        };
+      }
     }
+
     return { x: scatteredX, y: scatteredY };
   }
+
+  let slide3Active = 0;
+  let targetBlur = 0;
+  let blurActive = 0;
+  let targetSlide3 = 0;
+
   function updateTargets() {
     const s01 = document.getElementById('s01');
+    const s02 = document.getElementById('s02');
     const s02b = document.getElementById('s02b');
     const s03 = document.getElementById('s03');
     const s03b = document.getElementById('s03b');
     if (!s01) return;
+
+    // How much s01 has scrolled off screen
     const r1 = s01.getBoundingClientRect();
     const gone = Math.max(0, -r1.top) / H;
     targetMorphT = Math.max(0, Math.min(1, gone));
+
+    // Detect reconverged constellation visibility across s02b, s03, s03b
     let reconvergedVis = 0;
     [s02b, s03, s03b].forEach(el => {
       if (!el) return;
@@ -5108,121 +6537,298 @@ function initConstellation() {
       reconvergedVis = Math.max(reconvergedVis, vis);
     });
     targetSlide3 = Math.max(0, Math.min(1, (reconvergedVis - 0.1) / 0.5));
-    if (targetSlide3 > 0.05) targetOpacity = targetSlide3;
-    else targetOpacity = Math.max(0, 1 - gone * 2.5);
+
+    // Detect s03/s03b only (for blur)
+    let strategyVis = 0;
+    [s03, s03b].forEach(el => {
+      if (!el) return;
+      const r = el.getBoundingClientRect();
+      const vis = Math.max(0, Math.min(H, r.bottom) - Math.max(0, r.top)) / H;
+      strategyVis = Math.max(strategyVis, vis);
+    });
+    targetBlur = Math.max(0, Math.min(1, (strategyVis - 0.1) / 0.5));
+
+    // Constellation visible on slide 1, fades during slide 2, comes back on slides 3+
+    if (targetSlide3 > 0.05) {
+      targetOpacity = targetSlide3;
+    } else {
+      targetOpacity = Math.max(0, 1 - gone * 2.5);
+    }
   }
+
   function draw() {
     morphT = lerp(morphT, targetMorphT, 0.12);
     slide3Active = lerp(slide3Active, targetSlide3, 0.1);
     canvasOpacity = lerp(canvasOpacity, targetOpacity, targetSlide3 > 0.05 ? 0.15 : 0.08);
     canvas.style.opacity = canvasOpacity;
+    // Blur the constellation only on strategic anchor slides (s03, s03b), not s02b
+    blurActive = lerp(blurActive, targetBlur, 0.1);
+    const blurAmount = blurActive * 6;
+    canvas.style.filter = blurAmount > 0.1 ? `blur(${blurAmount}px)` : 'none';
     pulse += 0.015;
+
     ctx.clearRect(0, 0, W, H);
+
     const positions = nodes.map(n => getPos(n, morphT));
+
+    // === SLIDE 2 PHYSICS: balls CHASE the center dot, center ESCAPES ===
+    // Suppress chase physics when slide 3 is taking over
     if (morphT > 0.3 && slide3Active < 0.3) {
       const chaseStrength = Math.min(1, (morphT - 0.3) / 0.3) * (1 - slide3Active * 3.33);
+
+      // Balls chase: move each outer node toward the ghost center
       for (let i = 1; i < nodes.length; i++) {
         const s = scattered[nodes[i].id];
-        const baseX = s.x * W; const baseY = s.y * H;
-        const dx = ghostX - baseX; const dy = ghostY - baseY;
+        const baseX = s.x * W;
+        const baseY = s.y * H;
+        const dx = ghostX - baseX;
+        const dy = ghostY - baseY;
         const dist = Math.sqrt(dx * dx + dy * dy) || 1;
+        // Move toward ghost but don't reach it
         const chase = Math.min(dist * 0.3, 80) * chaseStrength;
-        positions[i].x = baseX + (dx / dist) * chase; positions[i].y = baseY + (dy / dist) * chase;
+        positions[i].x = baseX + (dx / dist) * chase;
+        positions[i].y = baseY + (dy / dist) * chase;
       }
+
+      // Center escapes: repelled by all balls
       let repX = 0, repY = 0;
       for (let i = 1; i < positions.length; i++) {
-        const dx = ghostX - positions[i].x; const dy = ghostY - positions[i].y;
+        const dx = ghostX - positions[i].x;
+        const dy = ghostY - positions[i].y;
         const dist = Math.sqrt(dx * dx + dy * dy) || 1;
         const force = 2000 / (dist * dist);
-        repX += (dx / dist) * force; repY += (dy / dist) * force;
+        repX += (dx / dist) * force;
+        repY += (dy / dist) * force;
       }
-      repX += (0.72 * W - ghostX) * 0.008; repY += (0.48 * H - ghostY) * 0.008;
-      ghostVx = (ghostVx + repX * chaseStrength) * 0.94; ghostVy = (ghostVy + repY * chaseStrength) * 0.94;
-      ghostX += ghostVx; ghostY += ghostVy;
+
+      // Gentle pull back to center area so it doesn't fly off screen
+      const homeX = 0.72 * W;
+      const homeY = 0.48 * H;
+      repX += (homeX - ghostX) * 0.008;
+      repY += (homeY - ghostY) * 0.008;
+
+      ghostVx = (ghostVx + repX * chaseStrength) * 0.94;
+      ghostVy = (ghostVy + repY * chaseStrength) * 0.94;
+      ghostX += ghostVx;
+      ghostY += ghostVy;
+
+      // Keep in bounds
       ghostX = Math.max(W * 0.35, Math.min(W * 0.95, ghostX));
       ghostY = Math.max(H * 0.1, Math.min(H * 0.9, ghostY));
     } else if (slide3Active >= 0.3) {
-      ghostX = lerp(ghostX, reconvergedCenterX * W, 0.08); ghostY = lerp(ghostY, reconvergedCenterY * H, 0.08);
-      ghostVx *= 0.85; ghostVy *= 0.85;
+      // Slide 3: smoothly pull ghost center to true center of screen
+      ghostX = lerp(ghostX, reconvergedCenterX * W, 0.08);
+      ghostY = lerp(ghostY, reconvergedCenterY * H, 0.08);
+      ghostVx *= 0.85;
+      ghostVy *= 0.85;
     } else {
-      ghostX = lerp(ghostX, positions[0].x, 0.1); ghostY = lerp(ghostY, positions[0].y, 0.1);
-      ghostVx *= 0.9; ghostVy *= 0.9;
+      // On slide 1, center stays at its position
+      ghostX = lerp(ghostX, positions[0].x, 0.1);
+      ghostY = lerp(ghostY, positions[0].y, 0.1);
+      ghostVx *= 0.9;
+      ghostVy *= 0.9;
     }
+
+    // === DRAW EDGES (fade out as we morph) ===
     edges.forEach(([a, b]) => {
       const pa = a === 0 ? { x: ghostX, y: ghostY } : positions[a];
       const pb = b === 0 ? { x: ghostX, y: ghostY } : positions[b];
       const isToCenter = a === 0 || b === 0;
-      const alpha = isToCenter ? 0.15 * (1 - morphT * 0.85) : 0.04 * (1 - morphT * 0.9);
+      const alpha = isToCenter
+        ? 0.15 * (1 - morphT * 0.85)
+        : 0.04 * (1 - morphT * 0.9);
+
       if (alpha < 0.005) return;
-      ctx.beginPath(); ctx.moveTo(pa.x, pa.y); ctx.lineTo(pb.x, pb.y);
-      ctx.strokeStyle = isToCenter ? `rgba(255, 219, 0, ${alpha})` : `rgba(255, 255, 255, ${alpha})`;
-      ctx.lineWidth = isToCenter ? 1.5 : 0.8; ctx.stroke();
+      ctx.beginPath();
+      ctx.moveTo(pa.x, pa.y);
+      ctx.lineTo(pb.x, pb.y);
+      ctx.strokeStyle = isToCenter
+        ? `rgba(255, 219, 0, ${alpha})`
+        : `rgba(255, 255, 255, ${alpha})`;
+      ctx.lineWidth = isToCenter ? 1.5 : 0.8;
+      ctx.stroke();
+
+      // Neon pulse on center edges (slide 1 only)
       if (isToCenter && morphT < 0.5) {
         const t = (Math.sin(pulse * 2 + a + b) * 0.5 + 0.5);
-        const px = lerp(pa.x, pb.x, t); const py = lerp(pa.y, pb.y, t);
+        const px = lerp(pa.x, pb.x, t);
+        const py = lerp(pa.y, pb.y, t);
         const glow = ctx.createRadialGradient(px, py, 0, px, py, 12);
-        glow.addColorStop(0, `rgba(255, 219, 0, ${0.4 * (1 - morphT * 2)})`); glow.addColorStop(1, 'transparent');
-        ctx.fillStyle = glow; ctx.beginPath(); ctx.arc(px, py, 12, 0, Math.PI * 2); ctx.fill();
+        glow.addColorStop(0, `rgba(255, 219, 0, ${0.4 * (1 - morphT * 2)})`);
+        glow.addColorStop(1, 'transparent');
+        ctx.fillStyle = glow;
+        ctx.beginPath();
+        ctx.arc(px, py, 12, 0, Math.PI * 2);
+        ctx.fill();
       }
     });
+
+    // === SLIDE 3: SPOKE LINES + INFO PARTICLES ===
     if (slide3Active > 0.05) {
       for (let i = 1; i < nodes.length; i++) {
         const p = positions[i];
-        ctx.beginPath(); ctx.moveTo(ghostX, ghostY); ctx.lineTo(p.x, p.y);
-        ctx.strokeStyle = `rgba(255, 219, 0, ${0.25 * slide3Active})`; ctx.lineWidth = 1.5; ctx.stroke();
+        // Spoke line from center to each outer node
+        const spokeAlpha = 0.25 * slide3Active;
+        ctx.beginPath();
+        ctx.moveTo(ghostX, ghostY);
+        ctx.lineTo(p.x, p.y);
+        ctx.strokeStyle = `rgba(255, 219, 0, ${spokeAlpha})`;
+        ctx.lineWidth = 1.5;
+        ctx.stroke();
+
+        // Info particles — 2 per spoke, traveling back and forth
         for (let pi = 0; pi < 2; pi++) {
+          // Each particle has its own phase offset
+          const speed = 0.6;
           const offset = pi * 0.5 + i * 0.35;
-          const raw = ((pulse * 0.6 + offset) % 2); const t = raw > 1 ? 2 - raw : raw;
-          const px = lerp(ghostX, p.x, t); const py = lerp(ghostY, p.y, t);
+          // Ping-pong: particle travels 0->1->0 along the line
+          const raw = ((pulse * speed + offset) % 2);
+          const t = raw > 1 ? 2 - raw : raw;
+          const px = lerp(ghostX, p.x, t);
+          const py = lerp(ghostY, p.y, t);
           const particleAlpha = slide3Active * (0.6 + 0.4 * Math.sin(pulse * 3 + offset));
+
+          // Glowing particle
           const pGlow = ctx.createRadialGradient(px, py, 0, px, py, 8);
           pGlow.addColorStop(0, `rgba(255, 219, 0, ${0.7 * particleAlpha})`);
           pGlow.addColorStop(0.5, `rgba(255, 219, 0, ${0.2 * particleAlpha})`);
           pGlow.addColorStop(1, 'transparent');
-          ctx.fillStyle = pGlow; ctx.beginPath(); ctx.arc(px, py, 8, 0, Math.PI * 2); ctx.fill();
-          ctx.beginPath(); ctx.arc(px, py, 3, 0, Math.PI * 2);
-          ctx.fillStyle = `rgba(255, 219, 0, ${particleAlpha})`; ctx.fill();
+          ctx.fillStyle = pGlow;
+          ctx.beginPath();
+          ctx.arc(px, py, 8, 0, Math.PI * 2);
+          ctx.fill();
+
+          // Solid core
+          ctx.beginPath();
+          ctx.arc(px, py, 3, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(255, 219, 0, ${particleAlpha})`;
+          ctx.fill();
         }
       }
     }
+
+    // === DRAW OUTER NODES ===
     nodes.forEach((node, i) => {
       if (node.type === 'center') return;
+
       const p = positions[i];
-      const ballSize = lerp(4, 18, morphT);
+      // Morph from small dot + label chip → big ball (no text)
+      const ballSize = lerp(4, 18, morphT); // grows into a ball
+      const labelFade = 1; // labels always visible
       const ballAlpha = lerp(0.35, 0.6, morphT);
-      ctx.beginPath(); ctx.arc(p.x, p.y, ballSize + Math.sin(pulse + i) * 1.5, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(120, 160, 200, ${ballAlpha})`; ctx.fill();
-      const glow = ctx.createRadialGradient(p.x, p.y, ballSize * 0.5, p.x, p.y, ballSize * 2.5);
-      glow.addColorStop(0, `rgba(120, 160, 200, ${0.15 * ballAlpha})`); glow.addColorStop(1, 'transparent');
-      ctx.fillStyle = glow; ctx.beginPath(); ctx.arc(p.x, p.y, ballSize * 2.5, 0, Math.PI * 2); ctx.fill();
-      ctx.font = '600 11px Inter, system-ui, sans-serif'; ctx.textAlign = 'center';
-      const text = node.label; const textW = ctx.measureText(text).width;
-      const chipX = p.x - textW / 2 - 8; const chipY = p.y + ballSize + 6;
-      ctx.fillStyle = `rgba(20, 30, 45, 0.7)`; ctx.beginPath(); ctx.roundRect(chipX, chipY, textW + 16, 22, 6); ctx.fill();
-      ctx.strokeStyle = `rgba(255, 255, 255, 0.1)`; ctx.lineWidth = 0.5;
-      ctx.beginPath(); ctx.roundRect(chipX, chipY, textW + 16, 22, 6); ctx.stroke();
-      ctx.fillStyle = `rgba(255, 255, 255, 0.5)`; ctx.fillText(text, p.x, chipY + 15);
+
+      // Ball — same style as slide 2: thin colored ring + label inside
+      const r = ballSize + Math.sin(pulse + i) * 1.5;
+      const nodeColors = [
+        '0, 88, 163',    // blue
+        '17, 135, 56',   // green
+        '232, 119, 34',  // orange
+        '204, 0, 78',    // pink
+        '255, 219, 0',   // yellow
+        '0, 124, 176',   // teal
+        '196, 49, 42',   // red
+        '186, 148, 98',  // beige
+        '100, 100, 100', // grey
+      ];
+      const col = nodeColors[(i - 1) % nodeColors.length];
+
+      // Thin ring
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, r, 0, Math.PI * 2);
+      ctx.strokeStyle = `rgba(${col}, ${0.4 * ballAlpha})`;
+      ctx.lineWidth = 2;
+      ctx.stroke();
+
+      // Label inside the ball (wrap if needed)
+      if (labelFade > 0.01) {
+        ctx.font = '600 11px Inter, system-ui, sans-serif';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillStyle = `rgba(255, 255, 255, ${0.55 * labelFade})`;
+        const text = node.label;
+        const words = text.split(' ');
+        const maxW = r * 1.6;
+        const wrapLines = [];
+        let wLine = '';
+        words.forEach(w => {
+          const test = wLine ? wLine + ' ' + w : w;
+          if (ctx.measureText(test).width > maxW && wLine) {
+            wrapLines.push(wLine);
+            wLine = w;
+          } else {
+            wLine = test;
+          }
+        });
+        if (wLine) wrapLines.push(wLine);
+        const lh = 14;
+        const startY = p.y - ((wrapLines.length - 1) * lh) / 2;
+        wrapLines.forEach((l, li) => {
+          ctx.fillText(l, p.x, startY + li * lh);
+        });
+        // Reset textBaseline for other drawing
+        ctx.textBaseline = 'alphabetic';
+      }
     });
-    const glowR = lerp(70, 100, slide3Active) + Math.sin(pulse) * 15;
+
+    // === DRAW CENTER DOT (the escaping one) ===
+    const centerAlpha = 0.9;
+
+    // Center glow — intensifies on slide 3
+    const baseGlowR = lerp(70, 100, slide3Active);
+    const glowR = baseGlowR + Math.sin(pulse) * 15;
     const glow = ctx.createRadialGradient(ghostX, ghostY, 0, ghostX, ghostY, glowR);
-    glow.addColorStop(0, `rgba(255, 219, 0, ${0.2 * 0.9})`); glow.addColorStop(0.5, `rgba(255, 219, 0, ${0.05 * 0.9})`); glow.addColorStop(1, 'transparent');
-    ctx.fillStyle = glow; ctx.beginPath(); ctx.arc(ghostX, ghostY, glowR, 0, Math.PI * 2); ctx.fill();
-    const dotR = lerp(8, 14, slide3Active) + Math.sin(pulse) * 2;
-    ctx.beginPath(); ctx.arc(ghostX, ghostY, dotR, 0, Math.PI * 2);
-    ctx.fillStyle = `rgba(255, 219, 0, 0.9)`; ctx.fill();
+    glow.addColorStop(0, `rgba(255, 219, 0, ${0.2 * centerAlpha})`);
+    glow.addColorStop(0.5, `rgba(255, 219, 0, ${0.05 * centerAlpha})`);
+    glow.addColorStop(1, 'transparent');
+    ctx.fillStyle = glow;
+    ctx.beginPath();
+    ctx.arc(ghostX, ghostY, glowR, 0, Math.PI * 2);
+    ctx.fill();
+
+    // Center dot — grows larger on slide 3
+    const baseDotR = lerp(8, 14, slide3Active);
+    const dotR = baseDotR + Math.sin(pulse) * 2;
+    ctx.beginPath();
+    ctx.arc(ghostX, ghostY, dotR, 0, Math.PI * 2);
+    ctx.fillStyle = `rgba(255, 219, 0, ${centerAlpha})`;
+    ctx.fill();
+
+    // Center label — morphs: "Journey Teams" → "Shared Understanding" → "Journey Centric Approach"
     const label1Alpha = Math.max(0, 1 - morphT * 2);
     const label2Alpha = Math.max(0, Math.min(1, (morphT - 0.3) / 0.3)) * (1 - slide3Active);
     const label3Alpha = slide3Active;
+
     ctx.textAlign = 'center';
-    if (label1Alpha > 0.01) { ctx.font = '800 13px Inter, system-ui, sans-serif'; ctx.fillStyle = `rgba(255, 219, 0, ${label1Alpha * 0.9})`; ctx.fillText('Journey Teams', ghostX, ghostY + dotR + 20); }
-    if (label2Alpha > 0.01) { ctx.font = '800 22px Inter, system-ui, sans-serif'; ctx.fillStyle = `rgba(255, 219, 0, ${label2Alpha * 0.7})`; ctx.fillText('Shared Understanding', ghostX, ghostY + dotR + 22); }
-    if (label3Alpha > 0.01) { ctx.font = '800 22px Inter, system-ui, sans-serif'; ctx.fillStyle = `rgba(255, 219, 0, ${label3Alpha * 0.9})`; ctx.fillText('Journey Centric Approach', ghostX, ghostY + dotR + 22); }
+    if (label1Alpha > 0.01) {
+      ctx.font = '800 13px Inter, system-ui, sans-serif';
+      ctx.fillStyle = `rgba(255, 219, 0, ${label1Alpha * 0.9})`;
+      ctx.fillText('Journey Teams', ghostX, ghostY + dotR + 20);
+    }
+    if (label2Alpha > 0.01) {
+      ctx.font = '800 22px Inter, system-ui, sans-serif';
+      ctx.fillStyle = `rgba(255, 219, 0, ${label2Alpha * 0.7})`;
+      ctx.fillText('Shared Understanding', ghostX, ghostY + dotR + 22);
+    }
+    if (label3Alpha > 0.01) {
+      ctx.font = '800 22px Inter, system-ui, sans-serif';
+      ctx.fillStyle = `rgba(255, 219, 0, ${label3Alpha * 0.9})`;
+      ctx.fillText('Journey Centric Approach', ghostX, ghostY + dotR + 22);
+    }
+
     requestAnimationFrame(loop);
   }
-  function loop() { updateTargets(); draw(); }
-  window.addEventListener('resize', resize, { passive: true });
-  resize(); requestAnimationFrame(loop);
+
+  function loop() {
+    updateTargets();
+    draw();
+  }
+
+  window.addEventListener('resize', () => { resize(); }, { passive: true });
+
+  resize();
+  requestAnimationFrame(loop);
 }
+
   </script>
 </body>
 </html>
