@@ -41,7 +41,7 @@ const randomStyles = ['brutalist', 'neon', 'vaporwave', 'paper', 'ocean']
           aria-expanded="false"
           aria-controls="a11yPanel"
         >
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <circle cx="12" cy="4.5" r="2.5"/>
             <path d="m4.5 9 3-1h9l3 1"/>
             <path d="m7.5 8 1 8.5 3.5 4"/>
@@ -51,7 +51,7 @@ const randomStyles = ['brutalist', 'neon', 'vaporwave', 'paper', 'ocean']
         <button
           type="button"
           class="style-toggle danger-btn"
-          id="dangerBtn"
+          data-action="danger"
           aria-label="Do not press"
         >
           <span>Do not Press!</span>
@@ -59,7 +59,7 @@ const randomStyles = ['brutalist', 'neon', 'vaporwave', 'paper', 'ocean']
         <button
           type="button"
           class="style-toggle reset-btn"
-          id="resetBtn"
+          data-action="reset"
           aria-label="Reset style"
           style="display:none"
         >
@@ -77,9 +77,55 @@ const randomStyles = ['brutalist', 'neon', 'vaporwave', 'paper', 'ocean']
             ))
           }
         </div>
+        <button
+          type="button"
+          class="menu-btn"
+          id="menuBtn"
+          aria-label="Open menu"
+          aria-expanded="false"
+          aria-controls="mobileMenu"
+        >
+          <span class="menu-btn-bar"></span>
+          <span class="menu-btn-bar"></span>
+          <span class="menu-btn-bar"></span>
+        </button>
       </div>
     </div>
   </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Navigation menu" aria-hidden="true">
+    <div class="mobile-menu-inner">
+      <ul class="mobile-nav-links">
+        <li><a href="#about">{t.nav.about}</a></li>
+        <li><a href="#ai-mindset">{t.nav.aiMindset}</a></li>
+        <li><a href="#experience">{t.nav.experience}</a></li>
+        <li><a href="#skills">{t.nav.skills}</a></li>
+        <li><a href="#writing">{t.nav.writing}</a></li>
+        <li><a href="#contact">{t.nav.contact}</a></li>
+      </ul>
+      <hr class="mobile-menu-divider" />
+      <div class="mobile-menu-extras">
+        <button type="button" class="mobile-menu-btn" data-action="danger">
+          <span>Do not Press!</span>
+        </button>
+        <button type="button" class="mobile-menu-btn mobile-menu-btn--reset" data-action="reset" style="display:none">
+          <span>Reset</span>
+        </button>
+      </div>
+      <hr class="mobile-menu-divider" />
+      <button type="button" class="mobile-menu-btn" id="mobileA11yBtn">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="4.5" r="2.5"/>
+          <path d="m4.5 9 3-1h9l3 1"/>
+          <path d="m7.5 8 1 8.5 3.5 4"/>
+          <path d="m16.5 8-1 8.5-3.5 4"/>
+        </svg>
+        <span>Accessibility settings</span>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-menu-backdrop" id="mobileMenuBackdrop" aria-hidden="true"></div>
 
   <!-- ACCESSIBILITY SETTINGS -->
   <div
@@ -549,39 +595,122 @@ const randomStyles = ['brutalist', 'neon', 'vaporwave', 'paper', 'ocean']
 
   <script is:inline>
     (() => {
+      // ── STYLE RANDOMISER (supports multiple button instances) ──
       const root = document.documentElement
-      const dangerBtn = document.getElementById('dangerBtn')
-      const resetBtn = document.getElementById('resetBtn')
       const storageKey = 'pablo-site-style'
       const styles = ['brutalist', 'neon', 'vaporwave', 'paper', 'ocean', 'barbie', 'hacker', 'sunset', 'retro', 'inverted', 'ikea', 'win95', 'spotify', 'netflix', 'terminal']
-
-      if (!dangerBtn || !resetBtn) return
+      const dangerBtns = document.querySelectorAll('[data-action="danger"]')
+      const resetBtns = document.querySelectorAll('[data-action="reset"]')
 
       function setStyle(name) {
         root.removeAttribute('data-style')
         if (name && name !== 'default') {
           root.setAttribute('data-style', name)
-          resetBtn.style.display = ''
-          dangerBtn.querySelector('span').textContent = 'Again!'
+          resetBtns.forEach(b => b.style.display = '')
+          dangerBtns.forEach(b => { const s = b.querySelector('span'); if (s) s.textContent = 'Again!' })
         } else {
-          resetBtn.style.display = 'none'
-          dangerBtn.querySelector('span').textContent = 'Do not Press!'
+          resetBtns.forEach(b => b.style.display = 'none')
+          dangerBtns.forEach(b => { const s = b.querySelector('span'); if (s) s.textContent = 'Do not Press!' })
         }
         localStorage.setItem(storageKey, name || 'default')
       }
 
-      // Restore on load
       const saved = localStorage.getItem(storageKey)
       if (saved && saved !== 'default') setStyle(saved)
 
-      dangerBtn.addEventListener('click', () => {
+      dangerBtns.forEach(btn => btn.addEventListener('click', () => {
         const current = root.getAttribute('data-style') || ''
         const available = styles.filter(s => s !== current)
-        const pick = available[Math.floor(Math.random() * available.length)]
-        setStyle(pick)
+        setStyle(available[Math.floor(Math.random() * available.length)])
+      }))
+      resetBtns.forEach(btn => btn.addEventListener('click', () => setStyle('default')))
+
+      // ── MOBILE MENU ──
+      const menuBtn = document.getElementById('menuBtn')
+      const mobileMenu = document.getElementById('mobileMenu')
+      const menuBackdrop = document.getElementById('mobileMenuBackdrop')
+      const mobileA11yBtn = document.getElementById('mobileA11yBtn')
+      if (!menuBtn || !mobileMenu) return
+
+      const mobileLinks = mobileMenu.querySelectorAll('.mobile-nav-links a')
+      const focusableEls = mobileMenu.querySelectorAll('a, button:not([style*="display:none"])')
+
+      function openMenu() {
+        mobileMenu.classList.add('is-open')
+        mobileMenu.setAttribute('aria-hidden', 'false')
+        menuBackdrop.classList.add('is-open')
+        menuBtn.setAttribute('aria-expanded', 'true')
+        document.body.style.overflow = 'hidden'
+        if (mobileLinks[0]) mobileLinks[0].focus()
+      }
+
+      function closeMenu() {
+        mobileMenu.classList.remove('is-open')
+        mobileMenu.setAttribute('aria-hidden', 'true')
+        menuBackdrop.classList.remove('is-open')
+        menuBtn.setAttribute('aria-expanded', 'false')
+        document.body.style.overflow = ''
+        menuBtn.focus()
+      }
+
+      menuBtn.addEventListener('click', () => {
+        mobileMenu.classList.contains('is-open') ? closeMenu() : openMenu()
+      })
+      menuBackdrop.addEventListener('click', closeMenu)
+
+      // Close on link click + smooth scroll
+      mobileLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          closeMenu()
+        })
       })
 
-      resetBtn.addEventListener('click', () => setStyle('default'))
+      // Mobile a11y button → close menu, then open a11y panel
+      if (mobileA11yBtn) {
+        mobileA11yBtn.addEventListener('click', () => {
+          closeMenu()
+          setTimeout(() => {
+            const a11yTrigger = document.getElementById('a11yNavTrigger')
+            if (a11yTrigger) a11yTrigger.click()
+          }, 100)
+        })
+      }
+
+      // Escape to close
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && mobileMenu.classList.contains('is-open')) closeMenu()
+      })
+
+      // Focus trap
+      mobileMenu.addEventListener('keydown', (e) => {
+        if (e.key !== 'Tab') return
+        const focusable = [...mobileMenu.querySelectorAll('a, button:not([style*="display:none"])')]
+        if (!focusable.length) return
+        const first = focusable[0]
+        const last = focusable[focusable.length - 1]
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault(); last.focus()
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault(); first.focus()
+        }
+      })
+
+      // Sync active state on mobile nav links
+      const navObserver = new MutationObserver(() => {
+        const activeDesktop = document.querySelector('.nav-links a[data-active]')
+        if (!activeDesktop) return
+        const activeHref = activeDesktop.getAttribute('href')
+        mobileLinks.forEach(link => {
+          if (link.getAttribute('href') === activeHref) {
+            link.setAttribute('data-active', '')
+          } else {
+            link.removeAttribute('data-active')
+          }
+        })
+      })
+      document.querySelectorAll('.nav-links a').forEach(a => {
+        navObserver.observe(a, { attributes: true, attributeFilter: ['data-active'] })
+      })
     })()
   </script>
 
@@ -769,7 +898,7 @@ const randomStyles = ['brutalist', 'neon', 'vaporwave', 'paper', 'ocean']
     left: 0;
     right: 0;
     z-index: 100;
-    background: rgba(8, 8, 15, 0.75);
+    background: rgba(26, 22, 37, 0.75);
     backdrop-filter: blur(12px);
     border-bottom: 1px solid transparent;
     transition:
@@ -778,7 +907,7 @@ const randomStyles = ['brutalist', 'neon', 'vaporwave', 'paper', 'ocean']
   }
 
   nav[data-scrolled] {
-    background: rgba(8, 8, 15, 0.92);
+    background: rgba(26, 22, 37, 0.92);
     border-bottom-color: var(--border);
   }
 
@@ -879,7 +1008,7 @@ const randomStyles = ['brutalist', 'neon', 'vaporwave', 'paper', 'ocean']
     padding: 0.45rem 0.75rem;
     border: 1px solid var(--border);
     border-radius: 6px;
-    background: rgba(15, 15, 28, 0.9);
+    background: rgba(37, 34, 54, 0.9);
     color: var(--muted-light);
     font: inherit;
     font-size: 0.75rem;
@@ -952,6 +1081,163 @@ const randomStyles = ['brutalist', 'neon', 'vaporwave', 'paper', 'ocean']
   .lang-link--active {
     color: var(--accent);
     background: var(--surface-2);
+  }
+
+  /* ── HAMBURGER BUTTON ── */
+  .menu-btn {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    padding: 0;
+    flex-shrink: 0;
+  }
+  .menu-btn-bar {
+    display: block;
+    width: 20px;
+    height: 2px;
+    background: var(--muted-light);
+    border-radius: 1px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    position: absolute;
+  }
+  .menu-btn-bar:nth-child(1) { transform: translateY(-6px); }
+  .menu-btn-bar:nth-child(2) { transform: translateY(0); }
+  .menu-btn-bar:nth-child(3) { transform: translateY(6px); }
+  .menu-btn { position: relative; }
+
+  .menu-btn[aria-expanded="true"] .menu-btn-bar:nth-child(1) {
+    transform: translateY(0) rotate(45deg);
+    background: var(--accent);
+  }
+  .menu-btn[aria-expanded="true"] .menu-btn-bar:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+  .menu-btn[aria-expanded="true"] .menu-btn-bar:nth-child(3) {
+    transform: translateY(0) rotate(-45deg);
+    background: var(--accent);
+  }
+
+  /* ── MOBILE MENU ── */
+  .mobile-menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: min(320px, 85vw);
+    z-index: 200;
+    background: var(--bg);
+    border-left: 1px solid var(--border);
+    transform: translateX(100%);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    overflow-y: auto;
+    box-shadow: -8px 0 40px rgba(0, 0, 0, 0.4);
+  }
+  .mobile-menu.is-open {
+    transform: translateX(0);
+  }
+  .mobile-menu-inner {
+    padding: 80px 1.25rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .mobile-nav-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .mobile-nav-links a {
+    display: flex;
+    align-items: center;
+    min-height: 52px;
+    padding: 0.75rem 1rem;
+    color: var(--text);
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 600;
+    border-left: 3px solid transparent;
+    border-radius: 0 8px 8px 0;
+    transition: background 0.15s, border-color 0.15s, color 0.15s;
+  }
+  .mobile-nav-links a:hover,
+  .mobile-nav-links a:focus-visible {
+    background: var(--surface);
+    border-left-color: var(--accent);
+    color: var(--accent);
+  }
+  .mobile-nav-links a[data-active] {
+    border-left-color: var(--accent);
+    color: var(--accent);
+    background: var(--surface);
+  }
+  .mobile-menu-divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 0.5rem 0;
+  }
+  .mobile-menu-extras {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .mobile-menu-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    min-height: 48px;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: transparent;
+    color: var(--text);
+    font: inherit;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: border-color 0.15s, color 0.15s, background 0.15s;
+    width: 100%;
+    text-align: left;
+  }
+  .mobile-menu-btn:hover,
+  .mobile-menu-btn:focus-visible {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: var(--surface);
+  }
+  .mobile-menu-btn[data-action="danger"] {
+    border-color: rgba(255, 60, 60, 0.3);
+    color: #ff6b6b;
+  }
+  .mobile-menu-btn[data-action="danger"]:hover {
+    border-color: #ff6b6b;
+    color: #ff4444;
+    background: rgba(255, 60, 60, 0.06);
+  }
+  .mobile-menu-btn--reset {
+    color: var(--muted);
+  }
+
+  .mobile-menu-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 199;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s;
+  }
+  .mobile-menu-backdrop.is-open {
+    opacity: 1;
+    pointer-events: auto;
   }
 
   /* ── LAYOUT ── */
@@ -2163,8 +2449,8 @@ const randomStyles = ['brutalist', 'neon', 'vaporwave', 'paper', 'ocean']
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 34px;
-    height: 34px;
+    width: 44px;
+    height: 44px;
     border-radius: 8px;
     border: 1px solid var(--border);
     background: transparent;
@@ -2806,12 +3092,27 @@ const randomStyles = ['brutalist', 'neon', 'vaporwave', 'paper', 'ocean']
       display: none;
     }
 
+    .nav-inner {
+      padding: 0 1rem;
+    }
+
     .container {
       padding: 0 1.25rem;
     }
 
     .nav-controls {
-      gap: 0.5rem;
+      gap: 0.35rem;
+    }
+
+    /* Hide desktop-only controls on mobile — they live in the menu */
+    .a11y-nav-btn,
+    .style-toggle {
+      display: none;
+    }
+
+    /* Show hamburger */
+    .menu-btn {
+      display: flex;
     }
 
     .lang-switcher {
@@ -2820,11 +3121,11 @@ const randomStyles = ['brutalist', 'neon', 'vaporwave', 'paper', 'ocean']
 
     .lang-link {
       font-size: 0.8rem;
-      padding: 0.4rem 0.6rem;
-    }
-
-    .style-toggle {
-      padding: 0.4rem 0.55rem;
+      padding: 0.5rem 0.6rem;
+      min-height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
   }
 </style>
