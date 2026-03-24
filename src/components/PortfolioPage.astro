@@ -373,14 +373,24 @@ const randomStyles = ['brutalist', 'neon', 'vaporwave', 'paper', 'ocean']
         <div class="accent-line"></div>
       </div>
       <div class="section-body">
-        {t.skills.categories.map((cat) => (
-          <div class={`skills-category${cat.highlight ? ' skills-category--highlight' : ''}`}>
-            <h3 class="skills-category__title">{cat.name}</h3>
-            <div class="skills-grid">
-              {cat.items.map((skill) => <span class="skill-pill">{skill}</span>)}
+        <div class="skills-cards">
+          {t.skills.categories.map((cat, catIdx) => (
+            <div class={`skills-card${cat.highlight ? ' skills-card--highlight' : ''}`}>
+              <div class="skills-card__header">
+                <span class="skills-card__number">{String(catIdx + 1).padStart(2, '0')}</span>
+                <h3 class="skills-card__title">{cat.name}</h3>
+              </div>
+              <ul class="skills-card__list">
+                {cat.items.map((skill) => (
+                  <li class="skills-card__item">
+                    <span class="skills-card__dot"></span>
+                    <span>{skill}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
         <div class="edu-certs">
           <div class="edu-block">
             <h3>{t.skills.education}</h3>
@@ -749,7 +759,7 @@ const randomStyles = ['brutalist', 'neon', 'vaporwave', 'paper', 'ocean']
       const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
       if (!prefersReduced) {
         const revealEls = document.querySelectorAll(
-          '.section-label, .section-body, .timeline-item, .skills-category__title, .skill-pill, .badge, .project-card, .writing-card, .toolkit-card, .principle-card, .parallel-row, .contact-inner > *'
+          '.section-label, .section-body, .timeline-item, .skills-card, .badge, .project-card, .writing-card, .toolkit-card, .principle-card, .parallel-row, .contact-inner > *'
         )
 
         revealEls.forEach((el, i) => {
@@ -766,7 +776,7 @@ const randomStyles = ['brutalist', 'neon', 'vaporwave', 'paper', 'ocean']
                 const siblings = Array.from(
                   entry.target.parentElement
                     ? entry.target.parentElement.querySelectorAll(
-                        ':scope > .timeline-item, :scope > .skill-pill, :scope > .badge, :scope > *'
+                        ':scope > .timeline-item, :scope > .skills-card, :scope > .badge, :scope > *'
                       )
                     : []
                 )
@@ -1751,60 +1761,132 @@ const randomStyles = ['brutalist', 'neon', 'vaporwave', 'paper', 'ocean']
   }
 
   /* ── SKILLS ── */
-  .skills-category {
-    margin-bottom: 2rem;
+  .skills-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+    margin-bottom: 2.5rem;
   }
 
-  .skills-category__title {
+  .skills-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.75rem;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .skills-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 12px;
+    background: linear-gradient(135deg, rgba(255,255,255,0.02) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  .skills-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(155,149,178,0.3);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+  }
+
+  .skills-card--highlight {
+    border-color: rgba(217,119,87,0.3);
+    background: linear-gradient(135deg, var(--surface) 0%, rgba(217,119,87,0.04) 100%);
+  }
+
+  .skills-card--highlight::before {
+    background: linear-gradient(135deg, rgba(217,119,87,0.03) 0%, transparent 60%);
+  }
+
+  .skills-card--highlight:hover {
+    border-color: var(--accent);
+    box-shadow: 0 8px 32px rgba(217,119,87,0.1), 0 4px 16px rgba(0,0,0,0.2);
+  }
+
+  .skills-card__header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.25rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .skills-card__number {
     font-size: 0.7rem;
     font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
+    font-family: var(--font-sans, 'Manrope', sans-serif);
     color: var(--muted);
-    margin-bottom: 0.75rem;
+    letter-spacing: 0.04em;
+    flex-shrink: 0;
   }
 
-  .skills-category--highlight {
-    border-left: 2px solid var(--accent);
-    padding-left: 1rem;
-    background: rgba(100, 255, 218, 0.03);
-    border-radius: 0 8px 8px 0;
-    padding-top: 0.75rem;
-    padding-bottom: 0.25rem;
-    padding-right: 0.75rem;
-  }
-
-  .skills-category--highlight .skills-category__title {
+  .skills-card--highlight .skills-card__number {
     color: var(--accent);
   }
 
-  .skills-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.6rem;
-    margin-bottom: 0.5rem;
-  }
-
-  .skill-pill {
-    padding: 0.4rem 1rem;
-    border: 1px solid var(--border);
-    border-radius: 999px;
+  .skills-card__title {
     font-size: 0.8rem;
-    color: var(--muted-light);
-    background: var(--surface);
-    transition:
-      border-color 0.2s ease,
-      color 0.2s ease,
-      background 0.2s ease,
-      transform 0.2s ease;
-    cursor: default;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text);
+    margin: 0;
   }
 
-  .skill-pill:hover {
-    border-color: var(--accent);
+  .skills-card--highlight .skills-card__title {
     color: var(--accent);
-    background: var(--accent-dim);
-    transform: translateY(-2px);
+  }
+
+  .skills-card__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .skills-card__item {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(155,149,178,0.06);
+    font-size: 0.85rem;
+    color: var(--muted-light);
+    transition: color 0.2s ease;
+  }
+
+  .skills-card__item:last-child {
+    border-bottom: none;
+  }
+
+  .skills-card:hover .skills-card__item {
+    color: var(--text);
+  }
+
+  .skills-card__dot {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--muted);
+    flex-shrink: 0;
+    transition: background 0.2s ease;
+  }
+
+  .skills-card--highlight .skills-card__dot {
+    background: var(--accent);
+    opacity: 0.6;
+  }
+
+  .skills-card:hover .skills-card__dot {
+    background: var(--accent);
+    opacity: 1;
   }
 
   /* ── EDUCATION ── */
@@ -3052,6 +3134,10 @@ const randomStyles = ['brutalist', 'neon', 'vaporwave', 'paper', 'ocean']
 
     .job-meta {
       align-items: flex-start;
+    }
+
+    .skills-cards {
+      grid-template-columns: 1fr;
     }
 
     .edu-certs {
