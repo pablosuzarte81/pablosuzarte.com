@@ -373,9 +373,14 @@ const randomStyles = ['brutalist', 'neon', 'vaporwave', 'paper', 'ocean']
         <div class="accent-line"></div>
       </div>
       <div class="section-body">
-        <div class="skills-grid">
-          {t.skills.items.map((skill) => <span class="skill-pill">{skill}</span>)}
-        </div>
+        {t.skills.categories.map((cat) => (
+          <div class={`skills-category${cat.highlight ? ' skills-category--highlight' : ''}`}>
+            <h3 class="skills-category__title">{cat.name}</h3>
+            <div class="skills-grid">
+              {cat.items.map((skill) => <span class="skill-pill">{skill}</span>)}
+            </div>
+          </div>
+        ))}
         <div class="edu-certs">
           <div class="edu-block">
             <h3>{t.skills.education}</h3>
@@ -744,7 +749,7 @@ const randomStyles = ['brutalist', 'neon', 'vaporwave', 'paper', 'ocean']
       const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
       if (!prefersReduced) {
         const revealEls = document.querySelectorAll(
-          '.section-label, .section-body, .timeline-item, .skill-pill, .badge, .project-card, .writing-card, .toolkit-card, .principle-card, .parallel-row, .contact-inner > *'
+          '.section-label, .section-body, .timeline-item, .skills-category__title, .skill-pill, .badge, .project-card, .writing-card, .toolkit-card, .principle-card, .parallel-row, .contact-inner > *'
         )
 
         revealEls.forEach((el, i) => {
@@ -1746,11 +1751,38 @@ const randomStyles = ['brutalist', 'neon', 'vaporwave', 'paper', 'ocean']
   }
 
   /* ── SKILLS ── */
+  .skills-category {
+    margin-bottom: 2rem;
+  }
+
+  .skills-category__title {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--muted);
+    margin-bottom: 0.75rem;
+  }
+
+  .skills-category--highlight {
+    border-left: 2px solid var(--accent);
+    padding-left: 1rem;
+    background: rgba(100, 255, 218, 0.03);
+    border-radius: 0 8px 8px 0;
+    padding-top: 0.75rem;
+    padding-bottom: 0.25rem;
+    padding-right: 0.75rem;
+  }
+
+  .skills-category--highlight .skills-category__title {
+    color: var(--accent);
+  }
+
   .skills-grid {
     display: flex;
     flex-wrap: wrap;
     gap: 0.6rem;
-    margin-bottom: 3rem;
+    margin-bottom: 0.5rem;
   }
 
   .skill-pill {
