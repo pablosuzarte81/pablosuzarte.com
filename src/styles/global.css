@@ -308,7 +308,7 @@ html[data-static] *::after {
 
 html {
   scroll-behavior: smooth;
-  font-size: calc(16px * var(--font-scale, 1));
+  font-size: calc(17px * var(--font-scale, 1));
 }
 
 html[data-static] {
