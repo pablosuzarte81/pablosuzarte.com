@@ -191,9 +191,9 @@ export const translations: Record<Locale, T> = {
     },
     hero: {
       greeting: "Hi, I'm",
-      title: 'Designing how humans and AI collaborate — so teams can do their best work together.',
+      title: 'I design environments where humans and AI think together — going from prompting chatbots to orchestrating agents that solve real problems.',
       tagline:
-        '15+ years of product design — UX, UI, service design, user research, and journey orchestration.\nNow shaping the ways of working where AI becomes a real collaborator, not just a tool.',
+        '15+ years of product design — UX, UI, service design, user research, and journey orchestration.\nNow I help teams unlock AI as a superpower: building the working environments where your mind collaborates with AI naturally, not artificially.',
       cta1: 'See how I think about AI',
       cta2: 'LinkedIn ↗',
       location: '📍 Greater Malmö, Sweden',
@@ -241,10 +241,10 @@ export const translations: Record<Locale, T> = {
       label: '02',
       title: 'AI Mindset',
       intro:
-        'AI removed the tech bottleneck. The new challenge is designing how humans and AI think together. That is a service design problem — and I have been solving it for 15 years.',
-      approach: 'How I work with AI',
+        'Most people prompt a chatbot. I orchestrate agents to handle complex, multi-step tasks. The difference is not the tool — it is the environment you design around it. I create the conditions where your mind works with AI naturally, unlocking capabilities most teams do not know they have.',
+      approach: 'From prompting to orchestrating',
       approachBody:
-        'I do not just use AI tools — I design the collaboration. I set up project intelligence structures: configuring MD files, agent roles, shared memory, and reusable workflows that let humans and AI agents produce their best work together on complex multi-step projects.',
+        'I do not just use AI tools — I design how humans and AI think together. I set up project intelligence structures: configuring MD files, agent roles, shared memory, and reusable workflows that turn a chatbot conversation into a coordinated system of agents working on real problems.',
       toolkit: [
         { name: 'Claude & Claude Code', use: 'Deep reasoning, complex orchestration, building full applications from intent' },
         { name: 'ChatGPT & Codex', use: 'Rapid prototyping, code generation, conversational exploration' },
@@ -271,12 +271,12 @@ export const translations: Record<Locale, T> = {
       ],
       visionTitle: 'What I want to build next',
       visionBody:
-        'I want to help organisations activate AI as a team superpower — not by replacing people, but by designing environments where every co-worker can use AI to learn faster, solve harder problems, and enjoy their work more.',
+        'I want to help organisations go from prompting to orchestrating — designing the environments where every co-worker unlocks AI as a superpower. Not by replacing people, but by building the conditions where their minds work with AI naturally.',
       visionPoints: [
-        'Set up AI workflows tailored to your teams — not generic, human-centred',
-        'Mentor individuals and teams on how to think with AI, not just prompt it',
+        'Design AI working environments tailored to your teams — not generic, human-centred',
+        'Take people from chatbot prompting to agent orchestration for complex tasks',
         'Build project intelligence structures that scale across organisations',
-        'Help leadership understand the real potential — and the real conditions for it to work',
+        'Help leadership see the real potential — and the conditions to unlock it',
       ],
       cta: 'Let\u2019s talk about what\u2019s possible',
     },
@@ -561,9 +561,9 @@ export const translations: Record<Locale, T> = {
     },
     hero: {
       greeting: 'Hej, jag är',
-      title: 'Designar hur människor och AI samarbetar — så team kan göra sitt bästa arbete tillsammans.',
+      title: 'Jag designar miljöer där människor och AI tänker tillsammans — från att prompta chatbotar till att orkestrera agenter som löser riktiga problem.',
       tagline:
-        '15+ år av produktdesign — UX, UI, tjänstedesign, användarresearch och journey-orkestrering.\nNu formar jag arbetssätten där AI blir en riktig samarbetspartner, inte bara ett verktyg.',
+        '15+ år av produktdesign — UX, UI, tjänstedesign, användarresearch och journey-orkestrering.\nNu hjälper jag team att frigöra AI som superkraft: bygger arbetsmiljöer där ditt tänkande samarbetar med AI naturligt, inte artificiellt.',
       cta1: 'Se hur jag tänker kring AI',
       cta2: 'LinkedIn ↗',
       location: '📍 Stor-Malmö, Sverige',
@@ -611,10 +611,10 @@ export const translations: Record<Locale, T> = {
       label: '02',
       title: 'AI-tänk',
       intro:
-        'AI har tagit bort den tekniska flaskhalsen. Den nya utmaningen är att designa hur människor och AI tänker tillsammans. Det är ett tjänstedesignproblem — och jag har löst det i 15 år.',
-      approach: 'Hur jag arbetar med AI',
+        'De flesta promptar en chatbot. Jag orkestrerar agenter för komplexa uppgifter i flera steg. Skillnaden är inte verktyget — det är miljön du designar runt det. Jag skapar förutsättningarna där ditt tänkande samarbetar med AI naturligt.',
+      approach: 'Från prompting till orkestrering',
       approachBody:
-        'Jag använder inte bara AI-verktyg — jag designar samarbetet. Jag sätter upp projektintelligensstrukturer: konfigurerar MD-filer, agentroller, delat minne och återanvändbara arbetsflöden som låter människor och AI-agenter producera sitt bästa arbete tillsammans i komplexa projekt.',
+        'Jag använder inte bara AI-verktyg — jag designar hur människor och AI tänker tillsammans. Jag sätter upp projektintelligensstrukturer: konfigurerar MD-filer, agentroller, delat minne och återanvändbara arbetsflöden som förvandlar en chatbot-konversation till ett koordinerat system av agenter.',
       toolkit: [
         { name: 'Claude & Claude Code', use: 'Djup resonering, komplex orkestrering, bygga hela applikationer från intention' },
         { name: 'ChatGPT & Codex', use: 'Snabb prototyping, kodgenerering, utforskande samtal' },
@@ -641,12 +641,12 @@ export const translations: Record<Locale, T> = {
       ],
       visionTitle: 'Vad jag vill bygga härnäst',
       visionBody:
-        'Jag vill hjälpa organisationer att aktivera AI som en superkraft för team — inte genom att ersätta människor, utan genom att designa miljöer där varje medarbetare kan använda AI för att lära snabbare, lösa svårare problem och trivas mer.',
+        'Jag vill hjälpa organisationer att gå från prompting till orkestrering — designa miljöerna där varje medarbetare frigör AI som superkraft. Inte genom att ersätta människor, utan genom att bygga förutsättningarna där deras tänkande samarbetar med AI naturligt.',
       visionPoints: [
-        'Sätta upp AI-arbetsflöden anpassade för era team — inte generiska, utan mänskligt centrerade',
-        'Mentorskap för individer och team i hur man tänker med AI, inte bara promptar',
+        'Designa AI-arbetsmiljöer anpassade för era team — inte generiska, mänskligt centrerade',
+        'Ta människor från chatbot-prompting till agentorkestrering för komplexa uppgifter',
         'Bygga projektintelligensstrukturer som skalas över organisationer',
-        'Hjälpa ledningen förstå den verkliga potentialen — och de verkliga förutsättningarna för att det ska fungera',
+        'Hjälpa ledningen se den verkliga potentialen — och förutsättningarna för att frigöra den',
       ],
       cta: 'Låt oss prata om vad som är möjligt',
     },
@@ -931,9 +931,9 @@ export const translations: Record<Locale, T> = {
     },
     hero: {
       greeting: 'Hola, soy',
-      title: 'Diseño cómo humanos e IA colaboran — para que los equipos hagan su mejor trabajo juntos.',
+      title: 'Diseño entornos donde humanos e IA piensan juntos — de hacer prompts a un chatbot a orquestar agentes que resuelven problemas reales.',
       tagline:
-        'Más de 15 años de diseño de producto — UX, UI, diseño de servicios, investigación de usuarios y orquestación de journeys.\nAhora doy forma a las formas de trabajo donde la IA se convierte en un colaborador real, no solo una herramienta.',
+        'Más de 15 años de diseño de producto — UX, UI, diseño de servicios, investigación de usuarios y orquestación de journeys.\nAhora ayudo a equipos a liberar la IA como superpoder: construyendo entornos de trabajo donde tu mente colabora con la IA de forma natural, no artificial.',
       cta1: 'Cómo pienso sobre la IA',
       cta2: 'LinkedIn ↗',
       location: '📍 Gran Malmö, Suecia',
@@ -981,10 +981,10 @@ export const translations: Record<Locale, T> = {
       label: '02',
       title: 'Mentalidad IA',
       intro:
-        'La IA eliminó el cuello de botella técnico. El nuevo desafío es diseñar cómo humanos e IA piensan juntos. Eso es un problema de diseño de servicios — y llevo 15 años resolviéndolo.',
-      approach: 'Cómo trabajo con IA',
+        'La mayoría hace prompts a un chatbot. Yo orquesto agentes para tareas complejas de múltiples pasos. La diferencia no es la herramienta — es el entorno que diseñas alrededor. Creo las condiciones donde tu mente trabaja con la IA de forma natural, desbloqueando capacidades que la mayoría de los equipos no saben que tienen.',
+      approach: 'De prompting a orquestación',
       approachBody:
-        'No solo uso herramientas de IA — diseño la colaboración. Configuro estructuras de inteligencia de proyecto: archivos MD, roles de agentes, memoria compartida y flujos reutilizables que permiten que humanos y agentes de IA produzcan su mejor trabajo juntos en proyectos complejos.',
+        'No solo uso herramientas de IA — diseño cómo humanos e IA piensan juntos. Configuro estructuras de inteligencia de proyecto: archivos MD, roles de agentes, memoria compartida y flujos reutilizables que transforman una conversación con chatbot en un sistema coordinado de agentes trabajando en problemas reales.',
       toolkit: [
         { name: 'Claude & Claude Code', use: 'Razonamiento profundo, orquestación compleja, construir aplicaciones completas desde la intención' },
         { name: 'ChatGPT & Codex', use: 'Prototipado rápido, generación de código, exploración conversacional' },
@@ -1011,12 +1011,12 @@ export const translations: Record<Locale, T> = {
       ],
       visionTitle: 'Lo que quiero construir a continuación',
       visionBody:
-        'Quiero ayudar a las organizaciones a activar la IA como un superpoder de equipo — no reemplazando personas, sino diseñando entornos donde cada colaborador pueda usar IA para aprender más rápido, resolver problemas más difíciles y disfrutar más de su trabajo.',
+        'Quiero ayudar a las organizaciones a pasar del prompting a la orquestación — diseñando los entornos donde cada colaborador desbloquea la IA como superpoder. No reemplazando personas, sino construyendo las condiciones donde sus mentes trabajan con la IA de forma natural.',
       visionPoints: [
-        'Configurar flujos de trabajo con IA adaptados a tus equipos — no genéricos, centrados en personas',
-        'Mentoría para individuos y equipos en cómo pensar con IA, no solo hacer prompts',
+        'Diseñar entornos de trabajo con IA adaptados a tus equipos — no genéricos, centrados en personas',
+        'Llevar a las personas del prompting de chatbots a la orquestación de agentes para tareas complejas',
         'Construir estructuras de inteligencia de proyecto que escalen en organizaciones',
-        'Ayudar al liderazgo a entender el potencial real — y las condiciones reales para que funcione',
+        'Ayudar al liderazgo a ver el potencial real — y las condiciones para desbloquearlo',
       ],
       cta: 'Hablemos de lo que es posible',
     },
