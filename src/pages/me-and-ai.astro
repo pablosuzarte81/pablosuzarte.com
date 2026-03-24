@@ -1,0 +1,323 @@
+---
+import Layout from '../layouts/Layout.astro'
+import { posts } from '../data/blog'
+---
+
+<Layout title="Me and AI — Pablo Suzarte" description="How I design environments where humans and AI think together. Philosophy, tools, workshops, projects, and writing — all in one place." lang="en">
+  <header class="hub-nav">
+    <div class="hub-nav-inner">
+      <a href="/" class="hub-back">&larr; Portfolio</a>
+      <a href="/" class="hub-logo">PS</a>
+      <span class="hub-breadcrumb">Me and AI</span>
+    </div>
+  </header>
+
+  <main class="hub">
+
+    <!-- HERO -->
+    <section class="hub-hero">
+      <div class="hub-container">
+        <p class="hub-kicker">The full picture</p>
+        <h1 class="hub-title">Me and AI</h1>
+        <p class="hub-subtitle">I design environments where humans and AI think together. This page connects everything — the mindset, the method, the tools, the proof, and the teaching.</p>
+      </div>
+    </section>
+
+    <!-- QUICK NAV -->
+    <nav class="hub-quicknav" aria-label="Page sections">
+      <div class="hub-container">
+        <a href="#philosophy" class="hub-qn-link">Philosophy</a>
+        <a href="#method" class="hub-qn-link">Method</a>
+        <a href="#tools" class="hub-qn-link">Tools</a>
+        <a href="#projects" class="hub-qn-link">Projects</a>
+        <a href="#learn" class="hub-qn-link">Learn</a>
+        <a href="#writing" class="hub-qn-link">Writing</a>
+      </div>
+    </nav>
+
+    <!-- 01 PHILOSOPHY -->
+    <section id="philosophy" class="hub-section">
+      <div class="hub-container">
+        <span class="hub-num">01</span>
+        <h2 class="hub-heading">The philosophy</h2>
+        <p class="hub-lead">Most people prompt a chatbot. I orchestrate agents to handle complex, multi-step tasks. The difference is not the tool — it is the environment you design around it.</p>
+
+        <div class="hub-principles">
+          <h3 class="hub-sub">8 Project Intelligence Principles</h3>
+          <div class="hub-grid hub-grid--4">
+            <div class="hub-card"><strong>01 Shared memory</strong><p>AI needs to understand the project, why it matters, and what must not be misunderstood.</p></div>
+            <div class="hub-card"><strong>02 Current orientation</strong><p>A visible sense of where things stand: agreed, open, next.</p></div>
+            <div class="hub-card"><strong>03 Evidence discipline</strong><p>Ideas grounded in evidence, not assumptions or storytelling.</p></div>
+            <div class="hub-card"><strong>04 Asset awareness</strong><p>Both humans and AI know what materials exist.</p></div>
+            <div class="hub-card"><strong>05 Collaboration clarity</strong><p>How to work together well, not just what the project is about.</p></div>
+            <div class="hub-card"><strong>06 Decision continuity</strong><p>Decisions preserved so the team does not restart the same thinking.</p></div>
+            <div class="hub-card"><strong>07 Role clarity</strong><p>Every collaborator — human or AI — has a clear role.</p></div>
+            <div class="hub-card"><strong>08 Reusable patterns</strong><p>Workflows that work are saved, refined, and reused.</p></div>
+          </div>
+        </div>
+
+        <div class="hub-parallels">
+          <h3 class="hub-sub">Same skill. New material.</h3>
+          <div class="hub-parallel-list">
+            <div class="hub-parallel"><span class="hub-parallel-label">Service Design</span><p>Makes complex experiences understandable.</p></div>
+            <div class="hub-parallel-eq">=</div>
+            <div class="hub-parallel"><span class="hub-parallel-label">Project Intelligence</span><p>Makes complex projects understandable.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 METHOD -->
+    <section id="method" class="hub-section hub-section--alt">
+      <div class="hub-container">
+        <span class="hub-num">02</span>
+        <h2 class="hub-heading">The method</h2>
+        <p class="hub-lead">From idea to live site in one conversation. I set up project intelligence structures — CLAUDE.md files, agent roles, shared memory, and reusable workflows — that turn a chatbot conversation into a coordinated system of agents.</p>
+
+        <div class="hub-steps">
+          <div class="hub-step">
+            <span class="hub-step-num">1</span>
+            <div>
+              <strong>Describe the vision</strong>
+              <p>Be specific about what you want, how it should feel, who it is for.</p>
+            </div>
+          </div>
+          <div class="hub-step">
+            <span class="hub-step-num">2</span>
+            <div>
+              <strong>Set up the environment</strong>
+              <p>CLAUDE.md, agent roles, memory files, permissions. This is the project intelligence layer.</p>
+            </div>
+          </div>
+          <div class="hub-step">
+            <span class="hub-step-num">3</span>
+            <div>
+              <strong>Orchestrate and build</strong>
+              <p>AI reads, plans, implements, tests. You guide with feedback and judgment.</p>
+            </div>
+          </div>
+          <div class="hub-step">
+            <span class="hub-step-num">4</span>
+            <div>
+              <strong>Ship</strong>
+              <p>Commit, push, deploy. Live in minutes, not weeks.</p>
+            </div>
+          </div>
+        </div>
+
+        <a href="/how-i-build-with-ai" class="hub-cta">See the full method &rarr;</a>
+      </div>
+    </section>
+
+    <!-- 03 TOOLS -->
+    <section id="tools" class="hub-section">
+      <div class="hub-container">
+        <span class="hub-num">03</span>
+        <h2 class="hub-heading">The toolkit</h2>
+        <p class="hub-lead">I work across AI platforms — each for a specific purpose. The skill is not knowing one tool. It is knowing which tool fits which problem.</p>
+
+        <div class="hub-grid hub-grid--2">
+          <div class="hub-card hub-card--tool">
+            <strong>Claude &amp; Claude Code</strong>
+            <p>Deep reasoning, complex orchestration, building full applications from intent.</p>
+          </div>
+          <div class="hub-card hub-card--tool">
+            <strong>ChatGPT &amp; Codex</strong>
+            <p>Rapid prototyping, code generation, conversational exploration.</p>
+          </div>
+          <div class="hub-card hub-card--tool">
+            <strong>Gemini</strong>
+            <p>Multi-modal research, large context analysis, cross-referencing sources.</p>
+          </div>
+          <div class="hub-card hub-card--tool">
+            <strong>GitHub Copilot</strong>
+            <p>Inline code completion, pair programming, context-aware IDE suggestions.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 PROJECTS -->
+    <section id="projects" class="hub-section hub-section--alt">
+      <div class="hub-container">
+        <span class="hub-num">04</span>
+        <h2 class="hub-heading">The proof</h2>
+        <p class="hub-lead">Built solo, using AI as a design and engineering partner. No team. No developers. Just clear intent, structured collaboration, and the discipline to ship.</p>
+
+        <div class="hub-grid hub-grid--3">
+          <a href="/journey-teams" class="hub-project">
+            <span class="hub-project-type">Scroll Presentation</span>
+            <h3>Connecting the Silos</h3>
+            <p>18-section animated presentation for Digital Sharing Days 2026. Canvas animations, photo mosaics, interactive constellations.</p>
+            <span class="hub-project-cta">View presentation &rarr;</span>
+          </a>
+          <a href="https://journey-management-tool.vercel.app" target="_blank" rel="noopener noreferrer" class="hub-project">
+            <span class="hub-project-type">Web Application</span>
+            <h3>Journey Mapping Tool</h3>
+            <p>Workshop capture tool for service design. 4 hierarchy levels, responsive modes, 7 routes. Built in one session.</p>
+            <span class="hub-project-cta">Open tool &nearr;</span>
+          </a>
+          <a href="https://mariaelenareiki.com" target="_blank" rel="noopener noreferrer" class="hub-project">
+            <span class="hub-project-type">Client Website</span>
+            <h3>Maria Elena Reiki</h3>
+            <p>My mother's website. Real client, live in production, solo design + build. Handmade UX with AI.</p>
+            <span class="hub-project-cta">Visit site &nearr;</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 LEARN -->
+    <section id="learn" class="hub-section">
+      <div class="hub-container">
+        <span class="hub-num">05</span>
+        <h2 class="hub-heading">Learn from me</h2>
+        <p class="hub-lead">I want to help teams go from prompting to orchestrating. These resources take you from zero to building with AI.</p>
+
+        <div class="hub-grid hub-grid--2">
+          <a href="/workshop/claude-code-101" class="hub-resource">
+            <span class="hub-resource-type">Workshop</span>
+            <h3>Claude Code 101</h3>
+            <p>3-4 hour hands-on workshop. From zero to orchestrating agents in terminal. 8 modules, each mapped to a Project Intelligence Principle.</p>
+            <span class="hub-resource-cta">Open workshop &rarr;</span>
+          </a>
+          <a href="/ai-project-brain-lab" class="hub-resource">
+            <span class="hub-resource-type">Course Concept</span>
+            <h3>AI Project Brain Lab</h3>
+            <p>A deeper educational product about designing project intelligence. The 5-layer system, role definitions, and teaching language for AI collaboration at scale.</p>
+            <span class="hub-resource-cta">Explore &rarr;</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 06 WRITING -->
+    <section id="writing" class="hub-section hub-section--alt">
+      <div class="hub-container">
+        <span class="hub-num">06</span>
+        <h2 class="hub-heading">Writing</h2>
+        <p class="hub-lead">Thinking out loud about where service design, AI, and project intelligence meet.</p>
+
+        <div class="hub-grid hub-grid--1">
+          {posts.map((post) => (
+            <a href={`/blog/${post.slug}`} class="hub-article">
+              <div class="hub-article-tags">
+                {post.tags.map((tag) => <span class="hub-article-tag">{tag}</span>)}
+              </div>
+              <h3>{post.title}</h3>
+              <p class="hub-article-subtitle">{post.subtitle}</p>
+              <div class="hub-article-meta">
+                <time datetime={post.date}>
+                  {new Date(post.date).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' })}
+                </time>
+                <span>{post.readingTime}</span>
+              </div>
+              <span class="hub-resource-cta">Read article &rarr;</span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="hub-section">
+      <div class="hub-container hub-final">
+        <h2 class="hub-heading">Want to bring this to your team?</h2>
+        <p class="hub-lead">I design AI working environments tailored to your teams. From mentoring individuals to building project intelligence structures that scale across organisations.</p>
+        <div class="hub-final-ctas">
+          <a href="https://www.linkedin.com/in/pablosuzarte/" target="_blank" rel="noopener noreferrer" class="hub-btn">Connect on LinkedIn &rarr;</a>
+          <a href="/" class="hub-btn hub-btn--secondary">&larr; Back to portfolio</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <style>
+    .hub-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); background: rgba(26, 22, 37, 0.85); border-bottom: 1px solid var(--border); }
+    .hub-nav-inner { max-width: 1000px; margin: 0 auto; padding: 0.9rem 2rem; display: flex; align-items: center; gap: 1.5rem; }
+    .hub-back { color: var(--muted); text-decoration: none; font-size: 0.85rem; font-weight: 500; transition: color 0.2s; }
+    .hub-back:hover { color: var(--accent); }
+    .hub-logo { font-weight: 800; font-size: 1.1rem; letter-spacing: -0.04em; color: var(--text); text-decoration: none; }
+    .hub-breadcrumb { color: var(--muted); font-size: 0.8rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; margin-left: auto; }
+
+    .hub { padding-top: 4rem; }
+    .hub-container { max-width: 960px; margin: 0 auto; padding: 0 2rem; }
+
+    .hub-hero { padding: 5rem 0 3rem; border-bottom: 1px solid var(--border); }
+    .hub-kicker { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
+    .hub-title { font-size: clamp(2.5rem, 6vw, 4rem); font-weight: 900; line-height: 1; letter-spacing: -0.04em; color: var(--text); margin-bottom: 0.75rem; }
+    .hub-subtitle { font-size: clamp(1.05rem, 2vw, 1.25rem); color: var(--muted); line-height: 1.55; max-width: 640px; }
+
+    .hub-quicknav { padding: 1rem 0; border-bottom: 1px solid var(--border); position: sticky; top: 64px; z-index: 50; background: rgba(26, 22, 37, 0.9); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+    .hub-quicknav .hub-container { display: flex; gap: 1.5rem; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .hub-qn-link { font-size: 0.8rem; font-weight: 600; color: var(--muted); text-decoration: none; white-space: nowrap; padding: 0.3rem 0; border-bottom: 2px solid transparent; transition: color 0.2s, border-color 0.2s; }
+    .hub-qn-link:hover { color: var(--accent); border-color: var(--accent); }
+
+    .hub-section { padding: 4rem 0; }
+    .hub-section--alt { background: var(--surface); }
+    .hub-num { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; color: var(--accent); display: block; margin-bottom: 0.5rem; }
+    .hub-heading { font-size: clamp(1.5rem, 3vw, 2.25rem); font-weight: 800; letter-spacing: -0.02em; color: var(--text); margin-bottom: 0.75rem; line-height: 1.15; }
+    .hub-lead { font-size: 1.05rem; color: rgba(232, 221, 211, 0.8); line-height: 1.65; max-width: 640px; margin-bottom: 2rem; }
+    .hub-sub { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
+
+    .hub-grid { display: grid; gap: 0.75rem; }
+    .hub-grid--1 { grid-template-columns: 1fr; }
+    .hub-grid--2 { grid-template-columns: repeat(2, 1fr); }
+    .hub-grid--3 { grid-template-columns: repeat(3, 1fr); }
+    .hub-grid--4 { grid-template-columns: repeat(4, 1fr); }
+
+    .hub-card { padding: 1.25rem; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; transition: border-color 0.2s; }
+    .hub-card:hover { border-color: rgba(217, 119, 87, 0.25); }
+    .hub-card strong { display: block; font-size: 0.88rem; color: var(--text); margin-bottom: 0.3rem; }
+    .hub-card p { font-size: 0.8rem; color: var(--muted); line-height: 1.45; margin: 0; }
+
+    .hub-parallels { margin-top: 2rem; }
+    .hub-parallel-list { display: flex; align-items: center; gap: 1rem; padding: 1.25rem; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; }
+    .hub-parallel { flex: 1; }
+    .hub-parallel-label { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); display: block; margin-bottom: 0.2rem; }
+    .hub-parallel p { font-size: 0.9rem; color: var(--text); margin: 0; }
+    .hub-parallel-eq { color: var(--accent); opacity: 0.4; font-weight: 800; font-size: 1.25rem; flex-shrink: 0; }
+
+    .hub-steps { display: flex; flex-direction: column; gap: 0; margin-bottom: 2rem; }
+    .hub-step { display: flex; gap: 1rem; padding: 1.25rem 0; border-bottom: 1px solid var(--border); align-items: flex-start; }
+    .hub-step:last-child { border-bottom: none; }
+    .hub-step-num { font-size: 0.75rem; font-weight: 800; color: var(--accent); background: rgba(217, 119, 87, 0.1); width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
+    .hub-step strong { display: block; font-size: 0.95rem; color: var(--text); margin-bottom: 0.15rem; }
+    .hub-step p { font-size: 0.85rem; color: var(--muted); margin: 0; }
+
+    .hub-cta { display: inline-flex; align-items: center; padding: 0.6rem 1.25rem; font-size: 0.85rem; font-weight: 700; color: var(--accent); border: 1px solid rgba(217, 119, 87, 0.25); border-radius: 8px; text-decoration: none; transition: background 0.2s, border-color 0.2s; }
+    .hub-cta:hover { background: rgba(217, 119, 87, 0.08); border-color: var(--accent); }
+
+    .hub-project, .hub-resource, .hub-article { display: flex; flex-direction: column; padding: 1.5rem; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; text-decoration: none; transition: border-color 0.25s, transform 0.25s; }
+    .hub-project:hover, .hub-resource:hover, .hub-article:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .hub-project-type, .hub-resource-type { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.5rem; }
+    .hub-project h3, .hub-resource h3, .hub-article h3 { font-size: 1.15rem; font-weight: 800; color: var(--text); margin-bottom: 0.4rem; letter-spacing: -0.01em; }
+    .hub-project p, .hub-resource p { font-size: 0.85rem; color: var(--muted); line-height: 1.5; flex: 1; }
+    .hub-project-cta, .hub-resource-cta { font-size: 0.8rem; font-weight: 700; color: var(--accent); margin-top: 0.75rem; }
+
+    .hub-article-tags { display: flex; gap: 0.35rem; margin-bottom: 0.5rem; flex-wrap: wrap; }
+    .hub-article-tag { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent); background: rgba(217, 119, 87, 0.06); padding: 0.15rem 0.45rem; border-radius: 3px; }
+    .hub-article-subtitle { font-size: 0.9rem; color: var(--muted); margin-bottom: 0.5rem; }
+    .hub-article-meta { display: flex; gap: 0.75rem; font-size: 0.75rem; color: var(--muted); }
+
+    .hub-final { text-align: center; max-width: 640px; }
+    .hub-final .hub-heading { margin-bottom: 0.5rem; }
+    .hub-final .hub-lead { margin-left: auto; margin-right: auto; }
+    .hub-final-ctas { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
+    .hub-btn { display: inline-flex; padding: 0.75rem 1.5rem; background: var(--accent); color: var(--bg); font-weight: 700; font-size: 0.9rem; border-radius: 8px; text-decoration: none; transition: opacity 0.2s; }
+    .hub-btn:hover { opacity: 0.85; }
+    .hub-btn--secondary { background: transparent; color: var(--muted); border: 1px solid var(--border); }
+    .hub-btn--secondary:hover { color: var(--accent); border-color: var(--accent); opacity: 1; }
+
+    @media (max-width: 768px) {
+      .hub-container { padding: 0 1.25rem; }
+      .hub-grid--2, .hub-grid--3, .hub-grid--4 { grid-template-columns: 1fr; }
+      .hub-hero { padding: 4rem 0 2rem; }
+      .hub-parallel-list { flex-direction: column; }
+      .hub-parallel-eq { display: none; }
+      .hub-quicknav { top: 56px; }
+      .hub-quicknav .hub-container { gap: 1rem; }
+    }
+  </style>
+</Layout>
