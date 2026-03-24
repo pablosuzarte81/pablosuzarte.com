@@ -27,6 +27,7 @@ const randomStyles = ['brutalist', 'neon', 'vaporwave', 'paper', 'ocean']
       <ul class="nav-links">
         <li><a href="#about">{t.nav.about}</a></li>
         <li><a href="#ai-mindset">{t.nav.aiMindset}</a></li>
+        <li><a href="#ai-projects">AI Projects</a></li>
         <li><a href="#experience">{t.nav.experience}</a></li>
         <li><a href="#skills">{t.nav.skills}</a></li>
         <li><a href="#writing">{t.nav.writing}</a></li>
@@ -87,6 +88,7 @@ const randomStyles = ['brutalist', 'neon', 'vaporwave', 'paper', 'ocean']
       <ul class="mobile-nav-links">
         <li><a href="#about">{t.nav.about}</a></li>
         <li><a href="#ai-mindset">{t.nav.aiMindset}</a></li>
+        <li><a href="#ai-projects">AI Projects</a></li>
         <li><a href="#experience">{t.nav.experience}</a></li>
         <li><a href="#skills">{t.nav.skills}</a></li>
         <li><a href="#writing">{t.nav.writing}</a></li>
@@ -436,6 +438,77 @@ const randomStyles = ['brutalist', 'neon', 'vaporwave', 'paper', 'ocean']
     </div>
   </section>
   -->
+
+  <!-- AI PROJECTS -->
+  <section id="ai-projects" class="section section-alt">
+    <div class="container section-grid">
+      <div class="section-label">
+        <span class="label-num">02</span>
+        <h2 class="section-title">AI Projects</h2>
+        <div class="accent-line"></div>
+      </div>
+      <div class="section-body">
+        <!-- Intro text -->
+        <div class="ai-projects-intro">
+          <p>These projects were built solo, using AI as a design and engineering partner. No team. No developers. Just a method: clear intent, structured collaboration with AI, and the discipline to ship.</p>
+          <p class="ai-projects-method">This is what happens when a service designer treats AI as a co-worker, not a shortcut.</p>
+        </div>
+
+        <!-- Project cards grid -->
+        <div class="ai-projects-grid">
+
+          <!-- Card 1: Journey Teams Presentation -->
+          <a href="/journey-teams" class="ai-project-card">
+            <div class="ai-project-card__badge">Scroll Presentation</div>
+            <h3 class="ai-project-card__title">Connecting the Silos</h3>
+            <p class="ai-project-card__desc">A scroll-based presentation for Digital Sharing Days 2026. Constellation animations, data storytelling, and 18 sections built from real project evidence.</p>
+            <div class="ai-project-card__tech">
+              <span>HTML</span><span>CSS</span><span>Canvas API</span><span>Vanilla JS</span>
+            </div>
+            <div class="ai-project-card__stats">
+              <div><strong>18</strong><span>sections</span></div>
+              <div><strong>5</strong><span>animated canvases</span></div>
+              <div><strong>0</strong><span>frameworks</span></div>
+            </div>
+            <span class="ai-project-card__cta">View presentation <span aria-hidden="true">&rarr;</span></span>
+          </a>
+
+          <!-- Card 2: Journey Management Tool -->
+          <a href="https://journey-management-tool.vercel.app" class="ai-project-card" target="_blank" rel="noopener">
+            <div class="ai-project-card__badge">Web Application</div>
+            <h3 class="ai-project-card__title">Journey Mapping Tool</h3>
+            <p class="ai-project-card__desc">A service design tool for collaborative journey mapping. Mobile-first workshop capture, desktop overview mode, 4-level hierarchy from journey to task.</p>
+            <div class="ai-project-card__tech">
+              <span>React</span><span>TypeScript</span><span>Vite</span><span>Vercel</span>
+            </div>
+            <div class="ai-project-card__stats">
+              <div><strong>4</strong><span>hierarchy levels</span></div>
+              <div><strong>2</strong><span>responsive modes</span></div>
+              <div><strong>7</strong><span>routes</span></div>
+            </div>
+            <span class="ai-project-card__cta">Open tool <span aria-hidden="true">&rarr;</span></span>
+          </a>
+
+          <!-- Card 3: Maria Elena Reiki -->
+          <a href="https://mariaelenareiki.com" class="ai-project-card" target="_blank" rel="noopener">
+            <div class="ai-project-card__badge">Client Website</div>
+            <h3 class="ai-project-card__title">Maria Elena Reiki</h3>
+            <p class="ai-project-card__desc">A professional website for a Reiki practitioner. Warm, accessible design with booking integration. Built and shipped for a real client.</p>
+            <div class="ai-project-card__tech">
+              <span>Vite</span><span>CSS</span><span>Responsive</span><span>Vercel</span>
+            </div>
+            <div class="ai-project-card__stats">
+              <div><strong>1</strong><span>real client</span></div>
+              <div><strong>Live</strong><span>in production</span></div>
+              <div><strong>Solo</strong><span>design + build</span></div>
+            </div>
+            <span class="ai-project-card__cta">Visit site <span aria-hidden="true">&rarr;</span></span>
+          </a>
+
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- EXPERIENCE -->
   <section id="experience" class="section">
@@ -3182,6 +3255,126 @@ const randomStyles = ['brutalist', 'neon', 'vaporwave', 'paper', 'ocean']
     /* Lang switcher hidden from nav on mobile — it's in the menu + footer */
     .lang-switcher {
       display: none;
+    }
+  }
+
+  /* AI Projects */
+  .ai-projects-intro {
+    margin-bottom: 2.5rem;
+  }
+  .ai-projects-intro p {
+    font-size: 1.05rem;
+    color: var(--text);
+    line-height: 1.7;
+    margin-bottom: 0.75rem;
+  }
+  .ai-projects-method {
+    color: var(--accent) !important;
+    font-weight: 600;
+    font-style: italic;
+    font-family: 'Instrument Serif', serif;
+    font-size: 1.15rem !important;
+  }
+
+  .ai-projects-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .ai-project-card {
+    display: block;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 2rem;
+    text-decoration: none;
+    color: var(--text);
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .ai-project-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+  }
+
+  .ai-project-card__badge {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+    background: var(--accent-soft);
+    padding: 0.25rem 0.6rem;
+    border-radius: 4px;
+    margin-bottom: 0.75rem;
+  }
+
+  .ai-project-card__title {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+  }
+
+  .ai-project-card__desc {
+    font-size: 0.95rem;
+    color: var(--muted-light);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+
+  .ai-project-card__tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 1.25rem;
+  }
+  .ai-project-card__tech span {
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--muted);
+    background: var(--surface-2);
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    letter-spacing: 0.02em;
+  }
+
+  .ai-project-card__stats {
+    display: flex;
+    gap: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
+    margin-bottom: 1rem;
+  }
+  .ai-project-card__stats div {
+    display: flex;
+    flex-direction: column;
+  }
+  .ai-project-card__stats strong {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--text);
+  }
+  .ai-project-card__stats span {
+    font-size: 0.75rem;
+    color: var(--muted);
+  }
+
+  .ai-project-card__cta {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--accent);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+  }
+
+  @media (max-width: 768px) {
+    .ai-projects-grid {
+      grid-template-columns: 1fr;
     }
   }
 </style>
