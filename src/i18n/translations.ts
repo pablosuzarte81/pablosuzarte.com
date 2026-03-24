@@ -438,8 +438,8 @@ export const translations: Record<Locale, T> = {
           role: 'Senior Product UX Designer',
           period: 'May 2022 — Present',
           location: 'Malmö, Sweden',
-          link: '/projects/ikea-journey-orchestration',
-          linkLabel: 'View IKEA projects →',
+          link: '/journey-teams',
+          linkLabel: 'View Journey Teams presentation →',
           highlights: [
             'Currently leading redesign of a complex global process across 16+ teams — grounded in 5-market research and cross-functional stakeholder alignment.',
             'Journey Orchestrator across global digital product teams — creating alignment structures that move teams from insights to prioritised action.',
@@ -808,8 +808,8 @@ export const translations: Record<Locale, T> = {
           role: 'Senior Product UX Designer',
           period: 'Maj 2022 — Nu',
           location: 'Malmö, Sverige',
-          link: '/projects/ikea-journey-orchestration',
-          linkLabel: 'Se IKEA-projekt →',
+          link: '/journey-teams',
+          linkLabel: 'Se Journey Teams-presentation →',
           highlights: [
             'Leder just nu redesignen av en komplex global process med 16+ team — grundad i research från 5 marknader och tvärfunktionell stakeholderalignering.',
             'Journey Orchestrator i globala digitala produktteam — skapar samordningsstrukturer som hjälper team gå från insikter till prioriterade åtgärder.',
@@ -1178,8 +1178,8 @@ export const translations: Record<Locale, T> = {
           role: 'Senior Product UX Designer',
           period: 'Mayo 2022 — Presente',
           location: 'Malmö, Suecia',
-          link: '/projects/ikea-journey-orchestration',
-          linkLabel: 'Ver proyectos IKEA →',
+          link: '/journey-teams',
+          linkLabel: 'Ver presentación Journey Teams →',
           highlights: [
             'Actualmente liderando el rediseño de un proceso global complejo con 16+ equipos — fundamentado en investigación en 5 mercados y alineamiento interfuncional de stakeholders.',
             'Journey Orchestrator en equipos de productos digitales globales — creando estructuras de alineamiento que mueven a los equipos de los insights a la acción priorizada.',
