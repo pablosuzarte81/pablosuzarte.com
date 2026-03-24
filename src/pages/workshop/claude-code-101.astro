@@ -469,115 +469,137 @@ Be direct. If it looks good, say so briefly.</code></pre>
   </article>
 
   <style>
+    /* Claude / Anthropic color palette */
+    .ws {
+      --cl-bg: #1a1625;
+      --cl-surface: #252236;
+      --cl-surface-2: #2d2a42;
+      --cl-border: rgba(155, 149, 178, 0.15);
+      --cl-accent: #D97757;
+      --cl-accent-soft: rgba(217, 119, 87, 0.12);
+      --cl-accent-glow: rgba(217, 119, 87, 0.25);
+      --cl-text: #E8DDD3;
+      --cl-muted: #9B95B2;
+      --cl-code: #E8A87C;
+      color: var(--cl-text);
+    }
+
     .ws-nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
-      background: rgba(10, 10, 15, 0.8); border-bottom: 1px solid var(--border);
+      background: rgba(26, 22, 37, 0.85); border-bottom: 1px solid var(--cl-border);
     }
     .ws-nav-inner {
       max-width: 900px; margin: 0 auto; padding: 0.9rem 2rem;
       display: flex; align-items: center; gap: 1.5rem;
     }
-    .nav-back { color: var(--muted); text-decoration: none; font-size: 0.85rem; font-weight: 500; transition: color 0.2s; }
-    .nav-back:hover { color: var(--accent); }
-    .nav-logo { font-weight: 800; font-size: 1.1rem; letter-spacing: -0.04em; color: var(--text); text-decoration: none; }
-    .nav-breadcrumb { color: var(--muted); font-size: 0.8rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; margin-left: auto; }
+    .nav-back { color: var(--cl-muted); text-decoration: none; font-size: 0.85rem; font-weight: 500; transition: color 0.2s; }
+    .nav-back:hover { color: var(--cl-accent); }
+    .nav-logo { font-weight: 800; font-size: 1.1rem; letter-spacing: -0.04em; color: var(--cl-text); text-decoration: none; }
+    .nav-breadcrumb { color: var(--cl-muted); font-size: 0.8rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; margin-left: auto; }
 
-    .ws { padding-top: 4rem; }
+    .ws {
+      padding-top: 4rem;
+      background:
+        radial-gradient(circle at 20% 10%, rgba(217, 119, 87, 0.06), transparent 40%),
+        radial-gradient(circle at 80% 90%, rgba(155, 149, 178, 0.05), transparent 40%),
+        linear-gradient(180deg, #1e1a2e 0%, var(--cl-bg) 100%);
+      min-height: 100vh;
+    }
     .ws-container { max-width: 800px; margin: 0 auto; padding: 0 2rem; }
 
-    .ws-hero { padding: 5rem 0 3rem; border-bottom: 1px solid var(--border); }
-    .ws-kicker { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
-    .ws-title { font-size: clamp(2.5rem, 6vw, 3.5rem); font-weight: 900; line-height: 1; letter-spacing: -0.04em; color: var(--text); margin-bottom: 0.5rem; }
-    .ws-subtitle { font-size: clamp(1.05rem, 2vw, 1.25rem); color: var(--muted); line-height: 1.5; max-width: 560px; margin-bottom: 2rem; }
+    .ws-hero { padding: 5rem 0 3rem; border-bottom: 1px solid var(--cl-border); }
+    .ws-kicker { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--cl-accent); margin-bottom: 1rem; }
+    .ws-title { font-size: clamp(2.5rem, 6vw, 3.5rem); font-weight: 900; line-height: 1; letter-spacing: -0.04em; color: var(--cl-text); margin-bottom: 0.5rem; }
+    .ws-subtitle { font-size: clamp(1.05rem, 2vw, 1.25rem); color: var(--cl-muted); line-height: 1.5; max-width: 560px; margin-bottom: 2rem; }
 
     .ws-meta-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
-    .ws-meta-item { padding: 1rem; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; }
-    .ws-meta-label { display: block; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.25rem; }
-    .ws-meta-value { display: block; font-size: 0.9rem; font-weight: 600; color: var(--text); }
+    .ws-meta-item { padding: 1rem; background: var(--cl-surface); border: 1px solid var(--cl-border); border-radius: 10px; }
+    .ws-meta-label { display: block; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--cl-accent); margin-bottom: 0.25rem; }
+    .ws-meta-value { display: block; font-size: 0.9rem; font-weight: 600; color: var(--cl-text); }
 
     .ws-section { padding: 4rem 0; }
-    .ws-section--alt { background: var(--surface); }
-    .ws-section-num { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; color: var(--accent); margin-bottom: 0.5rem; }
-    .ws-section-title { font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 800; letter-spacing: -0.02em; color: var(--text); margin-bottom: 0.5rem; line-height: 1.15; }
-    .ws-principle-tag { font-size: 0.82rem; color: var(--muted); font-style: italic; margin-bottom: 2rem; max-width: 600px; }
+    .ws-section--alt { background: var(--cl-surface); }
+    .ws-section-num { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; color: var(--cl-accent); margin-bottom: 0.5rem; }
+    .ws-section-title { font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 800; letter-spacing: -0.02em; color: var(--cl-text); margin-bottom: 0.5rem; line-height: 1.15; }
+    .ws-principle-tag { font-size: 0.82rem; color: var(--cl-muted); font-style: italic; margin-bottom: 2rem; max-width: 600px; }
 
-    .ws-body { color: rgba(226, 232, 240, 0.85); font-size: 1rem; line-height: 1.7; }
+    .ws-body { color: rgba(232, 221, 211, 0.82); font-size: 1rem; line-height: 1.7; }
     .ws-body p { margin-bottom: 1rem; }
-    .ws-body h3 { font-size: 1rem; font-weight: 700; color: var(--text); margin: 2rem 0 0.5rem; }
+    .ws-body h3 { font-size: 1rem; font-weight: 700; color: var(--cl-text); margin: 2rem 0 0.5rem; }
     .ws-body ol, .ws-body ul { margin: 0.5rem 0 1.5rem 1.25rem; }
     .ws-body li { margin-bottom: 0.4rem; }
-    .ws-body strong { color: var(--text); }
-    .ws-body code { font-size: 0.85em; background: var(--surface-2); padding: 0.15rem 0.4rem; border-radius: 4px; color: var(--accent); }
+    .ws-body strong { color: var(--cl-text); }
+    .ws-body code { font-size: 0.85em; background: var(--cl-surface-2); padding: 0.15rem 0.4rem; border-radius: 4px; color: var(--cl-code); }
 
     .ws-principle-map { display: flex; flex-direction: column; gap: 0.4rem; margin: 1.5rem 0; }
-    .ws-pm-item { display: grid; grid-template-columns: 2.5rem 11rem auto 1fr; gap: 0.75rem; align-items: center; padding: 0.6rem 0.8rem; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; font-size: 0.85rem; }
-    .ws-pm-num { font-weight: 800; color: var(--accent); font-size: 0.75rem; }
-    .ws-pm-principle { font-weight: 700; color: var(--text); }
-    .ws-pm-arrow { color: var(--accent); opacity: 0.4; }
-    .ws-pm-module { color: var(--muted); }
+    .ws-pm-item { display: grid; grid-template-columns: 2.5rem 11rem auto 1fr; gap: 0.75rem; align-items: center; padding: 0.6rem 0.8rem; background: var(--cl-surface); border: 1px solid var(--cl-border); border-radius: 8px; font-size: 0.85rem; }
+    .ws-pm-num { font-weight: 800; color: var(--cl-accent); font-size: 0.75rem; }
+    .ws-pm-principle { font-weight: 700; color: var(--cl-text); }
+    .ws-pm-arrow { color: var(--cl-accent); opacity: 0.4; }
+    .ws-pm-module { color: var(--cl-muted); }
 
-    .ws-exercise { margin: 1.5rem 0; padding: 1.5rem; background: rgba(100, 255, 218, 0.04); border: 1px solid rgba(100, 255, 218, 0.12); border-left: 3px solid var(--accent); border-radius: 0 10px 10px 0; }
-    .ws-exercise-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.75rem; }
+    .ws-exercise { margin: 1.5rem 0; padding: 1.5rem; background: var(--cl-accent-soft); border: 1px solid var(--cl-accent-glow); border-left: 3px solid var(--cl-accent); border-radius: 0 10px 10px 0; }
+    .ws-exercise-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--cl-accent); margin-bottom: 0.75rem; }
 
-    .ws-code-block { margin: 1.5rem 0; background: var(--surface-2); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
-    .ws-code-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); padding: 0.75rem 1rem 0.5rem; }
+    .ws-code-block { margin: 1.5rem 0; background: var(--cl-surface-2); border: 1px solid var(--cl-border); border-radius: 10px; overflow: hidden; }
+    .ws-code-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--cl-muted); padding: 0.75rem 1rem 0.5rem; }
     .ws-code-block pre { padding: 0.5rem 0; overflow-x: auto; margin: 0; }
-    .ws-code-block code { font-size: 0.85rem; color: var(--accent); background: none; padding: 0; line-height: 1.6; }
-    .ws-code-note { font-size: 0.8rem; color: var(--muted); padding: 0 1rem 0.75rem; }
+    .ws-code-block code { font-size: 0.85rem; color: var(--cl-code); background: none; padding: 0; line-height: 1.6; }
+    .ws-code-note { font-size: 0.8rem; color: var(--cl-muted); padding: 0 1rem 0.75rem; }
 
     /* Copyable command blocks */
     .ws-cmd {
       display: flex; align-items: center; justify-content: space-between; gap: 1rem;
       padding: 0.65rem 0.75rem 0.65rem 1rem;
-      background: var(--surface-2); border: 1px solid var(--border); border-radius: 8px;
+      background: var(--cl-surface-2); border: 1px solid var(--cl-border); border-radius: 8px;
       margin: 0.5rem 0; cursor: pointer; transition: border-color 0.2s;
     }
-    .ws-cmd:hover { border-color: rgba(100, 255, 218, 0.3); }
-    .ws-cmd code { font-size: 0.88rem; color: var(--accent); background: none; padding: 0; white-space: nowrap; overflow-x: auto; flex: 1; }
-    .ws-cmd--prompt { border-left: 3px solid rgba(100, 255, 218, 0.25); }
-    .ws-cmd--prompt code { color: var(--text); white-space: normal; }
+    .ws-cmd:hover { border-color: var(--cl-accent-glow); }
+    .ws-cmd code { font-size: 0.88rem; color: var(--cl-code); background: none; padding: 0; white-space: nowrap; overflow-x: auto; flex: 1; }
+    .ws-cmd--prompt { border-left: 3px solid var(--cl-accent-glow); }
+    .ws-cmd--prompt code { color: var(--cl-text); white-space: normal; }
     .ws-cmd--multi { flex-direction: column; align-items: stretch; cursor: default; }
     .ws-cmd--multi pre { margin: 0; padding: 0; }
     .ws-cmd--multi code { white-space: pre; }
     .ws-cmd--multi .ws-copy { align-self: flex-end; }
 
     .ws-copy {
-      flex-shrink: 0; padding: 0.35rem 0.75rem; border: 1px solid var(--border);
-      border-radius: 6px; background: transparent; color: var(--muted); font-size: 0.72rem;
+      flex-shrink: 0; padding: 0.35rem 0.75rem; border: 1px solid var(--cl-border);
+      border-radius: 6px; background: transparent; color: var(--cl-muted); font-size: 0.72rem;
       font-weight: 700; letter-spacing: 0.04em; cursor: pointer; transition: all 0.15s;
       white-space: nowrap;
     }
-    .ws-copy:hover { color: var(--accent); border-color: var(--accent); }
-    .ws-copy.ws-copied { color: var(--accent); border-color: var(--accent); background: rgba(100, 255, 218, 0.08); }
+    .ws-copy:hover { color: var(--cl-accent); border-color: var(--cl-accent); }
+    .ws-copy.ws-copied { color: var(--cl-accent); border-color: var(--cl-accent); background: var(--cl-accent-soft); }
 
-    .ws-key-insight { margin: 1.5rem 0; padding: 1rem 1.25rem; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; font-size: 0.9rem; }
+    .ws-key-insight { margin: 1.5rem 0; padding: 1rem 1.25rem; background: var(--cl-surface); border: 1px solid var(--cl-border); border-radius: 10px; font-size: 0.9rem; }
 
     .ws-tools-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem; margin: 1.5rem 0; }
-    .ws-tool { padding: 0.75rem; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; }
-    .ws-tool strong { display: block; font-size: 0.85rem; color: var(--accent); margin-bottom: 0.15rem; }
-    .ws-tool span { font-size: 0.75rem; color: var(--muted); }
+    .ws-tool { padding: 0.75rem; background: var(--cl-surface); border: 1px solid var(--cl-border); border-radius: 8px; }
+    .ws-tool strong { display: block; font-size: 0.85rem; color: var(--cl-accent); margin-bottom: 0.15rem; }
+    .ws-tool span { font-size: 0.75rem; color: var(--cl-muted); }
 
     .ws-checklist { display: flex; flex-direction: column; gap: 0.5rem; margin: 1rem 0 1.5rem; }
-    .ws-check { display: flex; gap: 0.75rem; padding: 0.75rem 1rem; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; font-size: 0.9rem; }
-    .ws-check-box { color: var(--accent); flex-shrink: 0; }
+    .ws-check { display: flex; gap: 0.75rem; padding: 0.75rem 1rem; background: var(--cl-surface); border: 1px solid var(--cl-border); border-radius: 8px; font-size: 0.9rem; }
+    .ws-check-box { color: var(--cl-accent); flex-shrink: 0; }
 
-    .ws-progression { margin: 2rem 0; padding: 1.5rem; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; }
-    .ws-progression-title { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
+    .ws-progression { margin: 2rem 0; padding: 1.5rem; background: var(--cl-surface); border: 1px solid var(--cl-border); border-radius: 12px; }
+    .ws-progression-title { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--cl-accent); margin-bottom: 1rem; }
     .ws-progression-steps { display: flex; align-items: flex-start; gap: 0.75rem; }
     .ws-prog-step { flex: 1; display: flex; gap: 0.6rem; }
-    .ws-prog-num { font-size: 0.75rem; font-weight: 800; color: var(--accent); background: rgba(100, 255, 218, 0.1); width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
-    .ws-prog-step strong { display: block; font-size: 0.9rem; color: var(--text); }
-    .ws-prog-step p { font-size: 0.8rem; color: var(--muted); margin: 0.15rem 0 0; }
-    .ws-prog-arrow { color: var(--accent); opacity: 0.3; font-weight: 800; padding-top: 2px; flex-shrink: 0; }
+    .ws-prog-num { font-size: 0.75rem; font-weight: 800; color: var(--cl-accent); background: var(--cl-accent-soft); width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
+    .ws-prog-step strong { display: block; font-size: 0.9rem; color: var(--cl-text); }
+    .ws-prog-step p { font-size: 0.8rem; color: var(--cl-muted); margin: 0.15rem 0 0; }
+    .ws-prog-arrow { color: var(--cl-accent); opacity: 0.3; font-weight: 800; padding-top: 2px; flex-shrink: 0; }
 
     .ws-outcome-grid { display: grid; gap: 0.4rem; margin: 0 0 2rem; }
-    .ws-outcome { display: flex; align-items: center; gap: 0.75rem; padding: 0.6rem 0; font-size: 0.95rem; color: var(--text); border-bottom: 1px solid rgba(148, 163, 184, 0.08); }
-    .ws-outcome-check { color: var(--accent); font-weight: 700; }
+    .ws-outcome { display: flex; align-items: center; gap: 0.75rem; padding: 0.6rem 0; font-size: 0.95rem; color: var(--cl-text); border-bottom: 1px solid rgba(155, 149, 178, 0.08); }
+    .ws-outcome-check { color: var(--cl-accent); font-weight: 700; }
 
-    .ws-cta-block { margin-top: 2.5rem; padding: 2rem; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; text-align: center; }
-    .ws-cta-block p { font-size: 1rem; color: var(--muted); margin-bottom: 1rem; }
-    .ws-cta { display: inline-flex; padding: 0.75rem 1.5rem; background: var(--accent); color: var(--bg); font-weight: 700; font-size: 0.9rem; border-radius: 8px; text-decoration: none; transition: opacity 0.2s; }
+    .ws-cta-block { margin-top: 2.5rem; padding: 2rem; background: var(--cl-surface); border: 1px solid var(--cl-border); border-radius: 12px; text-align: center; }
+    .ws-cta-block p { font-size: 1rem; color: var(--cl-muted); margin-bottom: 1rem; }
+    .ws-cta { display: inline-flex; padding: 0.75rem 1.5rem; background: var(--cl-accent); color: #1a1625; font-weight: 700; font-size: 0.9rem; border-radius: 8px; text-decoration: none; transition: opacity 0.2s; }
     .ws-cta:hover { opacity: 0.85; }
 
     @media (max-width: 768px) {
