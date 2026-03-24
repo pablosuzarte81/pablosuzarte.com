@@ -272,6 +272,20 @@ const randomStyles = ['brutalist', 'neon', 'vaporwave', 'paper', 'ocean']
     </div>
   </section>
 
+  <!-- ME & AI SUMMARY -->
+  <section class="section section-alt me-ai-teaser">
+    <div class="container">
+      <a href="/me-and-ai" class="me-ai-card">
+        <div class="me-ai-card__text">
+          <p class="me-ai-card__kicker">Me &amp; AI</p>
+          <h3 class="me-ai-card__title">I design environments where humans and AI think together.</h3>
+          <p class="me-ai-card__desc">Philosophy, method, tools, real projects, and workshops. Everything I have built and learned about orchestrating AI as a design partner, in one place.</p>
+          <span class="me-ai-card__cta">Explore the full page <span aria-hidden="true">&rarr;</span></span>
+        </div>
+      </a>
+    </div>
+  </section>
+
   <!-- AI MINDSET -->
   <section id="ai-mindset" class="section section-alt">
     <div class="container section-grid">
@@ -3300,6 +3314,50 @@ const randomStyles = ['brutalist', 'neon', 'vaporwave', 'paper', 'ocean']
     .lang-switcher {
       display: none;
     }
+  }
+
+  /* Me & AI Teaser */
+  .me-ai-teaser {
+    padding: 3.5rem 0;
+  }
+  .me-ai-card {
+    display: block;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 2.5rem;
+    text-decoration: none;
+    color: var(--text);
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .me-ai-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+  }
+  .me-ai-card__kicker {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+  }
+  .me-ai-card__title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 0.5rem;
+  }
+  .me-ai-card__desc {
+    font-size: 0.95rem;
+    color: var(--muted-light);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+  .me-ai-card__cta {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--accent);
   }
 
   /* AI Projects */
