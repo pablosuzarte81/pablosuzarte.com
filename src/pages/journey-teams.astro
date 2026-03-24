@@ -817,6 +817,7 @@ strong { font-weight: 700; }
 .section--outcomes    { background: #08080F; }
 .section--outcomes-detail { background: #08080F; position: relative; overflow: hidden; }
 .section--outcomes-detail .section__inner { position: relative; z-index: 1; }
+.section--results     { background: #08080F; }
 .section--feedback    { background: #08080F; }
 .section--dxd         { background: #08080F; }
 .section--close       { background: #08080F; }
@@ -968,6 +969,132 @@ strong { font-weight: 700; }
   line-height: 1.55;
 }
 
+/* ---------- Results (C360A Data) ---------- */
+.results-narrative {
+  font-size: clamp(1rem, 1.4vw, 1.25rem);
+  color: rgba(255, 255, 255, 0.55);
+  max-width: 44rem;
+  line-height: 1.6;
+  margin-top: -0.25rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.results-cards {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: var(--space-l);
+  max-width: var(--max-width);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.results-card {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-left: 3px solid var(--card-accent);
+  border-radius: 12px;
+  padding: 2.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.25rem;
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.results-card--1 { transition-delay: 0.1s; }
+.results-card--2 { transition-delay: 0.25s; }
+
+.section--results.is-visible .results-card {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.results-card__number {
+  font-size: clamp(3rem, 4.5vw, 4.5rem);
+  font-weight: 900;
+  color: var(--card-accent);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+.results-card__label {
+  font-size: clamp(1rem, 1.3vw, 1.2rem);
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.88);
+  margin-top: 0.5rem;
+}
+.results-card__sublabel {
+  font-size: clamp(0.85rem, 1vw, 0.95rem);
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.results-total {
+  font-size: clamp(1.05rem, 1.4vw, 1.3rem);
+  color: rgba(255, 255, 255, 0.55);
+  margin-top: var(--space-l);
+  letter-spacing: 0.01em;
+}
+.results-total strong {
+  font-weight: 900;
+  font-size: 1.15em;
+}
+
+.results-attribution {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  margin-top: var(--space-l);
+  padding: 1.2rem 1.6rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 10px;
+  max-width: 36rem;
+  margin-left: auto;
+  margin-right: auto;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.6s ease 0.4s, transform 0.6s ease 0.4s;
+}
+.section--results.is-visible .results-attribution {
+  opacity: 1;
+  transform: translateY(0);
+}
+.results-attribution__avatar {
+  width: 2.8rem;
+  height: 2.8rem;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  flex-shrink: 0;
+}
+.results-attribution__text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+.results-attribution__quote {
+  font-size: clamp(0.95rem, 1.15vw, 1.08rem);
+  color: rgba(255, 255, 255, 0.7);
+  font-style: italic;
+  line-height: 1.5;
+  margin: 0;
+}
+.results-attribution__name {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-top: 0.3rem;
+}
+.results-attribution__role {
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.4);
+}
+
 /* ---------- Feedback Quotes ---------- */
 .feedback-quotes {
   display: grid;
@@ -997,6 +1124,17 @@ strong { font-weight: 700; }
   flex-shrink: 0;
   min-width: 10rem;
   text-align: right;
+}
+.feedback-quotes--grid {
+  grid-template-columns: 1fr 1fr;
+  max-width: 60rem;
+}
+.feedback-quotes--grid .feedback-quote {
+  flex-direction: column;
+  padding: 1.5rem 1.8rem;
+}
+.feedback-quotes--grid .feedback-quote__author {
+  align-items: flex-start;
 }
 .feedback-quote {
   background: rgba(255, 255, 255, 0.03);
@@ -4527,6 +4665,7 @@ strong { font-weight: 700; }
 </head>
 <body>
 
+
   <!-- Fixed constellation — persists behind sections 01 and 02 -->
   <canvas id="constellationCanvas" class="constellation-fixed"></canvas>
 
@@ -4548,6 +4687,7 @@ strong { font-weight: 700; }
     <a href="#s11" class="dot" data-label="Big Workshop"></a>
     <a href="#s12" class="dot" data-label="Opportunities"></a>
     <a href="#s13" class="dot" data-label="Outcomes"></a>
+    <a href="#s13a" class="dot" data-label="Results"></a>
     <a href="#s13b" class="dot" data-label="Feedback"></a>
     <a href="#s13c" class="dot" data-label="DXD Landscape"></a>
     <a href="#s14" class="dot" data-label="Close"></a>
@@ -5268,12 +5408,47 @@ strong { font-weight: 700; }
   </section>
 
   <!-- ============================================================
+       13a — MEASURABLE IMPACT (C360A adoption data)
+  ============================================================ -->
+  <section id="s13a" class="section section--results">
+    <div class="section__inner section__inner--center">
+      <p class="section-label">Measurable Impact</p>
+      <h2 class="heading-xl">The evidence <strong class="highlight-yellow">reached the product.</strong></h2>
+      <p class="results-narrative">Customer 360 Admin redesigned their search based on Journey Teams evidence. Three months later, the data speaks for itself.</p>
+
+      <div class="results-cards">
+        <div class="results-card results-card--1" style="--card-accent: #ffdb00;">
+          <span class="results-card__number">78,696</span>
+          <span class="results-card__label">Transaction searches</span>
+          <span class="results-card__sublabel">Overview page, used by both Store and RCMP</span>
+        </div>
+        <div class="results-card results-card--2" style="--card-accent: #3ee0a5;">
+          <span class="results-card__number">43,637</span>
+          <span class="results-card__label">Article searches</span>
+          <span class="results-card__sublabel">Transactions page, higher usage among RCMP</span>
+        </div>
+      </div>
+
+      <p class="results-total"><strong class="highlight-yellow">122,333</strong> total searches through features born from co-worker pain points</p>
+
+      <div class="results-attribution">
+        <img class="results-attribution__avatar" src="https://journeyteams.vercel.app/feedback/jessica.png" alt="Jessica Bjermer">
+        <div class="results-attribution__text">
+          <p class="results-attribution__quote">"The work from Journey Teams really seems to have produced results."</p>
+          <span class="results-attribution__name">Jessica Bjermer</span>
+          <span class="results-attribution__role">Senior Product UX Designer, C360 Admin</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
        13b — FEEDBACK
   ============================================================ -->
   <section id="s13b" class="section section--feedback">
     <div class="section__inner section__inner--center">
       <p class="section-label">Feedback</p>
-      <div class="feedback-quotes feedback-quotes--three">
+      <div class="feedback-quotes feedback-quotes--grid">
         <blockquote class="feedback-quote" style="border-left-color: #ffdb00;">
           <p class="feedback-quote__text">"It was an <strong class="highlight-yellow">eye opener</strong> that the different teams did not speak as much as I thought they did. Now I understand why we have trouble with some systems and why information doesn't come to us."</p>
           <footer class="feedback-quote__author">
@@ -5407,7 +5582,6 @@ strong { font-weight: 700; }
       <p class="closing-note">The "we" is intentional: the team, the stakeholders, the co-workers, and everyone who helped turn fragmented experience into shared direction.</p>
     </div>
   </section>
-
   <script is:inline>
 // ============================================================
 //  Journey Teams — Scroll presentation engine
