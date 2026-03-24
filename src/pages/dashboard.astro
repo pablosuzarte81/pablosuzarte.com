@@ -1,0 +1,626 @@
+---
+export const prerender = false
+import Layout from '../layouts/Layout.astro'
+
+const PASSWORD = import.meta.env.DASHBOARD_PASSWORD || ''
+let authenticated = false
+let loginError = false
+
+const cookie = Astro.cookies.get('dashboard_auth')
+if (cookie?.value === PASSWORD && PASSWORD) {
+  authenticated = true
+}
+
+if (Astro.request.method === 'POST') {
+  try {
+    const formData = await Astro.request.formData()
+    const submitted = formData.get('password')?.toString() || ''
+    if (submitted === PASSWORD && PASSWORD) {
+      Astro.cookies.set('dashboard_auth', PASSWORD, {
+        path: '/dashboard',
+        maxAge: 60 * 60 * 24 * 30,
+        httpOnly: true,
+        secure: true,
+        sameSite: 'strict',
+      })
+      authenticated = true
+    } else {
+      loginError = true
+    }
+  } catch {
+    loginError = true
+  }
+}
+
+// Fetch initial data if authenticated
+let initialData: any = null
+if (authenticated) {
+  try {
+    const res = await fetch(new URL('/api/analytics/?days=7', Astro.url.origin), {
+      headers: { Authorization: `Bearer ${PASSWORD}` },
+    })
+    if (res.ok) {
+      initialData = await res.json()
+    }
+  } catch {
+    // Will show "no data" state
+  }
+}
+---
+
+<Layout title="Analytics Dashboard" noTracking={true}>
+  {!authenticated ? (
+    <div class="login-wrapper">
+      <form class="login-card" method="POST">
+        <h1 class="login-title">Analytics</h1>
+        <p class="login-subtitle">Enter password to continue</p>
+        {loginError && <p class="login-error">Wrong password</p>}
+        <input
+          type="password"
+          name="password"
+          class="login-input"
+          placeholder="Password"
+          autofocus
+          required
+        />
+        <button type="submit" class="login-btn">Sign in</button>
+      </form>
+    </div>
+  ) : (
+    <div class="dash">
+      <header class="dash-header">
+        <div class="dash-header-left">
+          <h1 class="dash-title">Analytics</h1>
+          <a href="/" class="dash-back">Back to site</a>
+        </div>
+        <div class="dash-range">
+          <button class="range-btn active" data-days="7">7d</button>
+          <button class="range-btn" data-days="30">30d</button>
+          <button class="range-btn" data-days="90">90d</button>
+        </div>
+      </header>
+
+      <div class="metrics-row" id="metrics-row">
+        <div class="metric-card">
+          <span class="metric-label">Page Views</span>
+          <span class="metric-value" id="m-pv">--</span>
+        </div>
+        <div class="metric-card">
+          <span class="metric-label">Unique Visitors</span>
+          <span class="metric-value" id="m-uv">--</span>
+        </div>
+        <div class="metric-card">
+          <span class="metric-label">Avg Scroll Depth</span>
+          <span class="metric-value" id="m-scroll">--</span>
+        </div>
+        <div class="metric-card">
+          <span class="metric-label">Avg Time on Page</span>
+          <span class="metric-value" id="m-time">--</span>
+        </div>
+      </div>
+
+      <div class="grid-2col" id="main-grid">
+        <div class="panel">
+          <h2 class="panel-title">Top Pages</h2>
+          <table class="data-table" id="t-pages">
+            <thead><tr><th>Page</th><th>Views</th></tr></thead>
+            <tbody id="tb-pages">
+              <tr><td colspan="2" class="empty-state">No data yet</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="panel">
+          <h2 class="panel-title">Scroll Depth</h2>
+          <div class="bars" id="bars-scroll">
+            <div class="bar-row"><span class="bar-label">25%</span><div class="bar-track"><div class="bar-fill" id="bar-s25"></div></div><span class="bar-val" id="bv-s25">0</span></div>
+            <div class="bar-row"><span class="bar-label">50%</span><div class="bar-track"><div class="bar-fill" id="bar-s50"></div></div><span class="bar-val" id="bv-s50">0</span></div>
+            <div class="bar-row"><span class="bar-label">75%</span><div class="bar-track"><div class="bar-fill" id="bar-s75"></div></div><span class="bar-val" id="bv-s75">0</span></div>
+            <div class="bar-row"><span class="bar-label">100%</span><div class="bar-track"><div class="bar-fill" id="bar-s100"></div></div><span class="bar-val" id="bv-s100">0</span></div>
+          </div>
+        </div>
+        <div class="panel">
+          <h2 class="panel-title">Traffic Sources</h2>
+          <table class="data-table" id="t-sources">
+            <thead><tr><th>Source</th><th>Visits</th></tr></thead>
+            <tbody id="tb-sources">
+              <tr><td colspan="2" class="empty-state">No data yet</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="panel">
+          <h2 class="panel-title">Engagement Time</h2>
+          <div class="bars" id="bars-engage">
+            <div class="bar-row"><span class="bar-label">30s</span><div class="bar-track"><div class="bar-fill" id="bar-e30"></div></div><span class="bar-val" id="bv-e30">0</span></div>
+            <div class="bar-row"><span class="bar-label">60s</span><div class="bar-track"><div class="bar-fill" id="bar-e60"></div></div><span class="bar-val" id="bv-e60">0</span></div>
+            <div class="bar-row"><span class="bar-label">2m</span><div class="bar-track"><div class="bar-fill" id="bar-e120"></div></div><span class="bar-val" id="bv-e120">0</span></div>
+            <div class="bar-row"><span class="bar-label">5m</span><div class="bar-track"><div class="bar-fill" id="bar-e300"></div></div><span class="bar-val" id="bv-e300">0</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="device-row" id="device-row">
+        <h2 class="panel-title">Devices</h2>
+        <div class="device-bars" id="device-bars">
+          <div class="device-item">
+            <span class="device-label">Desktop</span>
+            <div class="bar-track"><div class="bar-fill" id="bar-desktop"></div></div>
+            <span class="bar-val" id="bv-desktop">0</span>
+          </div>
+          <div class="device-item">
+            <span class="device-label">Mobile</span>
+            <div class="bar-track"><div class="bar-fill" id="bar-mobile"></div></div>
+            <span class="bar-val" id="bv-mobile">0</span>
+          </div>
+          <div class="device-item">
+            <span class="device-label">Tablet</span>
+            <div class="bar-track"><div class="bar-fill" id="bar-tablet"></div></div>
+            <span class="bar-val" id="bv-tablet">0</span>
+          </div>
+        </div>
+      </div>
+
+      <footer class="dash-footer">
+        <a href="https://vercel.com/analytics" target="_blank" rel="noopener">Vercel Analytics Dashboard</a>
+      </footer>
+    </div>
+  )}
+
+  <script is:inline define:vars={{ initialData, PASSWORD }}>
+    if (typeof initialData !== 'undefined' && initialData !== null) {
+      render(initialData);
+    }
+
+    document.querySelectorAll('.range-btn').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        document.querySelectorAll('.range-btn').forEach(function(b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+        var days = btn.getAttribute('data-days');
+        fetch('/api/analytics/?days=' + days, {
+          headers: { Authorization: 'Bearer ' + PASSWORD }
+        })
+          .then(function(r) { return r.json(); })
+          .then(function(data) { render(data); })
+          .catch(function() {});
+      });
+    });
+
+    function render(d) {
+      if (!d) return;
+
+      var pvEl = document.getElementById('m-pv');
+      var uvEl = document.getElementById('m-uv');
+      var scrollEl = document.getElementById('m-scroll');
+      var timeEl = document.getElementById('m-time');
+      if (pvEl) pvEl.textContent = fmt(d.totalPageViews || 0);
+      if (uvEl) uvEl.textContent = fmt(d.uniqueVisitors || 0);
+      if (scrollEl) scrollEl.textContent = (d.avgScrollDepth || 0) + '%';
+      if (timeEl) timeEl.textContent = fmtTime(d.avgEngagement || 0);
+
+      // Top pages
+      var tbody = document.getElementById('tb-pages');
+      if (tbody && d.topPages && d.topPages.length > 0) {
+        tbody.innerHTML = d.topPages.map(function(p) {
+          return '<tr><td class="page-path">' + esc(p[0]) + '</td><td class="num">' + fmt(p[1]) + '</td></tr>';
+        }).join('');
+      } else if (tbody) {
+        tbody.innerHTML = '<tr><td colspan="2" class="empty-state">No data yet</td></tr>';
+      }
+
+      // Sources
+      var stbody = document.getElementById('tb-sources');
+      if (stbody && d.topSources && d.topSources.length > 0) {
+        stbody.innerHTML = d.topSources.map(function(s) {
+          return '<tr><td>' + esc(s[0]) + '</td><td class="num">' + fmt(s[1]) + '</td></tr>';
+        }).join('');
+      } else if (stbody) {
+        stbody.innerHTML = '<tr><td colspan="2" class="empty-state">No data yet</td></tr>';
+      }
+
+      // Scroll depth bars
+      if (d.scrollDepth) {
+        var sMax = Math.max(d.scrollDepth['25'] || 0, d.scrollDepth['50'] || 0, d.scrollDepth['75'] || 0, d.scrollDepth['100'] || 0, 1);
+        setBar('bar-s25', 'bv-s25', d.scrollDepth['25'] || 0, sMax);
+        setBar('bar-s50', 'bv-s50', d.scrollDepth['50'] || 0, sMax);
+        setBar('bar-s75', 'bv-s75', d.scrollDepth['75'] || 0, sMax);
+        setBar('bar-s100', 'bv-s100', d.scrollDepth['100'] || 0, sMax);
+      }
+
+      // Engagement bars
+      if (d.engagement) {
+        var eMax = Math.max(d.engagement['30'] || 0, d.engagement['60'] || 0, d.engagement['120'] || 0, d.engagement['300'] || 0, 1);
+        setBar('bar-e30', 'bv-e30', d.engagement['30'] || 0, eMax);
+        setBar('bar-e60', 'bv-e60', d.engagement['60'] || 0, eMax);
+        setBar('bar-e120', 'bv-e120', d.engagement['120'] || 0, eMax);
+        setBar('bar-e300', 'bv-e300', d.engagement['300'] || 0, eMax);
+      }
+
+      // Device bars
+      if (d.devices) {
+        var dMax = Math.max(d.devices.desktop || 0, d.devices.mobile || 0, d.devices.tablet || 0, 1);
+        setBar('bar-desktop', 'bv-desktop', d.devices.desktop || 0, dMax);
+        setBar('bar-mobile', 'bv-mobile', d.devices.mobile || 0, dMax);
+        setBar('bar-tablet', 'bv-tablet', d.devices.tablet || 0, dMax);
+      }
+    }
+
+    function setBar(barId, valId, val, max) {
+      var bar = document.getElementById(barId);
+      var valEl = document.getElementById(valId);
+      if (bar) bar.style.width = Math.round((val / max) * 100) + '%';
+      if (valEl) valEl.textContent = fmt(val);
+    }
+
+    function fmt(n) {
+      return n.toLocaleString('en-US');
+    }
+
+    function fmtTime(s) {
+      if (s < 60) return s + 's';
+      var m = Math.floor(s / 60);
+      var rem = s % 60;
+      return m + 'm ' + rem + 's';
+    }
+
+    function esc(str) {
+      var div = document.createElement('div');
+      div.textContent = str;
+      return div.innerHTML;
+    }
+  </script>
+</Layout>
+
+<style>
+  /* ── Login ── */
+  .login-wrapper {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg);
+    padding: 1rem;
+  }
+
+  .login-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 2.5rem 2rem;
+    width: 100%;
+    max-width: 360px;
+    text-align: center;
+  }
+
+  .login-title {
+    font-family: var(--font-sans);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 0.25rem;
+  }
+
+  .login-subtitle {
+    font-family: var(--font-sans);
+    font-size: 0.875rem;
+    color: var(--muted);
+    margin-bottom: 1.5rem;
+  }
+
+  .login-error {
+    font-family: var(--font-sans);
+    font-size: 0.8125rem;
+    color: #e85c4a;
+    margin-bottom: 1rem;
+  }
+
+  .login-input {
+    display: block;
+    width: 100%;
+    padding: 0.75rem 1rem;
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: var(--text);
+    font-family: var(--font-sans);
+    font-size: 0.9375rem;
+    outline: none;
+    margin-bottom: 1rem;
+    transition: border-color 0.2s;
+  }
+
+  .login-input:focus {
+    border-color: var(--accent);
+  }
+
+  .login-btn {
+    display: block;
+    width: 100%;
+    padding: 0.75rem;
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-family: var(--font-sans);
+    font-size: 0.9375rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.2s;
+  }
+
+  .login-btn:hover {
+    opacity: 0.9;
+  }
+
+  /* ── Dashboard ── */
+  .dash {
+    min-height: 100vh;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-sans);
+    padding: 2rem clamp(1rem, 4vw, 3rem);
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .dash-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .dash-header-left {
+    display: flex;
+    align-items: baseline;
+    gap: 1.25rem;
+  }
+
+  .dash-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text);
+  }
+
+  .dash-back {
+    font-size: 0.8125rem;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .dash-back:hover {
+    color: var(--accent);
+  }
+
+  .dash-range {
+    display: flex;
+    gap: 0.25rem;
+    background: var(--surface);
+    border-radius: 8px;
+    padding: 0.25rem;
+  }
+
+  .range-btn {
+    padding: 0.375rem 0.875rem;
+    border: none;
+    border-radius: 6px;
+    background: transparent;
+    color: var(--muted);
+    font-family: var(--font-sans);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .range-btn.active {
+    background: var(--surface-2);
+    color: var(--text);
+  }
+
+  .range-btn:hover:not(.active) {
+    color: var(--text);
+  }
+
+  /* ── Metrics Row ── */
+  .metrics-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .metric-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .metric-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--muted);
+  }
+
+  .metric-value {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--text);
+  }
+
+  /* ── Grid ── */
+  .grid-2col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .panel {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.25rem;
+  }
+
+  .panel-title {
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 1rem;
+  }
+
+  /* ── Tables ── */
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.8125rem;
+  }
+
+  .data-table th {
+    text-align: left;
+    font-weight: 600;
+    color: var(--muted);
+    padding: 0.375rem 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.6875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .data-table th:last-child,
+  .data-table td.num {
+    text-align: right;
+  }
+
+  .data-table td {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--border);
+    color: var(--text);
+  }
+
+  .data-table td.page-path {
+    max-width: 240px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .empty-state {
+    text-align: center !important;
+    color: var(--muted) !important;
+    padding: 2rem 0 !important;
+  }
+
+  /* ── Bars ── */
+  .bars {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .bar-row, .device-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .bar-label, .device-label {
+    font-size: 0.8125rem;
+    color: var(--muted);
+    width: 3rem;
+    flex-shrink: 0;
+    text-align: right;
+  }
+
+  .device-label {
+    width: 4.5rem;
+  }
+
+  .bar-track {
+    flex: 1;
+    height: 24px;
+    background: var(--surface-2);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .bar-fill {
+    height: 100%;
+    background: var(--accent);
+    border-radius: 4px;
+    width: 0%;
+    transition: width 0.5s ease;
+    min-width: 2px;
+  }
+
+  .bar-val {
+    font-size: 0.8125rem;
+    color: var(--text);
+    font-weight: 600;
+    width: 3rem;
+    text-align: right;
+    flex-shrink: 0;
+  }
+
+  /* ── Device Row ── */
+  .device-row {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.25rem;
+    margin-bottom: 2rem;
+  }
+
+  .device-bars {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  /* ── Footer ── */
+  .dash-footer {
+    text-align: center;
+    padding: 2rem 0 1rem;
+  }
+
+  .dash-footer a {
+    font-size: 0.8125rem;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .dash-footer a:hover {
+    color: var(--accent);
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 768px) {
+    .metrics-row {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .grid-2col {
+      grid-template-columns: 1fr;
+    }
+
+    .dash-header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .metrics-row {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

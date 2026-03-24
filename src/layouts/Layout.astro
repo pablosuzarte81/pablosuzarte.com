@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css'
+import Analytics from '@vercel/analytics/astro'
 
 interface Props {
   title?: string
@@ -9,6 +10,7 @@ interface Props {
   ogImage?: string
   articleDate?: string
   extraHead?: string
+  noTracking?: boolean
 }
 
 const {
@@ -18,6 +20,7 @@ const {
   ogType = 'website',
   ogImage = '/pablo_profile_photo.png',
   articleDate,
+  noTracking = false,
 } = Astro.props
 
 const canonicalUrl = new URL(Astro.url.pathname, 'https://pablosuzarte.com').href
@@ -108,8 +111,72 @@ const ogImageUrl = new URL(ogImage, 'https://pablosuzarte.com').href
         "description": "Senior Product UX Designer with 15+ years of experience. Designs environments where humans and AI think together."
       }
     </script>
+    <Analytics />
   </head>
   <body>
     <slot />
+
+    {!noTracking && (
+      <script is:inline>
+      (function() {
+        if (window.location.pathname.startsWith('/dashboard')) return;
+
+        var vid = localStorage.getItem('_vid');
+        if (!vid) {
+          vid = crypto.randomUUID();
+          localStorage.setItem('_vid', vid);
+        }
+
+        var path = window.location.pathname;
+        var ref = document.referrer || 'direct';
+        var ua = navigator.userAgent;
+        var device = /Mobi|Android/i.test(ua) ? 'mobile' : /Tablet|iPad/i.test(ua) ? 'tablet' : 'desktop';
+
+        function send(type, data) {
+          var payload = JSON.stringify({ type: type, path: path, data: data, vid: vid, device: device, ref: ref });
+          if (navigator.sendBeacon) {
+            navigator.sendBeacon('/api/analytics/', payload);
+          } else {
+            fetch('/api/analytics/', { method: 'POST', body: payload, keepalive: true });
+          }
+        }
+
+        // Page view
+        send('pageview', {});
+
+        // Scroll depth milestones
+        var scrollFired = {};
+        var milestones = [25, 50, 75, 100];
+        function checkScroll() {
+          var docH = document.documentElement.scrollHeight - window.innerHeight;
+          if (docH <= 0) return;
+          var pct = Math.round((window.scrollY / docH) * 100);
+          for (var i = 0; i < milestones.length; i++) {
+            var m = milestones[i];
+            if (pct >= m && !scrollFired[m]) {
+              scrollFired[m] = true;
+              send('scroll', { depth: m });
+              if (typeof window.va === 'function') window.va('event', { name: 'scroll_depth', data: { depth: m, path: path } });
+            }
+          }
+        }
+        window.addEventListener('scroll', checkScroll, { passive: true });
+
+        // Time on page milestones
+        var timeMilestones = [30, 60, 120, 300];
+        var startTime = Date.now();
+        var timeIdx = 0;
+        var timeTimer = setInterval(function() {
+          if (timeIdx >= timeMilestones.length) { clearInterval(timeTimer); return; }
+          var elapsed = Math.round((Date.now() - startTime) / 1000);
+          if (elapsed >= timeMilestones[timeIdx]) {
+            send('engage', { seconds: timeMilestones[timeIdx] });
+            if (typeof window.va === 'function') window.va('event', { name: 'time_on_page', data: { seconds: timeMilestones[timeIdx], path: path } });
+            timeIdx++;
+          }
+        }, 5000);
+      })();
+      </script>
+    )}
   </body>
 </html>

@@ -188,10 +188,10 @@ export const translations: Record<Locale, T> = {
       playground: 'AI Playground',
     },
     hero: {
-      eyebrow: 'Senior Product UX Designer \u00B7 IKEA Global',
-      title: 'I orchestrate the space\nbetween people and AI.',
+      eyebrow: 'Senior Product UX Designer \u00B7 IKEA Global \u00B7 Malm\u00F6, Sweden',
+      title: 'I build environments where\nteams and AI collaborate.',
       tagline:
-        'From journey maps to agent workflows \u2014 designing where real collaboration happens.',
+        '15 years orchestrating people at scale. Now I help companies unlock AI as a superpower for every employee.',
       cta1: 'How I think about AI',
       cta2: 'LinkedIn \u2197',
       scroll: 'scroll',
@@ -590,10 +590,10 @@ export const translations: Record<Locale, T> = {
       playground: 'AI Playground',
     },
     hero: {
-      eyebrow: 'Senior Product UX Designer \u00B7 IKEA Global',
-      title: 'Jag orkestrerar rummet\nmellan människor och AI.',
+      eyebrow: 'Senior Product UX Designer \u00B7 IKEA Global \u00B7 Malm\u00F6, Sverige',
+      title: 'Jag bygger milj\u00F6er d\u00E4r\nteam och AI samarbetar.',
       tagline:
-        'Från journey maps till agentarbetsflöden \u2014 designar där riktigt samarbete sker.',
+        '15 \u00E5r av att orkestrera m\u00E4nniskor i stor skala. Nu hj\u00E4lper jag f\u00F6retag att frig\u00F6ra AI som superkraft f\u00F6r varje medarbetare.',
       cta1: 'Hur jag tänker kring AI',
       cta2: 'LinkedIn \u2197',
       scroll: 'scrolla',
@@ -992,10 +992,10 @@ export const translations: Record<Locale, T> = {
       playground: 'AI Playground',
     },
     hero: {
-      eyebrow: 'Senior Product UX Designer \u00B7 IKEA Global',
-      title: 'Orquesto el espacio\nentre personas e IA.',
+      eyebrow: 'Senior Product UX Designer \u00B7 IKEA Global \u00B7 Malm\u00F6, Suecia',
+      title: 'Construyo entornos donde\nequipos e IA colaboran.',
       tagline:
-        'De journey maps a flujos de agentes \u2014 diseñando donde la colaboración real sucede.',
+        '15 a\u00F1os orquestando personas a gran escala. Ahora ayudo a empresas a liberar la IA como superpoder para cada empleado.',
       cta1: 'Cómo pienso sobre la IA',
       cta2: 'LinkedIn \u2197',
       scroll: 'scroll',
