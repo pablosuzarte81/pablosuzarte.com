@@ -5,6 +5,8 @@ import Layout from '../layouts/Layout.astro'
 const PASSWORD = process.env.DASHBOARD_PASSWORD ?? ''
 let authenticated = false
 let loginError = false
+const envKeys = Object.keys(process.env).filter(k => k.includes('DASH') || k.includes('PASS') || k.includes('UPSTASH')).join(', ')
+console.log('ENV CHECK:', envKeys, 'PWD_LEN:', PASSWORD.length)
 
 const cookie = Astro.cookies.get('dashboard_auth')
 if (cookie?.value === PASSWORD && PASSWORD) {
