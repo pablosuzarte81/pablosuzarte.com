@@ -244,12 +244,12 @@ export const translations: Record<Locale, T> = {
         'AI removed the tech bottleneck. The new challenge is designing how humans and AI think together. That is a service design problem — and I have been solving it for 15 years.',
       approach: 'How I work with AI',
       approachBody:
-        'I do not just use AI tools — I design the collaboration. I set up project intelligence structures: shared memory files, decision logs, collaboration norms, and evidence systems that let humans and AI agents produce their best work together.',
+        'I do not just use AI tools — I design the collaboration. I set up project intelligence structures: configuring MD files, agent roles, shared memory, and reusable workflows that let humans and AI agents produce their best work together on complex multi-step projects.',
       toolkit: [
         { name: 'Claude & Claude Code', use: 'Deep reasoning, complex orchestration, building full applications from intent' },
         { name: 'ChatGPT & Codex', use: 'Rapid prototyping, code generation, conversational exploration' },
         { name: 'Gemini', use: 'Multi-modal research, large context analysis, cross-referencing sources' },
-        { name: 'Project Intelligence Setup', use: 'Configuring MD files, agent roles, shared memory, and reusable workflows for complex multi-step projects' },
+        { name: 'GitHub Copilot', use: 'Inline code completion, pair programming, context-aware suggestions across the IDE' },
       ],
       principlesTitle: 'Project Intelligence Principles',
       principles: [
@@ -614,12 +614,12 @@ export const translations: Record<Locale, T> = {
         'AI har tagit bort den tekniska flaskhalsen. Den nya utmaningen är att designa hur människor och AI tänker tillsammans. Det är ett tjänstedesignproblem — och jag har löst det i 15 år.',
       approach: 'Hur jag arbetar med AI',
       approachBody:
-        'Jag använder inte bara AI-verktyg — jag designar samarbetet. Jag sätter upp projektintelligensstrukturer: delat minne, beslutsloggar, samarbetsnormer och evidenssystem som låter människor och AI-agenter producera sitt bästa arbete tillsammans.',
+        'Jag använder inte bara AI-verktyg — jag designar samarbetet. Jag sätter upp projektintelligensstrukturer: konfigurerar MD-filer, agentroller, delat minne och återanvändbara arbetsflöden som låter människor och AI-agenter producera sitt bästa arbete tillsammans i komplexa projekt.',
       toolkit: [
         { name: 'Claude & Claude Code', use: 'Djup resonering, komplex orkestrering, bygga hela applikationer från intention' },
         { name: 'ChatGPT & Codex', use: 'Snabb prototyping, kodgenerering, utforskande samtal' },
         { name: 'Gemini', use: 'Multimodal research, stor kontextanalys, korskontroll av källor' },
-        { name: 'Projektintelligens-setup', use: 'Konfigurera MD-filer, agentroller, delat minne och återanvändbara arbetsflöden för komplexa projekt' },
+        { name: 'GitHub Copilot', use: 'Inline-kodkomplettering, parprogrammering, kontextmedvetna förslag i hela IDE:n' },
       ],
       principlesTitle: 'Principer för projektintelligens',
       principles: [
@@ -984,12 +984,12 @@ export const translations: Record<Locale, T> = {
         'La IA eliminó el cuello de botella técnico. El nuevo desafío es diseñar cómo humanos e IA piensan juntos. Eso es un problema de diseño de servicios — y llevo 15 años resolviéndolo.',
       approach: 'Cómo trabajo con IA',
       approachBody:
-        'No solo uso herramientas de IA — diseño la colaboración. Configuro estructuras de inteligencia de proyecto: memoria compartida, registros de decisiones, normas de colaboración y sistemas de evidencia que permiten que humanos y agentes de IA produzcan su mejor trabajo juntos.',
+        'No solo uso herramientas de IA — diseño la colaboración. Configuro estructuras de inteligencia de proyecto: archivos MD, roles de agentes, memoria compartida y flujos reutilizables que permiten que humanos y agentes de IA produzcan su mejor trabajo juntos en proyectos complejos.',
       toolkit: [
         { name: 'Claude & Claude Code', use: 'Razonamiento profundo, orquestación compleja, construir aplicaciones completas desde la intención' },
         { name: 'ChatGPT & Codex', use: 'Prototipado rápido, generación de código, exploración conversacional' },
         { name: 'Gemini', use: 'Investigación multimodal, análisis de contexto amplio, referencias cruzadas' },
-        { name: 'Setup de inteligencia de proyecto', use: 'Configurar archivos MD, roles de agentes, memoria compartida y flujos reutilizables para proyectos complejos' },
+        { name: 'GitHub Copilot', use: 'Completado de código inline, programación en pareja, sugerencias contextuales en todo el IDE' },
       ],
       principlesTitle: 'Principios de inteligencia de proyecto',
       principles: [
