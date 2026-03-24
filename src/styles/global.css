@@ -42,8 +42,37 @@ html[data-style='brutalist'] {
   --font-display: 'Manrope', system-ui, -apple-system, sans-serif;
 }
 
+/* ── Accessibility: font scaling ── */
+:root {
+  --font-scale: 1;
+}
+
+html[data-font="large"] {
+  --font-scale: 1.18;
+}
+
+html[data-font="xl"] {
+  --font-scale: 1.35;
+}
+
+/* ── Accessibility: static mode (kill all motion) ── */
+html[data-static] *,
+html[data-static] *::before,
+html[data-static] *::after {
+  animation-duration: 0.01ms !important;
+  animation-delay: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+  scroll-behavior: auto !important;
+}
+
 html {
   scroll-behavior: smooth;
+  font-size: calc(16px * var(--font-scale, 1));
+}
+
+html[data-static] {
+  scroll-behavior: auto;
 }
 
 body {
