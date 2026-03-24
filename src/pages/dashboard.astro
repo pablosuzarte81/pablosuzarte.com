@@ -2,10 +2,9 @@
 export const prerender = false
 import Layout from '../layouts/Layout.astro'
 
-const PASSWORD = import.meta.env.DASHBOARD_PASSWORD || process.env.DASHBOARD_PASSWORD || ''
+const PASSWORD = process.env.DASHBOARD_PASSWORD ?? ''
 let authenticated = false
 let loginError = false
-let debugInfo = `pwd_length:${PASSWORD.length}`
 
 const cookie = Astro.cookies.get('dashboard_auth')
 if (cookie?.value === PASSWORD && PASSWORD) {
@@ -55,7 +54,7 @@ if (authenticated) {
       <form class="login-card" method="POST">
         <h1 class="login-title">Analytics</h1>
         <p class="login-subtitle">Enter password to continue</p>
-        {loginError && <p class="login-error">Wrong password ({debugInfo})</p>}
+        {loginError && <p class="login-error">Wrong password</p>}
         <input
           type="password"
           name="password"

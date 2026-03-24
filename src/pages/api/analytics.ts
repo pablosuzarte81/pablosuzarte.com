@@ -4,8 +4,8 @@ import type { APIRoute } from 'astro'
 import { Redis } from '@upstash/redis'
 
 function getRedis(): Redis | null {
-  const url = import.meta.env.UPSTASH_REDIS_REST_URL
-  const token = import.meta.env.UPSTASH_REDIS_REST_TOKEN
+  const url = process.env.UPSTASH_REDIS_REST_URL
+  const token = process.env.UPSTASH_REDIS_REST_TOKEN
   if (!url || !token) return null
   return new Redis({ url, token })
 }
@@ -79,7 +79,7 @@ export const POST: APIRoute = async ({ request }) => {
 
 export const GET: APIRoute = async ({ request }) => {
   const authHeader = request.headers.get('Authorization')
-  const password = import.meta.env.DASHBOARD_PASSWORD
+  const password = process.env.DASHBOARD_PASSWORD
   if (!password || authHeader !== `Bearer ${password}`) {
     return new Response(JSON.stringify({ error: 'Unauthorized' }), { status: 401 })
   }
