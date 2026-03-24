@@ -34,7 +34,6 @@ const styleLabel = {
         <li><a href="#skills">{t.nav.skills}</a></li>
         <li><a href="#writing">{t.nav.writing}</a></li>
         <li><a href="#contact">{t.nav.contact}</a></li>
-        <li><a href="/playground/chat" class="nav-highlight">{t.nav.playground}</a></li>
       </ul>
       <div class="nav-controls">
         <button
@@ -100,7 +99,7 @@ const styleLabel = {
       </div>
       <div class="hero-right">
         <div class="hero-photo-wrap">
-          <img src="/pablo_profile_photo.png" alt="Pablo Suzarte" class="hero-photo" loading="eager" />
+          <img src="/pablo_profile_photo.jpg" alt="Pablo Suzarte" class="hero-photo" loading="eager" />
         </div>
       </div>
     </div>
@@ -464,7 +463,7 @@ const styleLabel = {
       const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
       if (!prefersReduced) {
         const revealEls = document.querySelectorAll(
-          '.section-label, .section-body, .timeline-item, .skill-pill, .badge, .project-card, .ai-feature-main, .ai-feature-side, .ai-metric-card, .contact-inner > *'
+          '.section-label, .section-body, .timeline-item, .skill-pill, .badge, .project-card, .writing-card, .contact-inner > *'
         )
 
         revealEls.forEach((el, i) => {
@@ -1452,7 +1451,7 @@ const styleLabel = {
     transform: translateX(5px);
   }
 
-  /* ── AI & EDUCATION ── */
+  /* ── AI & EDUCATION — hidden, styles commented out for perf ──
   .ai-education-body {
     gap: 2rem;
   }
@@ -1599,6 +1598,7 @@ const styleLabel = {
     display: flex;
     justify-content: flex-start;
   }
+  ── end AI & EDUCATION styles */
 
   /* ── WRITING ── */
   .writing-intro {
@@ -1738,15 +1738,6 @@ const styleLabel = {
   :global(html[data-style='brutalist']) .future-role-metric span,
   :global(html[data-style='brutalist']) .section-body p,
   :global(html[data-style='brutalist']) .project-card-tagline,
-  :global(html[data-style='brutalist']) .ai-feature-description,
-  :global(html[data-style='brutalist']) .ai-point-list li,
-  :global(html[data-style='brutalist']) .ai-deliverable-list li,
-  :global(html[data-style='brutalist']) .ai-detail-card p,
-  :global(html[data-style='brutalist']) .ai-role-lead p,
-  :global(html[data-style='brutalist']) .ai-layer-card p,
-  :global(html[data-style='brutalist']) .ai-phase-card p,
-  :global(html[data-style='brutalist']) .ai-check-item p,
-  :global(html[data-style='brutalist']) .ai-metric-card span,
   :global(html[data-style='brutalist']) .job-highlights li,
   :global(html[data-style='brutalist']) .contact-sub,
   :global(html[data-style='brutalist']) .footer-inner {
@@ -1762,15 +1753,6 @@ const styleLabel = {
   :global(html[data-style='brutalist']) .timeline-card,
   :global(html[data-style='brutalist']) .skill-pill,
   :global(html[data-style='brutalist']) .project-card,
-  :global(html[data-style='brutalist']) .ai-feature-main,
-  :global(html[data-style='brutalist']) .ai-feature-side,
-  :global(html[data-style='brutalist']) .ai-detail-card,
-  :global(html[data-style='brutalist']) .ai-role-lead,
-  :global(html[data-style='brutalist']) .ai-layer-card,
-  :global(html[data-style='brutalist']) .ai-phase-card,
-  :global(html[data-style='brutalist']) .ai-check-item,
-  :global(html[data-style='brutalist']) .ai-outcomes,
-  :global(html[data-style='brutalist']) .ai-metric-card,
   :global(html[data-style='brutalist']) .btn-secondary {
     background: #fff;
     border: 3px solid #111;
@@ -1814,10 +1796,6 @@ const styleLabel = {
   :global(html[data-style='brutalist']) .future-role-card h3,
   :global(html[data-style='brutalist']) .section-title,
   :global(html[data-style='brutalist']) .contact-heading,
-  :global(html[data-style='brutalist']) .ai-feature-title,
-  :global(html[data-style='brutalist']) .ai-subsection-title,
-  :global(html[data-style='brutalist']) .ai-detail-card h4,
-  :global(html[data-style='brutalist']) .ai-phase-card h4,
   :global(html[data-style='brutalist']) .project-card-title {
     color: #111;
     font-family: var(--font-sans);
@@ -1830,10 +1808,6 @@ const styleLabel = {
   :global(html[data-style='brutalist']) .label-num,
   :global(html[data-style='brutalist']) .future-role-metric strong,
   :global(html[data-style='brutalist']) .project-card-meta,
-  :global(html[data-style='brutalist']) .ai-side-title,
-  :global(html[data-style='brutalist']) .ai-phase-step,
-  :global(html[data-style='brutalist']) .ai-check-item span,
-  :global(html[data-style='brutalist']) .ai-metric-card strong,
   :global(html[data-style='brutalist']) .job-role,
   :global(html[data-style='brutalist']) .project-card-cta,
   :global(html[data-style='brutalist']) .project-metric-badge strong {
@@ -2041,18 +2015,6 @@ const styleLabel = {
       grid-template-columns: 1fr;
     }
 
-    .ai-feature {
-      grid-template-columns: 1fr;
-    }
-
-    .ai-card-grid,
-    .ai-card-grid--compact,
-    .ai-layer-grid,
-    .ai-comparison,
-    .ai-role-panel {
-      grid-template-columns: 1fr;
-    }
-
     .writing-card {
       padding: 1.25rem 1.25rem;
     }
@@ -2106,22 +2068,6 @@ const styleLabel = {
 
     .style-toggle {
       padding: 0.4rem 0.55rem;
-    }
-
-    .ai-feature-main,
-    .ai-feature-side,
-    .ai-detail-card,
-    .ai-role-lead,
-    .ai-layer-card,
-    .ai-phase-card,
-    .ai-check-item,
-    .ai-outcomes {
-      padding: 1rem;
-    }
-
-    .ai-phase-card {
-      grid-template-columns: 44px 1fr;
-      gap: 0.75rem;
     }
   }
 </style>

@@ -10,7 +10,11 @@ export default defineConfig({
       prefixDefaultLocale: false,
     },
   },
+  compressHTML: true,
   vite: {
     plugins: [tailwindcss()],
+    build: {
+      cssMinify: true,
+    },
   },
 })
