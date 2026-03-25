@@ -25,12 +25,125 @@ const randomStyles = ['brutalist', 'neon', 'vaporwave', 'paper', 'ocean']
     <div class="nav-inner">
       <a href="#hero" class="nav-logo">PS</a>
       <ul class="nav-links">
-        <li><a href="#about"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 0 0-16 0"/></svg>{t.nav.about}</a></li>
-        <li><a href="/me-and-ai"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg>Me &amp; AI</a></li>
-        <li><a href="#experience"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>{t.nav.experience}</a></li>
-        <li><a href="#skills"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>{t.nav.skills}</a></li>
-        <li><a href="#writing"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.85 2.85 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/><path d="m15 5 4 4"/></svg>{t.nav.writing}</a></li>
-        <li><a href="#contact"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>{t.nav.contact}</a></li>
+        <li>
+          <a href="#about"
+            ><svg
+              class="nav-icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              ><circle cx="12" cy="8" r="5"></circle><path
+                d="M20 21a8 8 0 0 0-16 0"></path></svg
+            >{t.nav.about}</a
+          >
+        </li>
+        <li>
+          <a href="/me-and-ai"
+            ><svg
+              class="nav-icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              ><path d="M12 8V4H8"></path><rect
+                width="16"
+                height="12"
+                x="4"
+                y="8"
+                rx="2"></rect><path d="M2 14h2"></path><path d="M20 14h2"
+              ></path><path d="M15 13v2"></path><path d="M9 13v2"></path></svg
+            >Me &amp; AI</a
+          >
+        </li>
+        <li>
+          <a href="#experience"
+            ><svg
+              class="nav-icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              ><rect width="18" height="18" x="3" y="4" rx="2" ry="2"
+              ></rect><line x1="16" x2="16" y1="2" y2="6"></line><line
+                x1="8"
+                x2="8"
+                y1="2"
+                y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line></svg
+            >{t.nav.experience}</a
+          >
+        </li>
+        <li>
+          <a href="#skills"
+            ><svg
+              class="nav-icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              ><path
+                d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"
+              ></path></svg
+            >{t.nav.skills}</a
+          >
+        </li>
+        <li>
+          <a href="#writing"
+            ><svg
+              class="nav-icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              ><path d="M17 3a2.85 2.85 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"
+              ></path><path d="m15 5 4 4"></path></svg
+            >{t.nav.writing}</a
+          >
+        </li>
+        <li>
+          <a href="#ai-agency"
+            ><svg
+              class="nav-icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              ><circle cx="12" cy="12" r="3"></circle><path d="M12 2v3"
+              ></path><path d="M12 19v3"></path><path d="m4.22 4.22 2.12 2.12"
+              ></path><path d="m17.66 17.66 2.12 2.12"></path><path d="M2 12h3"
+              ></path><path d="M19 12h3"></path><path d="m4.22 19.78 2.12-2.12"
+              ></path><path d="m17.66 6.34 2.12-2.12"></path></svg
+            >AI Agency</a
+          >
+        </li>
+        <li>
+          <a href="#contact"
+            ><svg
+              class="nav-icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              ><path
+                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92Z"
+              ></path></svg
+            >{t.nav.contact}</a
+          >
+        </li>
       </ul>
       <div class="nav-controls">
         <button
@@ -41,11 +154,21 @@ const randomStyles = ['brutalist', 'neon', 'vaporwave', 'paper', 'ocean']
           aria-expanded="false"
           aria-controls="a11yPanel"
         >
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <circle cx="12" cy="4.5" r="2.5"/>
-            <path d="m4.5 9 3-1h9l3 1"/>
-            <path d="m7.5 8 1 8.5 3.5 4"/>
-            <path d="m16.5 8-1 8.5-3.5 4"/>
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <circle cx="12" cy="4.5" r="2.5"></circle>
+            <path d="m4.5 9 3-1h9l3 1"></path>
+            <path d="m7.5 8 1 8.5 3.5 4"></path>
+            <path d="m16.5 8-1 8.5-3.5 4"></path>
           </svg>
         </button>
         <button
@@ -82,22 +205,146 @@ const randomStyles = ['brutalist', 'neon', 'vaporwave', 'paper', 'ocean']
   </nav>
 
   <!-- MOBILE MENU -->
-  <div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Navigation menu" aria-hidden="true">
+  <div
+    class="mobile-menu"
+    id="mobileMenu"
+    role="dialog"
+    aria-label="Navigation menu"
+    aria-hidden="true"
+  >
     <div class="mobile-menu-inner">
       <ul class="mobile-nav-links">
-        <li><a href="#about"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 0 0-16 0"/></svg>{t.nav.about}</a></li>
-        <li><a href="/me-and-ai"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg>Me &amp; AI</a></li>
-        <li><a href="#experience"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>{t.nav.experience}</a></li>
-        <li><a href="#skills"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>{t.nav.skills}</a></li>
-        <li><a href="#writing"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.85 2.85 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/><path d="m15 5 4 4"/></svg>{t.nav.writing}</a></li>
-        <li><a href="#contact"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>{t.nav.contact}</a></li>
+        <li>
+          <a href="#about"
+            ><svg
+              class="nav-icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              ><circle cx="12" cy="8" r="5"></circle><path
+                d="M20 21a8 8 0 0 0-16 0"></path></svg
+            >{t.nav.about}</a
+          >
+        </li>
+        <li>
+          <a href="/me-and-ai"
+            ><svg
+              class="nav-icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              ><path d="M12 8V4H8"></path><rect
+                width="16"
+                height="12"
+                x="4"
+                y="8"
+                rx="2"></rect><path d="M2 14h2"></path><path d="M20 14h2"
+              ></path><path d="M15 13v2"></path><path d="M9 13v2"></path></svg
+            >Me &amp; AI</a
+          >
+        </li>
+        <li>
+          <a href="#experience"
+            ><svg
+              class="nav-icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              ><rect width="18" height="18" x="3" y="4" rx="2" ry="2"
+              ></rect><line x1="16" x2="16" y1="2" y2="6"></line><line
+                x1="8"
+                x2="8"
+                y1="2"
+                y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line></svg
+            >{t.nav.experience}</a
+          >
+        </li>
+        <li>
+          <a href="#skills"
+            ><svg
+              class="nav-icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              ><path
+                d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"
+              ></path></svg
+            >{t.nav.skills}</a
+          >
+        </li>
+        <li>
+          <a href="#writing"
+            ><svg
+              class="nav-icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              ><path d="M17 3a2.85 2.85 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"
+              ></path><path d="m15 5 4 4"></path></svg
+            >{t.nav.writing}</a
+          >
+        </li>
+        <li>
+          <a href="#ai-agency"
+            ><svg
+              class="nav-icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              ><circle cx="12" cy="12" r="3"></circle><path d="M12 2v3"
+              ></path><path d="M12 19v3"></path><path d="m4.22 4.22 2.12 2.12"
+              ></path><path d="m17.66 17.66 2.12 2.12"></path><path d="M2 12h3"
+              ></path><path d="M19 12h3"></path><path d="m4.22 19.78 2.12-2.12"
+              ></path><path d="m17.66 6.34 2.12-2.12"></path></svg
+            >AI Agency</a
+          >
+        </li>
+        <li>
+          <a href="#contact"
+            ><svg
+              class="nav-icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              ><path
+                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92Z"
+              ></path></svg
+            >{t.nav.contact}</a
+          >
+        </li>
       </ul>
       <hr class="mobile-menu-divider" />
       <div class="mobile-menu-extras">
         <button type="button" class="mobile-menu-btn" data-action="danger">
           <span>Do not Press!</span>
         </button>
-        <button type="button" class="mobile-menu-btn mobile-menu-btn--reset" data-action="reset" style="display:none">
+        <button
+          type="button"
+          class="mobile-menu-btn mobile-menu-btn--reset"
+          data-action="reset"
+          style="display:none"
+        >
           <span>Reset</span>
         </button>
       </div>
@@ -107,7 +354,10 @@ const randomStyles = ['brutalist', 'neon', 'vaporwave', 'paper', 'ocean']
           langLinks.map((l) => (
             <a
               href={l.href}
-              class:list={['mobile-lang-link', { 'mobile-lang-link--active': l.code === lang }]}
+              class:list={[
+                'mobile-lang-link',
+                { 'mobile-lang-link--active': l.code === lang },
+              ]}
             >
               {l.label}
             </a>
@@ -116,17 +366,28 @@ const randomStyles = ['brutalist', 'neon', 'vaporwave', 'paper', 'ocean']
       </div>
       <hr class="mobile-menu-divider" />
       <button type="button" class="mobile-menu-btn" id="mobileA11yBtn">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <circle cx="12" cy="4.5" r="2.5"/>
-          <path d="m4.5 9 3-1h9l3 1"/>
-          <path d="m7.5 8 1 8.5 3.5 4"/>
-          <path d="m16.5 8-1 8.5-3.5 4"/>
+        <svg
+          width="18"
+          height="18"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <circle cx="12" cy="4.5" r="2.5"></circle>
+          <path d="m4.5 9 3-1h9l3 1"></path>
+          <path d="m7.5 8 1 8.5 3.5 4"></path>
+          <path d="m16.5 8-1 8.5-3.5 4"></path>
         </svg>
         <span>Accessibility settings</span>
       </button>
     </div>
   </div>
-  <div class="mobile-menu-backdrop" id="mobileMenuBackdrop" aria-hidden="true"></div>
+  <div class="mobile-menu-backdrop" id="mobileMenuBackdrop" aria-hidden="true">
+  </div>
 
   <!-- ACCESSIBILITY SETTINGS -->
   <div
@@ -138,24 +399,57 @@ const randomStyles = ['brutalist', 'neon', 'vaporwave', 'paper', 'ocean']
   >
     <div class="a11y-panel-header">
       <h2 class="a11y-panel-title">Accessibility</h2>
-      <button type="button" class="a11y-close" id="a11yClose" aria-label="Close accessibility settings">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      <button
+        type="button"
+        class="a11y-close"
+        id="a11yClose"
+        aria-label="Close accessibility settings"
+      >
+        <svg
+          width="18"
+          height="18"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"></path></svg
+        >
       </button>
     </div>
 
-    <p class="a11y-panel-intro">This site is an ongoing accessibility experiment. These controls let you adapt the experience to your needs.</p>
+    <p class="a11y-panel-intro">
+      This site is an ongoing accessibility experiment. These controls let you
+      adapt the experience to your needs.
+    </p>
 
     <div class="a11y-controls">
       <!-- Font Size -->
       <div class="a11y-control">
         <div class="a11y-control-label">
           <span class="a11y-control-title">Text size</span>
-          <span class="a11y-control-desc">Increase font size across the site</span>
+          <span class="a11y-control-desc"
+            >Increase font size across the site</span
+          >
         </div>
         <div class="a11y-font-buttons" role="radiogroup" aria-label="Text size">
-          <button type="button" class="a11y-font-btn" data-font="default" aria-pressed="true">A</button>
-          <button type="button" class="a11y-font-btn" data-font="large" aria-pressed="false"><span style="font-size:1.15em">A</span></button>
-          <button type="button" class="a11y-font-btn" data-font="xl" aria-pressed="false"><span style="font-size:1.35em">A</span></button>
+          <button
+            type="button"
+            class="a11y-font-btn"
+            data-font="default"
+            aria-pressed="true">A</button
+          >
+          <button
+            type="button"
+            class="a11y-font-btn"
+            data-font="large"
+            aria-pressed="false"><span style="font-size:1.15em">A</span></button
+          >
+          <button
+            type="button"
+            class="a11y-font-btn"
+            data-font="xl"
+            aria-pressed="false"><span style="font-size:1.35em">A</span></button
+          >
         </div>
       </div>
 
@@ -163,7 +457,9 @@ const randomStyles = ['brutalist', 'neon', 'vaporwave', 'paper', 'ocean']
       <div class="a11y-control">
         <div class="a11y-control-label">
           <span class="a11y-control-title">Static mode</span>
-          <span class="a11y-control-desc">Stop all animations and transitions</span>
+          <span class="a11y-control-desc"
+            >Stop all animations and transitions</span
+          >
         </div>
         <button
           type="button"
@@ -184,13 +480,30 @@ const randomStyles = ['brutalist', 'neon', 'vaporwave', 'paper', 'ocean']
       <h3 class="a11y-standards-title">Standards</h3>
       <ul class="a11y-standards-list">
         <li><strong>WCAG 2.2 AA</strong> — target compliance level</li>
-        <li><strong>Semantic HTML</strong> — heading hierarchy, landmarks, ARIA where needed</li>
-        <li><strong>Keyboard navigable</strong> — all interactive elements accessible via keyboard</li>
-        <li><strong>Motion safe</strong> — respects <code>prefers-reduced-motion</code> + manual toggle</li>
-        <li><strong>Scalable text</strong> — content reflows at increased font sizes</li>
-        <li><strong>Colour contrast</strong> — minimum 4.5:1 for body text (WCAG AA)</li>
+        <li>
+          <strong>Semantic HTML</strong> — heading hierarchy, landmarks, ARIA where
+          needed
+        </li>
+        <li>
+          <strong>Keyboard navigable</strong> — all interactive elements accessible
+          via keyboard
+        </li>
+        <li>
+          <strong>Motion safe</strong> — respects <code
+            >prefers-reduced-motion</code
+          > + manual toggle
+        </li>
+        <li>
+          <strong>Scalable text</strong> — content reflows at increased font sizes
+        </li>
+        <li>
+          <strong>Colour contrast</strong> — minimum 4.5:1 for body text (WCAG AA)
+        </li>
       </ul>
-      <p class="a11y-standards-note">Found an issue? <a href="mailto:pablosu@gmail.com">Let me know</a> — accessibility is a practice, not a checkbox.</p>
+      <p class="a11y-standards-note">
+        Found an issue? <a href="mailto:pablosu@gmail.com">Let me know</a> — accessibility
+        is a practice, not a checkbox.
+      </p>
     </div>
   </div>
   <div class="a11y-backdrop" id="a11yBackdrop" aria-hidden="true"></div>
@@ -227,7 +540,12 @@ const randomStyles = ['brutalist', 'neon', 'vaporwave', 'paper', 'ocean']
       </div>
       <div class="hero-right">
         <div class="hero-photo-wrap">
-          <img src="/pablo_profile_photo.png" alt="Pablo Suzarte" class="hero-photo" loading="eager" />
+          <img
+            src="/pablo_profile_photo.png"
+            alt="Pablo Suzarte"
+            class="hero-photo"
+            loading="eager"
+          />
         </div>
       </div>
     </div>
@@ -276,53 +594,119 @@ const randomStyles = ['brutalist', 'neon', 'vaporwave', 'paper', 'ocean']
         <div class="accent-line"></div>
       </div>
       <div class="section-body">
-        <p>Most people prompt a chatbot. I orchestrate agents to handle complex, multi-step tasks. The difference is not the tool. It is the environment you design around it.</p>
+        <p>
+          Most people prompt a chatbot. I orchestrate agents to handle complex,
+          multi-step tasks. The difference is not the tool. It is the
+          environment you design around it.
+        </p>
 
         <div class="me-ai-highlights">
           <div class="me-ai-highlight">
             <span class="me-ai-highlight__num">8</span>
-            <span class="me-ai-highlight__label">Project Intelligence Principles that guide every collaboration</span>
+            <span class="me-ai-highlight__label"
+              >Project Intelligence Principles that guide every collaboration</span
+            >
           </div>
           <div class="me-ai-highlight">
             <span class="me-ai-highlight__num">3</span>
-            <span class="me-ai-highlight__label">Live products built solo with AI as the only collaborator</span>
+            <span class="me-ai-highlight__label"
+              >Live products built solo with AI as the only collaborator</span
+            >
           </div>
           <div class="me-ai-highlight">
             <span class="me-ai-highlight__num">1</span>
-            <span class="me-ai-highlight__label">Hands-on workshop teaching teams to go from prompting to orchestrating</span>
+            <span class="me-ai-highlight__label"
+              >Hands-on workshop teaching teams to go from prompting to
+              orchestrating</span
+            >
           </div>
         </div>
 
         <div class="me-ai-tools">
           <p class="me-ai-tools__label">I orchestrate with</p>
           <div class="me-ai-tools__icons">
-            <div class="me-ai-tool" title="Claude &amp; Claude Code">
-              <svg viewBox="0 0 24 24" width="28" height="28" fill="var(--accent)" aria-hidden="true">
-                <path d="m4.7144 15.9555 4.7174-2.6471.079-.2307-.079-.1275h-.2307l-.7893-.0486-2.6956-.0729-2.3375-.0971-2.2646-.1214-.5707-.1215-.5343-.7042.0546-.3522.4797-.3218.686.0608 1.5179.1032 2.2767.1578 1.6514.0972 2.4468.255h.3886l.0546-.1579-.1336-.0971-.1032-.0972L6.973 9.8356l-2.55-1.6879-1.3356-.9714-.7225-.4918-.3643-.4614-.1578-1.0078.6557-.7225.8803.0607.2246.0607.8925.686 1.9064 1.4754 2.4893 1.8336.3643.3035.1457-.1032.0182-.0728-.164-.2733-1.3539-2.4467-1.445-2.4893-.6435-1.032-.17-.6194c-.0607-.255-.1032-.4674-.1032-.7285L6.287.1335 6.6997 0l.9957.1336.419.3642.6192 1.4147 1.0018 2.2282 1.5543 3.0296.4553.8985.2429.8318.091.255h.1579v-.1457l.1275-1.706.2368-2.0947.2307-2.6957.0789-.7589.3764-.9107.7468-.4918.5828.2793.4797.686-.0668.4433-.2853 1.8517-.5586 2.9021-.3643 1.9429h.2125l.2429-.2429.9835-1.3053 1.6514-2.0643.7286-.8196.85-.9046.5464-.4311h1.0321l.759 1.1293-.34 1.1657-1.0625 1.3478-.8804 1.1414-1.2628 1.7-.7893 1.36.0729.1093.1882-.0183 2.8535-.607 1.5421-.2794 1.8396-.3157.8318.3886.091.3946-.3278.8075-1.967.4857-2.3072.4614-3.4364.8136-.0425.0304.0486.0607 1.5482.1457.6618.0364h1.621l3.0175.2247.7892.522.4736.6376-.079.4857-1.2142.6193-1.6393-.3886-3.825-.9107-1.3113-.3279h-.1822v.1093l1.0929 1.0686 2.0035 1.8092 2.5075 2.3314.1275.5768-.3218.4554-.34-.0486-2.2039-1.6575-.85-.7468-1.9246-1.621h-.1275v.17l.4432.6496 2.3436 3.5214.1214 1.0807-.17.3521-.6071.2125-.6679-.1214-1.3721-1.9246L14.38 17.959l-1.1414-1.9428-.1397.079-.674 7.2552-.3156.3703-.7286.2793-.6071-.4614-.3218-.7468.3218-1.4753.3886-1.9246.3157-1.53.2853-1.9004.17-.6314-.0121-.0425-.1397.0182-1.4328 1.9672-2.1796 2.9446-1.7243 1.8456-.4128.164-.7164-.3704.0667-.6618.4008-.5889 2.386-3.0357 1.4389-1.882.929-1.0868-.0062-.1579h-.0546l-6.3385 4.1164-1.1293.1457-.4857-.4554.0608-.7467.2307-.2429 1.9064-1.3114Z"/>
+            <div class="me-ai-tool" title="Claude & Claude Code">
+              <svg
+                viewBox="0 0 24 24"
+                width="28"
+                height="28"
+                fill="var(--accent)"
+                aria-hidden="true"
+              >
+                <path
+                  d="m4.7144 15.9555 4.7174-2.6471.079-.2307-.079-.1275h-.2307l-.7893-.0486-2.6956-.0729-2.3375-.0971-2.2646-.1214-.5707-.1215-.5343-.7042.0546-.3522.4797-.3218.686.0608 1.5179.1032 2.2767.1578 1.6514.0972 2.4468.255h.3886l.0546-.1579-.1336-.0971-.1032-.0972L6.973 9.8356l-2.55-1.6879-1.3356-.9714-.7225-.4918-.3643-.4614-.1578-1.0078.6557-.7225.8803.0607.2246.0607.8925.686 1.9064 1.4754 2.4893 1.8336.3643.3035.1457-.1032.0182-.0728-.164-.2733-1.3539-2.4467-1.445-2.4893-.6435-1.032-.17-.6194c-.0607-.255-.1032-.4674-.1032-.7285L6.287.1335 6.6997 0l.9957.1336.419.3642.6192 1.4147 1.0018 2.2282 1.5543 3.0296.4553.8985.2429.8318.091.255h.1579v-.1457l.1275-1.706.2368-2.0947.2307-2.6957.0789-.7589.3764-.9107.7468-.4918.5828.2793.4797.686-.0668.4433-.2853 1.8517-.5586 2.9021-.3643 1.9429h.2125l.2429-.2429.9835-1.3053 1.6514-2.0643.7286-.8196.85-.9046.5464-.4311h1.0321l.759 1.1293-.34 1.1657-1.0625 1.3478-.8804 1.1414-1.2628 1.7-.7893 1.36.0729.1093.1882-.0183 2.8535-.607 1.5421-.2794 1.8396-.3157.8318.3886.091.3946-.3278.8075-1.967.4857-2.3072.4614-3.4364.8136-.0425.0304.0486.0607 1.5482.1457.6618.0364h1.621l3.0175.2247.7892.522.4736.6376-.079.4857-1.2142.6193-1.6393-.3886-3.825-.9107-1.3113-.3279h-.1822v.1093l1.0929 1.0686 2.0035 1.8092 2.5075 2.3314.1275.5768-.3218.4554-.34-.0486-2.2039-1.6575-.85-.7468-1.9246-1.621h-.1275v.17l.4432.6496 2.3436 3.5214.1214 1.0807-.17.3521-.6071.2125-.6679-.1214-1.3721-1.9246L14.38 17.959l-1.1414-1.9428-.1397.079-.674 7.2552-.3156.3703-.7286.2793-.6071-.4614-.3218-.7468.3218-1.4753.3886-1.9246.3157-1.53.2853-1.9004.17-.6314-.0121-.0425-.1397.0182-1.4328 1.9672-2.1796 2.9446-1.7243 1.8456-.4128.164-.7164-.3704.0667-.6618.4008-.5889 2.386-3.0357 1.4389-1.882.929-1.0868-.0062-.1579h-.0546l-6.3385 4.1164-1.1293.1457-.4857-.4554.0608-.7467.2307-.2429 1.9064-1.3114Z"
+                ></path>
               </svg>
               <span>Claude</span>
             </div>
-            <div class="me-ai-tool" title="ChatGPT &amp; Codex">
-              <svg viewBox="0 0 256 260" width="28" height="28" fill="currentColor" aria-hidden="true">
-                <path d="M239.184 106.203a64.716 64.716 0 0 0-5.576-53.103C219.452 28.459 191 15.784 163.213 21.74A65.586 65.586 0 0 0 52.096 45.22a64.716 64.716 0 0 0-43.23 31.36 65.586 65.586 0 0 0 8.031 76.74 64.716 64.716 0 0 0 5.525 53.102c14.174 24.65 42.644 37.324 70.446 31.36a65.586 65.586 0 0 0 111.117-23.56 64.716 64.716 0 0 0 43.23-31.36 65.586 65.586 0 0 0-8.031-76.66Zm-97.56 136.338a48.397 48.397 0 0 1-31.105-11.255l1.535-.87 51.67-29.825a8.595 8.595 0 0 0 4.247-7.367v-72.85l21.845 12.636c.218.111.37.32.409.563v60.367c-.056 26.818-21.783 48.545-48.601 48.6ZM37.158 197.93a48.345 48.345 0 0 1-5.781-32.589l1.534.921 51.722 29.826a8.339 8.339 0 0 0 8.441 0l63.181-36.425v25.221a.717.717 0 0 1-.358.665l-52.335 30.184c-23.257 13.398-52.97 5.431-66.404-17.803ZM23.549 85.38a48.499 48.499 0 0 1 25.58-21.333v59.39a8.288 8.288 0 0 0 4.195 7.316l62.874 36.272-21.845 12.636a.718.718 0 0 1-.767 0L41.353 149.48c-23.211-13.454-31.171-43.144-17.804-64.1Zm180.465 41.695-63.08-36.63L162.78 77.81a.718.718 0 0 1 .768 0l52.233 30.184a48.652 48.652 0 0 1-7.316 87.635v-61.391a8.544 8.544 0 0 0-4.45-7.862Zm21.742-32.69-1.535-.922-51.619-30.081a8.39 8.39 0 0 0-8.492 0L100.981 99.64V74.42a.716.716 0 0 1 .307-.665l52.233-30.133a48.652 48.652 0 0 1 72.236 50.391v.372ZM88.061 139.098l-21.845-12.585a.716.716 0 0 1-.358-.665V65.685a48.652 48.652 0 0 1 79.757-37.346l-1.535.87-51.67 29.825a8.595 8.595 0 0 0-4.246 7.367l-.103 72.697Zm11.868-25.58L128.067 97.3l28.188 16.218v32.434l-28.086 16.218-28.24-16.218v-32.434Z"/>
+            <div class="me-ai-tool" title="ChatGPT & Codex">
+              <svg
+                viewBox="0 0 256 260"
+                width="28"
+                height="28"
+                fill="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  d="M239.184 106.203a64.716 64.716 0 0 0-5.576-53.103C219.452 28.459 191 15.784 163.213 21.74A65.586 65.586 0 0 0 52.096 45.22a64.716 64.716 0 0 0-43.23 31.36 65.586 65.586 0 0 0 8.031 76.74 64.716 64.716 0 0 0 5.525 53.102c14.174 24.65 42.644 37.324 70.446 31.36a65.586 65.586 0 0 0 111.117-23.56 64.716 64.716 0 0 0 43.23-31.36 65.586 65.586 0 0 0-8.031-76.66Zm-97.56 136.338a48.397 48.397 0 0 1-31.105-11.255l1.535-.87 51.67-29.825a8.595 8.595 0 0 0 4.247-7.367v-72.85l21.845 12.636c.218.111.37.32.409.563v60.367c-.056 26.818-21.783 48.545-48.601 48.6ZM37.158 197.93a48.345 48.345 0 0 1-5.781-32.589l1.534.921 51.722 29.826a8.339 8.339 0 0 0 8.441 0l63.181-36.425v25.221a.717.717 0 0 1-.358.665l-52.335 30.184c-23.257 13.398-52.97 5.431-66.404-17.803ZM23.549 85.38a48.499 48.499 0 0 1 25.58-21.333v59.39a8.288 8.288 0 0 0 4.195 7.316l62.874 36.272-21.845 12.636a.718.718 0 0 1-.767 0L41.353 149.48c-23.211-13.454-31.171-43.144-17.804-64.1Zm180.465 41.695-63.08-36.63L162.78 77.81a.718.718 0 0 1 .768 0l52.233 30.184a48.652 48.652 0 0 1-7.316 87.635v-61.391a8.544 8.544 0 0 0-4.45-7.862Zm21.742-32.69-1.535-.922-51.619-30.081a8.39 8.39 0 0 0-8.492 0L100.981 99.64V74.42a.716.716 0 0 1 .307-.665l52.233-30.133a48.652 48.652 0 0 1 72.236 50.391v.372ZM88.061 139.098l-21.845-12.585a.716.716 0 0 1-.358-.665V65.685a48.652 48.652 0 0 1 79.757-37.346l-1.535.87-51.67 29.825a8.595 8.595 0 0 0-4.246 7.367l-.103 72.697Zm11.868-25.58L128.067 97.3l28.188 16.218v32.434l-28.086 16.218-28.24-16.218v-32.434Z"
+                ></path>
               </svg>
               <span>ChatGPT</span>
             </div>
             <div class="me-ai-tool" title="Gemini">
-              <svg viewBox="0 0 24 24" width="28" height="28" fill="url(#gemGradHome)" aria-hidden="true">
-                <path d="M11.04 19.32Q12 21.51 12 24q0-2.49.93-4.68.96-2.19 2.58-3.81t3.81-2.55Q21.51 12 24 12q-2.49 0-4.68-.93a12.3 12.3 0 0 1-3.81-2.58 12.3 12.3 0 0 1-2.58-3.81Q12 2.49 12 0q0 2.49-.96 4.68-.93 2.19-2.55 3.81a12.3 12.3 0 0 1-3.81 2.58Q2.49 12 0 12q2.49 0 4.68.96 2.19.93 3.81 2.55t2.55 3.81"/>
-                <defs><linearGradient id="gemGradHome" x1="0" y1="0" x2="24" y2="24"><stop stop-color="#4285F4"/><stop offset=".5" stop-color="#886FBF"/><stop offset="1" stop-color="#D96570"/></linearGradient></defs>
+              <svg
+                viewBox="0 0 24 24"
+                width="28"
+                height="28"
+                fill="url(#gemGradHome)"
+                aria-hidden="true"
+              >
+                <path
+                  d="M11.04 19.32Q12 21.51 12 24q0-2.49.93-4.68.96-2.19 2.58-3.81t3.81-2.55Q21.51 12 24 12q-2.49 0-4.68-.93a12.3 12.3 0 0 1-3.81-2.58 12.3 12.3 0 0 1-2.58-3.81Q12 2.49 12 0q0 2.49-.96 4.68-.93 2.19-2.55 3.81a12.3 12.3 0 0 1-3.81 2.58Q2.49 12 0 12q2.49 0 4.68.96 2.19.93 3.81 2.55t2.55 3.81"
+                ></path>
+                <defs
+                  ><linearGradient
+                    id="gemGradHome"
+                    x1="0"
+                    y1="0"
+                    x2="24"
+                    y2="24"
+                    ><stop stop-color="#4285F4"></stop><stop
+                      offset=".5"
+                      stop-color="#886FBF"></stop><stop
+                      offset="1"
+                      stop-color="#D96570"></stop></linearGradient
+                  ></defs
+                >
               </svg>
               <span>Gemini</span>
             </div>
             <div class="me-ai-tool" title="Microsoft Copilot">
-              <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor" aria-hidden="true">
-                <path d="M23.922 16.997C23.061 18.492 18.063 22.02 12 22.02 5.937 22.02.939 18.492.078 16.997A.641.641 0 0 1 0 16.741v-2.869a.883.883 0 0 1 .053-.22c.372-.935 1.347-2.292 2.605-2.656.167-.429.414-1.055.644-1.517a10.098 10.098 0 0 1-.052-1.086c0-1.331.282-2.499 1.132-3.368.397-.406.89-.717 1.474-.952C7.255 2.937 9.248 1.98 11.978 1.98c2.731 0 4.767.957 6.166 2.093.584.235 1.077.546 1.474.952.85.869 1.132 2.037 1.132 3.368 0 .368-.014.733-.052 1.086.23.462.477 1.088.644 1.517 1.258.364 2.233 1.721 2.605 2.656a.841.841 0 0 1 .053.22v2.869a.641.641 0 0 1-.078.256Zm-11.75-5.992h-.344a4.359 4.359 0 0 1-.355.508c-.77.947-1.918 1.492-3.508 1.492-1.725 0-2.989-.359-3.782-1.259a2.137 2.137 0 0 1-.085-.104L4 11.746v6.585c1.435.779 4.514 2.179 8 2.179 3.486 0 6.565-1.4 8-2.179v-6.585l-.098-.104s-.033.045-.085.104c-.793.9-2.057 1.259-3.782 1.259-1.59 0-2.738-.545-3.508-1.492a4.359 4.359 0 0 1-.355-.508Zm2.328 3.25c.549 0 1 .451 1 1v2c0 .549-.451 1-1 1-.549 0-1-.451-1-1v-2c0-.549.451-1 1-1Zm-5 0c.549 0 1 .451 1 1v2c0 .549-.451 1-1 1-.549 0-1-.451-1-1v-2c0-.549.451-1 1-1Zm3.313-6.185c.136 1.057.403 1.913.878 2.497.442.544 1.134.938 2.344.938 1.573 0 2.292-.337 2.657-.751.384-.435.558-1.15.558-2.361 0-1.14-.243-1.847-.705-2.319-.477-.488-1.319-.862-2.824-1.025-1.487-.161-2.192.138-2.533.529-.269.307-.437.808-.438 1.578v.021c0 .265.021.562.063.893Zm-1.626 0c.042-.331.063-.628.063-.894v-.02c-.001-.77-.169-1.271-.438-1.578-.341-.391-1.046-.69-2.533-.529-1.505.163-2.347.537-2.824 1.025-.462.472-.705 1.179-.705 2.319 0 1.211.175 1.926.558 2.361.365.414 1.084.751 2.657.751 1.21 0 1.902-.394 2.344-.938.475-.584.742-1.44.878-2.497Z"/>
+              <svg
+                viewBox="0 0 24 24"
+                width="28"
+                height="28"
+                fill="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  d="M23.922 16.997C23.061 18.492 18.063 22.02 12 22.02 5.937 22.02.939 18.492.078 16.997A.641.641 0 0 1 0 16.741v-2.869a.883.883 0 0 1 .053-.22c.372-.935 1.347-2.292 2.605-2.656.167-.429.414-1.055.644-1.517a10.098 10.098 0 0 1-.052-1.086c0-1.331.282-2.499 1.132-3.368.397-.406.89-.717 1.474-.952C7.255 2.937 9.248 1.98 11.978 1.98c2.731 0 4.767.957 6.166 2.093.584.235 1.077.546 1.474.952.85.869 1.132 2.037 1.132 3.368 0 .368-.014.733-.052 1.086.23.462.477 1.088.644 1.517 1.258.364 2.233 1.721 2.605 2.656a.841.841 0 0 1 .053.22v2.869a.641.641 0 0 1-.078.256Zm-11.75-5.992h-.344a4.359 4.359 0 0 1-.355.508c-.77.947-1.918 1.492-3.508 1.492-1.725 0-2.989-.359-3.782-1.259a2.137 2.137 0 0 1-.085-.104L4 11.746v6.585c1.435.779 4.514 2.179 8 2.179 3.486 0 6.565-1.4 8-2.179v-6.585l-.098-.104s-.033.045-.085.104c-.793.9-2.057 1.259-3.782 1.259-1.59 0-2.738-.545-3.508-1.492a4.359 4.359 0 0 1-.355-.508Zm2.328 3.25c.549 0 1 .451 1 1v2c0 .549-.451 1-1 1-.549 0-1-.451-1-1v-2c0-.549.451-1 1-1Zm-5 0c.549 0 1 .451 1 1v2c0 .549-.451 1-1 1-.549 0-1-.451-1-1v-2c0-.549.451-1 1-1Zm3.313-6.185c.136 1.057.403 1.913.878 2.497.442.544 1.134.938 2.344.938 1.573 0 2.292-.337 2.657-.751.384-.435.558-1.15.558-2.361 0-1.14-.243-1.847-.705-2.319-.477-.488-1.319-.862-2.824-1.025-1.487-.161-2.192.138-2.533.529-.269.307-.437.808-.438 1.578v.021c0 .265.021.562.063.893Zm-1.626 0c.042-.331.063-.628.063-.894v-.02c-.001-.77-.169-1.271-.438-1.578-.341-.391-1.046-.69-2.533-.529-1.505.163-2.347.537-2.824 1.025-.462.472-.705 1.179-.705 2.319 0 1.211.175 1.926.558 2.361.365.414 1.084.751 2.657.751 1.21 0 1.902-.394 2.344-.938.475-.584.742-1.44.878-2.497Z"
+                ></path>
               </svg>
               <span>Copilot</span>
             </div>
             <div class="me-ai-tool" title="Terminal">
-              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <svg
+                viewBox="0 0 24 24"
+                width="28"
+                height="28"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
                 <polyline points="4 17 10 11 4 5"></polyline>
                 <line x1="12" y1="19" x2="20" y2="19"></line>
               </svg>
@@ -332,7 +716,70 @@ const randomStyles = ['brutalist', 'neon', 'vaporwave', 'paper', 'ocean']
         </div>
 
         <a href="/me-and-ai" class="me-ai-cta-link">
-          See the full picture: philosophy, method, projects, and workshops <span aria-hidden="true">&rarr;</span>
+          See the full picture: philosophy, method, projects, and workshops <span
+            aria-hidden="true">&rarr;</span
+          >
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- AI AGENCY -->
+  <section id="ai-agency" class="section">
+    <div class="container section-grid">
+      <div class="section-label">
+        <span class="label-num">03</span>
+        <h2 class="section-title">AI Agency</h2>
+        <div class="accent-line"></div>
+      </div>
+      <div class="section-body">
+        <p>
+          The orchestrator is not a new role. It is an old skill in a new
+          context. I have spent 15 years designing the conditions where complex,
+          cross-functional work actually happens. Now I apply that to AI —
+          connecting the agents, tools, and teams that organisations are
+          building in silos.
+        </p>
+
+        <div class="me-ai-highlights">
+          <div class="me-ai-highlight">
+            <span class="me-ai-highlight__num">300→22s</span>
+            <span class="me-ai-highlight__label"
+              >Agent lookup time redesigned at IKEA — same method, now applied
+              to AI systems</span
+            >
+          </div>
+          <div class="me-ai-highlight">
+            <span class="me-ai-highlight__num">40+</span>
+            <span class="me-ai-highlight__label"
+              >Experts orchestrated across 5 markets with zero breakdowns</span
+            >
+          </div>
+          <div class="me-ai-highlight">
+            <span class="me-ai-highlight__num">75+</span>
+            <span class="me-ai-highlight__label"
+              >Structured opportunities from a single Journey Teams engagement
+              at IKEA</span
+            >
+          </div>
+        </div>
+
+        <p style="margin-top: 1.5rem; color: var(--muted);">
+          I help large organisations go from prompting to orchestrating —
+          designing the shared context, agent workflows, and operating
+          structures that turn scattered AI investments into coordinated
+          intelligence.
+        </p>
+
+        <!-- TODO: Replace href with your live Vercel URL once the agency site is deployed -->
+        <a
+          href="#"
+          class="me-ai-cta-link"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          See the full offer: Intelligence Orchestration for complex
+          organisations <span aria-hidden="true">&rarr;</span>
         </a>
       </div>
     </div>
@@ -397,7 +844,9 @@ const randomStyles = ['brutalist', 'neon', 'vaporwave', 'paper', 'ocean']
             <div class="timeline-item">
               <div class="timeline-marker">
                 <div class="timeline-dot" />
-                {i < t.experience.items.length - 1 && <div class="timeline-line" />}
+                {i < t.experience.items.length - 1 && (
+                  <div class="timeline-line" />
+                )}
               </div>
               <div class="timeline-card">
                 <div class="timeline-header">
@@ -438,22 +887,28 @@ const randomStyles = ['brutalist', 'neon', 'vaporwave', 'paper', 'ocean']
       </div>
       <div class="section-body">
         <div class="skills-cards">
-          {t.skills.categories.map((cat, catIdx) => (
-            <div class={`skills-card${cat.highlight ? ' skills-card--highlight' : ''}`}>
-              <div class="skills-card__header">
-                <span class="skills-card__number">{String(catIdx + 1).padStart(2, '0')}</span>
-                <h3 class="skills-card__title">{cat.name}</h3>
+          {
+            t.skills.categories.map((cat, catIdx) => (
+              <div
+                class={`skills-card${cat.highlight ? ' skills-card--highlight' : ''}`}
+              >
+                <div class="skills-card__header">
+                  <span class="skills-card__number">
+                    {String(catIdx + 1).padStart(2, '0')}
+                  </span>
+                  <h3 class="skills-card__title">{cat.name}</h3>
+                </div>
+                <ul class="skills-card__list">
+                  {cat.items.map((skill) => (
+                    <li class="skills-card__item">
+                      <span class="skills-card__dot" />
+                      <span>{skill}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
-              <ul class="skills-card__list">
-                {cat.items.map((skill) => (
-                  <li class="skills-card__item">
-                    <span class="skills-card__dot"></span>
-                    <span>{skill}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+            ))
+          }
         </div>
         <div class="edu-certs">
           <div class="edu-block">
@@ -491,28 +946,32 @@ const randomStyles = ['brutalist', 'neon', 'vaporwave', 'paper', 'ocean']
       <div class="section-body">
         <p class="writing-intro">{t.writing.intro}</p>
         <div class="writing-grid">
-          {posts.map((post) => (
-            <a href={`/blog/${post.slug}`} class="writing-card">
-              <div class="writing-card-tags">
-                {post.tags.map((tag) => (
-                  <span class="writing-card-tag">{tag}</span>
-                ))}
-              </div>
-              <h3 class="writing-card-title">{post.title}</h3>
-              <p class="writing-card-subtitle">{post.subtitle}</p>
-              <div class="writing-card-meta">
-                <time datetime={post.date}>
-                  {new Date(post.date).toLocaleDateString('en-GB', {
-                    day: 'numeric',
-                    month: 'short',
-                    year: 'numeric',
-                  })}
-                </time>
-                <span>{post.readingTime}</span>
-              </div>
-              <span class="writing-card-cta">Read article <span aria-hidden="true">&rarr;</span></span>
-            </a>
-          ))}
+          {
+            posts.map((post) => (
+              <a href={`/blog/${post.slug}`} class="writing-card">
+                <div class="writing-card-tags">
+                  {post.tags.map((tag) => (
+                    <span class="writing-card-tag">{tag}</span>
+                  ))}
+                </div>
+                <h3 class="writing-card-title">{post.title}</h3>
+                <p class="writing-card-subtitle">{post.subtitle}</p>
+                <div class="writing-card-meta">
+                  <time datetime={post.date}>
+                    {new Date(post.date).toLocaleDateString('en-GB', {
+                      day: 'numeric',
+                      month: 'short',
+                      year: 'numeric',
+                    })}
+                  </time>
+                  <span>{post.readingTime}</span>
+                </div>
+                <span class="writing-card-cta">
+                  Read article <span aria-hidden="true">&rarr;</span>
+                </span>
+              </a>
+            ))
+          }
         </div>
       </div>
     </div>
@@ -557,7 +1016,10 @@ const randomStyles = ['brutalist', 'neon', 'vaporwave', 'paper', 'ocean']
           langLinks.map((l) => (
             <a
               href={l.href}
-              class:list={['footer-lang-link', { 'footer-lang-link--active': l.code === lang }]}
+              class:list={[
+                'footer-lang-link',
+                { 'footer-lang-link--active': l.code === lang },
+              ]}
             >
               {l.label}
             </a>
@@ -570,11 +1032,27 @@ const randomStyles = ['brutalist', 'neon', 'vaporwave', 'paper', 'ocean']
   </footer>
 
   <script is:inline>
-    (() => {
+    ;(() => {
       // ── STYLE RANDOMISER (supports multiple button instances) ──
       const root = document.documentElement
       const storageKey = 'pablo-site-style'
-      const styles = ['brutalist', 'neon', 'vaporwave', 'paper', 'ocean', 'barbie', 'hacker', 'sunset', 'retro', 'inverted', 'ikea', 'win95', 'spotify', 'netflix', 'terminal']
+      const styles = [
+        'brutalist',
+        'neon',
+        'vaporwave',
+        'paper',
+        'ocean',
+        'barbie',
+        'hacker',
+        'sunset',
+        'retro',
+        'inverted',
+        'ikea',
+        'win95',
+        'spotify',
+        'netflix',
+        'terminal',
+      ]
       const dangerBtns = document.querySelectorAll('[data-action="danger"]')
       const resetBtns = document.querySelectorAll('[data-action="reset"]')
 
@@ -582,11 +1060,17 @@ const randomStyles = ['brutalist', 'neon', 'vaporwave', 'paper', 'ocean']
         root.removeAttribute('data-style')
         if (name && name !== 'default') {
           root.setAttribute('data-style', name)
-          resetBtns.forEach(b => b.style.display = '')
-          dangerBtns.forEach(b => { const s = b.querySelector('span'); if (s) s.textContent = 'Again!' })
+          resetBtns.forEach((b) => (b.style.display = ''))
+          dangerBtns.forEach((b) => {
+            const s = b.querySelector('span')
+            if (s) s.textContent = 'Again!'
+          })
         } else {
-          resetBtns.forEach(b => b.style.display = 'none')
-          dangerBtns.forEach(b => { const s = b.querySelector('span'); if (s) s.textContent = 'Do not Press!' })
+          resetBtns.forEach((b) => (b.style.display = 'none'))
+          dangerBtns.forEach((b) => {
+            const s = b.querySelector('span')
+            if (s) s.textContent = 'Do not Press!'
+          })
         }
         localStorage.setItem(storageKey, name || 'default')
       }
@@ -594,12 +1078,16 @@ const randomStyles = ['brutalist', 'neon', 'vaporwave', 'paper', 'ocean']
       const saved = localStorage.getItem(storageKey)
       if (saved && saved !== 'default') setStyle(saved)
 
-      dangerBtns.forEach(btn => btn.addEventListener('click', () => {
-        const current = root.getAttribute('data-style') || ''
-        const available = styles.filter(s => s !== current)
-        setStyle(available[Math.floor(Math.random() * available.length)])
-      }))
-      resetBtns.forEach(btn => btn.addEventListener('click', () => setStyle('default')))
+      dangerBtns.forEach((btn) =>
+        btn.addEventListener('click', () => {
+          const current = root.getAttribute('data-style') || ''
+          const available = styles.filter((s) => s !== current)
+          setStyle(available[Math.floor(Math.random() * available.length)])
+        })
+      )
+      resetBtns.forEach((btn) =>
+        btn.addEventListener('click', () => setStyle('default'))
+      )
 
       // ── MOBILE MENU ──
       const menuBtn = document.getElementById('menuBtn')
@@ -609,7 +1097,9 @@ const randomStyles = ['brutalist', 'neon', 'vaporwave', 'paper', 'ocean']
       if (!menuBtn || !mobileMenu) return
 
       const mobileLinks = mobileMenu.querySelectorAll('.mobile-nav-links a')
-      const focusableEls = mobileMenu.querySelectorAll('a, button:not([style*="display:none"])')
+      const focusableEls = mobileMenu.querySelectorAll(
+        'a, button:not([style*="display:none"])'
+      )
 
       function openMenu() {
         mobileMenu.classList.add('is-open')
@@ -635,7 +1125,7 @@ const randomStyles = ['brutalist', 'neon', 'vaporwave', 'paper', 'ocean']
       menuBackdrop.addEventListener('click', closeMenu)
 
       // Close on link click + smooth scroll
-      mobileLinks.forEach(link => {
+      mobileLinks.forEach((link) => {
         link.addEventListener('click', () => {
           closeMenu()
         })
@@ -654,29 +1144,38 @@ const randomStyles = ['brutalist', 'neon', 'vaporwave', 'paper', 'ocean']
 
       // Escape to close
       document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && mobileMenu.classList.contains('is-open')) closeMenu()
+        if (e.key === 'Escape' && mobileMenu.classList.contains('is-open'))
+          closeMenu()
       })
 
       // Focus trap
       mobileMenu.addEventListener('keydown', (e) => {
         if (e.key !== 'Tab') return
-        const focusable = [...mobileMenu.querySelectorAll('a, button:not([style*="display:none"])')]
+        const focusable = [
+          ...mobileMenu.querySelectorAll(
+            'a, button:not([style*="display:none"])'
+          ),
+        ]
         if (!focusable.length) return
         const first = focusable[0]
         const last = focusable[focusable.length - 1]
         if (e.shiftKey && document.activeElement === first) {
-          e.preventDefault(); last.focus()
+          e.preventDefault()
+          last.focus()
         } else if (!e.shiftKey && document.activeElement === last) {
-          e.preventDefault(); first.focus()
+          e.preventDefault()
+          first.focus()
         }
       })
 
       // Sync active state on mobile nav links
       const navObserver = new MutationObserver(() => {
-        const activeDesktop = document.querySelector('.nav-links a[data-active]')
+        const activeDesktop = document.querySelector(
+          '.nav-links a[data-active]'
+        )
         if (!activeDesktop) return
         const activeHref = activeDesktop.getAttribute('href')
-        mobileLinks.forEach(link => {
+        mobileLinks.forEach((link) => {
           if (link.getAttribute('href') === activeHref) {
             link.setAttribute('data-active', '')
           } else {
@@ -684,14 +1183,17 @@ const randomStyles = ['brutalist', 'neon', 'vaporwave', 'paper', 'ocean']
           }
         })
       })
-      document.querySelectorAll('.nav-links a').forEach(a => {
-        navObserver.observe(a, { attributes: true, attributeFilter: ['data-active'] })
+      document.querySelectorAll('.nav-links a').forEach((a) => {
+        navObserver.observe(a, {
+          attributes: true,
+          attributeFilter: ['data-active'],
+        })
       })
     })()
   </script>
 
   <script is:inline>
-    (() => {
+    ;(() => {
       // ── ACCESSIBILITY PANEL ──
       const root = document.documentElement
       const trigger = document.getElementById('a11yNavTrigger')
@@ -720,7 +1222,8 @@ const randomStyles = ['brutalist', 'neon', 'vaporwave', 'paper', 'ocean']
       closeBtn.addEventListener('click', closePanel)
       backdrop.addEventListener('click', closePanel)
       document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && panel.classList.contains('is-open')) closePanel()
+        if (e.key === 'Escape' && panel.classList.contains('is-open'))
+          closePanel()
       })
 
       // ── Font size control ──
@@ -731,14 +1234,17 @@ const randomStyles = ['brutalist', 'neon', 'vaporwave', 'paper', 'ocean']
         root.removeAttribute('data-font')
         if (size === 'large') root.setAttribute('data-font', 'large')
         if (size === 'xl') root.setAttribute('data-font', 'xl')
-        fontBtns.forEach(btn => {
-          btn.setAttribute('aria-pressed', btn.dataset.font === size ? 'true' : 'false')
+        fontBtns.forEach((btn) => {
+          btn.setAttribute(
+            'aria-pressed',
+            btn.dataset.font === size ? 'true' : 'false'
+          )
         })
         localStorage.setItem(fontKey, size)
       }
 
       setFont(localStorage.getItem(fontKey) || 'default')
-      fontBtns.forEach(btn => {
+      fontBtns.forEach((btn) => {
         btn.addEventListener('click', () => setFont(btn.dataset.font))
       })
 
@@ -757,7 +1263,9 @@ const randomStyles = ['brutalist', 'neon', 'vaporwave', 'paper', 'ocean']
         localStorage.setItem(staticKey, on ? 'true' : 'false')
       }
 
-      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+      const prefersReduced = window.matchMedia(
+        '(prefers-reduced-motion: reduce)'
+      ).matches
       const storedStatic = localStorage.getItem(staticKey)
       setStatic(storedStatic ? storedStatic === 'true' : prefersReduced)
 
@@ -769,7 +1277,7 @@ const randomStyles = ['brutalist', 'neon', 'vaporwave', 'paper', 'ocean']
   </script>
 
   <script is:inline>
-    (() => {
+    ;(() => {
       // ── NAV: scroll-triggered background opacity + active section ──
       const nav = document.querySelector('nav')
       const navLinks = document.querySelectorAll('.nav-links a[href^="#"]')
@@ -791,7 +1299,9 @@ const randomStyles = ['brutalist', 'neon', 'vaporwave', 'paper', 'ocean']
       const sections = document.querySelectorAll('section[id]')
       if (sections.length && navLinks.length) {
         const sectionMap = {}
-        sections.forEach((s) => { sectionMap[s.id] = s })
+        sections.forEach((s) => {
+          sectionMap[s.id] = s
+        })
 
         const setActive = (id) => {
           navLinks.forEach((a) => {
@@ -821,7 +1331,9 @@ const randomStyles = ['brutalist', 'neon', 'vaporwave', 'paper', 'ocean']
       }
 
       // ── SECTION REVEAL: fade + slide up on scroll entry ──
-      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+      const prefersReduced = window.matchMedia(
+        '(prefers-reduced-motion: reduce)'
+      ).matches
       if (!prefersReduced) {
         const revealEls = document.querySelectorAll(
           '.section-label, .section-body, .timeline-item, .skills-card, .badge, .project-card, .writing-card, .toolkit-card, .principle-card, .parallel-row, .contact-inner > *'
@@ -1094,23 +1606,33 @@ const randomStyles = ['brutalist', 'neon', 'vaporwave', 'paper', 'ocean']
     height: 2px;
     background: var(--muted-light);
     border-radius: 1px;
-    transition: transform 0.3s ease, opacity 0.3s ease;
+    transition:
+      transform 0.3s ease,
+      opacity 0.3s ease;
     position: absolute;
   }
-  .menu-btn-bar:nth-child(1) { transform: translateY(-6px); }
-  .menu-btn-bar:nth-child(2) { transform: translateY(0); }
-  .menu-btn-bar:nth-child(3) { transform: translateY(6px); }
-  .menu-btn { position: relative; }
+  .menu-btn-bar:nth-child(1) {
+    transform: translateY(-6px);
+  }
+  .menu-btn-bar:nth-child(2) {
+    transform: translateY(0);
+  }
+  .menu-btn-bar:nth-child(3) {
+    transform: translateY(6px);
+  }
+  .menu-btn {
+    position: relative;
+  }
 
-  .menu-btn[aria-expanded="true"] .menu-btn-bar:nth-child(1) {
+  .menu-btn[aria-expanded='true'] .menu-btn-bar:nth-child(1) {
     transform: translateY(0) rotate(45deg);
     background: var(--accent);
   }
-  .menu-btn[aria-expanded="true"] .menu-btn-bar:nth-child(2) {
+  .menu-btn[aria-expanded='true'] .menu-btn-bar:nth-child(2) {
     opacity: 0;
     transform: scaleX(0);
   }
-  .menu-btn[aria-expanded="true"] .menu-btn-bar:nth-child(3) {
+  .menu-btn[aria-expanded='true'] .menu-btn-bar:nth-child(3) {
     transform: translateY(0) rotate(-45deg);
     background: var(--accent);
   }
@@ -1159,7 +1681,10 @@ const randomStyles = ['brutalist', 'neon', 'vaporwave', 'paper', 'ocean']
     font-weight: 600;
     border-left: 3px solid transparent;
     border-radius: 0 8px 8px 0;
-    transition: background 0.15s, border-color 0.15s, color 0.15s;
+    transition:
+      background 0.15s,
+      border-color 0.15s,
+      color 0.15s;
   }
   .mobile-nav-links .nav-icon {
     width: 18px;
@@ -1205,7 +1730,10 @@ const randomStyles = ['brutalist', 'neon', 'vaporwave', 'paper', 'ocean']
     font-size: 0.9rem;
     font-weight: 600;
     cursor: pointer;
-    transition: border-color 0.15s, color 0.15s, background 0.15s;
+    transition:
+      border-color 0.15s,
+      color 0.15s,
+      background 0.15s;
     width: 100%;
     text-align: left;
   }
@@ -1215,11 +1743,11 @@ const randomStyles = ['brutalist', 'neon', 'vaporwave', 'paper', 'ocean']
     color: var(--accent);
     background: var(--surface);
   }
-  .mobile-menu-btn[data-action="danger"] {
+  .mobile-menu-btn[data-action='danger'] {
     border-color: rgba(255, 60, 60, 0.3);
     color: #ff6b6b;
   }
-  .mobile-menu-btn[data-action="danger"]:hover {
+  .mobile-menu-btn[data-action='danger']:hover {
     border-color: #ff6b6b;
     color: #ff4444;
     background: rgba(255, 60, 60, 0.06);
@@ -1246,7 +1774,10 @@ const randomStyles = ['brutalist', 'neon', 'vaporwave', 'paper', 'ocean']
     letter-spacing: 0.04em;
     color: var(--muted);
     text-decoration: none;
-    transition: color 0.15s, border-color 0.15s, background 0.15s;
+    transition:
+      color 0.15s,
+      border-color 0.15s,
+      background 0.15s;
   }
   .mobile-lang-link:hover {
     color: var(--text);
@@ -1405,7 +1936,11 @@ const randomStyles = ['brutalist', 'neon', 'vaporwave', 'paper', 'ocean']
     font-weight: 700;
     line-height: 1.05;
     letter-spacing: -0.02em;
-    background: linear-gradient(135deg, var(--text) 30%, var(--muted-light) 100%);
+    background: linear-gradient(
+      135deg,
+      var(--text) 30%,
+      var(--muted-light) 100%
+    );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -1614,7 +2149,9 @@ const randomStyles = ['brutalist', 'neon', 'vaporwave', 'paper', 'ocean']
   }
 
   .contact-section .btn-large:hover {
-    box-shadow: 0 12px 40px var(--accent-glow), 0 0 0 1px rgba(100, 255, 218, 0.3);
+    box-shadow:
+      0 12px 40px var(--accent-glow),
+      0 0 0 1px rgba(100, 255, 218, 0.3);
     transform: translateY(-3px);
   }
 
@@ -1716,14 +2253,18 @@ const randomStyles = ['brutalist', 'neon', 'vaporwave', 'paper', 'ocean']
 
   .timeline-card:hover {
     border-color: var(--accent);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2), 0 0 16px var(--accent-glow);
+    box-shadow:
+      0 8px 32px rgba(0, 0, 0, 0.2),
+      0 0 16px var(--accent-glow);
     transform: translateX(4px);
   }
 
   /* Dot brightens when its card is hovered — uses sibling combinator via the item wrapper */
   .timeline-item:hover .timeline-dot {
     background: var(--accent);
-    box-shadow: 0 0 0 4px var(--accent-dim), 0 0 10px var(--accent-glow);
+    box-shadow:
+      0 0 0 4px var(--accent-dim),
+      0 0 10px var(--accent-glow);
     transition:
       box-shadow 0.25s ease,
       background 0.25s ease;
@@ -1810,7 +2351,9 @@ const randomStyles = ['brutalist', 'neon', 'vaporwave', 'paper', 'ocean']
     border: 1px solid rgba(100, 255, 218, 0.15);
     border-radius: 8px;
     text-decoration: none;
-    transition: background 0.2s, border-color 0.2s;
+    transition:
+      background 0.2s,
+      border-color 0.2s;
   }
   .timeline-link:hover {
     background: rgba(100, 255, 218, 0.12);
@@ -1830,7 +2373,10 @@ const randomStyles = ['brutalist', 'neon', 'vaporwave', 'paper', 'ocean']
     border: 1px solid var(--border);
     border-radius: 12px;
     padding: 1.75rem;
-    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    transition:
+      transform 0.3s ease,
+      border-color 0.3s ease,
+      box-shadow 0.3s ease;
     position: relative;
     overflow: hidden;
   }
@@ -1840,28 +2386,42 @@ const randomStyles = ['brutalist', 'neon', 'vaporwave', 'paper', 'ocean']
     position: absolute;
     inset: 0;
     border-radius: 12px;
-    background: linear-gradient(135deg, rgba(255,255,255,0.02) 0%, transparent 50%);
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.02) 0%,
+      transparent 50%
+    );
     pointer-events: none;
   }
 
   .skills-card:hover {
     transform: translateY(-3px);
-    border-color: rgba(155,149,178,0.3);
-    box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+    border-color: rgba(155, 149, 178, 0.3);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
   }
 
   .skills-card--highlight {
-    border-color: rgba(217,119,87,0.3);
-    background: linear-gradient(135deg, var(--surface) 0%, rgba(217,119,87,0.04) 100%);
+    border-color: rgba(217, 119, 87, 0.3);
+    background: linear-gradient(
+      135deg,
+      var(--surface) 0%,
+      rgba(217, 119, 87, 0.04) 100%
+    );
   }
 
   .skills-card--highlight::before {
-    background: linear-gradient(135deg, rgba(217,119,87,0.03) 0%, transparent 60%);
+    background: linear-gradient(
+      135deg,
+      rgba(217, 119, 87, 0.03) 0%,
+      transparent 60%
+    );
   }
 
   .skills-card--highlight:hover {
     border-color: var(--accent);
-    box-shadow: 0 8px 32px rgba(217,119,87,0.1), 0 4px 16px rgba(0,0,0,0.2);
+    box-shadow:
+      0 8px 32px rgba(217, 119, 87, 0.1),
+      0 4px 16px rgba(0, 0, 0, 0.2);
   }
 
   .skills-card__header {
@@ -1913,7 +2473,7 @@ const randomStyles = ['brutalist', 'neon', 'vaporwave', 'paper', 'ocean']
     align-items: center;
     gap: 0.65rem;
     padding: 0.5rem 0;
-    border-bottom: 1px solid rgba(155,149,178,0.06);
+    border-bottom: 1px solid rgba(155, 149, 178, 0.06);
     font-size: 0.85rem;
     color: var(--muted-light);
     transition: color 0.2s ease;
@@ -2524,7 +3084,9 @@ const randomStyles = ['brutalist', 'neon', 'vaporwave', 'paper', 'ocean']
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: 16px;
-    transition: border-color 0.25s, transform 0.25s;
+    transition:
+      border-color 0.25s,
+      transform 0.25s;
   }
   .writing-card:hover {
     border-color: var(--accent);
@@ -2585,7 +3147,10 @@ const randomStyles = ['brutalist', 'neon', 'vaporwave', 'paper', 'ocean']
     background: transparent;
     color: var(--muted);
     cursor: pointer;
-    transition: color 0.2s, border-color 0.2s, background 0.2s;
+    transition:
+      color 0.2s,
+      border-color 0.2s,
+      background 0.2s;
   }
   .a11y-nav-btn:hover,
   .a11y-nav-btn:focus-visible {
@@ -2723,7 +3288,7 @@ const randomStyles = ['brutalist', 'neon', 'vaporwave', 'paper', 'ocean']
     border-color: var(--accent);
     color: var(--text);
   }
-  .a11y-font-btn[aria-pressed="true"] {
+  .a11y-font-btn[aria-pressed='true'] {
     background: var(--accent);
     color: var(--bg);
     border-color: var(--accent);
@@ -2755,10 +3320,12 @@ const randomStyles = ['brutalist', 'neon', 'vaporwave', 'paper', 'ocean']
     background: var(--surface-2);
     border: 1px solid var(--border);
     padding: 2px;
-    transition: background 0.2s, border-color 0.2s;
+    transition:
+      background 0.2s,
+      border-color 0.2s;
     pointer-events: none;
   }
-  .a11y-toggle[aria-checked="true"] .a11y-toggle-track {
+  .a11y-toggle[aria-checked='true'] .a11y-toggle-track {
     background: var(--accent);
     border-color: var(--accent);
   }
@@ -2767,9 +3334,11 @@ const randomStyles = ['brutalist', 'neon', 'vaporwave', 'paper', 'ocean']
     height: 20px;
     border-radius: 50%;
     background: var(--muted);
-    transition: transform 0.2s, background 0.2s;
+    transition:
+      transform 0.2s,
+      background 0.2s;
   }
-  .a11y-toggle[aria-checked="true"] .a11y-toggle-thumb {
+  .a11y-toggle[aria-checked='true'] .a11y-toggle-thumb {
     transform: translateX(18px);
     background: var(--bg);
   }
@@ -2854,7 +3423,9 @@ const randomStyles = ['brutalist', 'neon', 'vaporwave', 'paper', 'ocean']
     text-decoration: none;
     border-bottom: 1px solid var(--border);
     padding-bottom: 1px;
-    transition: color 0.2s, border-color 0.2s;
+    transition:
+      color 0.2s,
+      border-color 0.2s;
   }
 
   .contact-email-link:hover {
@@ -3402,7 +3973,9 @@ const randomStyles = ['brutalist', 'neon', 'vaporwave', 'paper', 'ocean']
     padding: 2rem;
     text-decoration: none;
     color: var(--text);
-    transition: border-color 0.2s, transform 0.2s;
+    transition:
+      border-color 0.2s,
+      transform 0.2s;
   }
   .ai-project-card:hover {
     border-color: var(--accent);
