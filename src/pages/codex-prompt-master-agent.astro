@@ -1,0 +1,567 @@
+---
+import Layout from '../layouts/Layout.astro'
+---
+
+<Layout
+  title="Codex Prompt Master Agent | Terminal Workflow for Codex and Gemini | Pablo Suzarte"
+  description="A portfolio page about Pablo Suzarte's terminal workflow for orchestrating Codex and Gemini with clear prompts, shared context, and human direction."
+  lang="en"
+>
+  <header class="agent-nav">
+    <div class="agent-nav__inner">
+      <a href="/me-and-ai" class="agent-nav__back">&larr; Me and AI</a>
+      <a href="/" class="agent-nav__logo">PS</a>
+      <span class="agent-nav__title">Codex Prompt Master Agent</span>
+    </div>
+  </header>
+
+  <main class="agent">
+    <section class="hero">
+      <div class="hero__glow hero__glow--a"></div>
+      <div class="hero__glow hero__glow--b"></div>
+      <div class="container hero__inner">
+        <div class="hero__copy">
+          <p class="eyebrow">Terminal orchestration</p>
+          <h1>Codex Prompt Master Agent</h1>
+          <p class="hero__lead">
+            This is the operating model I use when I want Codex to build and Gemini to expand the
+            thinking around the work. One project, one terminal, two AI strengths, one human
+            direction.
+          </p>
+          <div class="hero__actions">
+            <a href="#stack" class="btn btn--primary">See the prompt stack</a>
+            <a href="#examples" class="btn btn--secondary">Open prompt examples</a>
+          </div>
+        </div>
+
+        <div class="terminal-card">
+          <div class="terminal-card__top">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <pre class="terminal-card__code"><code>$ codex
+Read the repo first.
+Build the page.
+Explain tradeoffs.
+Verify with build.
+
+$ gemini
+Pressure-test the framing.
+Sharpen the narrative.
+Find better language.
+
+$ human
+Keep the vision coherent.
+Choose what ships.</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <span class="section__num">01</span>
+        <h2>What this agent actually does</h2>
+        <p class="section__lead">
+          It is not a chatbot persona. It is a reusable prompt structure for running a serious
+          collaboration loop in terminal. The goal is simple: keep the build lane fast, keep the
+          thinking lane deep, and stop context from collapsing every time the conversation changes.
+        </p>
+
+        <div class="grid grid--3">
+          <article class="card">
+            <h3>Codex lane</h3>
+            <p>
+              Reads the codebase, makes changes, explains technical tradeoffs, and verifies the
+              result against the actual project.
+            </p>
+          </article>
+          <article class="card">
+            <h3>Gemini lane</h3>
+            <p>
+              Pushes on framing, structure, research synthesis, and alternative directions when the
+              work needs a wider lens.
+            </p>
+          </article>
+          <article class="card">
+            <h3>Human lane</h3>
+            <p>
+              Holds the brief, taste, priorities, and final decision. The human decides what the
+              project is for and what must stay true.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="stack" class="section section--alt">
+      <div class="container">
+        <span class="section__num">02</span>
+        <h2>The prompt stack</h2>
+        <p class="section__lead">
+          Good output starts before the task prompt. The stack below keeps both agents aligned on
+          purpose, project state, constraints, and expected behaviour.
+        </p>
+
+        <div class="stack">
+          <div class="stack__item">
+            <div class="stack__index">1</div>
+            <div>
+              <h3>Role anchor</h3>
+              <p>Define the job clearly: builder, reviewer, strategist, or editor. One agent, one primary responsibility.</p>
+            </div>
+          </div>
+          <div class="stack__item">
+            <div class="stack__index">2</div>
+            <div>
+              <h3>Project context</h3>
+              <p>State what the site is, who it serves, what already exists, and what should not be broken.</p>
+            </div>
+          </div>
+          <div class="stack__item">
+            <div class="stack__index">3</div>
+            <div>
+              <h3>Task contract</h3>
+              <p>Ask for a concrete outcome: add a page, rewrite a section, review a flow, generate alternatives, or tighten UX copy.</p>
+            </div>
+          </div>
+          <div class="stack__item">
+            <div class="stack__index">4</div>
+            <div>
+              <h3>Constraints</h3>
+              <p>Include tech stack, design rules, tone, file boundaries, validation requirements, and things the agent must avoid.</p>
+            </div>
+          </div>
+          <div class="stack__item">
+            <div class="stack__index">5</div>
+            <div>
+              <h3>Response shape</h3>
+              <p>Control the collaboration: findings first, edit directly, verify after change, keep explanations concise, show next steps.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="examples" class="section">
+      <div class="container">
+        <span class="section__num">03</span>
+        <h2>Prompt examples I would actually use</h2>
+        <p class="section__lead">
+          The language matters. It needs enough direction to be useful, but not so much that the
+          agent becomes stiff or ceremonial.
+        </p>
+
+        <div class="grid grid--2">
+          <article class="prompt">
+            <div class="prompt__label">Codex</div>
+            <h3>Build prompt</h3>
+            <pre><code>You are working inside my Astro portfolio.
+Read the codebase first and preserve the existing visual language.
+
+Task:
+Create a new page for "Codex Prompt Master Agent".
+It should explain how I use Codex and Gemini in terminal to build portfolio work.
+
+Requirements:
+- keep the current tone: direct, human, no corporate speak
+- use the existing layout and design tokens
+- add a discoverable link from /me-and-ai
+- verify with npm run build
+
+Do the edits, then summarize what changed and any risks.</code></pre>
+          </article>
+
+          <article class="prompt">
+            <div class="prompt__label prompt__label--gemini">Gemini</div>
+            <h3>Thinking prompt</h3>
+            <pre><code>I am positioning a portfolio page called
+"Codex Prompt Master Agent".
+
+Help me strengthen the concept.
+I want language for:
+- what problem this solves
+- why Codex and Gemini play different roles
+- how a UX leader should talk about this without sounding like a solo hacker
+
+Give me 3 framing options:
+- sharp and strategic
+- practical and teachable
+- bold and future-facing</code></pre>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--alt">
+      <div class="container">
+        <span class="section__num">04</span>
+        <h2>The collaboration loop</h2>
+        <div class="loop">
+          <div class="loop__item">
+            <strong>1. Frame the outcome</strong>
+            <p>Describe what success looks like before asking for output.</p>
+          </div>
+          <div class="loop__item">
+            <strong>2. Separate build from thinking</strong>
+            <p>Use Codex for grounded repo work. Use Gemini to widen or challenge the idea.</p>
+          </div>
+          <div class="loop__item">
+            <strong>3. Reconcile the two</strong>
+            <p>Pull the strongest language or critique back into the build lane.</p>
+          </div>
+          <div class="loop__item">
+            <strong>4. Ship only verified work</strong>
+            <p>Every change should survive preview, build, and human review.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container outro">
+        <span class="section__num">05</span>
+        <h2>Why this matters in my portfolio</h2>
+        <p class="section__lead">
+          This is the bridge between UX leadership and AI-native making. I am not presenting myself
+          as a lone engineer. I am showing that I can design the working conditions where ideas move
+          faster, feedback gets sharper, and execution becomes more direct.
+        </p>
+        <div class="outro__actions">
+          <a href="/me-and-ai" class="btn btn--primary">Back to Me and AI</a>
+          <a href="/how-i-build-with-ai" class="btn btn--secondary">See the broader workflow</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <style>
+    .agent-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      background: rgba(26, 22, 37, 0.82);
+      border-bottom: 1px solid var(--border);
+    }
+    .agent-nav__inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0.95rem 2rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .agent-nav__back,
+    .agent-nav__logo {
+      text-decoration: none;
+    }
+    .agent-nav__back {
+      color: var(--muted);
+      font-size: 0.85rem;
+      transition: color 0.2s;
+    }
+    .agent-nav__back:hover {
+      color: var(--accent);
+    }
+    .agent-nav__logo {
+      color: var(--text);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+    }
+    .agent-nav__title {
+      margin-left: auto;
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .agent {
+      padding-top: 4rem;
+      background:
+        radial-gradient(circle at top left, rgba(217, 119, 87, 0.14), transparent 32%),
+        radial-gradient(circle at 85% 10%, rgba(91, 192, 235, 0.12), transparent 28%),
+        var(--bg);
+    }
+    .container {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 5.5rem 0 3rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .hero__inner {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
+      gap: 2rem;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+    .hero__glow {
+      position: absolute;
+      border-radius: 999px;
+      filter: blur(80px);
+      opacity: 0.4;
+    }
+    .hero__glow--a {
+      width: 320px;
+      height: 320px;
+      top: 40px;
+      left: -80px;
+      background: rgba(217, 119, 87, 0.18);
+    }
+    .hero__glow--b {
+      width: 260px;
+      height: 260px;
+      right: 4%;
+      top: 90px;
+      background: rgba(91, 192, 235, 0.16);
+    }
+    .eyebrow,
+    .section__num,
+    .prompt__label {
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    h1,
+    h2,
+    h3,
+    strong {
+      color: var(--text);
+    }
+    h1 {
+      font-size: clamp(3rem, 6vw, 5.4rem);
+      line-height: 0.96;
+      letter-spacing: -0.05em;
+      margin: 0.85rem 0 1rem;
+    }
+    h2 {
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      margin: 0.55rem 0 0.9rem;
+    }
+    h3 {
+      font-size: 1rem;
+      margin-bottom: 0.35rem;
+    }
+    p {
+      color: var(--muted-light);
+      line-height: 1.65;
+    }
+    .hero__lead,
+    .section__lead {
+      max-width: 720px;
+      font-size: 1.05rem;
+    }
+    .hero__actions,
+    .outro__actions {
+      display: flex;
+      gap: 0.85rem;
+      flex-wrap: wrap;
+      margin-top: 1.5rem;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.8rem 1.2rem;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.9rem;
+      transition: transform 0.2s, opacity 0.2s, border-color 0.2s, background 0.2s;
+    }
+    .btn:hover {
+      transform: translateY(-1px);
+    }
+    .btn--primary {
+      background: var(--accent);
+      color: var(--bg);
+    }
+    .btn--secondary {
+      color: var(--text);
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.02);
+    }
+    .btn--secondary:hover {
+      border-color: var(--accent);
+      background: rgba(217, 119, 87, 0.06);
+    }
+
+    .terminal-card,
+    .card,
+    .prompt,
+    .stack__item,
+    .loop__item {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+    }
+    .terminal-card {
+      border-radius: 18px;
+      overflow: hidden;
+    }
+    .terminal-card__top {
+      display: flex;
+      gap: 0.45rem;
+      padding: 0.8rem 1rem;
+      background: rgba(255, 255, 255, 0.03);
+      border-bottom: 1px solid var(--border);
+    }
+    .terminal-card__top span {
+      width: 0.7rem;
+      height: 0.7rem;
+      border-radius: 50%;
+      background: rgba(232, 221, 211, 0.24);
+    }
+    .terminal-card__code,
+    .prompt pre {
+      margin: 0;
+      overflow-x: auto;
+      font-family: 'Courier New', monospace;
+      color: var(--text);
+      line-height: 1.65;
+      font-size: 0.9rem;
+      white-space: pre-wrap;
+    }
+    .terminal-card__code {
+      padding: 1.3rem 1.4rem 1.5rem;
+      min-height: 100%;
+    }
+
+    .section {
+      padding: 4rem 0;
+    }
+    .section--alt {
+      background: rgba(255, 255, 255, 0.025);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .grid {
+      display: grid;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    .grid--2 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .grid--3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    .card,
+    .prompt {
+      border-radius: 18px;
+      padding: 1.25rem;
+    }
+    .card p,
+    .prompt p {
+      font-size: 0.92rem;
+    }
+
+    .stack {
+      display: grid;
+      gap: 0.9rem;
+      margin-top: 2rem;
+    }
+    .stack__item {
+      display: grid;
+      grid-template-columns: 56px minmax(0, 1fr);
+      gap: 1rem;
+      align-items: start;
+      padding: 1rem 1.15rem;
+      border-radius: 16px;
+    }
+    .stack__index {
+      width: 56px;
+      height: 56px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: rgba(217, 119, 87, 0.1);
+      color: var(--accent);
+      font-size: 1rem;
+      font-weight: 800;
+    }
+
+    .prompt__label {
+      display: inline-block;
+      margin-bottom: 0.65rem;
+    }
+    .prompt__label--gemini {
+      color: #7aa8ff;
+    }
+    .prompt pre {
+      padding: 1rem;
+      border-radius: 12px;
+      background: rgba(0, 0, 0, 0.2);
+      margin-top: 0.9rem;
+    }
+
+    .loop {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 1.8rem;
+    }
+    .loop__item {
+      border-radius: 18px;
+      padding: 1.2rem;
+    }
+    .loop__item strong {
+      display: block;
+      margin-bottom: 0.45rem;
+      font-size: 0.95rem;
+    }
+    .loop__item p {
+      font-size: 0.88rem;
+    }
+
+    .outro {
+      max-width: 760px;
+    }
+
+    @media (max-width: 900px) {
+      .hero__inner,
+      .grid--2,
+      .grid--3,
+      .loop {
+        grid-template-columns: 1fr;
+      }
+    }
+    @media (max-width: 640px) {
+      .container,
+      .agent-nav__inner {
+        padding-left: 1.25rem;
+        padding-right: 1.25rem;
+      }
+      .agent-nav__title {
+        display: none;
+      }
+      .hero {
+        padding-top: 5rem;
+      }
+      .stack__item {
+        grid-template-columns: 1fr;
+      }
+      .stack__index {
+        width: 48px;
+        height: 48px;
+      }
+    }
+  </style>
+</Layout>
