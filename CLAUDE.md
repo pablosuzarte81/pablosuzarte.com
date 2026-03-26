@@ -1,6 +1,6 @@
 # pablosuzarte.com
 
-Personal portfolio site for Pablo Suzarte — Senior Product UX Designer.
+Personal portfolio site for Pablo Suzarte — Service Designer redefining practice through AI.
 
 ## Stack
 
@@ -78,16 +78,17 @@ Single breakpoint at `768px` for mobile responsive layout.
 
 ## Page Sections (PortfolioPage.astro)
 
-Nav has 5 links: About · AI & Education · Experience · Skills · Contact
+Nav has 6 links: What I Do · Method · Proof · Experience · Writing · Contact
 
 1. **Nav** — Fixed, glassmorphic (backdrop-filter blur), "PS" logo + anchor links + language switcher (EN/SV/ES)
-2. **Hero** — Full-height, split layout (text left / photo right), gradient radial bg, animated CTAs
-3. **About** — label `01` — 3 paragraphs + 3 stat badges (15+ years / 4 orgs / AI native)
-4. **AI & Education** — label `02` — featured teaser for `AI Project Brain Lab`, linking to the dedicated page
-5. **Experience** — label `03` — Timeline with 5 jobs, custom dots + connecting lines, hover effects
-6. **Skills** — label `04` — Pill tags grid + education + certifications
-7. **Contact** — label `05` — LinkedIn CTA
-8. **Footer** — Copyright + tech stack credit
+2. **Hero** — Full-height, split layout (text left / photo right), gradient radial bg — positions Pablo as Service Designer redefining practice through AI
+3. **What I Do** — label `01` — 3 paragraphs + 3 stat badges (15+ years SD / 2 live pilots / New era)
+4. **My Method** — label `02` — Before/Now practice shifts, 6 orchestration principles, philosophy statement
+5. **Proof** — label `03` — Two live IKEA projects (Service Design CoP + DesignOps pilot) + convergence statement
+6. **Experience** — label `04` — Timeline with 5 jobs, reframed through Service Design × AI lens
+7. **Writing** — label `05` — Blog articles
+8. **Contact** — label `06` — LinkedIn CTA, targeting SD + AI leadership roles
+9. **Footer** — Copyright + tech stack credit
 
 ## AI Project Brain Lab Page
 
@@ -101,40 +102,33 @@ Route: `src/pages/ai-project-brain-lab.astro`
 
 The page is in a good enough live state, but the content still needs a refinement pass later. The next strong content pass should make the role definition, teaching arc, and conceptual language more elegant and more teachable without changing the overall direction.
 
-### Experience Data (hardcoded in index.astro frontmatter)
+### Experience Data (in translations.ts)
 
 | Company | Role | Period |
 |---|---|---|
-| IKEA Global | Senior Product UX Designer | May 2022–Present |
+| IKEA Global | Senior Product UX Designer — Service Design | May 2022–Present |
 | Prisjakt | Lead B2B Designer → Senior UX Designer | Apr 2019–May 2022 |
 | Hero Gaming | Senior → UX Designer | Oct 2016–Feb 2019 |
 | Mobenga | Interaction/UX Designer | Mar 2013–Sep 2016 |
-| Freelance | Service Design | Jan 2016–May 2022 |
-
-### Skills (16 total)
-
-Journey Orchestration, User Research, Service Design, Workshop Facilitation, Cross-functional Leadership, Stakeholder Management, Systems Thinking, Prototyping, Figma, Information Architecture, Usability Testing, Interaction Design, AI-Assisted Design, Design Strategy, Experience Strategy, Product Thinking.
+| Freelance | Service & UX Design | Jan 2016–May 2022 |
 
 ## About Pablo (always keep this in mind)
 
-Pablo Suzarte — Senior Product UX Designer, 15+ years experience. Currently at IKEA Global doing Journey Orchestration & Experience Strategy.
+Pablo Suzarte — Service Designer, 15+ years experience. Currently at IKEA Global pioneering how Service Design transforms in the age of AI.
 
 **Core positioning for this portfolio:**
 
-- AI has removed the tech bottleneck that always slowed down UX work
-- Pablo can now design AND build — no waiting for engineering
-- He wants to be presented as a UX expert, but with AI capability woven in naturally
-- Not a developer, not just a designer — someone who uses AI to do both
-- Real proof point: built his mother's website (mariaelenareiki.com) with AI
-- His words: "AI allows me to do handmade user experiences in any platform"
+- Service Design is the central discipline — AI is embedded into it, not bolted on
+- Two eras: BEFORE (traditional SD practice) and NOW (SD redefining itself through AI)
+- Two converging IKEA projects are the proof: a global Service Design CoP + a DesignOps pilot
+- Pablo spent 15 years orchestrating people around customer problems — now he's doing the same for collaboration itself
+- NOT an AI tools person — a Service Designer redefining the discipline
 
-**Leadership inspiration:** "Escaping the Build Trap" by Melissa Perri — outcome over output, empowering teams to discover real problems, not just ship features.
-
-**Critical framing:** Pablo is NOT a one-man band. AI is a team multiplier — he uses it to make learning cycles faster and help teams adapt. He builds environments and brings people together. Always lead with leadership and cross-functional impact, not solo capability.
+**Critical framing:** Pablo is NOT a one-man band. AI is a team multiplier. He builds environments where teams work together more intentionally using AI. Always lead with the discipline and cross-functional impact, not solo capability or tools.
 
 **Tone:** Direct, human, no corporate speak. Confident but collaborative. Outcome-led language.
 
-**Domain:** pablosuzarte.com — live on Vercel (domain transferred from Squarespace, confirmed live 2026-03-20).
+**Domain:** pablosuzarte.com — live on Vercel.
 **LinkedIn:** linkedin.com/in/pablosuzarte/
 
 ## Case Study Pages (`/projects/[slug]`)

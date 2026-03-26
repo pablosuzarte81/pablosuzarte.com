@@ -10,24 +10,22 @@ interface ExperienceItem {
   linkLabel?: string
 }
 
-interface StatItem {
-  value: string
-  label: string
+interface BeforeNow {
+  before: string
+  now: string
 }
 
-interface DetailCard {
-  title: string
-  body: string
-}
-
-interface ComparisonGroup {
-  title: string
-  items: string[]
-}
-
-interface LayerItem {
+interface MethodPrinciple {
   name: string
+  desc: string
+}
+
+interface ProofProject {
+  kicker: string
+  title: string
   description: string
+  points: string[]
+  status: string
 }
 
 export interface T {
@@ -36,15 +34,12 @@ export interface T {
     description: string
   }
   nav: {
-    about: string
-    work: string
-    aiEducation: string
-    aiMindset: string
+    whatIDo: string
+    method: string
+    proof: string
     experience: string
-    skills: string
-    contact: string
     writing: string
-    playground: string
+    contact: string
   }
   hero: {
     eyebrow: string
@@ -53,19 +48,6 @@ export interface T {
     cta1: string
     cta2: string
     scroll: string
-  }
-  homeFutureRole: {
-    kicker: string
-    title: string
-    p1: string
-    p2: string
-    card1Label: string
-    card1Title: string
-    card1Body: string
-    card2Label: string
-    card2Title: string
-    card2Body: string
-    metrics: StatItem[]
   }
   about: {
     label: string
@@ -80,76 +62,27 @@ export interface T {
     badge3Num: string
     badge3Label: string
   }
-  work: {
-    label: string
-    title: string
-    cta: string
-  }
-  aiMindset: {
+  method: {
     label: string
     title: string
     intro: string
-    approach: string
-    approachBody: string
-    toolkit: { name: string; use: string }[]
-    principlesTitle: string
-    principles: { name: string; desc: string }[]
-    parallelsTitle: string
-    parallels: { sd: string; pi: string }[]
-    visionTitle: string
-    visionBody: string
-    visionPoints: string[]
-    cta: string
-  }
-  aiEducation: {
-    label: string
-    title: string
-    intro: string
-    featureKicker: string
-    featureTitle: string
-    featureMeta: string
-    featureDescription: string
-    points: string[]
-    metrics: StatItem[]
-    problemTitle: string
-    problemCards: DetailCard[]
     shiftTitle: string
-    shiftOld: ComparisonGroup
-    shiftNew: ComparisonGroup
-    roleTitle: string
-    roleBody: string
-    roleCards: DetailCard[]
-    audienceTitle: string
-    audiencePoints: string[]
-    learnTitle: string
-    layers: LayerItem[]
-    phasesTitle: string
-    phases: DetailCard[]
-    proofTitle: string
-    proofCards: DetailCard[]
-    outcomesTitle: string
-    outcomes: string[]
-    primaryCta: string
-    secondaryCta: string
+    shifts: BeforeNow[]
+    principlesTitle: string
+    principles: MethodPrinciple[]
+    philosophy: string
+  }
+  proof: {
+    label: string
+    title: string
+    intro: string
+    projects: ProofProject[]
+    convergence: string
   }
   experience: {
     label: string
     title: string
     items: ExperienceItem[]
-  }
-  skills: {
-    label: string
-    title: string
-    categories: { name: string; highlight?: boolean; items: string[] }[]
-    education: string
-    certifications: string
-    universityName: string
-    universityDegree: string
-    universityYears: string
-    cert1Name: string
-    cert1Detail: string
-    cert2Name: string
-    cert2Detail: string
   }
   writing: {
     label: string
@@ -172,315 +105,184 @@ export interface T {
 export const translations: Record<Locale, T> = {
   en: {
     meta: {
-      title: 'Pablo Suzarte — UX Designer & AI Collaboration Leader | Malmö, Sweden',
+      title: 'Pablo Suzarte \u2014 Senior Designer redefining practice through AI | Malm\u00F6, Sweden',
       description:
-        'Senior UX Designer — 15+ years in service design, AI orchestration, and journey mapping. Designing how humans and AI work together. IKEA Global.',
+        'Senior Designer with 15+ years orchestrating people around customer needs. Now pioneering how Service Design transforms in the age of AI. IKEA Global.',
     },
     nav: {
-      about: 'About',
-      work: 'Work',
-      aiEducation: 'AI & Education',
-      aiMindset: 'Me & AI',
+      whatIDo: 'What I Do',
+      method: 'Method',
+      proof: 'Proof',
       experience: 'Experience',
-      skills: 'Skills',
+      writing: 'Writing',
       contact: 'Contact',
-      writing: 'Blog',
-      playground: 'AI Playground',
     },
     hero: {
-      eyebrow: 'Senior Product UX Designer \u00B7 IKEA Global \u00B7 Malm\u00F6, Sweden',
-      title: 'I build environments where\nteams and AI collaborate.',
+      eyebrow: 'Senior Designer \u00B7 IKEA Global \u00B7 Malm\u00F6, Sweden',
+      title: 'I design how collaboration\nworks in the age of AI.',
       tagline:
-        '15 years orchestrating people at scale. Now I help companies unlock AI as a superpower for every employee.',
-      cta1: 'How I think about AI',
+        '15 years orchestrating people around customer needs. Now I\u2019m doing the same thing for collaboration itself \u2014 designing how teams and AI think together.',
+      cta1: 'See the proof',
       cta2: 'LinkedIn \u2197',
       scroll: 'scroll',
     },
-    homeFutureRole: {
-      kicker: 'Designing Project Intelligence',
-      title: 'A future role for people who design how humans and AI think together.',
-      p1: 'The focus is not only to explain a framework. It is to help people build a new mindset from 0 to 100 and design their own project intelligence.',
-      p2: 'At the center of that role is a simple idea: a project brain is not a folder of notes. It is an operating system for human-AI collaboration.',
-      card1Label: 'Role definition',
-      card1Title: 'Single source of truth logic designer',
-      card1Body:
-        'Someone who turns repeated friction into the right file, structure, and workflow layer so serious projects can continue with clarity and low cognitive friction.',
-      card2Label: 'Operating rule',
-      card2Title: 'Structure should emerge from friction',
-      card2Body:
-        'If friction appears repeatedly, create the file or structure that solves that friction. Real projects teach what structure is necessary.',
-      metrics: [
-        { value: '05', label: 'minimum viable stack: CLAUDE, status, evidence, assets, working style' },
-        { value: '01', label: 'job per file: every layer has one clear responsibility' },
-        { value: '∞', label: 'the system grows only when repeated friction proves a new layer is needed' },
-      ],
-    },
     about: {
       label: '01',
-      title: 'About',
-      p1: "I'm a Senior UX Leader who has spent 15 years helping organisations stop building the wrong things faster. At IKEA I lead journey orchestration across global product and support teams — creating the alignment structures, research practices and shared direction that move teams from output thinking to outcome thinking.",
-      p2: "My leadership is shaped by a core belief: great teams don't need more features on the roadmap — they need the right environment to discover real problems and act on them. I build that environment. I design the workshops, the rituals, the cross-functional connections that let people do their best work. And I use AI to make the learning cycles faster — so teams can validate, adapt and move with confidence instead of guessing.",
-      p3: "I'm at my best when things are complex, ambiguous and cross-organisational. When silos need bridging, when strategy needs grounding in real user needs, when a team needs a leader who can zoom out and zoom in. If you're building a product organisation that wants to be genuinely outcome-led — let's talk.",
+      title: 'What I Do',
+      p1: 'I spent fifteen years doing one thing: orchestrating people around customer problems. Forcing cross-functional teams past their first solution into root cause understanding. Designing the workshops, the rituals, the shared language that makes alignment possible at scale.',
+      p2: 'Now I\u2019m doing the same thing for collaboration itself. At IKEA, I\u2019m leading two converging initiatives that prove what happens when Service Design practice absorbs AI \u2014 not as a tool bolted on, but as a fundamental shift in how teams think, decide, and move together.',
+      p3: 'This isn\u2019t about prompting chatbots or automating workflows. It\u2019s about a discipline \u2014 Service Design \u2014 evolving to meet a moment. And I\u2019m at the centre of defining what that looks like.',
       badge1Num: '15+',
-      badge1Label: 'Years in UX',
-      badge2Num: '4',
-      badge2Label: 'Organisations led cross-functionally',
-      badge3Num: 'AI',
-      badge3Label: 'Native practice',
+      badge1Label: 'Years in Service Design',
+      badge2Num: '2',
+      badge2Label: 'Live pilots at IKEA',
+      badge3Num: 'New',
+      badge3Label: 'Era of practice',
     },
-    work: {
+    method: {
       label: '02',
-      title: 'Work',
-      cta: 'View case study',
-    },
-    aiMindset: {
-      label: '02',
-      title: 'AI Mindset',
+      title: 'My Method',
       intro:
-        'Most people prompt a chatbot. I orchestrate agents to handle complex, multi-step tasks. The difference is not the tool — it is the environment you design around it. I create the conditions where your mind works with AI naturally, unlocking capabilities most teams do not know they have.',
-      approach: 'From prompting to orchestrating',
-      approachBody:
-        'I do not just use AI tools — I design how humans and AI think together. I set up project intelligence structures: configuring MD files, agent roles, shared memory, and reusable workflows that turn a chatbot conversation into a coordinated system of agents working on real problems.',
-      toolkit: [
-        { name: 'Claude & Claude Code', use: 'Deep reasoning, complex orchestration, building full applications from intent' },
-        { name: 'ChatGPT & Codex', use: 'Rapid prototyping, code generation, conversational exploration' },
-        { name: 'Gemini', use: 'Multi-modal research, large context analysis, cross-referencing sources' },
-        { name: 'GitHub Copilot', use: 'Inline code completion, pair programming, context-aware suggestions across the IDE' },
+        'Service Design has always been about making complex human systems work better. The method hasn\u2019t changed \u2014 the material has. Where I once designed journey maps and alignment workshops, I now design collaborative intelligence systems. Same discipline. New era.',
+      shiftTitle: 'Two eras of practice',
+      shifts: [
+        {
+          before: 'Map customer journeys manually',
+          now: 'Design how teams and AI map journeys together',
+        },
+        {
+          before: 'Facilitate workshops to force alignment',
+          now: 'Build persistent context systems that maintain alignment',
+        },
+        {
+          before: 'Synthesise research into insight decks',
+          now: 'Create shared memory architectures that make insights cumulative',
+        },
+        {
+          before: 'Align stakeholders through presentations',
+          now: 'Design collaborative environments where evidence speaks for itself',
+        },
       ],
-      principlesTitle: 'Project Intelligence Principles',
+      principlesTitle: 'Orchestration principles',
       principles: [
-        { name: 'Shared memory', desc: 'AI needs a clear understanding of what the project is, why it matters, and what must not be misunderstood.' },
-        { name: 'Current orientation', desc: 'A visible sense of where things stand: what is agreed, what is open, what is next.' },
-        { name: 'Evidence discipline', desc: 'Ideas grounded in visible evidence, not mixed with assumptions or storytelling.' },
-        { name: 'Asset awareness', desc: 'Both humans and AI know what materials exist so work stays grounded in reality.' },
-        { name: 'Collaboration clarity', desc: 'Knowing how to work together well, not just what the project is about.' },
-        { name: 'Decision continuity', desc: 'Decisions and their reasoning preserved so the team does not restart the same thinking.' },
-        { name: 'Role clarity', desc: 'Every collaborator — human or AI — has a clear role and responsibility.' },
-        { name: 'Reusable patterns', desc: 'Workflows and methods that work well are saved, refined, and reused.' },
+        {
+          name: 'Shared memory',
+          desc: 'Every collaboration needs a clear, persistent understanding of what the project is and why it matters.',
+        },
+        {
+          name: 'Evidence discipline',
+          desc: 'Separate proof from opinion. Ground decisions in visible evidence, not assumptions.',
+        },
+        {
+          name: 'Decision continuity',
+          desc: 'Preserve the reasoning behind decisions so teams don\u2019t restart the same thinking.',
+        },
+        {
+          name: 'Role clarity',
+          desc: 'Every collaborator \u2014 human or AI \u2014 needs a clear role and responsibility.',
+        },
+        {
+          name: 'Structure from friction',
+          desc: 'Don\u2019t design structure in advance. Let repeated friction reveal what\u2019s needed.',
+        },
+        {
+          name: 'Collaboration clarity',
+          desc: 'Define how you work together, not just what you\u2019re working on.',
+        },
       ],
-      parallelsTitle: 'Same skill. New material.',
-      parallels: [
-        { sd: 'Service design makes complex experiences understandable.', pi: 'Project intelligence makes complex projects understandable.' },
-        { sd: 'Service design connects research, stakeholders, and journeys.', pi: 'Project intelligence connects evidence, decisions, and collaboration.' },
-        { sd: 'Service design reduces friction in services.', pi: 'Project intelligence reduces friction in how projects think and move.' },
-        { sd: 'Service design designs better conditions for users.', pi: 'Project intelligence designs better conditions for teams and AI.' },
-      ],
-      visionTitle: 'What I want to build next',
-      visionBody:
-        'I want to help organisations go from prompting to orchestrating — designing the environments where every co-worker unlocks AI as a superpower. Not by replacing people, but by building the conditions where their minds work with AI naturally.',
-      visionPoints: [
-        'Design AI working environments tailored to your teams — not generic, human-centred',
-        'Take people from chatbot prompting to agent orchestration for complex tasks',
-        'Build project intelligence structures that scale across organisations',
-        'Help leadership see the real potential — and the conditions to unlock it',
-      ],
-      cta: 'Let\u2019s talk about what\u2019s possible',
+      philosophy:
+        'The method is simple: treat collaboration as a design problem. Most teams fail not because they lack talent or tools, but because nobody designed the conditions for their thinking to connect. I design those conditions \u2014 now with AI as part of the system.',
     },
-    aiEducation: {
-      label: '02',
-      title: 'AI & Education',
-      intro:
-        'Alongside product leadership, I build AI-native learning experiences that turn complex ideas into something people can actually use. AI Project Brain Lab is the clearest example: a course-led website that teaches how to turn AI from a clever tool into a serious project collaborator.',
-      featureKicker: 'Self-initiated education product',
-      featureTitle: 'AI Project Brain Lab',
-      featureMeta: 'Course concept · Landing page · AI collaboration framework',
-      featureDescription:
-        'I designed the full learning narrative, landing-page experience, and teaching structure behind a course about project intelligence, continuity, and context design.',
-      points: [
-        'Built the positioning, copy, and UX for a course-led website around AI and serious project work.',
-        'Translated a complex framework into a readable, conversion-focused learning experience.',
-        'Used the project itself as proof of how design, education, and AI can work together.',
-      ],
-      metrics: [
-        { value: '08', label: 'course chapters translated into the portfolio' },
-        { value: '05', label: 'core system layers taught through the concept' },
-        { value: '1', label: 'live prototype used as a teaching and positioning artifact' },
-      ],
-      problemTitle: 'The problem it responds to',
-      problemCards: [
+    proof: {
+      label: '03',
+      title: 'Proof',
+      intro: 'Two projects. One thesis. Both happening now at IKEA.',
+      projects: [
         {
-          title: 'Context disappears',
-          body: 'People keep rebuilding the same background instead of building momentum across sessions.',
+          kicker: 'Global initiative \u00B7 Co-lead',
+          title: 'Service Design Community of Practice',
+          description:
+            'Co-leading a global initiative to define what Service Design becomes when AI is embedded into practice. Not a tools training \u2014 a discipline-level conversation about what practitioners uniquely contribute, where the pitfalls are, and what new practice looks like.',
+          points: [
+            'Convening Service Designers across IKEA to define the AI-era practice',
+            'Identifying what makes human orchestration irreplaceable',
+            'Building shared language for a discipline in transformation',
+          ],
+          status: 'Active \u2014 shaping the conversation globally',
         },
         {
-          title: 'Continuity breaks',
-          body: 'Good thinking gets lost between tools, notes, and decisions, which makes serious work hard to continue.',
-        },
-        {
-          title: 'Outputs stay shallow',
-          body: 'AI looks useful in isolated moments, but it often fails when a project becomes complex and long-running.',
+          kicker: 'Design Operations \u00B7 Pilot',
+          title: 'Collaborative Intelligence System',
+          description:
+            'Leading a pilot in Design Operations to build a collaborative intelligence system using AI. Designing the structures, context architecture, and workflows that demonstrate how AI amplifies human orchestration at enterprise scale.',
+          points: [
+            'Defining how Design Operations integrates AI into daily practice',
+            'Designing context architecture that makes human-AI collaboration systematic',
+            'Building reusable patterns that scale across design teams',
+          ],
+          status: 'Active \u2014 demonstrating results',
         },
       ],
-      shiftTitle: 'The central shift',
-      shiftOld: {
-        title: 'Reactive AI use',
-        items: [
-          'Ask isolated questions',
-          'Hope the output fits',
-          'Repeat project context constantly',
-          'Lose clarity between sessions',
-        ],
-      },
-      shiftNew: {
-        title: 'Designed AI collaboration',
-        items: [
-          'Design context deliberately',
-          'Build continuity into the workflow',
-          'Separate evidence, status, and decisions clearly',
-          'Guide intelligence across time',
-        ],
-      },
-      roleTitle: 'The role behind the course',
-      roleBody:
-        'The course frames a new professional posture: the Project Intelligence Designer. Someone who turns messy, evolving project reality into a usable system of clarity, continuity, and action.',
-      roleCards: [
-        {
-          title: 'Protects focus',
-          body: 'Keeps important work from drifting into noise and repetition.',
-        },
-        {
-          title: 'Designs continuity',
-          body: 'Makes continuation possible without constant restart.',
-        },
-        {
-          title: 'Reduces friction',
-          body: 'Turns messy project reality into a system humans and AI can actually use.',
-        },
-      ],
-      audienceTitle: 'Who the content is built for',
-      audiencePoints: [
-        'Designers, strategists, researchers, and builders tired of shallow AI workflows.',
-        'People who want stronger outputs, not just faster outputs.',
-        'Teams working through moving parts, evolving decisions, and cross-functional complexity.',
-        'Anyone who wants AI inside the workflow, not beside it.',
-      ],
-      learnTitle: 'What the course teaches',
-      layers: [
-        {
-          name: 'CLAUDE.md',
-          description: 'Defines what the project is, why it matters, and the worldview guiding the work.',
-        },
-        {
-          name: 'PROJECT_STATUS.md',
-          description: 'Makes current state, progress, and next steps legible.',
-        },
-        {
-          name: 'EVIDENCE_PACK.md',
-          description: 'Separates proof, research, and grounded findings from loose opinion.',
-        },
-        {
-          name: 'ASSET_INVENTORY.md',
-          description: 'Tracks what already exists so work can build on real material instead of memory.',
-        },
-        {
-          name: 'WORKING_STYLE.md',
-          description: 'Clarifies collaboration preferences, tone, and execution standards.',
-        },
-      ],
-      phasesTitle: 'How the learning journey unfolds',
-      phases: [
-        {
-          title: 'Understand the shift',
-          body: 'Why most AI workflows stay shallow and why structure changes collaboration quality.',
-        },
-        {
-          title: 'See the system',
-          body: 'Learn the five-layer project brain and what each layer is responsible for.',
-        },
-        {
-          title: 'Apply it to real work',
-          body: 'Translate the framework into an actual project workflow with clearer continuity.',
-        },
-        {
-          title: 'Stress-test the method',
-          body: 'Use the model across evolving work instead of one-off prompts.',
-        },
-        {
-          title: 'Leave with a repeatable practice',
-          body: 'Turn the ideas into a system you can reuse immediately in your own projects.',
-        },
-      ],
-      proofTitle: 'Why this project matters',
-      proofCards: [
-        {
-          title: 'Before',
-          body: 'Context lived in too many places, decisions were easy to lose, and every session required rebuilding the same understanding.',
-        },
-        {
-          title: 'The system',
-          body: 'A clearer structure separated memory, status, evidence, assets, and collaboration guidance so the project could continue without reset.',
-        },
-        {
-          title: 'After',
-          body: 'Onboarding became faster, continuity improved, and AI support moved from shallow assistance toward real project collaboration.',
-        },
-      ],
-      outcomesTitle: 'What people leave with',
-      outcomes: [
-        'A practical system for structuring project context',
-        'A clearer way to preserve continuity across sessions',
-        'A method for separating evidence, status, and decisions',
-        'A future-facing mental model for working with AI at a higher level',
-      ],
-      primaryCta: 'See the full breakdown',
-      secondaryCta: 'Ask me about this work',
+      convergence:
+        'These projects aren\u2019t separate initiatives. They\u2019re two sides of the same question: what does Service Design become when AI is part of the practice? One asks the question at discipline level. The other answers it in daily operations. Together, they\u2019re the proof.',
     },
     experience: {
-      label: '03',
+      label: '04',
       title: 'Experience',
       items: [
         {
           company: 'IKEA',
-          role: 'Senior Product UX Designer',
-          period: 'May 2022 — Present',
-          location: 'Malmö, Sweden',
+          role: 'Senior Product UX Designer \u2014 Service Design',
+          period: 'May 2022 \u2014 Present',
+          location: 'Malm\u00F6, Sweden',
           link: 'https://journeyteams.vercel.app/',
-          linkLabel: 'View Journey Teams presentation →',
+          linkLabel: 'View Journey Teams presentation \u2192',
           highlights: [
-            'Currently leading redesign of a complex global process across 16+ teams — grounded in 5-market research and cross-functional stakeholder alignment.',
-            'Journey Orchestrator across global digital product teams — creating alignment structures that move teams from insights to prioritised action.',
-            'Designed The Voice — reduced agent lookup time from 300 to 22 seconds across global support teams, enabling faster and higher-quality resolution.',
-            'Built Insikt — a coaching and performance tool adopted across 18 countries by 1,800+ users, generating 3,100 coaching sessions in its first year.',
-            'Mentor in GIX Mentor Program 2023 — guided design students from research to validated prototypes in real product teams.',
+            'Co-leading a global Service Design Community of Practice defining what the discipline becomes when AI is embedded into practice.',
+            'Piloting a collaborative intelligence system in Design Operations \u2014 proving how AI amplifies human orchestration at enterprise scale.',
+            'Journey Orchestrator across 16+ global product teams \u2014 designing alignment structures, research practices, and shared direction that move teams from output thinking to outcome thinking.',
+            'Designed The Voice \u2014 reduced agent lookup time from 300 to 22 seconds across global support teams.',
+            'Built Insikt \u2014 a coaching and performance tool adopted across 18 countries by 1,800+ users, generating 3,100 coaching sessions in its first year.',
+            'Mentor in GIX Mentor Program 2023 \u2014 guided design students from research to validated prototypes.',
           ],
         },
         {
           company: 'Prisjakt',
-          role: 'Lead B2B Designer → Senior UX Designer',
-          period: 'Apr 2019 — May 2022',
-          location: 'Malmö, Sweden',
+          role: 'Lead B2B Designer \u2192 Senior UX Designer',
+          period: 'Apr 2019 \u2014 May 2022',
+          location: 'Malm\u00F6, Sweden',
           highlights: [
-            'Lead B2B Designer across Business Center, Prisjakt Insights, Partners Portal and Design System — first dedicated design hire for the B2B product area.',
-            'Established UX research practice for B2B: ran discovery sessions that shaped roadmap priorities across three product teams.',
-            'Led UX for the 2020 platform redesign — scoped, facilitated, and delivered the visual and interaction direction across web and mobile.',
+            'First dedicated design hire for the B2B product area \u2014 established UX research practice and shaped roadmap priorities across three product teams.',
+            'Led UX for the 2020 platform redesign \u2014 scoped, facilitated, and delivered the visual and interaction direction across web and mobile.',
+            'Service design thinking applied to B2B: ran discovery sessions that connected business needs to user workflows.',
           ],
         },
         {
           company: 'Hero Gaming',
-          role: 'Senior UX Designer → UX Designer',
-          period: 'Oct 2016 — Feb 2019',
-          location: 'Malmö, Sweden',
+          role: 'Senior UX Designer \u2192 UX Designer',
+          period: 'Oct 2016 \u2014 Feb 2019',
+          location: 'Malm\u00F6, Sweden',
           highlights: [
             'Designed end-to-end experiences for gaming platforms across desktop and mobile.',
-            'Led UX for new feature development and platform concepts.',
+            'Led UX for new feature development and platform concepts \u2014 bridging user research with rapid iteration.',
           ],
         },
         {
           company: 'Mobenga',
           role: 'Interaction / UX Designer',
-          period: 'Mar 2013 — Sep 2016',
-          location: 'Malmö, Sweden',
+          period: 'Mar 2013 \u2014 Sep 2016',
+          location: 'Malm\u00F6, Sweden',
           highlights: [
             'Worked across six enterprise projects including Ladbrokes, William Hill, PaddyPower and Gala Coral.',
             'Delivered user journeys, wireframes, prototypes and usability testing across desktop, tablet and mobile.',
-            'Represented Mobenga at the ICE Gaming convention in London with 50+ presentations.',
+            'Represented Mobenga at ICE Gaming convention in London with 50+ presentations.',
           ],
         },
         {
           company: 'pablosuzartemedia',
-          role: 'Freelance UX & Service Designer',
-          period: 'Jan 2016 — May 2022',
-          location: 'Malmö, Sweden',
+          role: 'Freelance Service & UX Designer',
+          period: 'Jan 2016 \u2014 May 2022',
+          location: 'Malm\u00F6, Sweden',
           highlights: [
             '6+ years of freelance service and product design alongside full-time roles.',
             'Clients across healthcare (Finn Medicinen), telecoms (Stenson Consulting) and digital products.',
@@ -488,890 +290,421 @@ export const translations: Record<Locale, T> = {
         },
       ],
     },
-    skills: {
-      label: '04',
-      title: 'Skills',
-      categories: [
-        {
-          name: 'Design & Strategy',
-          items: [
-            'Journey Orchestration',
-            'Experience Strategy',
-            'Service Design',
-            'Information Architecture',
-            'Product Thinking',
-            'Systems Thinking',
-          ],
-        },
-        {
-          name: 'Research & Facilitation',
-          items: [
-            'User Research',
-            'Workshop Facilitation',
-            'Journey Mapping',
-            'Stakeholder Management',
-            'Usability Testing',
-            'Insight Systems',
-          ],
-        },
-        {
-          name: 'AI & Automation',
-          highlight: true,
-          items: [
-            'AI Agent Orchestration',
-            'Prompt Engineering',
-            'Claude Code (Anthropic)',
-            'GitHub Copilot',
-            'Google Gemini',
-            'OpenAI Codex',
-            'AI Workflow Design',
-            'Context Architecture',
-            'Memory Systems Design',
-            'Multi-Agent Coordination',
-          ],
-        },
-        {
-          name: 'Tools',
-          items: [
-            'Figma',
-            'Miro',
-            'Prototyping',
-            'HTML / CSS / JS',
-            'Astro',
-            'Vercel',
-            'GitHub',
-          ],
-        },
-      ],
-      education: 'Education',
-      certifications: 'Certifications',
-      universityName: 'Malmö University',
-      universityDegree: "Bachelor's degree, Interaction Design",
-      universityYears: '2011 – 2014',
-      cert1Name: 'Situational Leadership II',
-      cert1Detail: 'IKEA · Issued Feb 2026',
-      cert2Name: 'SCRUM',
-      cert2Detail: 'Certified',
-    },
     writing: {
       label: '05',
       title: 'Writing',
       intro:
-        'Thinking out loud about where service design, AI collaboration, and project intelligence meet.',
+        'Thinking out loud about where Service Design, AI collaboration, and the future of practice meet.',
     },
     contact: {
       label: '06',
-      heading: "Let's talk",
-      sub: 'Looking for Head of UX, UX Director, and Principal Designer roles in product organisations that want to be genuinely outcome-led.\nBased in Malmö — open to Sweden, Copenhagen, and remote-first Europe.',
-      cta: 'Connect on LinkedIn ↗',
-      email: 'or email me directly ↗',
+      heading: "Let\u2019s talk",
+      sub: 'Looking for leadership roles where Service Design and AI converge \u2014 Head of Service Design, Design Director, Principal Designer.\nBased in Malm\u00F6 \u2014 open to Sweden, Copenhagen, and remote-first Europe.',
+      cta: 'Connect on LinkedIn \u2197',
+      email: 'or email me directly \u2197',
     },
     footer: {
-      copyright: '© 2026 Pablo Suzarte',
+      copyright: '\u00A9 2026 Pablo Suzarte',
       built: 'Built with Astro & Tailwind',
     },
   },
 
   sv: {
     meta: {
-      title: 'Pablo Suzarte — UX-designer & AI-samarbete | Malmö, Sverige',
+      title: 'Pablo Suzarte \u2014 Tj\u00E4nstedesigner som omdefinierar praktiken genom AI | Malm\u00F6, Sverige',
       description:
-        'Senior UX-designer — 15+ år inom tjänstedesign, AI-orkestrering och journey mapping. Designar hur människor och AI arbetar tillsammans. IKEA Global.',
+        'Tj\u00E4nstedesigner med 15+ \u00E5rs erfarenhet av att orkestrera m\u00E4nniskor kring kundproblem. Banbrytande arbete med hur tj\u00E4nstedesign transformeras i AI-eran. IKEA Global.',
     },
     nav: {
-      about: 'Om mig',
-      work: 'Arbete',
-      aiEducation: 'AI & utbildning',
-      aiMindset: 'Me & AI',
+      whatIDo: 'Vad jag g\u00F6r',
+      method: 'Metod',
+      proof: 'Bevis',
       experience: 'Erfarenhet',
-      skills: 'Kompetens',
+      writing: 'Skrivande',
       contact: 'Kontakt',
-      writing: 'Blog',
-      playground: 'AI Playground',
     },
     hero: {
-      eyebrow: 'Senior Product UX Designer \u00B7 IKEA Global \u00B7 Malm\u00F6, Sverige',
-      title: 'Jag bygger milj\u00F6er d\u00E4r\nteam och AI samarbetar.',
+      eyebrow: 'Senior Designer \u00B7 IKEA Global \u00B7 Malm\u00F6, Sverige',
+      title: 'Jag designar hur samarbete\nfungerar i AI-eran.',
       tagline:
-        '15 \u00E5r av att orkestrera m\u00E4nniskor i stor skala. Nu hj\u00E4lper jag f\u00F6retag att frig\u00F6ra AI som superkraft f\u00F6r varje medarbetare.',
-      cta1: 'Hur jag tänker kring AI',
+        '15 \u00E5r av att orkestrera m\u00E4nniskor kring kundbehov. Nu g\u00F6r jag samma sak f\u00F6r samarbetet sj\u00E4lvt \u2014 designar hur team och AI t\u00E4nker tillsammans.',
+      cta1: 'Se bevisen',
       cta2: 'LinkedIn \u2197',
       scroll: 'scrolla',
     },
-    homeFutureRole: {
-      kicker: 'Designing Project Intelligence',
-      title: 'En framtida roll för människor som designar hur människor och AI tänker tillsammans.',
-      p1: 'Fokus är inte bara att förklara ett ramverk. Det är att hjälpa människor bygga ett nytt mindset från 0 till 100 och designa sin egen project intelligence.',
-      p2: 'I centrum för rollen finns en enkel idé: ett project brain är inte en mapp med anteckningar. Det är ett operativsystem för samarbete mellan människa och AI.',
-      card1Label: 'Rolldefinition',
-      card1Title: 'Single source of truth logic designer',
-      card1Body:
-        'Någon som omvandlar återkommande friktion till rätt fil, struktur och arbetslager så att seriösa projekt kan fortsätta med tydlighet och låg kognitiv friktion.',
-      card2Label: 'Arbetsregel',
-      card2Title: 'Structure should emerge from friction',
-      card2Body:
-        'Om friktion uppstår upprepade gånger ska man skapa filen eller strukturen som löser den. Verkliga projekt lär oss vilken struktur som faktiskt behövs.',
-      metrics: [
-        { value: '05', label: 'minimalt stack: CLAUDE, status, evidens, assets, working style' },
-        { value: '01', label: 'ett jobb per fil: varje lager har ett tydligt ansvar' },
-        { value: '∞', label: 'systemet växer bara när återkommande friktion visar att ett nytt lager behövs' },
-      ],
-    },
     about: {
       label: '01',
-      title: 'Om mig',
-      p1: 'Jag är en Senior UX-ledare som tillbringat 15 år med att hjälpa organisationer sluta bygga fel saker snabbare. På IKEA leder jag journey orchestration för globala produkt- och supportteam — och skapar de samordningsstrukturer, forskningspraktiker och gemensam riktning som hjälper team gå från output-tänkande till outcome-tänkande.',
-      p2: 'Mitt ledarskap formas av en grundläggande övertygelse: bra team behöver inte fler funktioner på roadmapen — de behöver rätt miljö för att hitta verkliga problem och agera på dem. Jag bygger den miljön. Jag designar workshops, ritualer och tvärfunktionella kopplingar som låter människor göra sitt bästa arbete. Och jag använder AI för att göra inlärningscyklerna snabbare — så team kan validera, anpassa sig och gå framåt med självförtroende istället för att gissa.',
-      p3: 'Jag är som bäst när saker är komplexa, tvetydiga och tvärorganisatoriska. När silos behöver brytas ned, när strategi behöver förankras i verkliga användarbehov, när ett team behöver en ledare som kan zooma ut och zooma in. Om du bygger en produktorganisation som vill vara genuint outcome-ledd — låt oss prata.',
+      title: 'Vad jag g\u00F6r',
+      p1: 'Jag har tillbringat femton \u00E5r med att g\u00F6ra en sak: orkestrera m\u00E4nniskor kring kundproblem. Tvinga tv\u00E4rfunktionella team f\u00F6rbi sin f\u00F6rsta l\u00F6sning till grundorsaksf\u00F6rst\u00E5else. Designa workshops, ritualer och det gemensamma spr\u00E5k som g\u00F6r samordning m\u00F6jlig i stor skala.',
+      p2: 'Nu g\u00F6r jag samma sak f\u00F6r samarbetet sj\u00E4lvt. P\u00E5 IKEA leder jag tv\u00E5 sammankopplande initiativ som bevisar vad som h\u00E4nder n\u00E4r tj\u00E4nstedesign absorberar AI \u2014 inte som ett p\u00E5skruvat verktyg, utan som ett fundamentalt skifte i hur team t\u00E4nker, beslutar och r\u00F6r sig tillsammans.',
+      p3: 'Det handlar inte om att prompta chatbots eller automatisera arbetsfl\u00F6den. Det handlar om en disciplin \u2014 tj\u00E4nstedesign \u2014 som utvecklas f\u00F6r att m\u00F6ta ett \u00F6gonblick. Och jag \u00E4r i centrum f\u00F6r att definiera hur det ser ut.',
       badge1Num: '15+',
-      badge1Label: 'År inom UX',
-      badge2Num: '4',
-      badge2Label: 'Organisationer ledda tvärfunktionellt',
-      badge3Num: 'AI',
-      badge3Label: 'Infödd praktik',
+      badge1Label: '\u00C5r inom tj\u00E4nstedesign',
+      badge2Num: '2',
+      badge2Label: 'Levande piloter p\u00E5 IKEA',
+      badge3Num: 'Ny',
+      badge3Label: 'Era av praktik',
     },
-    work: {
+    method: {
       label: '02',
-      title: 'Arbete',
-      cta: 'Se case study',
-    },
-    aiMindset: {
-      label: '02',
-      title: 'AI-tänk',
+      title: 'Min metod',
       intro:
-        'De flesta promptar en chatbot. Jag orkestrerar agenter för komplexa uppgifter i flera steg. Skillnaden är inte verktyget — det är miljön du designar runt det. Jag skapar förutsättningarna där ditt tänkande samarbetar med AI naturligt.',
-      approach: 'Från prompting till orkestrering',
-      approachBody:
-        'Jag använder inte bara AI-verktyg — jag designar hur människor och AI tänker tillsammans. Jag sätter upp projektintelligensstrukturer: konfigurerar MD-filer, agentroller, delat minne och återanvändbara arbetsflöden som förvandlar en chatbot-konversation till ett koordinerat system av agenter.',
-      toolkit: [
-        { name: 'Claude & Claude Code', use: 'Djup resonering, komplex orkestrering, bygga hela applikationer från intention' },
-        { name: 'ChatGPT & Codex', use: 'Snabb prototyping, kodgenerering, utforskande samtal' },
-        { name: 'Gemini', use: 'Multimodal research, stor kontextanalys, korskontroll av källor' },
-        { name: 'GitHub Copilot', use: 'Inline-kodkomplettering, parprogrammering, kontextmedvetna förslag i hela IDE:n' },
+        'Tj\u00E4nstedesign har alltid handlat om att f\u00E5 komplexa m\u00E4nskliga system att fungera b\u00E4ttre. Metoden har inte f\u00F6r\u00E4ndrats \u2014 materialet har det. D\u00E4r jag en g\u00E5ng designade kundresekartor och samordningsworkshops designar jag nu system f\u00F6r kollaborativ intelligens. Samma disciplin. Ny era.',
+      shiftTitle: 'Tv\u00E5 eror av praktik',
+      shifts: [
+        {
+          before: 'Kartl\u00E4gga kundresor manuellt',
+          now: 'Designa hur team och AI kartl\u00E4gger resor tillsammans',
+        },
+        {
+          before: 'Facilitera workshops f\u00F6r att tvinga samordning',
+          now: 'Bygga ihållande kontextsystem som uppr\u00E4tth\u00E5ller samordning',
+        },
+        {
+          before: 'Syntetisera forskning till insiktspresentationer',
+          now: 'Skapa delade minnesarkitekturer som g\u00F6r insikter kumulativa',
+        },
+        {
+          before: 'Samordna intressenter genom presentationer',
+          now: 'Designa samarbetsmilj\u00F6er d\u00E4r evidens talar f\u00F6r sig sj\u00E4lv',
+        },
       ],
-      principlesTitle: 'Principer för projektintelligens',
+      principlesTitle: 'Orkestrerprinciper',
       principles: [
-        { name: 'Delat minne', desc: 'AI behöver en tydlig förståelse för vad projektet är, varför det spelar roll och vad som inte får missförstås.' },
-        { name: 'Nulägesorientering', desc: 'En synlig känsla för var saker står: vad som är överenskommet, vad som är öppet, vad som är nästa steg.' },
-        { name: 'Evidensdisciplin', desc: 'Idéer grundade i synlig evidens, inte blandade med antaganden eller storytelling.' },
-        { name: 'Tillgångsmedvetenhet', desc: 'Både människor och AI vet vilka material som finns så arbetet förblir förankrat.' },
-        { name: 'Samarbetsklarhet', desc: 'Att veta hur man arbetar bra tillsammans, inte bara vad projektet handlar om.' },
-        { name: 'Beslutskontinuitet', desc: 'Beslut och deras resonemang bevaras så att teamet inte startar om samma tänkande.' },
-        { name: 'Rollklarhet', desc: 'Varje medarbetare — människa eller AI — har en tydlig roll och ansvar.' },
-        { name: 'Återanvändbara mönster', desc: 'Arbetsflöden och metoder som fungerar sparas, förfinas och återanvänds.' },
+        {
+          name: 'Delat minne',
+          desc: 'Varje samarbete beh\u00F6ver en tydlig, ihållande f\u00F6rst\u00E5else f\u00F6r vad projektet \u00E4r och varf\u00F6r det spelar roll.',
+        },
+        {
+          name: 'Evidensdisciplin',
+          desc: 'Separera bevis fr\u00E5n \u00E5sikt. Grunda beslut i synlig evidens, inte antaganden.',
+        },
+        {
+          name: 'Beslutskontinuitet',
+          desc: 'Bevara resonemangen bakom beslut s\u00E5 att team inte startar om samma t\u00E4nkande.',
+        },
+        {
+          name: 'Rollklarhet',
+          desc: 'Varje medarbetare \u2014 m\u00E4nniska eller AI \u2014 beh\u00F6ver en tydlig roll och ansvar.',
+        },
+        {
+          name: 'Struktur fr\u00E5n friktion',
+          desc: 'Designa inte struktur i f\u00F6rv\u00E4g. L\u00E5t upprepad friktion avsl\u00F6ja vad som beh\u00F6vs.',
+        },
+        {
+          name: 'Samarbetsklarhet',
+          desc: 'Definiera hur ni arbetar tillsammans, inte bara vad ni arbetar med.',
+        },
       ],
-      parallelsTitle: 'Samma kompetens. Nytt material.',
-      parallels: [
-        { sd: 'Tjänstedesign gör komplexa upplevelser begripliga.', pi: 'Projektintelligens gör komplexa projekt begripliga.' },
-        { sd: 'Tjänstedesign kopplar research, intressenter och kundresor.', pi: 'Projektintelligens kopplar evidens, beslut och samarbete.' },
-        { sd: 'Tjänstedesign minskar friktion i tjänster.', pi: 'Projektintelligens minskar friktion i hur projekt tänker och rör sig.' },
-        { sd: 'Tjänstedesign designar bättre förutsättningar för användare.', pi: 'Projektintelligens designar bättre förutsättningar för team och AI.' },
-      ],
-      visionTitle: 'Vad jag vill bygga härnäst',
-      visionBody:
-        'Jag vill hjälpa organisationer att gå från prompting till orkestrering — designa miljöerna där varje medarbetare frigör AI som superkraft. Inte genom att ersätta människor, utan genom att bygga förutsättningarna där deras tänkande samarbetar med AI naturligt.',
-      visionPoints: [
-        'Designa AI-arbetsmiljöer anpassade för era team — inte generiska, mänskligt centrerade',
-        'Ta människor från chatbot-prompting till agentorkestrering för komplexa uppgifter',
-        'Bygga projektintelligensstrukturer som skalas över organisationer',
-        'Hjälpa ledningen se den verkliga potentialen — och förutsättningarna för att frigöra den',
-      ],
-      cta: 'Låt oss prata om vad som är möjligt',
+      philosophy:
+        'Metoden \u00E4r enkel: behandla samarbete som ett designproblem. De flesta team misslyckas inte f\u00F6r att de saknar talang eller verktyg, utan f\u00F6r att ingen designade f\u00F6ruts\u00E4ttningarna f\u00F6r att deras t\u00E4nkande ska kopplas samman. Jag designar de f\u00F6ruts\u00E4ttningarna \u2014 nu med AI som del av systemet.',
     },
-    aiEducation: {
-      label: '02',
-      title: 'AI & utbildning',
-      intro:
-        'Parallellt med produktledarskap bygger jag AI-native lärandeupplevelser som gör komplexa idéer användbara på riktigt. AI Project Brain Lab är det tydligaste exemplet: en kursdriven webbplats som lär ut hur AI kan gå från smart verktyg till seriös projektpartner.',
-      featureKicker: 'Självinitierad utbildningsprodukt',
-      featureTitle: 'AI Project Brain Lab',
-      featureMeta: 'Kurskoncept · Landningssida · Ramverk för AI-samarbete',
-      featureDescription:
-        'Jag designade hela lärandenarrativet, landningssideupplevelsen och undervisningsstrukturen bakom en kurs om projektintelligens, kontinuitet och design av kontext.',
-      points: [
-        'Byggde positionering, copy och UX för en kursdriven webbplats om AI och seriöst projektarbete.',
-        'Översatte ett komplext ramverk till en läsbar, konverteringsfokuserad lärandeupplevelse.',
-        'Använde projektet självt som bevis på hur design, utbildning och AI kan samverka.',
-      ],
-      metrics: [
-        { value: '08', label: 'kurskapitel översatta in i portfolion' },
-        { value: '05', label: 'kärnlager i systemet som lärs ut genom konceptet' },
-        { value: '1', label: 'live prototyp använd som undervisnings- och positioneringsartefakt' },
-      ],
-      problemTitle: 'Problemet projektet svarar på',
-      problemCards: [
+    proof: {
+      label: '03',
+      title: 'Bevis',
+      intro: 'Tv\u00E5 projekt. En tes. B\u00E5da p\u00E5g\u00E5r nu p\u00E5 IKEA.',
+      projects: [
         {
-          title: 'Kontext försvinner',
-          body: 'Människor bygger om samma bakgrund om och om igen istället för att bygga momentum mellan sessioner.',
+          kicker: 'Globalt initiativ \u00B7 Med-ledare',
+          title: 'Service Design Community of Practice',
+          description:
+            'Med-leder ett globalt initiativ f\u00F6r att definiera vad tj\u00E4nstedesign blir n\u00E4r AI \u00E4r inb\u00E4ddad i praktiken. Inte en verktygsutbildning \u2014 en disciplin\u00E4r konversation om vad praktiker unikt bidrar med, var fallgroparna finns och hur ny praktik ser ut.',
+          points: [
+            'Samlar tj\u00E4nstedesigners \u00F6ver hela IKEA f\u00F6r att definiera AI-erans praktik',
+            'Identifierar vad som g\u00F6r m\u00E4nsklig orkestrering o\u00F6vers\u00E4ttlig',
+            'Bygger gemensamt spr\u00E5k f\u00F6r en disciplin i transformation',
+          ],
+          status: 'Aktiv \u2014 formar samtalet globalt',
         },
         {
-          title: 'Kontinuiteten bryts',
-          body: 'Bra tänkande går förlorat mellan verktyg, anteckningar och beslut, vilket gör seriöst arbete svårt att fortsätta.',
-        },
-        {
-          title: 'Resultaten blir ytliga',
-          body: 'AI ser användbart ut i isolerade ögonblick, men faller ofta när projekt blir komplexa och långvariga.',
+          kicker: 'Design Operations \u00B7 Pilot',
+          title: 'System f\u00F6r kollaborativ intelligens',
+          description:
+            'Leder en pilot inom Design Operations f\u00F6r att bygga ett system f\u00F6r kollaborativ intelligens med AI. Designar strukturer, kontextarkitektur och arbetsfl\u00F6den som visar hur AI f\u00F6rst\u00E4rker m\u00E4nsklig orkestrering p\u00E5 enterprise-niv\u00E5.',
+          points: [
+            'Definierar hur Design Operations integrerar AI i daglig praktik',
+            'Designar kontextarkitektur som g\u00F6r m\u00E4nniska-AI-samarbete systematiskt',
+            'Bygger \u00E5teranv\u00E4ndbara m\u00F6nster som skalas \u00F6ver designteam',
+          ],
+          status: 'Aktiv \u2014 demonstrerar resultat',
         },
       ],
-      shiftTitle: 'Den centrala förflyttningen',
-      shiftOld: {
-        title: 'Reaktiv AI-användning',
-        items: [
-          'Ställ isolerade frågor',
-          'Hoppas att svaret passar',
-          'Upprepa projektkontext konstant',
-          'Tappa tydlighet mellan sessioner',
-        ],
-      },
-      shiftNew: {
-        title: 'Designat AI-samarbete',
-        items: [
-          'Designa kontext medvetet',
-          'Bygg kontinuitet in i arbetsflödet',
-          'Separera evidens, status och beslut tydligt',
-          'Styr intelligens över tid',
-        ],
-      },
-      roleTitle: 'Rollen bakom kursen',
-      roleBody:
-        'Kursen ramar in ett nytt professionellt förhållningssätt: Project Intelligence Designer. Någon som gör rörlig, komplex projektrealitet till ett användbart system av tydlighet, kontinuitet och handling.',
-      roleCards: [
-        {
-          title: 'Skyddar fokus',
-          body: 'Håller viktigt arbete borta från brus och repetition.',
-        },
-        {
-          title: 'Designar kontinuitet',
-          body: 'Gör fortsättning möjlig utan ständig omstart.',
-        },
-        {
-          title: 'Minskar friktion',
-          body: 'Förvandlar stökig projektrealitet till ett system människor och AI faktiskt kan använda.',
-        },
-      ],
-      audienceTitle: 'Vem innehållet är byggt för',
-      audiencePoints: [
-        'Designers, strateger, researchers och builders som är trötta på ytliga AI-flöden.',
-        'Människor som vill ha starkare resultat, inte bara snabbare resultat.',
-        'Team som arbetar genom rörliga delar, föränderliga beslut och tvärfunktionell komplexitet.',
-        'Alla som vill ha AI inne i arbetsflödet, inte bredvid det.',
-      ],
-      learnTitle: 'Vad kursen lär ut',
-      layers: [
-        {
-          name: 'CLAUDE.md',
-          description: 'Definierar vad projektet är, varför det spelar roll och vilket perspektiv som styr arbetet.',
-        },
-        {
-          name: 'PROJECT_STATUS.md',
-          description: 'Gör nuläge, framdrift och nästa steg tydliga.',
-        },
-        {
-          name: 'EVIDENCE_PACK.md',
-          description: 'Håller isär bevis, research och grundade insikter från lösa åsikter.',
-        },
-        {
-          name: 'ASSET_INVENTORY.md',
-          description: 'Visar vad som redan finns så arbetet bygger på verkligt material istället för minne.',
-        },
-        {
-          name: 'WORKING_STYLE.md',
-          description: 'Klargör samarbetsstil, ton och kvalitetsnivå.',
-        },
-      ],
-      phasesTitle: 'Hur läranderesan utvecklas',
-      phases: [
-        {
-          title: 'Förstå skiftet',
-          body: 'Varför de flesta AI-flöden blir ytliga och varför struktur förändrar kvaliteten på samarbetet.',
-        },
-        {
-          title: 'Se systemet',
-          body: 'Lär dig project brain-modellen med fem lager och vad varje lager ansvarar för.',
-        },
-        {
-          title: 'Tillämpa i verkligt arbete',
-          body: 'Översätt ramverket till ett verkligt projektflöde med tydligare kontinuitet.',
-        },
-        {
-          title: 'Stress-testa metoden',
-          body: 'Använd modellen över tid istället för i enstaka prompts.',
-        },
-        {
-          title: 'Lämna med en repeterbar praktik',
-          body: 'Förvandla idéerna till ett system du kan återanvända direkt i egna projekt.',
-        },
-      ],
-      proofTitle: 'Varför projektet spelar roll',
-      proofCards: [
-        {
-          title: 'Före',
-          body: 'Kontext låg på för många platser, beslut var lätta att tappa bort och varje session krävde att samma förståelse byggdes upp igen.',
-        },
-        {
-          title: 'Systemet',
-          body: 'En tydligare struktur separerade minne, status, evidens, tillgångar och samarbetsguidning så projektet kunde fortsätta utan reset.',
-        },
-        {
-          title: 'Efter',
-          body: 'Onboarding gick snabbare, kontinuiteten blev starkare och AI-stödet rörde sig från ytlig assistans mot verkligt projektsamarbete.',
-        },
-      ],
-      outcomesTitle: 'Vad människor lämnar med',
-      outcomes: [
-        'Ett praktiskt system för att strukturera projektkontext',
-        'Ett tydligare sätt att bevara kontinuitet mellan sessioner',
-        'En metod för att separera evidens, status och beslut',
-        'En framtidsrelevant mental modell för att arbeta med AI på en högre nivå',
-      ],
-      primaryCta: 'Se hela genomgången',
-      secondaryCta: 'Fråga mig om det här arbetet',
+      convergence:
+        'Dessa projekt \u00E4r inte separata initiativ. De \u00E4r tv\u00E5 sidor av samma fr\u00E5ga: vad blir tj\u00E4nstedesign n\u00E4r AI \u00E4r del av praktiken? Ett st\u00E4ller fr\u00E5gan p\u00E5 disciplinniv\u00E5. Det andra besvarar den i daglig verksamhet. Tillsammans \u00E4r de beviset.',
     },
     experience: {
-      label: '03',
+      label: '04',
       title: 'Erfarenhet',
       items: [
         {
           company: 'IKEA',
-          role: 'Senior Product UX Designer',
-          period: 'Maj 2022 — Nu',
-          location: 'Malmö, Sverige',
+          role: 'Senior Product UX Designer \u2014 Tj\u00E4nstedesign',
+          period: 'Maj 2022 \u2014 Nu',
+          location: 'Malm\u00F6, Sverige',
           link: 'https://journeyteams.vercel.app/',
-          linkLabel: 'Se Journey Teams-presentation →',
+          linkLabel: 'Se Journey Teams-presentation \u2192',
           highlights: [
-            'Leder just nu redesignen av en komplex global process med 16+ team — grundad i research från 5 marknader och tvärfunktionell stakeholderalignering.',
-            'Journey Orchestrator i globala digitala produktteam — skapar samordningsstrukturer som hjälper team gå från insikter till prioriterade åtgärder.',
-            'Designade The Voice — minskade agenternas söktid från 300 till 22 sekunder i globala supportteam, vilket möjliggör snabbare och bättre lösningar.',
-            'Byggde Insikt — ett coaching- och prestationsverktyg antaget i 18 länder av 1 800+ användare, som genererade 3 100 coachingssessioner under sitt första år.',
-            'Mentor i GIX Mentor Program 2023 — guidade designstudenter från research till validerade prototyper i verkliga produktteam.',
+            'Med-leder en global Service Design Community of Practice som definierar vad disciplinen blir n\u00E4r AI \u00E4r inb\u00E4ddad i praktiken.',
+            'Pilottestar ett system f\u00F6r kollaborativ intelligens inom Design Operations.',
+            'Journey Orchestrator \u00F6ver 16+ globala produktteam \u2014 designar samordningsstrukturer som flyttar team fr\u00E5n output-t\u00E4nkande till outcome-t\u00E4nkande.',
+            'Designade The Voice \u2014 minskade agentens s\u00F6ktid fr\u00E5n 300 till 22 sekunder.',
+            'Byggde Insikt \u2014 antagen av 1 800+ anv\u00E4ndare i 18 l\u00E4nder.',
           ],
         },
         {
           company: 'Prisjakt',
-          role: 'Lead B2B Designer → Senior UX Designer',
-          period: 'Apr 2019 — Maj 2022',
-          location: 'Malmö, Sverige',
+          role: 'Lead B2B Designer \u2192 Senior UX Designer',
+          period: 'Apr 2019 \u2014 Maj 2022',
+          location: 'Malm\u00F6, Sverige',
           highlights: [
-            'Lead B2B Designer för Business Center, Prisjakt Insights, Partners Portal och Design System — första dedikerade designrekryteringen för B2B-produktområdet.',
-            'Etablerade UX-researchpraxis för B2B: genomförde discovery-sessioner som formade roadmap-prioriteringar för tre produktteam.',
-            'Ledde UX för plattformsomdesignen 2020 — definierade, faciliterade och levererade den visuella och interaktiva riktningen för webb och mobil.',
+            'F\u00F6rsta dedikerade designanst\u00E4llningen f\u00F6r B2B-produktomr\u00E5det.',
+            'Ledde UX f\u00F6r plattformens omdesign 2020.',
           ],
         },
         {
           company: 'Hero Gaming',
-          role: 'Senior UX Designer → UX Designer',
-          period: 'Okt 2016 — Feb 2019',
-          location: 'Malmö, Sverige',
+          role: 'Senior UX Designer \u2192 UX Designer',
+          period: 'Okt 2016 \u2014 Feb 2019',
+          location: 'Malm\u00F6, Sverige',
           highlights: [
-            'Designade end-to-end-upplevelser för spelplattformar på desktop och mobil.',
-            'Ledde UX för ny funktionsutveckling och plattformskoncept.',
+            'Designade helhetsupplevelser f\u00F6r spelplattformar p\u00E5 desktop och mobil.',
           ],
         },
         {
           company: 'Mobenga',
           role: 'Interaction / UX Designer',
-          period: 'Mar 2013 — Sep 2016',
-          location: 'Malmö, Sverige',
+          period: 'Mar 2013 \u2014 Sep 2016',
+          location: 'Malm\u00F6, Sverige',
           highlights: [
-            'Jobbade med sex enterprise-projekt, bland annat Ladbrokes, William Hill, PaddyPower och Gala Coral.',
-            'Levererade user journeys, wireframes, prototyper och användbarhetstestning för desktop, surfplatta och mobil.',
-            'Representerade Mobenga på ICE Gaming-mässan i London med 50+ presentationer.',
+            'Arbetade med sex enterprise-projekt inklusive Ladbrokes, William Hill och PaddyPower.',
           ],
         },
         {
           company: 'pablosuzartemedia',
-          role: 'Frilansare inom UX & tjänstedesign',
-          period: 'Jan 2016 — Maj 2022',
-          location: 'Malmö, Sverige',
+          role: 'Frilans Tj\u00E4nste- & UX-designer',
+          period: 'Jan 2016 \u2014 Maj 2022',
+          location: 'Malm\u00F6, Sverige',
           highlights: [
-            '6+ år av frilansarbete inom service- och produktdesign parallellt med heltidsroller.',
-            'Kunder inom sjukvård (Finn Medicinen), telekommunikation (Stenson Consulting) och digitala produkter.',
+            '6+ \u00E5r av frilansande tj\u00E4nste- och produktdesign parallellt med heltidstj\u00E4nster.',
           ],
         },
       ],
-    },
-    skills: {
-      label: '04',
-      title: 'Kompetens',
-      categories: [
-        {
-          name: 'Design & Strategy',
-          items: [
-            'Journey Orchestration',
-            'Experience Strategy',
-            'Service Design',
-            'Information Architecture',
-            'Product Thinking',
-            'Systems Thinking',
-          ],
-        },
-        {
-          name: 'Research & Facilitation',
-          items: [
-            'User Research',
-            'Workshop Facilitation',
-            'Journey Mapping',
-            'Stakeholder Management',
-            'Usability Testing',
-            'Insight Systems',
-          ],
-        },
-        {
-          name: 'AI & Automation',
-          highlight: true,
-          items: [
-            'AI Agent Orchestration',
-            'Prompt Engineering',
-            'Claude Code (Anthropic)',
-            'GitHub Copilot',
-            'Google Gemini',
-            'OpenAI Codex',
-            'AI Workflow Design',
-            'Context Architecture',
-            'Memory Systems Design',
-            'Multi-Agent Coordination',
-          ],
-        },
-        {
-          name: 'Tools',
-          items: [
-            'Figma',
-            'Miro',
-            'Prototyping',
-            'HTML / CSS / JS',
-            'Astro',
-            'Vercel',
-            'GitHub',
-          ],
-        },
-      ],
-      education: 'Utbildning',
-      certifications: 'Certifieringar',
-      universityName: 'Malmö Universitet',
-      universityDegree: 'Kandidatexamen, Interaktionsdesign',
-      universityYears: '2011 – 2014',
-      cert1Name: 'Situational Leadership II',
-      cert1Detail: 'IKEA · Utfärdad feb 2026',
-      cert2Name: 'SCRUM',
-      cert2Detail: 'Certifierad',
     },
     writing: {
       label: '05',
       title: 'Skrivande',
       intro:
-        'Tankar om var tjänstedesign, AI-samarbete och projektintelligens möts.',
+        'Tankar om var tj\u00E4nstedesign, AI-samarbete och praktikens framtid m\u00F6ts.',
     },
     contact: {
       label: '06',
-      heading: 'Låt oss prata',
-      sub: 'Söker Head of UX-, UX Director- och Principal Designer-roller i produktorganisationer som vill vara genuint outcome-ledda.\nBaserad i Malmö — öppen för Sverige, Köpenhamn och remote-first Europa.',
-      cta: 'Kontakta mig på LinkedIn ↗',
-      email: 'eller mejla mig direkt ↗',
+      heading: 'L\u00E5t oss prata',
+      sub: 'S\u00F6ker ledarskapsroller d\u00E4r tj\u00E4nstedesign och AI konvergerar \u2014 Head of Service Design, Design Director, Principal Designer.\nBaserad i Malm\u00F6 \u2014 \u00F6ppen f\u00F6r Sverige, K\u00F6penhamn och remote-first Europa.',
+      cta: 'Kontakta mig p\u00E5 LinkedIn \u2197',
+      email: 'eller mejla mig direkt \u2197',
     },
     footer: {
-      copyright: '© 2026 Pablo Suzarte',
+      copyright: '\u00A9 2026 Pablo Suzarte',
       built: 'Byggd med Astro & Tailwind',
     },
   },
 
   es: {
     meta: {
-      title: 'Pablo Suzarte — Diseñador UX & Colaboración con IA | Malmö, Suecia',
+      title: 'Pablo Suzarte \u2014 Dise\u00F1ador de Servicios redefiniendo la pr\u00E1ctica a trav\u00E9s de IA | Malm\u00F6, Suecia',
       description:
-        'Diseñador UX Senior — 15+ años en diseño de servicios, orquestación de IA y journey mapping. Diseñando cómo humanos e IA colaboran. IKEA Global.',
+        'Dise\u00F1ador de Servicios con 15+ a\u00F1os orquestando personas alrededor de problemas de clientes. Pionero en c\u00F3mo el Dise\u00F1o de Servicios se transforma en la era de la IA. IKEA Global.',
     },
     nav: {
-      about: 'Sobre mí',
-      work: 'Trabajo',
-      aiEducation: 'IA y educación',
-      aiMindset: 'Me & AI',
-      experience: 'Experience',
-      skills: 'Habilidades',
+      whatIDo: 'Qu\u00E9 hago',
+      method: 'M\u00E9todo',
+      proof: 'Pruebas',
+      experience: 'Experiencia',
+      writing: 'Escritos',
       contact: 'Contacto',
-      writing: 'Blog',
-      playground: 'AI Playground',
     },
     hero: {
-      eyebrow: 'Senior Product UX Designer \u00B7 IKEA Global \u00B7 Malm\u00F6, Suecia',
-      title: 'Construyo entornos donde\nequipos e IA colaboran.',
+      eyebrow: 'Senior Designer \u00B7 IKEA Global \u00B7 Malm\u00F6, Suecia',
+      title: 'Dise\u00F1o c\u00F3mo funciona\nla colaboraci\u00F3n en la era de la IA.',
       tagline:
-        '15 a\u00F1os orquestando personas a gran escala. Ahora ayudo a empresas a liberar la IA como superpoder para cada empleado.',
-      cta1: 'Cómo pienso sobre la IA',
+        '15 a\u00F1os orquestando personas alrededor de necesidades del cliente. Ahora hago lo mismo para la colaboraci\u00F3n en s\u00ED \u2014 dise\u00F1ando c\u00F3mo los equipos y la IA piensan juntos.',
+      cta1: 'Ver las pruebas',
       cta2: 'LinkedIn \u2197',
-      scroll: 'scroll',
-    },
-    homeFutureRole: {
-      kicker: 'Designing Project Intelligence',
-      title: 'Un rol futuro para personas que diseñan cómo humanos e IA piensan juntos.',
-      p1: 'El foco no es solo explicar un marco. Es ayudar a las personas a construir una nueva mentalidad de 0 a 100 y diseñar su propia project intelligence.',
-      p2: 'En el centro de ese rol hay una idea simple: un project brain no es una carpeta de notas. Es un sistema operativo para colaboración entre humanos e IA.',
-      card1Label: 'Definición del rol',
-      card1Title: 'Single source of truth logic designer',
-      card1Body:
-        'Alguien que convierte la fricción repetida en el archivo, la estructura y la capa de flujo correctos para que proyectos serios puedan continuar con claridad y baja fricción cognitiva.',
-      card2Label: 'Regla operativa',
-      card2Title: 'Structure should emerge from friction',
-      card2Body:
-        'Si la fricción aparece repetidamente, crea el archivo o la estructura que la resuelve. Los proyectos reales enseñan qué estructura es necesaria.',
-      metrics: [
-        { value: '05', label: 'stack mínimo viable: CLAUDE, estado, evidencia, assets, working style' },
-        { value: '01', label: 'un trabajo por archivo: cada capa tiene una responsabilidad clara' },
-        { value: '∞', label: 'el sistema crece solo cuando la fricción repetida demuestra que hace falta una nueva capa' },
-      ],
+      scroll: 'deslizar',
     },
     about: {
       label: '01',
-      title: 'Sobre mí',
-      p1: 'Soy un Líder Senior de UX que ha pasado 15 años ayudando a organizaciones a dejar de construir las cosas equivocadas más rápido. En IKEA lidero la orquestación de journeys en equipos globales de producto y soporte — creando las estructuras de alineamiento, prácticas de investigación y dirección compartida que mueven a los equipos del pensamiento en output al pensamiento en outcome.',
-      p2: 'Mi liderazgo está moldeado por una creencia fundamental: los grandes equipos no necesitan más funcionalidades en el roadmap — necesitan el entorno adecuado para descubrir problemas reales y actuar sobre ellos. Construyo ese entorno. Diseño los talleres, los rituales, las conexiones interfuncionales que permiten a las personas dar lo mejor de sí. Y uso IA para acelerar los ciclos de aprendizaje — para que los equipos puedan validar, adaptarse y avanzar con confianza en lugar de adivinar.',
-      p3: 'Estoy en mi mejor momento cuando las cosas son complejas, ambiguas e interfuncionales. Cuando los silos necesitan unirse, cuando la estrategia necesita fundamentarse en las necesidades reales de los usuarios, cuando un equipo necesita un líder que pueda hacer zoom out y zoom in. Si estás construyendo una organización de producto que quiere ser genuinamente orientada a outcomes — hablemos.',
+      title: 'Qu\u00E9 hago',
+      p1: 'Pas\u00E9 quince a\u00F1os haciendo una cosa: orquestar personas alrededor de problemas de clientes. Forzar a equipos multifuncionales m\u00E1s all\u00E1 de su primera soluci\u00F3n hacia la comprensi\u00F3n de la causa ra\u00EDz. Dise\u00F1ar los talleres, los rituales, el lenguaje compartido que hace posible la alineaci\u00F3n a escala.',
+      p2: 'Ahora estoy haciendo lo mismo para la colaboraci\u00F3n en s\u00ED. En IKEA, lidero dos iniciativas convergentes que demuestran qu\u00E9 sucede cuando la pr\u00E1ctica del Dise\u00F1o de Servicios absorbe la IA \u2014 no como una herramienta a\u00F1adida, sino como un cambio fundamental en c\u00F3mo los equipos piensan, deciden y avanzan juntos.',
+      p3: 'Esto no se trata de hacer prompts a chatbots o automatizar flujos de trabajo. Se trata de una disciplina \u2014 Dise\u00F1o de Servicios \u2014 evolucionando para encontrar su momento. Y estoy en el centro de definir c\u00F3mo se ve eso.',
       badge1Num: '15+',
-      badge1Label: 'Años en UX',
-      badge2Num: '4',
-      badge2Label: 'Organizaciones lideradas interfuncionalmente',
-      badge3Num: 'IA',
-      badge3Label: 'Práctica nativa',
+      badge1Label: 'A\u00F1os en Dise\u00F1o de Servicios',
+      badge2Num: '2',
+      badge2Label: 'Pilotos activos en IKEA',
+      badge3Num: 'Nueva',
+      badge3Label: 'Era de pr\u00E1ctica',
     },
-    work: {
+    method: {
       label: '02',
-      title: 'Trabajo',
-      cta: 'Ver caso de estudio',
-    },
-    aiMindset: {
-      label: '02',
-      title: 'Mentalidad IA',
+      title: 'Mi m\u00E9todo',
       intro:
-        'La mayoría hace prompts a un chatbot. Yo orquesto agentes para tareas complejas de múltiples pasos. La diferencia no es la herramienta — es el entorno que diseñas alrededor. Creo las condiciones donde tu mente trabaja con la IA de forma natural, desbloqueando capacidades que la mayoría de los equipos no saben que tienen.',
-      approach: 'De prompting a orquestación',
-      approachBody:
-        'No solo uso herramientas de IA — diseño cómo humanos e IA piensan juntos. Configuro estructuras de inteligencia de proyecto: archivos MD, roles de agentes, memoria compartida y flujos reutilizables que transforman una conversación con chatbot en un sistema coordinado de agentes trabajando en problemas reales.',
-      toolkit: [
-        { name: 'Claude & Claude Code', use: 'Razonamiento profundo, orquestación compleja, construir aplicaciones completas desde la intención' },
-        { name: 'ChatGPT & Codex', use: 'Prototipado rápido, generación de código, exploración conversacional' },
-        { name: 'Gemini', use: 'Investigación multimodal, análisis de contexto amplio, referencias cruzadas' },
-        { name: 'GitHub Copilot', use: 'Completado de código inline, programación en pareja, sugerencias contextuales en todo el IDE' },
+        'El Dise\u00F1o de Servicios siempre ha tratado de hacer que los sistemas humanos complejos funcionen mejor. El m\u00E9todo no ha cambiado \u2014 el material s\u00ED. Donde antes dise\u00F1aba mapas de viaje y talleres de alineaci\u00F3n, ahora dise\u00F1o sistemas de inteligencia colaborativa. Misma disciplina. Nueva era.',
+      shiftTitle: 'Dos eras de pr\u00E1ctica',
+      shifts: [
+        {
+          before: 'Mapear viajes de clientes manualmente',
+          now: 'Dise\u00F1ar c\u00F3mo equipos e IA mapean viajes juntos',
+        },
+        {
+          before: 'Facilitar talleres para forzar alineaci\u00F3n',
+          now: 'Construir sistemas de contexto persistente que mantienen la alineaci\u00F3n',
+        },
+        {
+          before: 'Sintetizar investigaci\u00F3n en presentaciones de insights',
+          now: 'Crear arquitecturas de memoria compartida que hacen los insights acumulativos',
+        },
+        {
+          before: 'Alinear stakeholders a trav\u00E9s de presentaciones',
+          now: 'Dise\u00F1ar entornos colaborativos donde la evidencia habla por s\u00ED misma',
+        },
       ],
-      principlesTitle: 'Principios de inteligencia de proyecto',
+      principlesTitle: 'Principios de orquestaci\u00F3n',
       principles: [
-        { name: 'Memoria compartida', desc: 'La IA necesita una comprensión clara de qué es el proyecto, por qué importa y qué no debe malinterpretarse.' },
-        { name: 'Orientación actual', desc: 'Una sensación visible de dónde están las cosas: qué está acordado, qué está abierto, cuál es el siguiente paso.' },
-        { name: 'Disciplina de evidencia', desc: 'Ideas fundamentadas en evidencia visible, no mezcladas con suposiciones o storytelling.' },
-        { name: 'Conciencia de activos', desc: 'Tanto humanos como IA saben qué materiales existen para que el trabajo se mantenga anclado.' },
-        { name: 'Claridad colaborativa', desc: 'Saber cómo trabajar bien juntos, no solo de qué trata el proyecto.' },
-        { name: 'Continuidad de decisiones', desc: 'Las decisiones y su razonamiento se preservan para no reiniciar el mismo pensamiento.' },
-        { name: 'Claridad de roles', desc: 'Cada colaborador — humano o IA — tiene un rol y responsabilidad claros.' },
-        { name: 'Patrones reutilizables', desc: 'Los flujos y métodos que funcionan se guardan, refinan y reutilizan.' },
+        {
+          name: 'Memoria compartida',
+          desc: 'Toda colaboraci\u00F3n necesita una comprensi\u00F3n clara y persistente de qu\u00E9 es el proyecto y por qu\u00E9 importa.',
+        },
+        {
+          name: 'Disciplina de evidencia',
+          desc: 'Separar pruebas de opini\u00F3n. Fundamentar decisiones en evidencia visible, no suposiciones.',
+        },
+        {
+          name: 'Continuidad de decisiones',
+          desc: 'Preservar el razonamiento detr\u00E1s de las decisiones para que los equipos no reinicien el mismo pensamiento.',
+        },
+        {
+          name: 'Claridad de roles',
+          desc: 'Todo colaborador \u2014 humano o IA \u2014 necesita un rol y responsabilidad claros.',
+        },
+        {
+          name: 'Estructura desde la fricci\u00F3n',
+          desc: 'No dise\u00F1es estructura por anticipado. Deja que la fricci\u00F3n repetida revele lo que se necesita.',
+        },
+        {
+          name: 'Claridad de colaboraci\u00F3n',
+          desc: 'Define c\u00F3mo trabajan juntos, no solo en qu\u00E9 est\u00E1n trabajando.',
+        },
       ],
-      parallelsTitle: 'Misma habilidad. Nuevo material.',
-      parallels: [
-        { sd: 'El diseño de servicios hace comprensibles las experiencias complejas.', pi: 'La inteligencia de proyecto hace comprensibles los proyectos complejos.' },
-        { sd: 'El diseño de servicios conecta investigación, stakeholders y journeys.', pi: 'La inteligencia de proyecto conecta evidencia, decisiones y colaboración.' },
-        { sd: 'El diseño de servicios reduce la fricción en servicios.', pi: 'La inteligencia de proyecto reduce la fricción en cómo los proyectos piensan y avanzan.' },
-        { sd: 'El diseño de servicios diseña mejores condiciones para usuarios.', pi: 'La inteligencia de proyecto diseña mejores condiciones para equipos e IA.' },
-      ],
-      visionTitle: 'Lo que quiero construir a continuación',
-      visionBody:
-        'Quiero ayudar a las organizaciones a pasar del prompting a la orquestación — diseñando los entornos donde cada colaborador desbloquea la IA como superpoder. No reemplazando personas, sino construyendo las condiciones donde sus mentes trabajan con la IA de forma natural.',
-      visionPoints: [
-        'Diseñar entornos de trabajo con IA adaptados a tus equipos — no genéricos, centrados en personas',
-        'Llevar a las personas del prompting de chatbots a la orquestación de agentes para tareas complejas',
-        'Construir estructuras de inteligencia de proyecto que escalen en organizaciones',
-        'Ayudar al liderazgo a ver el potencial real — y las condiciones para desbloquearlo',
-      ],
-      cta: 'Hablemos de lo que es posible',
+      philosophy:
+        'El m\u00E9todo es simple: tratar la colaboraci\u00F3n como un problema de dise\u00F1o. La mayor\u00EDa de los equipos fallan no porque les falte talento o herramientas, sino porque nadie dise\u00F1\u00F3 las condiciones para que su pensamiento se conecte. Yo dise\u00F1o esas condiciones \u2014 ahora con IA como parte del sistema.',
     },
-    aiEducation: {
-      label: '02',
-      title: 'IA y educación',
-      intro:
-        'Además del liderazgo de producto, construyo experiencias de aprendizaje nativas en IA que convierten ideas complejas en algo realmente utilizable. AI Project Brain Lab es el ejemplo más claro: un sitio guiado por curso que enseña cómo llevar la IA de herramienta ingeniosa a colaborador serio de proyecto.',
-      featureKicker: 'Producto educativo autoimpulsado',
-      featureTitle: 'AI Project Brain Lab',
-      featureMeta: 'Concepto de curso · Landing page · Marco de colaboración con IA',
-      featureDescription:
-        'Diseñé toda la narrativa de aprendizaje, la experiencia de landing page y la estructura pedagógica detrás de un curso sobre inteligencia de proyecto, continuidad y diseño de contexto.',
-      points: [
-        'Construí el posicionamiento, el copy y la UX de un sitio guiado por curso sobre IA y trabajo serio de proyecto.',
-        'Traduje un marco complejo en una experiencia de aprendizaje legible y orientada a conversión.',
-        'Usé el propio proyecto como prueba de cómo diseño, educación e IA pueden trabajar juntos.',
-      ],
-      metrics: [
-        { value: '08', label: 'capítulos del curso traducidos dentro del portfolio' },
-        { value: '05', label: 'capas centrales del sistema enseñadas a través del concepto' },
-        { value: '1', label: 'prototipo vivo usado como artefacto de enseñanza y posicionamiento' },
-      ],
-      problemTitle: 'El problema al que responde',
-      problemCards: [
+    proof: {
+      label: '03',
+      title: 'Pruebas',
+      intro: 'Dos proyectos. Una tesis. Ambos sucediendo ahora en IKEA.',
+      projects: [
         {
-          title: 'El contexto desaparece',
-          body: 'La gente vuelve a construir el mismo trasfondo una y otra vez en lugar de ganar impulso entre sesiones.',
+          kicker: 'Iniciativa global \u00B7 Co-l\u00EDder',
+          title: 'Comunidad de Pr\u00E1ctica de Dise\u00F1o de Servicios',
+          description:
+            'Co-liderando una iniciativa global para definir qu\u00E9 se convierte el Dise\u00F1o de Servicios cuando la IA est\u00E1 integrada en la pr\u00E1ctica.',
+          points: [
+            'Reuniendo dise\u00F1adores de servicios en IKEA para definir la pr\u00E1ctica de la era IA',
+            'Identificando qu\u00E9 hace irremplazable la orquestaci\u00F3n humana',
+            'Construyendo lenguaje compartido para una disciplina en transformaci\u00F3n',
+          ],
+          status: 'Activo \u2014 dando forma a la conversaci\u00F3n globalmente',
         },
         {
-          title: 'La continuidad se rompe',
-          body: 'El buen pensamiento se pierde entre herramientas, notas y decisiones, y eso hace difícil continuar trabajo serio.',
-        },
-        {
-          title: 'Los outputs siguen siendo superficiales',
-          body: 'La IA parece útil en momentos aislados, pero suele fallar cuando el proyecto se vuelve complejo y de largo recorrido.',
+          kicker: 'Design Operations \u00B7 Piloto',
+          title: 'Sistema de Inteligencia Colaborativa',
+          description:
+            'Liderando un piloto en Design Operations para construir un sistema de inteligencia colaborativa usando Claude Code. Dise\u00F1ando estructuras, arquitectura de contexto y flujos de trabajo que demuestran c\u00F3mo la IA amplifica la orquestaci\u00F3n humana a escala empresarial.',
+          points: [
+            'Definiendo c\u00F3mo Design Operations integra IA en la pr\u00E1ctica diaria',
+            'Dise\u00F1ando arquitectura de contexto que hace la colaboraci\u00F3n humano-IA sistem\u00E1tica',
+            'Construyendo patrones reutilizables que escalan a trav\u00E9s de equipos de dise\u00F1o',
+          ],
+          status: 'Activo \u2014 demostrando resultados',
         },
       ],
-      shiftTitle: 'El cambio central',
-      shiftOld: {
-        title: 'Uso reactivo de IA',
-        items: [
-          'Hacer preguntas aisladas',
-          'Esperar que la respuesta encaje',
-          'Repetir el contexto del proyecto constantemente',
-          'Perder claridad entre sesiones',
-        ],
-      },
-      shiftNew: {
-        title: 'Colaboración con IA diseñada',
-        items: [
-          'Diseñar el contexto deliberadamente',
-          'Construir continuidad dentro del flujo de trabajo',
-          'Separar evidencia, estado y decisiones con claridad',
-          'Guiar la inteligencia a lo largo del tiempo',
-        ],
-      },
-      roleTitle: 'El rol detrás del curso',
-      roleBody:
-        'El curso enmarca una nueva postura profesional: el Project Intelligence Designer. Alguien que convierte la realidad cambiante y desordenada de un proyecto en un sistema utilizable de claridad, continuidad y acción.',
-      roleCards: [
-        {
-          title: 'Protege el foco',
-          body: 'Evita que el trabajo importante se pierda en ruido y repetición.',
-        },
-        {
-          title: 'Diseña continuidad',
-          body: 'Hace posible continuar sin reinicios constantes.',
-        },
-        {
-          title: 'Reduce fricción',
-          body: 'Convierte la realidad desordenada del proyecto en un sistema que humanos e IA realmente pueden usar.',
-        },
-      ],
-      audienceTitle: 'Para quién está construido el contenido',
-      audiencePoints: [
-        'Diseñadores, estrategas, investigadores y builders cansados de flujos de IA superficiales.',
-        'Personas que quieren mejores outputs, no solo outputs más rápidos.',
-        'Equipos que trabajan con muchas piezas móviles, decisiones cambiantes y complejidad interfuncional.',
-        'Cualquiera que quiera la IA dentro del flujo de trabajo y no al lado.',
-      ],
-      learnTitle: 'Qué enseña el curso',
-      layers: [
-        {
-          name: 'CLAUDE.md',
-          description: 'Define qué es el proyecto, por qué importa y cuál es la visión que guía el trabajo.',
-        },
-        {
-          name: 'PROJECT_STATUS.md',
-          description: 'Hace visible el estado actual, el avance y los siguientes pasos.',
-        },
-        {
-          name: 'EVIDENCE_PACK.md',
-          description: 'Separa prueba, investigación y hallazgos sólidos de la opinión suelta.',
-        },
-        {
-          name: 'ASSET_INVENTORY.md',
-          description: 'Muestra qué existe ya para que el trabajo avance sobre material real y no sobre memoria.',
-        },
-        {
-          name: 'WORKING_STYLE.md',
-          description: 'Aclara preferencias de colaboración, tono y estándares de ejecución.',
-        },
-      ],
-      phasesTitle: 'Cómo se desarrolla el recorrido de aprendizaje',
-      phases: [
-        {
-          title: 'Entender el cambio',
-          body: 'Por qué la mayoría de los flujos con IA se quedan superficiales y por qué la estructura cambia la calidad de la colaboración.',
-        },
-        {
-          title: 'Ver el sistema',
-          body: 'Aprender el project brain de cinco capas y la responsabilidad de cada una.',
-        },
-        {
-          title: 'Aplicarlo a trabajo real',
-          body: 'Traducir el marco a un flujo de proyecto real con continuidad más clara.',
-        },
-        {
-          title: 'Poner a prueba el método',
-          body: 'Usar el modelo a través de trabajo evolutivo en lugar de prompts aislados.',
-        },
-        {
-          title: 'Salir con una práctica repetible',
-          body: 'Convertir las ideas en un sistema reutilizable de inmediato en proyectos propios.',
-        },
-      ],
-      proofTitle: 'Por qué este proyecto importa',
-      proofCards: [
-        {
-          title: 'Antes',
-          body: 'El contexto vivía en demasiados lugares, las decisiones eran fáciles de perder y cada sesión exigía reconstruir la misma comprensión.',
-        },
-        {
-          title: 'El sistema',
-          body: 'Una estructura más clara separó memoria, estado, evidencia, assets y guía de colaboración para que el proyecto pudiera continuar sin reinicio.',
-        },
-        {
-          title: 'Después',
-          body: 'El onboarding se volvió más rápido, la continuidad mejoró y el apoyo de IA pasó de asistencia superficial a colaboración real de proyecto.',
-        },
-      ],
-      outcomesTitle: 'Con qué sale la gente',
-      outcomes: [
-        'Un sistema práctico para estructurar contexto de proyecto',
-        'Una manera más clara de preservar continuidad entre sesiones',
-        'Un método para separar evidencia, estado y decisiones',
-        'Un modelo mental orientado al futuro para trabajar con IA a un nivel más alto',
-      ],
-      primaryCta: 'Ver el desglose completo',
-      secondaryCta: 'Pregúntame por este trabajo',
+      convergence:
+        'Estos proyectos no son iniciativas separadas. Son dos lados de la misma pregunta: \u00BFqu\u00E9 se convierte el Dise\u00F1o de Servicios cuando la IA es parte de la pr\u00E1ctica? Uno hace la pregunta a nivel de disciplina. El otro la responde en operaciones diarias. Juntos, son la prueba.',
     },
     experience: {
-      label: '03',
+      label: '04',
       title: 'Experiencia',
       items: [
         {
           company: 'IKEA',
-          role: 'Senior Product UX Designer',
-          period: 'Mayo 2022 — Presente',
-          location: 'Malmö, Suecia',
+          role: 'Senior Product UX Designer \u2014 Dise\u00F1o de Servicios',
+          period: 'May 2022 \u2014 Presente',
+          location: 'Malm\u00F6, Suecia',
           link: 'https://journeyteams.vercel.app/',
-          linkLabel: 'Ver presentación Journey Teams →',
+          linkLabel: 'Ver presentaci\u00F3n Journey Teams \u2192',
           highlights: [
-            'Actualmente liderando el rediseño de un proceso global complejo con 16+ equipos — fundamentado en investigación en 5 mercados y alineamiento interfuncional de stakeholders.',
-            'Journey Orchestrator en equipos de productos digitales globales — creando estructuras de alineamiento que mueven a los equipos de los insights a la acción priorizada.',
-            'Diseñó The Voice — redujo el tiempo de búsqueda de agentes de 300 a 22 segundos en equipos de soporte globales, permitiendo una resolución más rápida y de mayor calidad.',
-            'Construyó Insikt — una herramienta de coaching y rendimiento adoptada en 18 países por 1.800+ usuarios, generando 3.100 sesiones de coaching en su primer año.',
-            'Mentor en el GIX Mentor Program 2023 — guió a estudiantes de diseño desde la investigación hasta prototipos validados en equipos de producto reales.',
+            'Co-liderando una Comunidad de Pr\u00E1ctica global de Dise\u00F1o de Servicios.',
+            'Piloteando un sistema de inteligencia colaborativa en Design Operations.',
+            'Journey Orchestrator en 16+ equipos globales de producto.',
+            'Dise\u00F1\u00F3 The Voice \u2014 redujo el tiempo de b\u00FAsqueda de 300 a 22 segundos.',
+            'Construy\u00F3 Insikt \u2014 adoptado por 1.800+ usuarios en 18 pa\u00EDses.',
           ],
         },
         {
           company: 'Prisjakt',
-          role: 'Lead B2B Designer → Senior UX Designer',
-          period: 'Abr 2019 — Mayo 2022',
-          location: 'Malmö, Suecia',
+          role: 'Lead B2B Designer \u2192 Senior UX Designer',
+          period: 'Abr 2019 \u2014 May 2022',
+          location: 'Malm\u00F6, Suecia',
           highlights: [
-            'Lead B2B Designer para Business Center, Prisjakt Insights, Partners Portal y Sistema de Diseño — primera contratación de diseño dedicada al área de producto B2B.',
-            'Estableció la práctica de investigación UX para B2B: realizó sesiones de discovery que dieron forma a las prioridades del roadmap de tres equipos de producto.',
-            'Lideró el UX del rediseño de plataforma 2020 — definió, facilitó y entregó la dirección visual e interactiva para web y móvil.',
+            'Primera contrataci\u00F3n dedicada de dise\u00F1o para el \u00E1rea de producto B2B.',
+            'Lider\u00F3 UX para el redise\u00F1o de plataforma 2020.',
           ],
         },
         {
           company: 'Hero Gaming',
-          role: 'Senior UX Designer → UX Designer',
-          period: 'Oct 2016 — Feb 2019',
-          location: 'Malmö, Suecia',
+          role: 'Senior UX Designer \u2192 UX Designer',
+          period: 'Oct 2016 \u2014 Feb 2019',
+          location: 'Malm\u00F6, Suecia',
           highlights: [
-            'Diseñó experiencias end-to-end para plataformas de gaming en desktop y móvil.',
-            'Lideró UX para el desarrollo de nuevas funcionalidades y conceptos de plataforma.',
+            'Dise\u00F1\u00F3 experiencias de extremo a extremo para plataformas de juego.',
           ],
         },
         {
           company: 'Mobenga',
           role: 'Interaction / UX Designer',
-          period: 'Mar 2013 — Sep 2016',
-          location: 'Malmö, Suecia',
+          period: 'Mar 2013 \u2014 Sep 2016',
+          location: 'Malm\u00F6, Suecia',
           highlights: [
-            'Trabajó en seis proyectos enterprise incluyendo Ladbrokes, William Hill, PaddyPower y Gala Coral.',
-            'Entregó user journeys, wireframes, prototipos y pruebas de usabilidad en desktop, tablet y móvil.',
-            'Representó a Mobenga en la convención ICE Gaming en Londres con más de 50 presentaciones.',
+            'Trabaj\u00F3 en seis proyectos enterprise incluyendo Ladbrokes y William Hill.',
           ],
         },
         {
           company: 'pablosuzartemedia',
-          role: 'Diseñador UX & de Servicios Freelance',
-          period: 'Ene 2016 — Mayo 2022',
-          location: 'Malmö, Suecia',
+          role: 'Dise\u00F1ador Freelance de Servicios y UX',
+          period: 'Ene 2016 \u2014 May 2022',
+          location: 'Malm\u00F6, Suecia',
           highlights: [
-            'Más de 6 años de diseño freelance de servicio y producto junto a roles a tiempo completo.',
-            'Clientes en sanidad (Finn Medicinen), telecomunicaciones (Stenson Consulting) y productos digitales.',
+            '6+ a\u00F1os de dise\u00F1o freelance de servicios y productos.',
           ],
         },
       ],
-    },
-    skills: {
-      label: '04',
-      title: 'Habilidades',
-      categories: [
-        {
-          name: 'Design & Strategy',
-          items: [
-            'Journey Orchestration',
-            'Experience Strategy',
-            'Service Design',
-            'Information Architecture',
-            'Product Thinking',
-            'Systems Thinking',
-          ],
-        },
-        {
-          name: 'Research & Facilitation',
-          items: [
-            'User Research',
-            'Workshop Facilitation',
-            'Journey Mapping',
-            'Stakeholder Management',
-            'Usability Testing',
-            'Insight Systems',
-          ],
-        },
-        {
-          name: 'AI & Automation',
-          highlight: true,
-          items: [
-            'AI Agent Orchestration',
-            'Prompt Engineering',
-            'Claude Code (Anthropic)',
-            'GitHub Copilot',
-            'Google Gemini',
-            'OpenAI Codex',
-            'AI Workflow Design',
-            'Context Architecture',
-            'Memory Systems Design',
-            'Multi-Agent Coordination',
-          ],
-        },
-        {
-          name: 'Tools',
-          items: [
-            'Figma',
-            'Miro',
-            'Prototyping',
-            'HTML / CSS / JS',
-            'Astro',
-            'Vercel',
-            'GitHub',
-          ],
-        },
-      ],
-      education: 'Educación',
-      certifications: 'Certificaciones',
-      universityName: 'Universidad de Malmö',
-      universityDegree: 'Licenciatura, Diseño de Interacción',
-      universityYears: '2011 – 2014',
-      cert1Name: 'Situational Leadership II',
-      cert1Detail: 'IKEA · Emitido feb 2026',
-      cert2Name: 'SCRUM',
-      cert2Detail: 'Certificado',
     },
     writing: {
       label: '05',
       title: 'Escritos',
       intro:
-        'Reflexiones sobre dónde se cruzan el diseño de servicios, la colaboración con IA y la inteligencia de proyectos.',
+        'Pensando en voz alta sobre d\u00F3nde se encuentran el Dise\u00F1o de Servicios, la colaboraci\u00F3n con IA y el futuro de la pr\u00E1ctica.',
     },
     contact: {
       label: '06',
       heading: 'Hablemos',
-      sub: 'Busco roles de Head of UX, UX Director y Principal Designer en organizaciones de producto que quieran ser genuinamente orientadas a outcomes.\nBasado en Malmö — abierto a Suecia, Copenhague y Europa en remoto.',
-      cta: 'Conectar en LinkedIn ↗',
-      email: 'o escríbeme directamente ↗',
+      sub: 'Buscando roles de liderazgo donde el Dise\u00F1o de Servicios y la IA convergen \u2014 Head of Service Design, Design Director, Principal Designer.\nBasado en Malm\u00F6 \u2014 abierto a Suecia, Copenhague y Europa remote-first.',
+      cta: 'Conectar en LinkedIn \u2197',
+      email: 'o escr\u00EDbeme directamente \u2197',
     },
     footer: {
-      copyright: '© 2026 Pablo Suzarte',
+      copyright: '\u00A9 2026 Pablo Suzarte',
       built: 'Construido con Astro & Tailwind',
     },
   },
