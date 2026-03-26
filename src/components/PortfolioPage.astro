@@ -40,9 +40,13 @@ const randomStyles = ['brutalist', 'neon', 'vaporwave', 'paper', 'ocean']
             >{t.nav.about}</a
           >
         </li>
-        <li>
-          <a href="/me-and-ai"
-            ><svg
+        <li class="nav-dropdown-item">
+          <button
+            class="nav-dropdown-trigger"
+            aria-expanded="false"
+            aria-haspopup="true"
+          >
+            <svg
               class="nav-icon"
               viewBox="0 0 24 24"
               fill="none"
@@ -57,8 +61,39 @@ const randomStyles = ['brutalist', 'neon', 'vaporwave', 'paper', 'ocean']
                 y="8"
                 rx="2"></rect><path d="M2 14h2"></path><path d="M20 14h2"
               ></path><path d="M15 13v2"></path><path d="M9 13v2"></path></svg
-            >Me &amp; AI</a
-          >
+            >
+            AI
+            <svg
+              class="nav-chevron"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg
+            >
+          </button>
+          <ul class="nav-dropdown-menu" role="menu">
+            <li role="none">
+              <a href="/me-and-ai" role="menuitem">Me &amp; AI</a>
+            </li>
+            <li role="none">
+              <a
+                href="https://my-ai-agency.vercel.app"
+                target="_blank"
+                rel="noopener noreferrer"
+                role="menuitem">AI Agency</a
+              >
+            </li>
+            <li role="none">
+              <a
+                href="https://pablo-suzarte-ai-school.vercel.app"
+                target="_blank"
+                rel="noopener noreferrer"
+                role="menuitem">AI School</a
+              >
+            </li>
+          </ul>
         </li>
         <li>
           <a href="#experience"
@@ -108,45 +143,6 @@ const randomStyles = ['brutalist', 'neon', 'vaporwave', 'paper', 'ocean']
               ><path d="M17 3a2.85 2.85 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"
               ></path><path d="m15 5 4 4"></path></svg
             >{t.nav.writing}</a
-          >
-        </li>
-        <li>
-          <a
-            href="https://my-ai-agency.vercel.app"
-            target="_blank"
-            rel="noopener noreferrer"
-            ><svg
-              class="nav-icon"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              ><circle cx="12" cy="12" r="3"></circle><path d="M12 2v3"
-              ></path><path d="M12 19v3"></path><path d="m4.22 4.22 2.12 2.12"
-              ></path><path d="m17.66 17.66 2.12 2.12"></path><path d="M2 12h3"
-              ></path><path d="M19 12h3"></path><path d="m4.22 19.78 2.12-2.12"
-              ></path><path d="m17.66 6.34 2.12-2.12"></path></svg
-            >AI Agency</a
-          >
-        </li>
-        <li>
-          <a
-            href="https://pablo-suzarte-ai-school.vercel.app"
-            target="_blank"
-            rel="noopener noreferrer"
-            ><svg
-              class="nav-icon"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              ><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path
-                d="M6 12v5c3 3 9 3 12 0v-5"></path></svg
-            >AI School</a
           >
         </li>
         <li>
@@ -250,9 +246,9 @@ const randomStyles = ['brutalist', 'neon', 'vaporwave', 'paper', 'ocean']
             >{t.nav.about}</a
           >
         </li>
-        <li>
-          <a href="/me-and-ai"
-            ><svg
+        <li class="mobile-nav-group">
+          <button class="mobile-nav-group-trigger" aria-expanded="false">
+            <svg
               class="nav-icon"
               viewBox="0 0 24 24"
               fill="none"
@@ -267,8 +263,35 @@ const randomStyles = ['brutalist', 'neon', 'vaporwave', 'paper', 'ocean']
                 y="8"
                 rx="2"></rect><path d="M2 14h2"></path><path d="M20 14h2"
               ></path><path d="M15 13v2"></path><path d="M9 13v2"></path></svg
-            >Me &amp; AI</a
-          >
+            >
+            AI
+            <svg
+              class="nav-chevron"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg
+            >
+          </button>
+          <ul class="mobile-nav-sublinks">
+            <li><a href="/me-and-ai">Me &amp; AI</a></li>
+            <li>
+              <a
+                href="https://my-ai-agency.vercel.app"
+                target="_blank"
+                rel="noopener noreferrer">AI Agency</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://pablo-suzarte-ai-school.vercel.app"
+                target="_blank"
+                rel="noopener noreferrer">AI School</a
+              >
+            </li>
+          </ul>
         </li>
         <li>
           <a href="#experience"
@@ -318,45 +341,6 @@ const randomStyles = ['brutalist', 'neon', 'vaporwave', 'paper', 'ocean']
               ><path d="M17 3a2.85 2.85 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"
               ></path><path d="m15 5 4 4"></path></svg
             >{t.nav.writing}</a
-          >
-        </li>
-        <li>
-          <a
-            href="https://my-ai-agency.vercel.app"
-            target="_blank"
-            rel="noopener noreferrer"
-            ><svg
-              class="nav-icon"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              ><circle cx="12" cy="12" r="3"></circle><path d="M12 2v3"
-              ></path><path d="M12 19v3"></path><path d="m4.22 4.22 2.12 2.12"
-              ></path><path d="m17.66 17.66 2.12 2.12"></path><path d="M2 12h3"
-              ></path><path d="M19 12h3"></path><path d="m4.22 19.78 2.12-2.12"
-              ></path><path d="m17.66 6.34 2.12-2.12"></path></svg
-            >AI Agency</a
-          >
-        </li>
-        <li>
-          <a
-            href="https://pablo-suzarte-ai-school.vercel.app"
-            target="_blank"
-            rel="noopener noreferrer"
-            ><svg
-              class="nav-icon"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              ><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path
-                d="M6 12v5c3 3 9 3 12 0v-5"></path></svg
-            >AI School</a
           >
         </li>
         <li>
@@ -1165,6 +1149,20 @@ const randomStyles = ['brutalist', 'neon', 'vaporwave', 'paper', 'ocean']
       })
       menuBackdrop.addEventListener('click', closeMenu)
 
+      // Mobile AI group toggle
+      const mobileGroupTrigger = mobileMenu.querySelector(
+        '.mobile-nav-group-trigger'
+      )
+      if (mobileGroupTrigger) {
+        mobileGroupTrigger.addEventListener('click', () => {
+          const expanded =
+            mobileGroupTrigger.getAttribute('aria-expanded') === 'true'
+          mobileGroupTrigger.setAttribute('aria-expanded', String(!expanded))
+          const sublinks = mobileGroupTrigger.nextElementSibling
+          if (sublinks) sublinks.classList.toggle('open', !expanded)
+        })
+      }
+
       // Close on link click + smooth scroll
       mobileLinks.forEach((link) => {
         link.addEventListener('click', () => {
@@ -1533,6 +1531,93 @@ const randomStyles = ['brutalist', 'neon', 'vaporwave', 'paper', 'ocean']
     color: var(--accent);
   }
 
+  /* AI Dropdown — desktop */
+  .nav-dropdown-item {
+    position: relative;
+  }
+
+  .nav-dropdown-trigger {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--muted-light);
+    font-size: 0.875rem;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0;
+    transition: color 0.2s ease;
+  }
+
+  .nav-chevron {
+    width: 12px;
+    height: 12px;
+    flex-shrink: 0;
+    opacity: 0.6;
+    transition:
+      transform 0.2s ease,
+      opacity 0.2s;
+  }
+
+  .nav-dropdown-trigger:hover,
+  .nav-dropdown-item:hover .nav-dropdown-trigger {
+    color: var(--accent);
+  }
+
+  .nav-dropdown-trigger:hover .nav-chevron,
+  .nav-dropdown-item:hover .nav-chevron {
+    opacity: 1;
+  }
+
+  .nav-dropdown-item:hover .nav-chevron {
+    transform: rotate(180deg);
+  }
+
+  .nav-dropdown-menu {
+    display: none;
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%);
+    min-width: 160px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 0.4rem 0;
+    list-style: none;
+    z-index: 100;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  }
+
+  .nav-dropdown-item:hover .nav-dropdown-menu,
+  .nav-dropdown-item:focus-within .nav-dropdown-menu {
+    display: block;
+  }
+
+  .nav-dropdown-menu li a {
+    display: block;
+    padding: 0.5rem 1rem;
+    color: var(--muted-light);
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 500;
+    transition:
+      color 0.15s,
+      background 0.15s;
+    white-space: nowrap;
+  }
+
+  .nav-dropdown-menu li a:hover {
+    color: var(--accent);
+    background: var(--surface-2);
+  }
+
+  /* Remove underline ::after for dropdown trigger */
+  .nav-dropdown-trigger::after {
+    display: none;
+  }
+
   .nav-highlight {
     color: var(--accent) !important;
     border: 1px solid var(--accent-dim);
@@ -1746,6 +1831,82 @@ const randomStyles = ['brutalist', 'neon', 'vaporwave', 'paper', 'ocean']
     border-left-color: var(--accent);
     color: var(--accent);
     background: var(--surface);
+  }
+  /* Mobile AI group */
+  .mobile-nav-group-trigger {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    width: 100%;
+    min-height: 52px;
+    padding: 0.75rem 1rem;
+    background: none;
+    border: none;
+    border-left: 3px solid transparent;
+    border-radius: 0 8px 8px 0;
+    color: var(--text);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition:
+      background 0.15s,
+      border-color 0.15s,
+      color 0.15s;
+  }
+  .mobile-nav-group-trigger .nav-icon {
+    width: 18px;
+    height: 18px;
+    opacity: 0.5;
+  }
+  .mobile-nav-group-trigger .nav-chevron {
+    width: 16px;
+    height: 16px;
+    margin-left: auto;
+    opacity: 0.5;
+    transition:
+      transform 0.2s ease,
+      opacity 0.2s;
+  }
+  .mobile-nav-group-trigger:hover,
+  .mobile-nav-group-trigger[aria-expanded='true'] {
+    background: var(--surface);
+    border-left-color: var(--accent);
+    color: var(--accent);
+  }
+  .mobile-nav-group-trigger[aria-expanded='true'] .nav-chevron {
+    transform: rotate(180deg);
+    opacity: 1;
+  }
+  .mobile-nav-sublinks {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: none;
+    flex-direction: column;
+  }
+  .mobile-nav-sublinks.open {
+    display: flex;
+  }
+  .mobile-nav-sublinks li a {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 0.6rem 1rem 0.6rem 2.5rem;
+    color: var(--muted-light);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    border-left: 3px solid var(--border);
+    border-radius: 0 6px 6px 0;
+    transition:
+      background 0.15s,
+      border-color 0.15s,
+      color 0.15s;
+  }
+  .mobile-nav-sublinks li a:hover {
+    background: var(--surface);
+    border-left-color: var(--accent);
+    color: var(--accent);
   }
   .mobile-menu-divider {
     border: none;
