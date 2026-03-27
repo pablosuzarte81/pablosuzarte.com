@@ -18,13 +18,15 @@ const { project } = Astro.props
 const nextProject = project.nextProjectSlug
   ? (projects.find((p) => p.slug === project.nextProjectSlug) ?? null)
   : null
+const isIkea = project.company === 'IKEA Global'
+const backHref = isIkea ? '/ikea' : '/'
 ---
 
 <Layout title={`${project.title} — Pablo Suzarte`} description={project.tagline} lang="en">
   <!-- BACK NAV -->
   <header class="project-nav">
     <div class="project-nav-inner">
-      <a href="/" class="nav-back">← Back</a>
+      <a href={backHref} class="nav-back">&larr; Back</a>
       <a href="/" class="nav-logo">PS</a>
       <span class="nav-breadcrumb">{project.company}</span>
     </div>
@@ -306,7 +308,7 @@ const nextProject = project.nextProjectSlug
           </div>
         ) : (
           <div class="back-link-wrap">
-            <a href="/#experience" class="back-link">← Back to portfolio</a>
+            <a href={isIkea ? '/ikea' : '/#experience'} class="back-link">&larr; {isIkea ? 'Back to IKEA projects' : 'Back to portfolio'}</a>
           </div>
         )
       }
