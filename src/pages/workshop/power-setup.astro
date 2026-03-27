@@ -1,0 +1,628 @@
+---
+import Layout from '../../layouts/Layout.astro'
+---
+
+<Layout title="Tutorial 0: Supercharge Your Setup — Claude Code Power Tools | Pablo Suzarte" description="Before you build anything, you need to power up Claude Code. This is the setup that separates casual AI users from people who actually ship. Step-by-step, no tech experience needed." lang="en">
+  <header class="ws-nav">
+    <div class="ws-nav-inner">
+      <a href="/how-i-build-with-ai" class="nav-back">&larr; AI School</a>
+      <a href="/" class="nav-logo">PS</a>
+      <span class="nav-breadcrumb">Tutorial 0</span>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <article class="ws">
+
+      <!-- HERO -->
+      <section class="ws-hero">
+        <div class="ws-container">
+          <p class="ws-kicker">Start here — before anything else</p>
+          <h1 class="ws-title">Supercharge<br/>Your Setup</h1>
+          <p class="ws-subtitle">Claude Code out of the box is a junior dev with amnesia. These 7 tools turn it into an orchestration machine. Takes 30 minutes. Changes everything.</p>
+          <div class="ws-meta-row">
+            <div class="ws-meta-item">
+              <span class="ws-meta-label">Time</span>
+              <span class="ws-meta-value">30 min</span>
+            </div>
+            <div class="ws-meta-item">
+              <span class="ws-meta-label">Level</span>
+              <span class="ws-meta-value">Complete Beginner</span>
+            </div>
+            <div class="ws-meta-item">
+              <span class="ws-meta-label">Type</span>
+              <span class="ws-meta-value">Setup Guide</span>
+            </div>
+            <div class="ws-meta-item">
+              <span class="ws-meta-label">Result</span>
+              <span class="ws-meta-value">Production-ready AI</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- WHY THIS MATTERS -->
+      <section class="ws-section">
+        <div class="ws-container">
+          <p class="ws-section-num">The Problem</p>
+          <h2 class="ws-section-title">Why Claude gets dumb</h2>
+          <p class="ws-principle-tag">You are not doing anything wrong. It is how the technology works.</p>
+          <div class="ws-body">
+            <p>Here is what happens when you use Claude Code without this setup:</p>
+            <p>You start a session. Claude is brilliant. It reads your files, understands your project, writes clean code. You feel like you have a superpower.</p>
+            <p>Then, 20 minutes in, it starts making mistakes. It forgets things you told it five minutes ago. It writes code that contradicts code it just wrote. You correct it, it breaks something else. You get frustrated.</p>
+            <p>This is not random. It is a fundamental property of how large language models work. They have a <strong>context window</strong> — a limited amount of information they can hold in their "working memory" at once.</p>
+
+            <div class="ws-analogy">
+              <p class="ws-analogy-label">Think of it this way</p>
+              <p>Imagine someone gave you 5 random numbers to memorise. Easy. Now they give you 5 more. Still fine. Now 50. Now 500. At some point you start forgetting the first ones.</p>
+              <p>Claude works exactly the same way. The more you talk, the more the context window fills up. When it gets full, the AI starts dropping earlier context — including the files it read, the decisions you made, and the code it already wrote.</p>
+            </div>
+
+            <p>The tools on this page solve this problem. Not by giving Claude a bigger memory — but by <strong>changing how it uses memory</strong>, and by giving it better information to work with in the first place.</p>
+
+            <div class="ws-tool-map">
+              <p class="ws-tool-map-label">What you will install today</p>
+              <div class="ws-tool-map-grid">
+                <div class="ws-tool-map-item">
+                  <span class="ws-tool-num">01</span>
+                  <span class="ws-tool-name">Context Status Bar</span>
+                  <span class="ws-tool-desc">See the problem coming before it hits</span>
+                </div>
+                <div class="ws-tool-map-item">
+                  <span class="ws-tool-num">02</span>
+                  <span class="ws-tool-name">Superpowers</span>
+                  <span class="ws-tool-desc">Orchestrate sub-agents to sidestep context limits</span>
+                </div>
+                <div class="ws-tool-map-item">
+                  <span class="ws-tool-num">03</span>
+                  <span class="ws-tool-name">Sequential Thinking</span>
+                  <span class="ws-tool-desc">Give Claude the ability to reason deeply</span>
+                </div>
+                <div class="ws-tool-map-item">
+                  <span class="ws-tool-num">04</span>
+                  <span class="ws-tool-name">Context7</span>
+                  <span class="ws-tool-desc">Stop Claude from hallucinating outdated code</span>
+                </div>
+                <div class="ws-tool-map-item">
+                  <span class="ws-tool-num">05</span>
+                  <span class="ws-tool-name">Warp Terminal</span>
+                  <span class="ws-tool-desc">See your files and talk to Claude at the same time</span>
+                </div>
+                <div class="ws-tool-map-item">
+                  <span class="ws-tool-num">06</span>
+                  <span class="ws-tool-name">Happy Engineering</span>
+                  <span class="ws-tool-desc">Use your full setup from your phone</span>
+                </div>
+                <div class="ws-tool-map-item">
+                  <span class="ws-tool-num">07</span>
+                  <span class="ws-tool-name">Custom Skills</span>
+                  <span class="ws-tool-desc">Turn repeated tasks into one-word commands</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 1: STATUS BAR -->
+      <section class="ws-section ws-section--alt">
+        <div class="ws-container">
+          <p class="ws-section-num">Step 01 — 3 min</p>
+          <h2 class="ws-section-title">Context Status Bar</h2>
+          <p class="ws-principle-tag">Goal: See exactly how full Claude's memory is, in real time.</p>
+          <div class="ws-body">
+            <h3>What it is</h3>
+            <p>A small bar that appears at the bottom of your terminal while you work. It shows you: which AI model is running, how much of the context window is used (as a percentage), how much the session has cost, and how long you've been working.</p>
+            <p>The context percentage is the one that matters. <strong>Think of it as a fuel gauge for Claude's brain.</strong> When it gets above 50%, Claude is already starting to forget things.</p>
+
+            <div class="ws-rule">
+              <strong>The golden rule:</strong> Never let context go above 50%. When it gets close, start a fresh session. Do not try to "compact" — that command is the worst of both worlds. You lose what you had and still carry the old confusion.
+            </div>
+
+            <h3>How to install</h3>
+            <p>In your terminal, <em>before</em> you type <code>claude</code>, run this command once:</p>
+            <div class="ws-cmd" data-cmd="npx cc-status-line@latest">
+              <code>npx cc-status-line@latest</code>
+              <button type="button" class="ws-copy" aria-label="Copy command">Copy</button>
+            </div>
+
+            <p>It will ask you to configure your status line. Copy this exact setup:</p>
+            <p class="ws-code-note">Line 1 (what to show on the first row):</p>
+            <div class="ws-code-block">
+              <pre><code>model | context% | session cost | session clock</code></pre>
+            </div>
+            <p class="ws-code-note">Line 2 (optional second row):</p>
+            <div class="ws-code-block">
+              <pre><code>git branch | git worktree</code></pre>
+            </div>
+
+            <p>Now type <code>claude</code> and you will see the status bar appear at the bottom. The context% number is your new best friend.</p>
+
+            <div class="ws-key-insight">
+              <strong>What changes:</strong> You stop getting blindsided. You will see the context creeping up and know exactly when to open a fresh session — before Claude starts forgetting, not after it already has.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 2: SUPERPOWERS -->
+      <section class="ws-section">
+        <div class="ws-container">
+          <p class="ws-section-num">Step 02 — 5 min</p>
+          <h2 class="ws-section-title">Superpowers</h2>
+          <p class="ws-principle-tag">Goal: Move from vibe coding to structured, professional AI development.</p>
+          <div class="ws-body">
+            <h3>What it is</h3>
+            <p>Superpowers is a plugin for Claude Code officially endorsed by Anthropic (though not built by them). It gives Claude the ability to <strong>orchestrate multiple sub-agents</strong> working in parallel — each one with its own fresh context window.</p>
+            <p>Here is what that means in plain language: instead of one Claude doing everything (and running out of memory), Superpowers turns Claude into a manager who delegates. It dispatches smaller specialist Claudes to write code, review code, test bugs, and check quality. They each work in their own clean mental space, then report back to the main Claude with just a summary.</p>
+            <p>The result: your main Claude never gets overloaded. You can build much more complex things without the quality falling apart halfway through.</p>
+
+            <p>It also builds in the same workflow the best tech companies use — <strong>Brainstorm → Plan → Execute</strong> — so you stop just vibing and start building like a professional.</p>
+
+            <h3>How to install</h3>
+            <p>Inside Claude Code, type:</p>
+            <div class="ws-cmd ws-cmd--prompt" data-cmd="/plugin">
+              <code>/plugin</code>
+              <button type="button" class="ws-copy" aria-label="Copy command">Copy</button>
+            </div>
+            <p>You will see a list of available plugins. Find <strong>superpowers</strong> and install it. When asked, choose <em>install for user scope</em>. While you are there, also install <strong>code simplifier</strong>.</p>
+            <p>Exit Claude and re-open it. Superpowers is now active.</p>
+
+            <h3>How to use it — the 3-command workflow</h3>
+            <div class="ws-steps">
+              <div class="ws-step">
+                <div class="ws-step-header">
+                  <span class="ws-step-num">1</span>
+                  <div class="ws-cmd ws-cmd--prompt" data-cmd="/superpowers brainstorm">
+                    <code>/superpowers brainstorm</code>
+                    <button type="button" class="ws-copy" aria-label="Copy command">Copy</button>
+                  </div>
+                </div>
+                <p>Describe what you want to build in plain words. Claude will ask clarifying questions, propose different approaches, and build a design document. <strong>You stay in charge.</strong> Review everything. Say yes to what you want, modify what you don't. This is your spec.</p>
+              </div>
+              <div class="ws-step">
+                <div class="ws-step-header">
+                  <span class="ws-step-num">2</span>
+                  <div class="ws-cmd ws-cmd--prompt" data-cmd="/superpowers write plan">
+                    <code>/superpowers write plan</code>
+                    <button type="button" class="ws-copy" aria-label="Copy command">Copy</button>
+                  </div>
+                </div>
+                <p>Turns your spec into a real implementation plan — line by line, file by file. All the details needed to actually build it, saved to a file in your project folder (<code>docs/plans/</code>).</p>
+              </div>
+              <div class="ws-step">
+                <div class="ws-step-header">
+                  <span class="ws-step-num">3</span>
+                  <div class="ws-cmd ws-cmd--prompt" data-cmd="/superpowers execute plan">
+                    <code>/superpowers execute plan</code>
+                    <button type="button" class="ws-copy" aria-label="Copy command">Copy</button>
+                  </div>
+                </div>
+                <p>This is where the magic happens. Claude dispatches sub-agents to build, review, and test — all automatically, all in parallel. You watch it happen. Your job is to check the output and give feedback.</p>
+              </div>
+            </div>
+
+            <div class="ws-key-insight">
+              <strong>What changes:</strong> You stop randomly prompting and hoping. You have a real process: spec → plan → build. The same process Netflix and Spotify use for AI-assisted development. And because sub-agents each have their own context, you can build far more complex things without the quality degrading.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 3: SEQUENTIAL THINKING -->
+      <section class="ws-section ws-section--alt">
+        <div class="ws-container">
+          <p class="ws-section-num">Step 03 — 2 min</p>
+          <h2 class="ws-section-title">Sequential Thinking</h2>
+          <p class="ws-principle-tag">Goal: Give Claude the ability to reason deeply before it acts.</p>
+          <div class="ws-body">
+            <h3>What it is</h3>
+            <p>Sequential Thinking is an MCP server (a plugin that gives Claude access to external tools). It uses chain-of-thought reasoning — meaning it makes Claude think through problems step by step, out loud, before jumping to a solution.</p>
+            <p>Without it, Claude sometimes gives the first plausible answer. With it, Claude works through the problem more carefully, considers edge cases, and arrives at better decisions. When Superpowers is doing the brainstorming, you want the thinking behind those plans to be as good as possible.</p>
+
+            <h3>How to install</h3>
+            <p>You do not need to find the plugin yourself. Just tell Claude to do it:</p>
+            <div class="ws-cmd ws-cmd--prompt" data-cmd="Please install the sequential thinking MCP server">
+              <code>Please install the sequential thinking MCP server</code>
+              <button type="button" class="ws-copy" aria-label="Copy command">Copy</button>
+            </div>
+            <p>Claude will figure out what sequential thinking is, find the right MCP server, and install it for you. When it is done, restart Claude to activate it.</p>
+
+            <div class="ws-key-insight">
+              <strong>What changes:</strong> Brainstorm sessions become more thorough. Plans have fewer blind spots. The quality of what gets built improves because the thinking behind it improved.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 4: CONTEXT7 -->
+      <section class="ws-section">
+        <div class="ws-container">
+          <p class="ws-section-num">Step 04 — 2 min</p>
+          <h2 class="ws-section-title">Context7</h2>
+          <p class="ws-principle-tag">Goal: Stop Claude from building with outdated, broken information.</p>
+          <div class="ws-body">
+            <h3>What it is</h3>
+            <p>Claude was trained on data up to a certain date. After that, its knowledge is frozen. The problem: the tools, libraries, and APIs it helps you build with are updated constantly. Claude will sometimes write code using old methods that no longer work — with complete confidence.</p>
+            <p>Context7 fixes this. It is an official Claude plugin that gives Claude real-time, up-to-date documentation for every major tool and library. When Claude needs to know how to use something, it checks the current docs instead of relying on its possibly-outdated training.</p>
+
+            <h3>How to install</h3>
+            <p>Inside Claude Code, type:</p>
+            <div class="ws-cmd ws-cmd--prompt" data-cmd="/plugin">
+              <code>/plugin</code>
+              <button type="button" class="ws-copy" aria-label="Copy command">Copy</button>
+            </div>
+            <p>Find <strong>context7</strong> in the list and install it for everyone. Restart Claude.</p>
+
+            <div class="ws-key-insight">
+              <strong>What changes:</strong> Claude stops hallucinating outdated APIs. The code it writes actually runs. You spend less time debugging errors that exist only because Claude was working from old information.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 5: WARP -->
+      <section class="ws-section ws-section--alt">
+        <div class="ws-container">
+          <p class="ws-section-num">Step 05 — 5 min</p>
+          <h2 class="ws-section-title">Warp Terminal</h2>
+          <p class="ws-principle-tag">Goal: See what Claude is building while you talk to it.</p>
+          <div class="ws-body">
+            <h3>What it is</h3>
+            <p>The default terminal is a black box. Claude works, you wait, code appears. You have no visibility into what it is doing until it is done. If it goes in the wrong direction, you only find out at the end.</p>
+            <p>Warp is a free terminal app that changes this. It has a built-in file panel where you can see your project files — and watch them change in real time as Claude edits them. You can be talking to Claude in one pane while reviewing the code it is writing in another.</p>
+
+            <h3>How to install</h3>
+            <p>Download Warp from <strong>warp.dev</strong> (free, no sign-up required to start). Open it, navigate to your project folder, and type <code>claude</code>. Everything works exactly the same as before — you just have much better visibility.</p>
+
+            <h3>Key features to use</h3>
+            <div class="ws-features">
+              <div class="ws-feature">
+                <strong>File panel</strong>
+                <p>Click the panel icon on the left sidebar to open your project files alongside your Claude conversation. Watch files update in real time as Claude writes them.</p>
+              </div>
+              <div class="ws-feature">
+                <strong>Split terminals (Cmd+D on Mac)</strong>
+                <p>Run multiple Claude sessions side by side. Useful when you have one session planning and another building.</p>
+              </div>
+              <div class="ws-feature">
+                <strong>Tabs (Ctrl+T)</strong>
+                <p>Organise multiple sessions without cluttering your screen. Useful when working on different parts of a project simultaneously.</p>
+              </div>
+            </div>
+
+            <div class="ws-key-insight">
+              <strong>What changes:</strong> You go from trusting blindly to reviewing actively. You can catch a wrong direction before it becomes a wrong implementation. You see the plan, the code, and the conversation all at once.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 6: HAPPY ENGINEERING -->
+      <section class="ws-section">
+        <div class="ws-container">
+          <p class="ws-section-num">Step 06 — 5 min</p>
+          <h2 class="ws-section-title">Happy Engineering</h2>
+          <p class="ws-principle-tag">Goal: Use your full Claude Code setup from your phone — no limitations.</p>
+          <div class="ws-body">
+            <h3>What it is</h3>
+            <p>Claude has an official mobile app, but it is a stripped-down version. It cannot access your local files, most websites block it, and it has access to roughly 10% of what the terminal version can do. It is not really useful for serious work.</p>
+            <p>Happy Engineering is different. It is a free, open-source tool that creates a real terminal connection from your phone to your computer. The terminal that runs on your phone is <em>actually running on your computer</em> — with full access to Superpowers, Context7, Sequential Thinking, and everything else you just set up.</p>
+            <p>When you get home and open your laptop, you pick up exactly where you left off. Nothing to sync, nothing to transfer.</p>
+
+            <h3>How to install</h3>
+            <p>Go to <strong>happy.engineering</strong> and follow the instructions for your device (iOS, Android, or web). The setup involves running one command in your terminal and a few minutes of configuration on your phone.</p>
+            <p>Once it is running, open the app, connect to your computer, and type <code>claude</code>. You now have your full setup in your pocket.</p>
+
+            <div class="ws-rule">
+              <strong>One requirement:</strong> Your computer needs to be on and connected to the internet. Leave it plugged in when you are out.
+            </div>
+
+            <div class="ws-key-insight">
+              <strong>What changes:</strong> You can ship a new feature during lunch. Review a plan on the commute home. Start a build while you are waiting somewhere. The time between "idea" and "deployed" shrinks dramatically when you are never more than a phone away from your full setup.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 7: CUSTOM SKILLS -->
+      <section class="ws-section ws-section--alt">
+        <div class="ws-container">
+          <p class="ws-section-num">Step 07 — ongoing</p>
+          <h2 class="ws-section-title">Custom Skills</h2>
+          <p class="ws-principle-tag">Goal: Turn the things you do every day into one-word commands.</p>
+          <div class="ws-body">
+            <h3>What they are</h3>
+            <p>A skill is a saved instruction set — a description of a repeated task that Claude should always handle the same way. Instead of re-explaining the same context every time, you type one word and Claude runs the full process.</p>
+            <p>For example: if you regularly add new articles to a blog, you could create a skill called <code>new-post</code> that knows your post format, your file structure, your image conventions, and your publishing steps. Type <code>new-post</code> and Claude handles the whole thing.</p>
+            <p>Skills are how you stop re-teaching Claude the same things over and over. They are also how you start building faster — because you are not starting from scratch on repeated work.</p>
+
+            <h3>How to build your first skill</h3>
+            <p>Think of one task you do repeatedly. Then tell Claude:</p>
+            <div class="ws-cmd ws-cmd--prompt" data-cmd="I want to build a skill for [your repeated task]. Here is how it works: [explain the process]. Build the skill.">
+              <code>I want to build a skill for [your repeated task]. Here is how it works: [explain the process]. Build the skill.</code>
+              <button type="button" class="ws-copy" aria-label="Copy command">Copy</button>
+            </div>
+            <p>Superpowers will use Sequential Thinking to build the skill file. Run it once. Give Claude feedback on what was wrong. Run it again. After two or three iterations, it will be clean and reliable.</p>
+
+            <div class="ws-examples">
+              <p class="ws-examples-label">Ideas for your first skill</p>
+              <ul>
+                <li><strong>blog-post</strong> — create a new article with your site's exact structure and formatting</li>
+                <li><strong>project-brief</strong> — generate a project overview document from a few bullet points</li>
+                <li><strong>social-cut</strong> — take a long piece of content and cut it down for social media</li>
+                <li><strong>feedback-log</strong> — record feedback you have received and update your preferences file</li>
+                <li><strong>deploy-check</strong> — run your pre-launch checklist before publishing anything</li>
+              </ul>
+            </div>
+
+            <div class="ws-key-insight">
+              <strong>What changes:</strong> Repeated work shrinks to one word. The hours you save compound over time. The more skills you build, the faster your whole operation becomes.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FULL WORKFLOW -->
+      <section class="ws-section">
+        <div class="ws-container">
+          <p class="ws-section-num">The System</p>
+          <h2 class="ws-section-title">How it all fits together</h2>
+          <div class="ws-body">
+            <p>These tools do not work in isolation. They are a system. Here is how a real session looks when everything is running:</p>
+
+            <div class="ws-workflow">
+              <div class="ws-workflow-step">
+                <span class="ws-workflow-num">1</span>
+                <div>
+                  <strong>Open Warp Terminal</strong>
+                  <p>Navigate to your project. Open the file panel on the side. You can now see your files while you work.</p>
+                </div>
+              </div>
+              <div class="ws-workflow-arrow">↓</div>
+              <div class="ws-workflow-step">
+                <span class="ws-workflow-num">2</span>
+                <div>
+                  <strong>Type <code>claude</code></strong>
+                  <p>The status bar appears. You can see context at 0%. You are starting fresh.</p>
+                </div>
+              </div>
+              <div class="ws-workflow-arrow">↓</div>
+              <div class="ws-workflow-step">
+                <span class="ws-workflow-num">3</span>
+                <div>
+                  <strong>Run <code>/superpowers brainstorm</code></strong>
+                  <p>Describe what you want to build. Sequential Thinking activates in the background. Claude asks questions, proposes approaches using Context7 for accurate documentation, and writes a spec. You review it and say yes or modify it.</p>
+                </div>
+              </div>
+              <div class="ws-workflow-arrow">↓</div>
+              <div class="ws-workflow-step">
+                <span class="ws-workflow-num">4</span>
+                <div>
+                  <strong>Run <code>/superpowers write plan</code></strong>
+                  <p>The spec becomes a step-by-step implementation plan saved to your project folder. Open the Warp file panel and read it. Does it match what you want? If not, ask Claude to adjust it before you build.</p>
+                </div>
+              </div>
+              <div class="ws-workflow-arrow">↓</div>
+              <div class="ws-workflow-step">
+                <span class="ws-workflow-num">5</span>
+                <div>
+                  <strong>Run <code>/superpowers execute plan</code></strong>
+                  <p>Sub-agents take over. Watch the file panel as files update in real time. Check the context bar — your main Claude stays light because the heavy work is delegated. You are the director, not the builder.</p>
+                </div>
+              </div>
+              <div class="ws-workflow-arrow">↓</div>
+              <div class="ws-workflow-step">
+                <span class="ws-workflow-num">6</span>
+                <div>
+                  <strong>Review, iterate, ship</strong>
+                  <p>When agents are done, they report back. Review the output. Give feedback. Use a custom skill if this is a repeated task. Keep the context under 50%. Open a new session for the next feature.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="ws-rule" style="margin-top: 3rem;">
+              <strong>The shift that happens:</strong> You stop being the person who writes code and starts being the person who directs it. The same shift that happened when teams moved from solo contributors to orchestrators — except now your whole team lives in the terminal.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CLOSING -->
+      <section class="ws-section ws-section--alt">
+        <div class="ws-container">
+          <h2 class="ws-section-title">You are set up.</h2>
+          <div class="ws-body">
+            <p>Most people using Claude Code never do this setup. They use it like a fancy chatbot and wonder why it keeps breaking things. You now have the actual professional setup — the one people with a thousand hours in Claude Code use every day.</p>
+            <p>The next step is learning how to think in sessions, manage projects, and build real things. That is what <strong>Claude Code 101</strong> is for.</p>
+
+            <div class="ws-cta-block">
+              <div class="ws-cta-row">
+                <a href="/workshop/claude-code-101" class="ws-cta">Continue to Claude Code 101 &rarr;</a>
+                <a href="/how-i-build-with-ai" class="ws-cta ws-cta--secondary">&larr; Back to AI School</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </article>
+  </main>
+
+  <style>
+    /* Terminal-Core palette — matches claude-code-101.astro */
+    .ws {
+      --cl-bg: #000000;
+      --cl-surface: #0a0a0a;
+      --cl-surface-2: #111111;
+      --cl-border: #222222;
+      --cl-accent: #FF4500;
+      --cl-accent-soft: rgba(255, 69, 0, 0.1);
+      --cl-accent-glow: rgba(255, 69, 0, 0.25);
+      --cl-text: #FFFFFF;
+      --cl-muted: #888888;
+      --cl-code: #EDEDED;
+      --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+      --font-sans: 'Manrope', system-ui, sans-serif;
+      color: var(--cl-text);
+      font-family: var(--font-sans);
+      background: var(--cl-bg);
+    }
+
+    .ws-nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      background: rgba(0, 0, 0, 0.8); border-bottom: 1px solid var(--cl-border);
+    }
+    .ws-nav-inner {
+      max-width: 1000px; margin: 0 auto; padding: 0.75rem 2rem;
+      display: flex; align-items: center; gap: 1.5rem;
+    }
+    .nav-back { color: var(--cl-muted); text-decoration: none; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; transition: color 0.2s; }
+    .nav-back:hover { color: var(--cl-accent); }
+    .nav-logo { font-weight: 900; font-size: 1.25rem; letter-spacing: -0.05em; color: var(--cl-text); text-decoration: none; }
+    .nav-breadcrumb { color: var(--cl-muted); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-left: auto; border: 1px solid var(--cl-border); padding: 0.25rem 0.6rem; border-radius: 4px; }
+
+    .ws { padding-top: 4rem; min-height: 100vh; }
+    .ws-container { max-width: 900px; margin: 0 auto; padding: 0 2rem; }
+
+    /* HERO */
+    .ws-hero { padding: 6rem 0 4rem; border-bottom: 1px solid var(--cl-border); text-align: center; }
+    .ws-kicker { font-family: var(--font-mono); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--cl-accent); margin-bottom: 1.5rem; }
+    .ws-kicker::before { content: "[ "; }
+    .ws-kicker::after { content: " ]"; }
+    .ws-title { font-size: clamp(2.5rem, 8vw, 4.5rem); font-weight: 900; line-height: 1; letter-spacing: -0.05em; color: var(--cl-text); margin-bottom: 1.5rem; text-transform: uppercase; }
+    .ws-subtitle { font-size: clamp(1.1rem, 2.5vw, 1.5rem); color: var(--cl-muted); line-height: 1.4; max-width: 650px; margin: 0 auto 3rem; }
+
+    .ws-meta-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--cl-border); border: 1px solid var(--cl-border); }
+    .ws-meta-item { padding: 1.5rem; background: var(--cl-bg); }
+    .ws-meta-label { display: block; font-family: var(--font-mono); font-size: 0.65rem; font-weight: 700; text-transform: uppercase; color: var(--cl-muted); margin-bottom: 0.5rem; }
+    .ws-meta-value { display: block; font-size: 0.9rem; font-weight: 800; color: var(--cl-text); text-transform: uppercase; }
+
+    /* SECTIONS */
+    .ws-section { padding: 6rem 0; border-bottom: 1px solid var(--cl-border); }
+    .ws-section--alt { background: var(--cl-surface); }
+    .ws-section-num { font-family: var(--font-mono); font-size: 0.75rem; font-weight: 700; color: var(--cl-muted); margin-bottom: 1rem; display: block; }
+    .ws-section-title { font-size: clamp(1.75rem, 5vw, 2.75rem); font-weight: 900; letter-spacing: -0.04em; color: var(--cl-text); margin-bottom: 2rem; line-height: 1.1; text-transform: uppercase; }
+    .ws-section-title::before { content: "⟩ "; color: var(--cl-accent); font-family: var(--font-mono); }
+    .ws-principle-tag { font-family: var(--font-mono); font-size: 0.8rem; color: var(--cl-accent); background: var(--cl-accent-soft); padding: 0.5rem 1rem; border-radius: 4px; display: inline-block; margin-bottom: 2.5rem; }
+
+    /* BODY TEXT */
+    .ws-body { max-width: 700px; }
+    .ws-body p { color: var(--cl-muted); line-height: 1.8; margin-bottom: 1.5rem; font-size: 1.05rem; }
+    .ws-body h3 { color: var(--cl-text); font-size: 1.1rem; font-weight: 800; letter-spacing: -0.02em; margin: 2.5rem 0 0.75rem; text-transform: uppercase; }
+    .ws-body strong { color: var(--cl-text); }
+    .ws-body code { font-family: var(--font-mono); font-size: 0.85em; color: var(--cl-accent); background: var(--cl-accent-soft); padding: 0.15em 0.4em; border-radius: 3px; }
+    .ws-body ul { color: var(--cl-muted); line-height: 1.8; padding-left: 1.5rem; margin-bottom: 1.5rem; }
+    .ws-body ul li { margin-bottom: 0.5rem; font-size: 1.05rem; }
+    .ws-body ul li strong { color: var(--cl-text); }
+
+    /* ANALOGY BLOCK */
+    .ws-analogy { border-left: 3px solid var(--cl-accent); padding: 1.5rem 2rem; margin: 2rem 0; background: var(--cl-surface); }
+    .ws-analogy-label { font-family: var(--font-mono); font-size: 0.7rem; font-weight: 700; text-transform: uppercase; color: var(--cl-accent); margin-bottom: 1rem; }
+    .ws-analogy p { color: var(--cl-muted); line-height: 1.7; margin-bottom: 0.75rem; font-size: 1rem; }
+    .ws-analogy p:last-child { margin-bottom: 0; }
+
+    /* TOOL MAP */
+    .ws-tool-map { margin: 3rem 0 0; }
+    .ws-tool-map-label { font-family: var(--font-mono); font-size: 0.7rem; font-weight: 700; text-transform: uppercase; color: var(--cl-muted); margin-bottom: 1.5rem; }
+    .ws-tool-map-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--cl-border); border: 1px solid var(--cl-border); }
+    .ws-tool-map-item { padding: 1.25rem 1.5rem; background: var(--cl-bg); display: flex; align-items: center; gap: 1rem; }
+    .ws-tool-num { font-family: var(--font-mono); font-size: 0.7rem; font-weight: 700; color: var(--cl-accent); min-width: 2rem; }
+    .ws-tool-name { font-weight: 800; font-size: 0.9rem; color: var(--cl-text); min-width: 160px; }
+    .ws-tool-desc { font-size: 0.8rem; color: var(--cl-muted); }
+
+    /* COMMANDS */
+    .ws-cmd {
+      display: flex; align-items: center; justify-content: space-between;
+      background: var(--cl-surface-2); border: 1px solid var(--cl-border);
+      padding: 1rem 1.25rem; border-radius: 6px; margin: 1rem 0; gap: 1rem;
+      font-family: var(--font-mono);
+    }
+    .ws-cmd code { font-size: 0.9rem; color: var(--cl-code); background: none; padding: 0; }
+    .ws-cmd--prompt { border-color: var(--cl-accent); background: var(--cl-accent-soft); }
+    .ws-cmd--prompt code { color: var(--cl-accent); }
+    .ws-copy {
+      background: none; border: 1px solid var(--cl-border); color: var(--cl-muted);
+      padding: 0.3rem 0.75rem; border-radius: 4px; font-size: 0.7rem; font-family: var(--font-mono);
+      cursor: pointer; transition: all 0.2s; white-space: nowrap; text-transform: uppercase; font-weight: 700;
+    }
+    .ws-copy:hover { border-color: var(--cl-accent); color: var(--cl-accent); }
+    .ws-code-note { font-family: var(--font-mono); font-size: 0.75rem; color: var(--cl-muted); margin: 1.5rem 0 0.5rem; }
+    .ws-code-block { background: var(--cl-surface-2); border: 1px solid var(--cl-border); padding: 1rem 1.25rem; border-radius: 6px; margin: 0.5rem 0 1.5rem; overflow-x: auto; }
+    .ws-code-block pre { margin: 0; }
+    .ws-code-block code { font-family: var(--font-mono); font-size: 0.85rem; color: var(--cl-code); background: none; padding: 0; }
+
+    /* RULE / KEY INSIGHT */
+    .ws-rule { background: var(--cl-accent-soft); border: 1px solid var(--cl-accent); border-radius: 6px; padding: 1.25rem 1.5rem; margin: 2rem 0; color: var(--cl-text); font-size: 1rem; line-height: 1.7; }
+    .ws-rule strong { color: var(--cl-accent); }
+    .ws-key-insight { background: var(--cl-surface-2); border: 1px solid var(--cl-border); border-left: 3px solid var(--cl-accent); padding: 1.25rem 1.5rem; margin: 2.5rem 0 0; font-size: 0.95rem; line-height: 1.7; color: var(--cl-muted); }
+    .ws-key-insight strong { color: var(--cl-text); }
+
+    /* STEPS */
+    .ws-steps { display: flex; flex-direction: column; gap: 1.5rem; margin: 2rem 0; }
+    .ws-step { border: 1px solid var(--cl-border); border-radius: 8px; padding: 1.5rem; background: var(--cl-surface); }
+    .ws-step-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 0.75rem; }
+    .ws-step-num { font-family: var(--font-mono); font-size: 1.5rem; font-weight: 900; color: var(--cl-accent); min-width: 2rem; }
+    .ws-step p { color: var(--cl-muted); font-size: 0.95rem; line-height: 1.7; margin: 0; }
+
+    /* FEATURES GRID */
+    .ws-features { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; margin: 1.5rem 0; }
+    .ws-feature { background: var(--cl-surface-2); border: 1px solid var(--cl-border); padding: 1.25rem; border-radius: 6px; }
+    .ws-feature strong { display: block; color: var(--cl-text); font-size: 0.85rem; font-weight: 800; margin-bottom: 0.5rem; text-transform: uppercase; }
+    .ws-feature p { color: var(--cl-muted); font-size: 0.85rem; line-height: 1.6; margin: 0; }
+
+    /* WORKFLOW */
+    .ws-workflow { display: flex; flex-direction: column; gap: 0; margin: 2rem 0; }
+    .ws-workflow-step { display: flex; gap: 1.5rem; padding: 1.5rem; background: var(--cl-surface); border: 1px solid var(--cl-border); }
+    .ws-workflow-step:first-child { border-radius: 6px 6px 0 0; }
+    .ws-workflow-step:last-child { border-radius: 0 0 6px 6px; }
+    .ws-workflow-num { font-family: var(--font-mono); font-size: 1.5rem; font-weight: 900; color: var(--cl-accent); min-width: 2.5rem; padding-top: 0.1rem; }
+    .ws-workflow-step strong { display: block; color: var(--cl-text); font-weight: 800; margin-bottom: 0.4rem; font-size: 0.95rem; }
+    .ws-workflow-step p { color: var(--cl-muted); font-size: 0.9rem; line-height: 1.7; margin: 0; }
+    .ws-workflow-step code { font-family: var(--font-mono); font-size: 0.8em; color: var(--cl-accent); background: var(--cl-accent-soft); padding: 0.1em 0.4em; border-radius: 3px; }
+    .ws-workflow-arrow { text-align: center; color: var(--cl-border); font-size: 1.25rem; padding: 0.25rem 0; border-left: 1px solid var(--cl-border); margin-left: 3rem; }
+
+    /* EXAMPLES */
+    .ws-examples { margin: 2rem 0; }
+    .ws-examples-label { font-family: var(--font-mono); font-size: 0.7rem; font-weight: 700; text-transform: uppercase; color: var(--cl-muted); margin-bottom: 1rem; }
+    .ws-examples ul { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.75rem; }
+    .ws-examples li { background: var(--cl-surface-2); border: 1px solid var(--cl-border); padding: 1rem 1.25rem; border-radius: 6px; font-size: 0.95rem; color: var(--cl-muted); line-height: 1.5; }
+    .ws-examples li strong { color: var(--cl-accent); font-family: var(--font-mono); font-size: 0.85em; }
+
+    /* CTA */
+    .ws-cta-block { margin-top: 3rem; padding: 2.5rem; background: var(--cl-surface); border: 1px solid var(--cl-border); border-radius: 8px; }
+    .ws-cta-row { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem; }
+    .ws-cta { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--cl-accent); color: #000; padding: 0.875rem 1.75rem; border-radius: 6px; font-weight: 800; font-size: 0.9rem; text-decoration: none; transition: opacity 0.2s; text-transform: uppercase; letter-spacing: 0.03em; }
+    .ws-cta:hover { opacity: 0.85; }
+    .ws-cta--secondary { background: transparent; color: var(--cl-text); border: 1px solid var(--cl-border); }
+    .ws-cta--secondary:hover { border-color: var(--cl-accent); color: var(--cl-accent); opacity: 1; }
+
+    /* MOBILE */
+    @media (max-width: 768px) {
+      .ws-meta-row { grid-template-columns: repeat(2, 1fr); }
+      .ws-tool-map-grid { grid-template-columns: 1fr; }
+      .ws-tool-map-item { flex-wrap: wrap; }
+      .ws-features { grid-template-columns: 1fr; }
+      .ws-step-header { flex-wrap: wrap; }
+      .ws-workflow-step { flex-direction: column; gap: 0.75rem; }
+      .ws-workflow-arrow { margin-left: 1rem; }
+    }
+  </style>
+
+  <script>
+    /* Copy button behaviour */
+    document.querySelectorAll('.ws-copy').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const cmd = btn.closest('[data-cmd]')?.getAttribute('data-cmd')
+        if (!cmd) return
+        navigator.clipboard.writeText(cmd).then(() => {
+          const original = btn.textContent
+          btn.textContent = 'Copied!'
+          setTimeout(() => { btn.textContent = original }, 1800)
+        })
+      })
+    })
+  </script>
+</Layout>
