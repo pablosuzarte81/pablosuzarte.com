@@ -7,12 +7,28 @@ import Layout from '../../layouts/Layout.astro'
     <div class="ws-nav-inner">
       <a href="/how-i-build-with-ai" class="nav-back">&larr; AI School</a>
       <a href="/" class="nav-logo">PS</a>
-      <span class="nav-breadcrumb">Workshop</span>
+      <div class="ws-nav-sequence">
+        <a href="/workshop/power-setup" class="ws-seq-step">Tutorial 0</a>
+        <span class="ws-seq-sep">›</span>
+        <span class="ws-seq-step ws-seq-step--active">Tutorial 1</span>
+      </div>
+      <span class="nav-breadcrumb">Tutorial 1</span>
     </div>
   </header>
 
   <main id="main-content">
     <article class="ws">
+
+      <!-- SCHOOL BRIDGE BANNER -->
+      <div class="ws-school-banner">
+        <a href="/how-i-build-with-ai" class="ws-school-banner__link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 1.1 2.7 3 6 3s6-1.9 6-3v-5"/></svg>
+          AI School by Pablo Suzarte
+        </a>
+        <span class="ws-school-banner__sep">·</span>
+        <span class="ws-school-banner__label">Tutorial 1 of 2</span>
+      </div>
+
       <!-- HERO -->
       <section class="ws-hero">
         <div class="ws-container">
@@ -64,8 +80,29 @@ import Layout from '../../layouts/Layout.astro'
         </div>
       </section>
 
+      <!-- TOC -->
+      <section class="ws-section ws-toc-section">
+        <div class="ws-container">
+          <p class="ws-section-num">In this tutorial</p>
+          <nav class="ws-toc" aria-label="Tutorial contents">
+            <a href="#prereqs" class="ws-toc-link">Setup — Before you start</a>
+            <a href="#module-00" class="ws-toc-link">00 — The Brain</a>
+            <a href="#module-01" class="ws-toc-link">01 — Shared Memory</a>
+            <a href="#module-02" class="ws-toc-link">02 — Orientation</a>
+            <a href="#module-03" class="ws-toc-link">03 — Evidence</a>
+            <a href="#module-04" class="ws-toc-link">04 — Clarity</a>
+            <a href="#module-05" class="ws-toc-link">05 — Roles</a>
+            <a href="#module-06" class="ws-toc-link">06 — Continuity</a>
+            <a href="#module-07" class="ws-toc-link">07 — Awareness</a>
+            <a href="#module-08" class="ws-toc-link">08 — Orchestration</a>
+            <a href="#module-09" class="ws-toc-link">09 — The Future</a>
+          </nav>
+          <p class="ws-toc-note">Did you complete <a href="/workshop/power-setup">Tutorial 0 — Supercharge Your Setup</a>? It installs the power tools that make this workshop 10× more effective.</p>
+        </div>
+      </section>
+
       <!-- MODULE 00: THE BRAIN -->
-      <section class="ws-section ws-section--alt">
+      <section id="module-00" class="ws-section ws-section--alt">
         <div class="ws-container">
           <p class="ws-section-num">00</p>
           <h2 class="ws-section-title">The Brain — how she thinks</h2>
@@ -100,7 +137,7 @@ import Layout from '../../layouts/Layout.astro'
       </section>
 
     <!-- PRE-REQUISITES -->
-    <section class="ws-section">
+    <section id="prereqs" class="ws-section">
       <div class="ws-container">
         <p class="ws-section-num">Setup</p>
         <h2 class="ws-section-title">Before the journey starts</h2>
@@ -160,7 +197,7 @@ import Layout from '../../layouts/Layout.astro'
     </section>
 
     <!-- MODULE 01 -->
-    <section class="ws-section ws-section--alt">
+    <section id="module-01" class="ws-section ws-section--alt">
       <div class="ws-container">
         <p class="ws-section-num">01</p>
         <h2 class="ws-section-title">Shared Memory — giving her a map</h2>
@@ -188,7 +225,7 @@ import Layout from '../../layouts/Layout.astro'
     </section>
 
     <!-- MODULE 02 -->
-    <section class="ws-section">
+    <section id="module-02" class="ws-section">
       <div class="ws-container">
         <p class="ws-section-num">02</p>
         <h2 class="ws-section-title">Orientation — your first real conversation</h2>
@@ -228,7 +265,7 @@ import Layout from '../../layouts/Layout.astro'
     </section>
 
     <!-- MODULE 03 -->
-    <section class="ws-section ws-section--alt">
+    <section id="module-03" class="ws-section ws-section--alt">
       <div class="ws-container">
         <p class="ws-section-num">03</p>
         <h2 class="ws-section-title">Evidence — thinking before doing</h2>
@@ -241,13 +278,14 @@ import Layout from '../../layouts/Layout.astro'
           <div class="ws-exercise">
             <p class="ws-exercise-label">Let's try it — 20 min</p>
             <p>Pick a file you want to change. Ask Claude to investigate it first:</p>
+            <p class="ws-placeholder-note">Replace the <em class="ws-ph">[bracketed text]</em> with your own value before sending.</p>
             <div class="ws-cmd ws-cmd--prompt" data-cmd="Read [file-path] and explain how it handles data.">
-              <code>Read [file-path] and explain how it handles data.</code>
+              <code>Read <em class="ws-ph">[file-path]</em> and explain how it handles data.</code>
               <button type="button" class="ws-copy" aria-label="Copy prompt">Copy</button>
             </div>
             <p>Then, only after she explains it, give the command:</p>
             <div class="ws-cmd ws-cmd--prompt" data-cmd="Based on that understanding, add a new field called 'lastUpdated'.">
-              <code>Based on that understanding, add a new field called 'lastUpdated'.</code>
+              <code>Based on that understanding, add a new field called <em class="ws-ph">'lastUpdated'</em>.</code>
               <button type="button" class="ws-copy" aria-label="Copy prompt">Copy</button>
             </div>
           </div>
@@ -260,7 +298,7 @@ import Layout from '../../layouts/Layout.astro'
     </section>
 
     <!-- MODULE 04 -->
-    <section class="ws-section">
+    <section id="module-04" class="ws-section">
       <div class="ws-container">
         <p class="ws-section-num">04</p>
         <h2 class="ws-section-title">Clarity — permissions and trust</h2>
@@ -278,6 +316,9 @@ import Layout from '../../layouts/Layout.astro'
             </div>
             <p>You can choose to approve every single edit (Strict), or let her work autonomously for a session (Loose). </p>
             <p><strong>Pro tip:</strong> Press <code>Shift + Tab</code> while she is working to toggle between "Review mode" and "Auto-accept".</p>
+            <div class="ws-caution">
+              <strong>Caution with Auto-accept:</strong> In Auto-accept mode Claude makes changes without asking for your approval on each step. Start in Strict (review) mode and only switch once you trust the direction of what she is building. If she goes wrong in Auto-accept, she can go wrong at speed across many files at once.
+            </div>
           </div>
 
           <div class="ws-key-insight">
@@ -288,7 +329,7 @@ import Layout from '../../layouts/Layout.astro'
     </section>
 
     <!-- MODULE 05 -->
-    <section class="ws-section ws-section--alt">
+    <section id="module-05" class="ws-section ws-section--alt">
       <div class="ws-container">
         <p class="ws-section-num">05</p>
         <h2 class="ws-section-title">Roles — custom agents and commands</h2>
@@ -299,7 +340,10 @@ import Layout from '../../layouts/Layout.astro'
 
           <div class="ws-exercise">
             <p class="ws-exercise-label">Let's try it — 20 min</p>
-            <p>We will create a <code>/review</code> specialist. In your terminal (outside Claude), run this:</p>
+            <p>We will create a <code>/review</code> specialist.</p>
+            <div class="ws-caution">
+              <strong>Important:</strong> Run the next command in a <strong>new terminal tab</strong>, not inside Claude. Open a new tab first, then paste it there.
+            </div>
             <div class="ws-cmd" data-cmd="mkdir -p .claude/commands">
               <code>mkdir -p .claude/commands</code>
               <button type="button" class="ws-copy" aria-label="Copy command">Copy</button>
@@ -321,7 +365,7 @@ Be direct and brief.</code></pre>
     </section>
 
     <!-- MODULE 06 -->
-    <section class="ws-section">
+    <section id="module-06" class="ws-section">
       <div class="ws-container">
         <p class="ws-section-num">06</p>
         <h2 class="ws-section-title">Continuity — memory that persists</h2>
@@ -348,7 +392,7 @@ Be direct and brief.</code></pre>
     </section>
 
     <!-- MODULE 07 -->
-    <section class="ws-section ws-section--alt">
+    <section id="module-07" class="ws-section ws-section--alt">
       <div class="ws-container">
         <p class="ws-section-num">07</p>
         <h2 class="ws-section-title">Awareness — connecting the world</h2>
@@ -375,7 +419,7 @@ Be direct and brief.</code></pre>
     </section>
 
     <!-- MODULE 08 -->
-    <section class="ws-section">
+    <section id="module-08" class="ws-section">
       <div class="ws-container">
         <p class="ws-section-num">08</p>
         <h2 class="ws-section-title">Orchestration — the big goal</h2>
@@ -402,7 +446,7 @@ Be direct and brief.</code></pre>
     </section>
 
     <!-- MODULE 09 -->
-    <section class="ws-section ws-section--alt">
+    <section id="module-09" class="ws-section ws-section--alt">
       <div class="ws-container">
         <p class="ws-section-num">09</p>
         <h2 class="ws-section-title">The Future — what's next?</h2>
@@ -470,10 +514,41 @@ Be direct and brief.</code></pre>
     .nav-back { color: var(--cl-muted); text-decoration: none; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; transition: color 0.2s; }
     .nav-back:hover { color: var(--cl-accent); }
     .nav-logo { font-weight: 900; font-size: 1.25rem; letter-spacing: -0.05em; color: var(--cl-text); text-decoration: none; }
+
+    /* Sequence indicator */
+    .ws-nav-sequence { display: flex; align-items: center; gap: 0.4rem; margin-left: auto; margin-right: 0.5rem; }
+    .ws-seq-step { font-family: var(--font-mono); font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--cl-muted); text-decoration: none; padding: 0.2rem 0.5rem; border: 1px solid var(--cl-border); border-radius: 3px; transition: color 0.2s, border-color 0.2s; }
+    .ws-seq-step:hover { color: var(--cl-accent); border-color: var(--cl-accent); }
+    .ws-seq-step--active { color: var(--cl-accent); border-color: var(--cl-accent); background: var(--cl-accent-soft); cursor: default; }
+    .ws-seq-sep { color: var(--cl-border); font-size: 0.7rem; }
+
+    /* TOC */
+    .ws-toc-section { padding: 2.5rem 0; background: var(--cl-surface); border-bottom: 1px solid var(--cl-border); }
+    .ws-toc { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1rem 0 1.5rem; }
+    .ws-toc-link { font-family: var(--font-mono); font-size: 0.72rem; font-weight: 600; color: var(--cl-muted); text-decoration: none; padding: 0.3rem 0.7rem; border: 1px solid var(--cl-border); border-radius: 4px; transition: all 0.15s; }
+    .ws-toc-link:hover { color: var(--cl-accent); border-color: var(--cl-accent); background: var(--cl-accent-soft); }
+    .ws-toc-note { font-size: 0.82rem; color: var(--cl-muted); line-height: 1.6; }
+    .ws-toc-note a { color: var(--cl-accent); text-decoration: none; }
+    .ws-toc-note a:hover { text-decoration: underline; }
+
+    /* Caution block */
+    .ws-caution { background: rgba(255, 180, 0, 0.08); border: 1px solid rgba(255, 180, 0, 0.35); border-radius: 6px; padding: 1rem 1.25rem; margin: 1rem 0; font-size: 0.9rem; line-height: 1.7; color: var(--cl-muted); }
+    .ws-caution strong { color: #ffb400; }
+
+    /* Placeholder styling */
+    .ws-placeholder-note { font-size: 0.78rem; color: var(--cl-muted); margin: 0.5rem 0 0.25rem; font-style: italic; }
+    .ws-ph { font-style: normal; color: #ffb400; background: rgba(255, 180, 0, 0.1); padding: 0.1em 0.3em; border-radius: 3px; font-family: var(--font-mono); font-size: 0.9em; }
     .nav-breadcrumb { color: var(--cl-muted); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-left: auto; border: 1px solid var(--cl-border); padding: 0.25rem 0.6rem; border-radius: 4px; }
 
+    /* School bridge banner */
+    .ws-school-banner { display: flex; align-items: center; gap: 0.75rem; padding: 0.6rem 2rem; background: var(--cl-accent-soft); border-bottom: 1px solid rgba(255,69,0,0.2); margin-top: 4rem; }
+    .ws-school-banner__link { display: flex; align-items: center; gap: 0.4rem; font-family: var(--font-mono); font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--cl-accent); text-decoration: none; }
+    .ws-school-banner__link:hover { text-decoration: underline; }
+    .ws-school-banner__sep { color: var(--cl-border); }
+    .ws-school-banner__label { font-family: var(--font-mono); font-size: 0.65rem; font-weight: 600; color: var(--cl-muted); text-transform: uppercase; letter-spacing: 0.06em; }
+
     .ws {
-      padding-top: 4rem;
+      padding-top: 0;
       min-height: 100vh;
     }
     .ws-container { max-width: 900px; margin: 0 auto; padding: 0 2rem; }

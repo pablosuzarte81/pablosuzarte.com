@@ -7,12 +7,27 @@ import Layout from '../../layouts/Layout.astro'
     <div class="ws-nav-inner">
       <a href="/how-i-build-with-ai" class="nav-back">&larr; AI School</a>
       <a href="/" class="nav-logo">PS</a>
+      <div class="ws-nav-sequence">
+        <span class="ws-seq-step ws-seq-step--active">Tutorial 0</span>
+        <span class="ws-seq-sep">›</span>
+        <a href="/workshop/claude-code-101" class="ws-seq-step">Tutorial 1</a>
+      </div>
       <span class="nav-breadcrumb">Tutorial 0</span>
     </div>
   </header>
 
   <main id="main-content">
     <article class="ws">
+
+      <!-- SCHOOL BRIDGE BANNER -->
+      <div class="ws-school-banner">
+        <a href="/how-i-build-with-ai" class="ws-school-banner__link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 1.1 2.7 3 6 3s6-1.9 6-3v-5"/></svg>
+          AI School by Pablo Suzarte
+        </a>
+        <span class="ws-school-banner__sep">·</span>
+        <span class="ws-school-banner__label">Tutorial 0 of 2</span>
+      </div>
 
       <!-- HERO -->
       <section class="ws-hero">
@@ -126,6 +141,16 @@ import Layout from '../../layouts/Layout.astro'
               <code>npx cc-status-line@latest</code>
               <button type="button" class="ws-copy" aria-label="Copy command">Copy</button>
             </div>
+
+            <details class="ws-troubleshoot">
+              <summary>Something went wrong? Common fixes</summary>
+              <ul>
+                <li><strong>"command not found: npx"</strong> — You need Node.js installed first. Go to <strong>nodejs.org</strong>, download the LTS version, install it, then try again.</li>
+                <li><strong>"permission denied"</strong> — On macOS, try prefixing with <code>sudo</code>: <code>sudo npx cc-status-line@latest</code></li>
+                <li><strong>Nothing happened / blank output</strong> — Try closing your terminal completely, reopening it, and running the command again.</li>
+                <li><strong>Node version warning</strong> — You need Node 22 or higher. Run <code>node --version</code> to check. If it shows v18 or v20, update from nodejs.org.</li>
+              </ul>
+            </details>
 
             <p>It will ask you to configure your status line. Copy this exact setup:</p>
             <p class="ws-code-note">Line 1 (what to show on the first row):</p>
@@ -274,7 +299,7 @@ import Layout from '../../layouts/Layout.astro'
             <p>Warp is a free terminal app that changes this. It has a built-in file panel where you can see your project files — and watch them change in real time as Claude edits them. You can be talking to Claude in one pane while reviewing the code it is writing in another.</p>
 
             <h3>How to install</h3>
-            <p>Download Warp from <strong>warp.dev</strong> (free, no sign-up required to start). Open it, navigate to your project folder, and type <code>claude</code>. Everything works exactly the same as before — you just have much better visibility.</p>
+            <p>Download Warp from <strong>warp.dev</strong> — it is free to use. You will need to create a Warp account (takes one minute). Open it, navigate to your project folder, and type <code>claude</code>. Everything works exactly the same as before — you just have much better visibility.</p>
 
             <h3>Key features to use</h3>
             <div class="ws-features">
@@ -340,8 +365,9 @@ import Layout from '../../layouts/Layout.astro'
 
             <h3>How to build your first skill</h3>
             <p>Think of one task you do repeatedly. Then tell Claude:</p>
+            <p class="ws-placeholder-note">Replace the <em class="ws-ph">[bracketed text]</em> with your own task before sending.</p>
             <div class="ws-cmd ws-cmd--prompt" data-cmd="I want to build a skill for [your repeated task]. Here is how it works: [explain the process]. Build the skill.">
-              <code>I want to build a skill for [your repeated task]. Here is how it works: [explain the process]. Build the skill.</code>
+              <code>I want to build a skill for <em class="ws-ph">[your repeated task]</em>. Here is how it works: <em class="ws-ph">[explain the process]</em>. Build the skill.</code>
               <button type="button" class="ws-copy" aria-label="Copy command">Copy</button>
             </div>
             <p>Superpowers will use Sequential Thinking to build the skill file. Run it once. Give Claude feedback on what was wrong. Run it again. After two or three iterations, it will be clean and reliable.</p>
@@ -482,9 +508,37 @@ import Layout from '../../layouts/Layout.astro'
     .nav-back { color: var(--cl-muted); text-decoration: none; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; transition: color 0.2s; }
     .nav-back:hover { color: var(--cl-accent); }
     .nav-logo { font-weight: 900; font-size: 1.25rem; letter-spacing: -0.05em; color: var(--cl-text); text-decoration: none; }
+
+    /* Sequence indicator */
+    .ws-nav-sequence { display: flex; align-items: center; gap: 0.4rem; margin-left: auto; margin-right: 0.5rem; }
+    .ws-seq-step { font-family: var(--font-mono); font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--cl-muted); text-decoration: none; padding: 0.2rem 0.5rem; border: 1px solid var(--cl-border); border-radius: 3px; transition: color 0.2s, border-color 0.2s; }
+    .ws-seq-step:hover { color: var(--cl-accent); border-color: var(--cl-accent); }
+    .ws-seq-step--active { color: var(--cl-accent); border-color: var(--cl-accent); background: var(--cl-accent-soft); cursor: default; }
+    .ws-seq-sep { color: var(--cl-border); font-size: 0.7rem; }
+
+    /* Placeholder styling */
+    .ws-placeholder-note { font-size: 0.78rem; color: var(--cl-muted); margin: 0.5rem 0 0.25rem; font-style: italic; }
+    .ws-ph { font-style: normal; color: #ffb400; background: rgba(255, 180, 0, 0.1); padding: 0.1em 0.3em; border-radius: 3px; font-family: var(--font-mono); font-size: 0.9em; }
+
+    /* Troubleshoot */
+    .ws-troubleshoot { background: var(--cl-surface-2); border: 1px solid var(--cl-border); border-radius: 6px; padding: 0.75rem 1.25rem; margin: 1rem 0; font-size: 0.85rem; color: var(--cl-muted); }
+    .ws-troubleshoot summary { cursor: pointer; font-family: var(--font-mono); font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--cl-muted); list-style: none; display: flex; align-items: center; gap: 0.5rem; }
+    .ws-troubleshoot summary::before { content: "▶"; font-size: 0.6rem; transition: transform 0.2s; }
+    .ws-troubleshoot[open] summary::before { transform: rotate(90deg); }
+    .ws-troubleshoot summary:hover { color: var(--cl-accent); }
+    .ws-troubleshoot ul { padding-left: 1.25rem; margin: 0.75rem 0 0; display: flex; flex-direction: column; gap: 0.5rem; line-height: 1.6; }
+    .ws-troubleshoot li strong { color: var(--cl-text); }
+    .ws-troubleshoot code { font-family: var(--font-mono); font-size: 0.82em; color: var(--cl-accent); background: var(--cl-accent-soft); padding: 0.1em 0.35em; border-radius: 3px; }
     .nav-breadcrumb { color: var(--cl-muted); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-left: auto; border: 1px solid var(--cl-border); padding: 0.25rem 0.6rem; border-radius: 4px; }
 
-    .ws { padding-top: 4rem; min-height: 100vh; }
+    /* School bridge banner */
+    .ws-school-banner { display: flex; align-items: center; gap: 0.75rem; padding: 0.6rem 2rem; background: var(--cl-accent-soft); border-bottom: 1px solid rgba(255,69,0,0.2); margin-top: 4rem; }
+    .ws-school-banner__link { display: flex; align-items: center; gap: 0.4rem; font-family: var(--font-mono); font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--cl-accent); text-decoration: none; }
+    .ws-school-banner__link:hover { text-decoration: underline; }
+    .ws-school-banner__sep { color: var(--cl-border); }
+    .ws-school-banner__label { font-family: var(--font-mono); font-size: 0.65rem; font-weight: 600; color: var(--cl-muted); text-transform: uppercase; letter-spacing: 0.06em; }
+
+    .ws { padding-top: 0; min-height: 100vh; }
     .ws-container { max-width: 900px; margin: 0 auto; padding: 0 2rem; }
 
     /* HERO */
